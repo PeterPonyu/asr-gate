@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "asr-gate"
+version = "0.1.0.dev0"
+description = "Certified conformal transcription-triage gate + excess-AURC audit for Mandarin ASR on Aishell-1 -- a thin wrapper over relmetrics."
+requires-python = ">=3.9"
+dependencies = [
+    "relmetrics>=0.1",
+    "numpy>=1.22",
+    "pandas>=1.4",
+    "scipy>=1.8",
+]
+license = { text = "MIT" }
+
+[project.optional-dependencies]
+test = ["pytest>=7", "soundfile>=0.12"]
+
+[project.scripts]
+asr-gate = "asr_gate.cli:main"
+
+[tool.setuptools]
+packages = ["asr_gate"]
