@@ -25,14 +25,8 @@ plt.rcParams.update({
     "figure.dpi": 150, "savefig.bbox": "tight",
     # Times-compatible serif matching the manuscript body text; STIX for math;
     # embed as TrueType (fonttype 42) so no Type-3 glyphs leak into the PDF/PS.
-    # Tinos (not Nimbus Roman) is the serif choice: Nimbus Roman ships on this
-    # system as an OpenType/CFF-outline font, so requesting fonttype 42 (TrueType)
-    # still embeds the original CFF glyph program under a TrueType font dict --
-    # poppler/pdffonts flags that as "Mismatch between font type and embedded
-    # font file". Tinos is a genuine TrueType (glyf-outline), Times New Roman
-    # metric-compatible font, so it embeds as clean CID TrueType with no mismatch.
     "font.family": "serif",
-    "font.serif": ["Tinos", "STIXGeneral", "DejaVu Serif"],
+    "font.serif": ["Nimbus Roman", "Times New Roman", "STIXGeneral", "DejaVu Serif"],
     "mathtext.fontset": "stix",
     "pdf.fonttype": 42, "ps.fonttype": 42,
 })
@@ -44,10 +38,7 @@ C = {"score": "#0072B2", "oracle": "#009E73", "random": "#D55E00",
 
 def save(fig, name):
     p = os.path.join(HERE, name)
-    # savefig.bbox="tight" defaults to pad_inches=0.1 (~7.2pt) on all four
-    # sides; trim to a small non-zero pad so tick/legend text flush to the
-    # axes isn't clipped while removing the excess outer whitespace.
-    fig.savefig(p, pad_inches=0.02)
+    fig.savefig(p)
     plt.close(fig)
     print("wrote", name)
 
@@ -168,13 +159,10 @@ def fig3():
     #   no overlap, same information (all text black per the annotation-color rail).
     at = NUM["main_attainment"]
     nviol = at["n_violations"]; nres = at["n_reseeds"]
-    # PORTALFIX-2026-07-17: left-anchor inside the axes (was centered at x=1.0,
-    #   whose long first line overhung the y-axis spine on the left and grazed the
-    #   alpha=2% bar on the right); shorter lines, same information, still black.
-    ax.text(0.28, 62,
-            f"20-reseed attainment\n($\\alpha=2\\%$ certified):\n"
-            f"{nviol}/{nres} violations,\n$\\delta=0.1$",
-            ha="left", va="center", fontsize=7, color="black")
+    ax.text(1.0, 62,
+            f"20-reseed attainment\n(certified $\\alpha=2\\%$):\n"
+            f"{nviol}/{nres} violations\nwithin $\\delta=0.1$",
+            ha="center", va="center", fontsize=7, color="black")
     save(fig, "fig3_certified_frontier.pdf")
 
 

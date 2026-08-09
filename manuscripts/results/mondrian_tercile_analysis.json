@@ -1,0 +1,712 @@
+{
+  "analysis": "per-duration-tercile Mondrian (G2)",
+  "alpha": 0.02,
+  "delta": 0.1,
+  "backbone": "paraformer",
+  "corpus": "aishell1_test",
+  "n_reseeds": 20,
+  "estimand": "accepted-set macro-CER restricted to each duration tercile",
+  "tercile_edges_note": "duration-tercile edges are frozen on each reseed's calibration split and applied to test; test tercile sizes are therefore unequal and reseed-dependent",
+  "all_terciles_control_holds": true,
+  "per_tercile": {
+    "dur0": {
+      "label": "short",
+      "acceptance_rate_mean": 0.9178940395948766,
+      "acceptance_rate_min": 0.8680830039525692,
+      "acceptance_rate_max": 0.9634009009009009,
+      "coverage_mean": 0.22270763656633222,
+      "accepted_macro_cer_mean": 0.01115292466107623,
+      "accepted_macro_cer_min": 0.009192251653013985,
+      "accepted_macro_cer_max": 0.013956543069205083,
+      "violations_over_reseeds": 0,
+      "n_reseeds": 20,
+      "ref_reseed0_ci": {
+        "point": 0.009225141267978324,
+        "ci_lo": 0.007743125932487639,
+        "ci_hi": 0.010946907330431877,
+        "n_blocks": 20,
+        "n_accept": 1757
+      }
+    },
+    "dur1": {
+      "label": "medium",
+      "acceptance_rate_mean": 0.9138055723604863,
+      "acceptance_rate_min": 0.8701721731037692,
+      "acceptance_rate_max": 0.9624713958810068,
+      "coverage_mean": 0.2787207357859532,
+      "accepted_macro_cer_mean": 0.010632501029429137,
+      "accepted_macro_cer_min": 0.008552496541002525,
+      "accepted_macro_cer_max": 0.013314157188233585,
+      "violations_over_reseeds": 0,
+      "n_reseeds": 20,
+      "ref_reseed0_ci": {
+        "point": 0.008552496541002525,
+        "ci_lo": 0.007244315940334745,
+        "ci_hi": 0.009748183928274829,
+        "n_blocks": 20,
+        "n_accept": 1870
+      }
+    },
+    "dur2": {
+      "label": "long",
+      "acceptance_rate_mean": 0.8976415850214254,
+      "acceptance_rate_min": 0.8413333333333334,
+      "acceptance_rate_max": 0.9623287671232876,
+      "coverage_mean": 0.40571348940914154,
+      "accepted_macro_cer_mean": 0.013646100795321933,
+      "accepted_macro_cer_min": 0.011622918499076582,
+      "accepted_macro_cer_max": 0.017458170956201422,
+      "violations_over_reseeds": 0,
+      "n_reseeds": 20,
+      "ref_reseed0_ci": {
+        "point": 0.011622918499076582,
+        "ci_lo": 0.010100511340374546,
+        "ci_hi": 0.01320986128205058,
+        "n_blocks": 20,
+        "n_accept": 2524
+      }
+    }
+  },
+  "reference_reseed0_overall": {
+    "point": 0.01000455015951584,
+    "ci_lo": 0.008952755821236908,
+    "ci_hi": 0.011072506743628549,
+    "n_blocks": 20,
+    "n_accept": 6151
+  },
+  "per_reseed": {
+    "0": {
+      "dur0": {
+        "n_stratum_test": 2024,
+        "n_accept": 1757,
+        "acceptance_rate_within_tercile": 0.8680830039525692,
+        "coverage_of_all_test": 0.24484392419175027,
+        "accepted_macro_cer": 0.009225141267978324,
+        "violation": false
+      },
+      "dur1": {
+        "n_stratum_test": 2149,
+        "n_accept": 1870,
+        "acceptance_rate_within_tercile": 0.8701721731037692,
+        "coverage_of_all_test": 0.26059085841694535,
+        "accepted_macro_cer": 0.008552496541002525,
+        "violation": false
+      },
+      "dur2": {
+        "n_stratum_test": 3000,
+        "n_accept": 2524,
+        "acceptance_rate_within_tercile": 0.8413333333333334,
+        "coverage_of_all_test": 0.3517279821627648,
+        "accepted_macro_cer": 0.011622918499076582,
+        "violation": false
+      },
+      "_overall": {
+        "n_accept": 6151,
+        "accepted_macro_cer": 0.01000455015951584,
+        "coverage": 0.8571627647714605
+      }
+    },
+    "1": {
+      "dur0": {
+        "n_stratum_test": 1501,
+        "n_accept": 1338,
+        "acceptance_rate_within_tercile": 0.8914057295136576,
+        "coverage_of_all_test": 0.18645484949832775,
+        "accepted_macro_cer": 0.009192251653013985,
+        "violation": false
+      },
+      "dur1": {
+        "n_stratum_test": 2179,
+        "n_accept": 1934,
+        "acceptance_rate_within_tercile": 0.8875631023405232,
+        "coverage_of_all_test": 0.26950947603121517,
+        "accepted_macro_cer": 0.00968191457416375,
+        "violation": false
+      },
+      "dur2": {
+        "n_stratum_test": 3493,
+        "n_accept": 3025,
+        "acceptance_rate_within_tercile": 0.8660177497852849,
+        "coverage_of_all_test": 0.42154403567447046,
+        "accepted_macro_cer": 0.011641398266720294,
+        "violation": false
+      },
+      "_overall": {
+        "n_accept": 6297,
+        "accepted_macro_cer": 0.010519181396695934,
+        "coverage": 0.8775083612040134
+      }
+    },
+    "2": {
+      "dur0": {
+        "n_stratum_test": 1495,
+        "n_accept": 1339,
+        "acceptance_rate_within_tercile": 0.8956521739130435,
+        "coverage_of_all_test": 0.18659420289855072,
+        "accepted_macro_cer": 0.009484117036394856,
+        "violation": false
+      },
+      "dur1": {
+        "n_stratum_test": 2107,
+        "n_accept": 1879,
+        "acceptance_rate_within_tercile": 0.8917892738490745,
+        "coverage_of_all_test": 0.26184503901895206,
+        "accepted_macro_cer": 0.009846268822331448,
+        "violation": false
+      },
+      "dur2": {
+        "n_stratum_test": 3571,
+        "n_accept": 3097,
+        "acceptance_rate_within_tercile": 0.8672640716886026,
+        "coverage_of_all_test": 0.43157748049052397,
+        "accepted_macro_cer": 0.01177915780690371,
+        "violation": false
+      },
+      "_overall": {
+        "n_accept": 6315,
+        "accepted_macro_cer": 0.010717406739014139,
+        "coverage": 0.8800167224080268
+      }
+    },
+    "3": {
+      "dur0": {
+        "n_stratum_test": 1675,
+        "n_accept": 1559,
+        "acceptance_rate_within_tercile": 0.9307462686567164,
+        "coverage_of_all_test": 0.21725195094760313,
+        "accepted_macro_cer": 0.011517675089251892,
+        "violation": false
+      },
+      "dur1": {
+        "n_stratum_test": 2067,
+        "n_accept": 1906,
+        "acceptance_rate_within_tercile": 0.9221093372036768,
+        "coverage_of_all_test": 0.26560758082497216,
+        "accepted_macro_cer": 0.011234134655751741,
+        "violation": false
+      },
+      "dur2": {
+        "n_stratum_test": 3431,
+        "n_accept": 3127,
+        "acceptance_rate_within_tercile": 0.9113960944331099,
+        "coverage_of_all_test": 0.43575808249721293,
+        "accepted_macro_cer": 0.013838552405047555,
+        "violation": false
+      },
+      "_overall": {
+        "n_accept": 6592,
+        "accepted_macro_cer": 0.012536630686982742,
+        "coverage": 0.9186176142697882
+      }
+    },
+    "4": {
+      "dur0": {
+        "n_stratum_test": 1737,
+        "n_accept": 1559,
+        "acceptance_rate_within_tercile": 0.897524467472654,
+        "coverage_of_all_test": 0.21725195094760313,
+        "accepted_macro_cer": 0.010018636034087116,
+        "violation": false
+      },
+      "dur1": {
+        "n_stratum_test": 2134,
+        "n_accept": 1895,
+        "acceptance_rate_within_tercile": 0.8880037488284911,
+        "coverage_of_all_test": 0.2640746934225195,
+        "accepted_macro_cer": 0.00938417944144273,
+        "violation": false
+      },
+      "dur2": {
+        "n_stratum_test": 3302,
+        "n_accept": 2861,
+        "acceptance_rate_within_tercile": 0.8664445790430042,
+        "coverage_of_all_test": 0.3986900780379041,
+        "accepted_macro_cer": 0.011981247793847781,
+        "violation": false
+      },
+      "_overall": {
+        "n_accept": 6315,
+        "accepted_macro_cer": 0.010717406739014139,
+        "coverage": 0.8800167224080268
+      }
+    },
+    "5": {
+      "dur0": {
+        "n_stratum_test": 1906,
+        "n_accept": 1792,
+        "acceptance_rate_within_tercile": 0.9401888772298006,
+        "coverage_of_all_test": 0.24972129319955408,
+        "accepted_macro_cer": 0.012404479110262986,
+        "violation": false
+      },
+      "dur1": {
+        "n_stratum_test": 2155,
+        "n_accept": 2021,
+        "acceptance_rate_within_tercile": 0.9378190255220418,
+        "coverage_of_all_test": 0.2816332218506132,
+        "accepted_macro_cer": 0.011533505198321838,
+        "violation": false
+      },
+      "dur2": {
+        "n_stratum_test": 3112,
+        "n_accept": 2887,
+        "acceptance_rate_within_tercile": 0.9276992287917738,
+        "coverage_of_all_test": 0.40231326644370125,
+        "accepted_macro_cer": 0.015315279263470274,
+        "violation": false
+      },
+      "_overall": {
+        "n_accept": 6700,
+        "accepted_macro_cer": 0.01339600773209528,
+        "coverage": 0.9336677814938684
+      }
+    },
+    "6": {
+      "dur0": {
+        "n_stratum_test": 1747,
+        "n_accept": 1605,
+        "acceptance_rate_within_tercile": 0.9187178019461935,
+        "coverage_of_all_test": 0.22366220735785952,
+        "accepted_macro_cer": 0.011710499861956705,
+        "violation": false
+      },
+      "dur1": {
+        "n_stratum_test": 2331,
+        "n_accept": 2120,
+        "acceptance_rate_within_tercile": 0.9094809094809094,
+        "coverage_of_all_test": 0.2954292084726867,
+        "accepted_macro_cer": 0.010291955824825005,
+        "violation": false
+      },
+      "dur2": {
+        "n_stratum_test": 3095,
+        "n_accept": 2764,
+        "acceptance_rate_within_tercile": 0.8930533117932149,
+        "coverage_of_all_test": 0.3851727982162765,
+        "accepted_macro_cer": 0.013371304880886956,
+        "violation": false
+      },
+      "_overall": {
+        "n_accept": 6489,
+        "accepted_macro_cer": 0.011954474544281257,
+        "coverage": 0.9042642140468228
+      }
+    },
+    "7": {
+      "dur0": {
+        "n_stratum_test": 1821,
+        "n_accept": 1694,
+        "acceptance_rate_within_tercile": 0.9302580999450851,
+        "coverage_of_all_test": 0.23606465997770346,
+        "accepted_macro_cer": 0.012099794212701359,
+        "violation": false
+      },
+      "dur1": {
+        "n_stratum_test": 2170,
+        "n_accept": 2002,
+        "acceptance_rate_within_tercile": 0.9225806451612903,
+        "coverage_of_all_test": 0.27898550724637683,
+        "accepted_macro_cer": 0.01052314605282535,
+        "violation": false
+      },
+      "dur2": {
+        "n_stratum_test": 3182,
+        "n_accept": 2893,
+        "acceptance_rate_within_tercile": 0.909176618478944,
+        "coverage_of_all_test": 0.40314938684503904,
+        "accepted_macro_cer": 0.01412034449277383,
+        "violation": false
+      },
+      "_overall": {
+        "n_accept": 6589,
+        "accepted_macro_cer": 0.012507898984924442,
+        "coverage": 0.9181995540691192
+      }
+    },
+    "8": {
+      "dur0": {
+        "n_stratum_test": 1758,
+        "n_accept": 1582,
+        "acceptance_rate_within_tercile": 0.8998862343572241,
+        "coverage_of_all_test": 0.22045707915273133,
+        "accepted_macro_cer": 0.01046562203279315,
+        "violation": false
+      },
+      "dur1": {
+        "n_stratum_test": 2050,
+        "n_accept": 1823,
+        "acceptance_rate_within_tercile": 0.8892682926829268,
+        "coverage_of_all_test": 0.254041248606466,
+        "accepted_macro_cer": 0.009283718213963668,
+        "violation": false
+      },
+      "dur2": {
+        "n_stratum_test": 3365,
+        "n_accept": 2928,
+        "acceptance_rate_within_tercile": 0.8701337295690936,
+        "coverage_of_all_test": 0.4080267558528428,
+        "accepted_macro_cer": 0.01225592145081032,
+        "violation": false
+      },
+      "_overall": {
+        "n_accept": 6333,
+        "accepted_macro_cer": 0.010953129696495681,
+        "coverage": 0.8825250836120402
+      }
+    },
+    "9": {
+      "dur0": {
+        "n_stratum_test": 1541,
+        "n_accept": 1441,
+        "acceptance_rate_within_tercile": 0.9351070733290071,
+        "coverage_of_all_test": 0.20080824972129319,
+        "accepted_macro_cer": 0.011936657104943018,
+        "violation": false
+      },
+      "dur1": {
+        "n_stratum_test": 2134,
+        "n_accept": 1998,
+        "acceptance_rate_within_tercile": 0.936269915651359,
+        "coverage_of_all_test": 0.27842809364548493,
+        "accepted_macro_cer": 0.011871346531219252,
+        "violation": false
+      },
+      "dur2": {
+        "n_stratum_test": 3498,
+        "n_accept": 3234,
+        "acceptance_rate_within_tercile": 0.9245283018867925,
+        "coverage_of_all_test": 0.4506688963210702,
+        "accepted_macro_cer": 0.014661741394314391,
+        "violation": false
+      },
+      "_overall": {
+        "n_accept": 6673,
+        "accepted_macro_cer": 0.013237785842471405,
+        "coverage": 0.9299052396878483
+      }
+    },
+    "10": {
+      "dur0": {
+        "n_stratum_test": 1721,
+        "n_accept": 1582,
+        "acceptance_rate_within_tercile": 0.9192330040674027,
+        "coverage_of_all_test": 0.22045707915273133,
+        "accepted_macro_cer": 0.011542890925374005,
+        "violation": false
+      },
+      "dur1": {
+        "n_stratum_test": 2333,
+        "n_accept": 2133,
+        "acceptance_rate_within_tercile": 0.914273467638234,
+        "coverage_of_all_test": 0.2972408026755853,
+        "accepted_macro_cer": 0.01061519353464157,
+        "violation": false
+      },
+      "dur2": {
+        "n_stratum_test": 3119,
+        "n_accept": 2795,
+        "acceptance_rate_within_tercile": 0.8961205514588009,
+        "coverage_of_all_test": 0.3894927536231884,
+        "accepted_macro_cer": 0.01349318319410048,
+        "violation": false
+      },
+      "_overall": {
+        "n_accept": 6510,
+        "accepted_macro_cer": 0.012076268553124882,
+        "coverage": 0.907190635451505
+      }
+    },
+    "11": {
+      "dur0": {
+        "n_stratum_test": 1958,
+        "n_accept": 1736,
+        "acceptance_rate_within_tercile": 0.8866189989785496,
+        "coverage_of_all_test": 0.241917502787068,
+        "accepted_macro_cer": 0.009483543915724046,
+        "violation": false
+      },
+      "dur1": {
+        "n_stratum_test": 2178,
+        "n_accept": 1924,
+        "acceptance_rate_within_tercile": 0.8833792470156107,
+        "coverage_of_all_test": 0.26811594202898553,
+        "accepted_macro_cer": 0.009083972611002857,
+        "violation": false
+      },
+      "dur2": {
+        "n_stratum_test": 3037,
+        "n_accept": 2617,
+        "acceptance_rate_within_tercile": 0.8617056305564702,
+        "coverage_of_all_test": 0.36468784838350055,
+        "accepted_macro_cer": 0.012034450110434029,
+        "violation": false
+      },
+      "_overall": {
+        "n_accept": 6277,
+        "accepted_macro_cer": 0.010424590008008966,
+        "coverage": 0.874721293199554
+      }
+    },
+    "12": {
+      "dur0": {
+        "n_stratum_test": 2107,
+        "n_accept": 1970,
+        "acceptance_rate_within_tercile": 0.9349786426198387,
+        "coverage_of_all_test": 0.2745261984392419,
+        "accepted_macro_cer": 0.011979965101419267,
+        "violation": false
+      },
+      "dur1": {
+        "n_stratum_test": 2201,
+        "n_accept": 2050,
+        "acceptance_rate_within_tercile": 0.93139482053612,
+        "coverage_of_all_test": 0.28567447045707917,
+        "accepted_macro_cer": 0.01115222214754043,
+        "violation": false
+      },
+      "dur2": {
+        "n_stratum_test": 2865,
+        "n_accept": 2631,
+        "acceptance_rate_within_tercile": 0.9183246073298429,
+        "coverage_of_all_test": 0.3666387959866221,
+        "accepted_macro_cer": 0.015152262514846478,
+        "violation": false
+      },
+      "_overall": {
+        "n_accept": 6651,
+        "accepted_macro_cer": 0.012979730766623803,
+        "coverage": 0.9268394648829431
+      }
+    },
+    "13": {
+      "dur0": {
+        "n_stratum_test": 1776,
+        "n_accept": 1711,
+        "acceptance_rate_within_tercile": 0.9634009009009009,
+        "coverage_of_all_test": 0.23843366778149386,
+        "accepted_macro_cer": 0.013956543069205083,
+        "violation": false
+      },
+      "dur1": {
+        "n_stratum_test": 2185,
+        "n_accept": 2103,
+        "acceptance_rate_within_tercile": 0.9624713958810068,
+        "coverage_of_all_test": 0.2930602006688963,
+        "accepted_macro_cer": 0.013314157188233585,
+        "violation": false
+      },
+      "dur2": {
+        "n_stratum_test": 3212,
+        "n_accept": 3091,
+        "acceptance_rate_within_tercile": 0.9623287671232876,
+        "coverage_of_all_test": 0.4307413600891862,
+        "accepted_macro_cer": 0.017458170956201422,
+        "violation": false
+      },
+      "_overall": {
+        "n_accept": 6905,
+        "accepted_macro_cer": 0.015328388730468314,
+        "coverage": 0.9622352285395763
+      }
+    },
+    "14": {
+      "dur0": {
+        "n_stratum_test": 1661,
+        "n_accept": 1537,
+        "acceptance_rate_within_tercile": 0.9253461770018061,
+        "coverage_of_all_test": 0.2141861761426979,
+        "accepted_macro_cer": 0.01154518175213571,
+        "violation": false
+      },
+      "dur1": {
+        "n_stratum_test": 2207,
+        "n_accept": 2025,
+        "acceptance_rate_within_tercile": 0.917535115541459,
+        "coverage_of_all_test": 0.282190635451505,
+        "accepted_macro_cer": 0.010843056895115145,
+        "violation": false
+      },
+      "dur2": {
+        "n_stratum_test": 3305,
+        "n_accept": 2987,
+        "acceptance_rate_within_tercile": 0.9037821482602117,
+        "coverage_of_all_test": 0.41624860646599776,
+        "accepted_macro_cer": 0.013702129521482538,
+        "violation": false
+      },
+      "_overall": {
+        "n_accept": 6549,
+        "accepted_macro_cer": 0.012311863711453519,
+        "coverage": 0.9126254180602007
+      }
+    },
+    "15": {
+      "dur0": {
+        "n_stratum_test": 1434,
+        "n_accept": 1335,
+        "acceptance_rate_within_tercile": 0.9309623430962343,
+        "coverage_of_all_test": 0.18603678929765885,
+        "accepted_macro_cer": 0.011347091319001431,
+        "violation": false
+      },
+      "dur1": {
+        "n_stratum_test": 2122,
+        "n_accept": 1985,
+        "acceptance_rate_within_tercile": 0.9354382657869934,
+        "coverage_of_all_test": 0.27661649944258637,
+        "accepted_macro_cer": 0.011920668828943739,
+        "violation": false
+      },
+      "dur2": {
+        "n_stratum_test": 3617,
+        "n_accept": 3328,
+        "acceptance_rate_within_tercile": 0.9200995299972353,
+        "coverage_of_all_test": 0.463768115942029,
+        "accepted_macro_cer": 0.014217330105310842,
+        "violation": false
+      },
+      "_overall": {
+        "n_accept": 6648,
+        "accepted_macro_cer": 0.012955199928819902,
+        "coverage": 0.9264214046822743
+      }
+    },
+    "16": {
+      "dur0": {
+        "n_stratum_test": 1503,
+        "n_accept": 1414,
+        "acceptance_rate_within_tercile": 0.9407850964737192,
+        "coverage_of_all_test": 0.19704570791527312,
+        "accepted_macro_cer": 0.011948598706024447,
+        "violation": false
+      },
+      "dur1": {
+        "n_stratum_test": 2333,
+        "n_accept": 2201,
+        "acceptance_rate_within_tercile": 0.9434204886412345,
+        "coverage_of_all_test": 0.30671683389074694,
+        "accepted_macro_cer": 0.012253069778515573,
+        "violation": false
+      },
+      "dur2": {
+        "n_stratum_test": 3337,
+        "n_accept": 3103,
+        "acceptance_rate_within_tercile": 0.9298771351513335,
+        "coverage_of_all_test": 0.43241360089186176,
+        "accepted_macro_cer": 0.01517828199693504,
+        "violation": false
+      },
+      "_overall": {
+        "n_accept": 6718,
+        "accepted_macro_cer": 0.013540121195195112,
+        "coverage": 0.9361761426978819
+      }
+    },
+    "17": {
+      "dur0": {
+        "n_stratum_test": 2043,
+        "n_accept": 1890,
+        "acceptance_rate_within_tercile": 0.9251101321585903,
+        "coverage_of_all_test": 0.2633779264214047,
+        "accepted_macro_cer": 0.011578620440665257,
+        "violation": false
+      },
+      "dur1": {
+        "n_stratum_test": 2165,
+        "n_accept": 1984,
+        "acceptance_rate_within_tercile": 0.9163972286374134,
+        "coverage_of_all_test": 0.27647714604236345,
+        "accepted_macro_cer": 0.010552894952706447,
+        "violation": false
+      },
+      "dur2": {
+        "n_stratum_test": 2965,
+        "n_accept": 2674,
+        "acceptance_rate_within_tercile": 0.9018549747048904,
+        "coverage_of_all_test": 0.3726309921962096,
+        "accepted_macro_cer": 0.014098260327663073,
+        "violation": false
+      },
+      "_overall": {
+        "n_accept": 6548,
+        "accepted_macro_cer": 0.012296775249724801,
+        "coverage": 0.9124860646599777
+      }
+    },
+    "18": {
+      "dur0": {
+        "n_stratum_test": 1721,
+        "n_accept": 1524,
+        "acceptance_rate_within_tercile": 0.8855316676350958,
+        "coverage_of_all_test": 0.21237458193979933,
+        "accepted_macro_cer": 0.00940504732045955,
+        "violation": false
+      },
+      "dur1": {
+        "n_stratum_test": 2323,
+        "n_accept": 2041,
+        "acceptance_rate_within_tercile": 0.8786052518295308,
+        "coverage_of_all_test": 0.28442028985507245,
+        "accepted_macro_cer": 0.009168808893057007,
+        "violation": false
+      },
+      "dur2": {
+        "n_stratum_test": 3129,
+        "n_accept": 2676,
+        "acceptance_rate_within_tercile": 0.8552253116011506,
+        "coverage_of_all_test": 0.3729096989966555,
+        "accepted_macro_cer": 0.01174464427398896,
+        "violation": false
+      },
+      "_overall": {
+        "n_accept": 6241,
+        "accepted_macro_cer": 0.010330956440362787,
+        "coverage": 0.8697045707915273
+      }
+    },
+    "19": {
+      "dur0": {
+        "n_stratum_test": 1703,
+        "n_accept": 1598,
+        "acceptance_rate_within_tercile": 0.9383440986494421,
+        "coverage_of_all_test": 0.22268673355629878,
+        "accepted_macro_cer": 0.01221613726813241,
+        "violation": false
+      },
+      "dur1": {
+        "n_stratum_test": 2247,
+        "n_accept": 2108,
+        "acceptance_rate_within_tercile": 0.9381397418780596,
+        "coverage_of_all_test": 0.29375696767001114,
+        "accepted_macro_cer": 0.011543309902979096,
+        "violation": false
+      },
+      "dur2": {
+        "n_stratum_test": 3223,
+        "n_accept": 2986,
+        "acceptance_rate_within_tercile": 0.9264660254421346,
+        "coverage_of_all_test": 0.4161092530657748,
+        "accepted_macro_cer": 0.015255436651624089,
+        "violation": false
+      },
+      "_overall": {
+        "n_accept": 6692,
+        "accepted_macro_cer": 0.01336034346558653,
+        "coverage": 0.9325529542920847
+      }
+    }
+  },
+  "provenance": {
+    "script": "manuscripts/compute_mondrian_tercile.py",
+    "inputs_readonly": [
+      "main_results_2026-07-09/reseed_{0..19}/applied_test.json",
+      "main_results_2026-07-09/reseed_{0..19}/gate.json (strata thresholds)",
+      "main_results_2026-07-09/test_scored.jsonl"
+    ],
+    "ci_method": "relmetrics.blocked_bootstrap, block=speaker_id, n_boot=2000, seed=0, percentile, 95%",
+    "n_test_scored": 7176,
+    "timestamp_utc": "2026-07-11T08:21:32.606022+00:00",
+    "python_version": "3.13.5",
+    "numpy_version": "2.5.1"
+  }
+}

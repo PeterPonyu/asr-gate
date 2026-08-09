@@ -1,0 +1,110 @@
+{
+  "alpha": 0.02,
+  "delta": 0.1,
+  "guarantee": "ltt",
+  "g1_score": "s1",
+  "g2_score": "s1",
+  "strata_axes": [
+    "duration_tercile"
+  ],
+  "duration_edges": [
+    3.9066666666666667,
+    5.1053125
+  ],
+  "use_gender_stratum": false,
+  "known_genders": [],
+  "min_stratum_n": 200,
+  "strata": {
+    "counts": {
+      "dur0": 1189,
+      "dur1": 1189,
+      "dur2": 1189
+    },
+    "defer_always": {
+      "dur0": false,
+      "dur1": false,
+      "dur2": false
+    },
+    "thresholds": {
+      "dur0": 0.14988384947607872,
+      "dur1": 0.1368550883791106,
+      "dur2": 0.11145790599620058
+    }
+  },
+  "temperature": 9999.999759555662,
+  "g2_map": {
+    "slope": -1.0806143533733084,
+    "intercept": -0.08355139991098555
+  },
+  "g1": {
+    "lambda_star": null,
+    "accepted_fraction": 0.0,
+    "certified": false,
+    "alpha": 0.02,
+    "delta": 0.1,
+    "n": 3567,
+    "trace": [
+      {
+        "lambda": -0.07668791272278343,
+        "p_value": 0.9028380368133614,
+        "rejected": false,
+        "accepted_fraction": 0.10008410428931876,
+        "empirical_risk": 0.009502521033247202
+      }
+    ],
+    "n_dropped_missing_score": 0
+  },
+  "n_fit": 3574,
+  "n_cal": 3567,
+  "excluded_missing_s1": {
+    "fit": [
+      "BAC009S0727W0345"
+    ],
+    "cal": [],
+    "n_fit_excluded": 1,
+    "n_cal_excluded": 0
+  },
+  "fingerprint": {
+    "g1_score_name": "s1",
+    "g1_score_quantiles": [
+      -0.14226383775472642,
+      -0.09742539721485385,
+      -0.08835261384956539,
+      -0.08196073826402425,
+      -0.07376565442166547
+    ],
+    "duration_quantiles": [
+      2.945275,
+      3.64003125,
+      4.44675,
+      5.5344375,
+      7.2917
+    ],
+    "quantile_probs": [
+      0.05,
+      0.25,
+      0.5,
+      0.75,
+      0.95
+    ]
+  },
+  "normalizer_version": "asr-gate-cer-normalizer-v1",
+  "numeral_policy": "keep",
+  "ood_non_cjk_threshold": 0.2,
+  "ks_warn_distance": 0.15,
+  "input_sha256": {
+    "/root/autodl-tmp/pilot_results/cal20_scored.jsonl": "ba71fb2d2edb5868f6ef1850565a4ef1cdeae6db68f09f4e121debbbdce6d046"
+  },
+  "provenance": {
+    "script": "/root/asr-gate/asr_gate/gate.py",
+    "timestamp_utc": "2026-07-09T04:03:49.105842+00:00",
+    "seeds": [
+      0
+    ],
+    "python_version": "3.12.3",
+    "numpy_version": "2.3.2",
+    "platform": "Linux-5.15.0-94-generic-x86_64-with-glibc2.35",
+    "git_sha": null,
+    "git_dirty": null
+  }
+}

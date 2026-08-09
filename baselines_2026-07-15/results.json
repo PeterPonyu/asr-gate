@@ -1,0 +1,508 @@
+{
+  "cells": {
+    "paraformer_aishell": {
+      "backbone": "paraformer",
+      "corpus": "aishell",
+      "n": 7176,
+      "macro_cer": 0.019805491935060385,
+      "eval_cap_applied": false,
+      "per_score": {
+        "s1": {
+          "excess_aurc": 0.011802475890310606,
+          "aurc_method": 0.0077342944135795,
+          "aurc_random": 0.019536770303890106,
+          "p_value": 0.0004997501249375312,
+          "n": 7172,
+          "n_excluded": 4
+        },
+        "s2": {
+          "excess_aurc": 0.01367975241883928,
+          "aurc_method": 0.005857017885050825,
+          "aurc_random": 0.019536770303890106,
+          "p_value": 0.0004997501249375312,
+          "n": 7172,
+          "n_excluded": 4
+        },
+        "class_prob_mean": {
+          "excess_aurc": 0.011705163438297484,
+          "aurc_method": 0.007831606865592622,
+          "aurc_random": 0.019536770303890106,
+          "p_value": 0.0004997501249375312,
+          "n": 7172,
+          "n_excluded": 4
+        },
+        "class_prob_min": {
+          "excess_aurc": 0.01367975241883928,
+          "aurc_method": 0.005857017885050825,
+          "aurc_random": 0.019536770303890106,
+          "p_value": 0.0004997501249375312,
+          "n": 7172,
+          "n_excluded": 4
+        },
+        "lengthnorm_pathprob": {
+          "excess_aurc": 0.011802475890310606,
+          "aurc_method": 0.0077342944135795,
+          "aurc_random": 0.019536770303890106,
+          "p_value": 0.0004997501249375312,
+          "n": 7172,
+          "n_excluded": 4
+        },
+        "cem": {
+          "excess_aurc": 0.012218578403606396,
+          "aurc_method": 0.00731819190028371,
+          "aurc_random": 0.019536770303890106,
+          "p_value": 0.0004997501249375312,
+          "n": 7172,
+          "n_excluded": 4
+        }
+      },
+      "skipped": {}
+    },
+    "paraformer_thchs30": {
+      "backbone": "paraformer",
+      "corpus": "thchs30",
+      "n": 1339,
+      "macro_cer": 0.03750202780434005,
+      "eval_cap_applied": false,
+      "per_score": {
+        "s1": {
+          "excess_aurc": 0.018686841016238166,
+          "aurc_method": 0.018815186788101894,
+          "aurc_random": 0.03750202780434006,
+          "p_value": 0.0004997501249375312,
+          "n": 1339,
+          "n_excluded": 0
+        },
+        "s2": {
+          "excess_aurc": 0.0185763432388329,
+          "aurc_method": 0.01892568456550716,
+          "aurc_random": 0.03750202780434006,
+          "p_value": 0.0004997501249375312,
+          "n": 1339,
+          "n_excluded": 0
+        },
+        "class_prob_mean": {
+          "excess_aurc": 0.018614004840016456,
+          "aurc_method": 0.018888022964323604,
+          "aurc_random": 0.03750202780434006,
+          "p_value": 0.0004997501249375312,
+          "n": 1339,
+          "n_excluded": 0
+        },
+        "class_prob_min": {
+          "excess_aurc": 0.0185763432388329,
+          "aurc_method": 0.01892568456550716,
+          "aurc_random": 0.03750202780434006,
+          "p_value": 0.0004997501249375312,
+          "n": 1339,
+          "n_excluded": 0
+        },
+        "lengthnorm_pathprob": {
+          "excess_aurc": 0.018686841016238166,
+          "aurc_method": 0.018815186788101894,
+          "aurc_random": 0.03750202780434006,
+          "p_value": 0.0004997501249375312,
+          "n": 1339,
+          "n_excluded": 0
+        },
+        "cem": {
+          "excess_aurc": 0.01745430811003327,
+          "aurc_method": 0.02004771969430679,
+          "aurc_random": 0.03750202780434006,
+          "p_value": 0.0004997501249375312,
+          "n": 1339,
+          "n_excluded": 0
+        }
+      },
+      "skipped": {}
+    },
+    "paraformer_magicdata": {
+      "backbone": "paraformer",
+      "corpus": "magicdata",
+      "n": 4094,
+      "macro_cer": 0.048866332419350345,
+      "eval_cap_applied": true,
+      "per_score": {},
+      "skipped": {
+        "s1": "41/4094 (1.0%) row(s) missing 's1' for backbone='default' -- wholesale, not a degraded tail (score was effectively never computed); family dropped",
+        "s2": "41/4094 (1.0%) row(s) missing 's2' for backbone='default' -- wholesale, not a degraded tail (score was effectively never computed); family dropped",
+        "class_prob_mean": "41/4094 (1.0%) row(s) missing 'class_prob_mean' for backbone='default' -- wholesale, not a degraded tail (score was effectively never computed); family dropped",
+        "class_prob_min": "41/4094 (1.0%) row(s) missing 'class_prob_min' for backbone='default' -- wholesale, not a degraded tail (score was effectively never computed); family dropped",
+        "lengthnorm_pathprob": "41/4094 (1.0%) row(s) missing 'lengthnorm_pathprob' for backbone='default' -- wholesale, not a degraded tail (score was effectively never computed); family dropped",
+        "cem": "41/4094 (1.0%) row(s) missing 'cem' for backbone='default' -- wholesale, not a degraded tail (score was effectively never computed); family dropped"
+      }
+    },
+    "belle_aishell": {
+      "backbone": "belle",
+      "corpus": "aishell",
+      "n": 7176,
+      "macro_cer": 0.05117350181210785,
+      "eval_cap_applied": false,
+      "per_score": {
+        "s1": {
+          "excess_aurc": 0.023626185728707193,
+          "aurc_method": 0.027547316083400657,
+          "aurc_random": 0.05117350181210785,
+          "p_value": 0.0004997501249375312,
+          "n": 7176,
+          "n_excluded": 0
+        },
+        "s2": {
+          "excess_aurc": 0.02213828865346848,
+          "aurc_method": 0.02903521315863937,
+          "aurc_random": 0.05117350181210785,
+          "p_value": 0.0004997501249375312,
+          "n": 7176,
+          "n_excluded": 0
+        },
+        "class_prob_mean": {
+          "excess_aurc": 0.023685503554740854,
+          "aurc_method": 0.027487998257366995,
+          "aurc_random": 0.05117350181210785,
+          "p_value": 0.0004997501249375312,
+          "n": 7176,
+          "n_excluded": 0
+        },
+        "class_prob_min": {
+          "excess_aurc": 0.02213828865346848,
+          "aurc_method": 0.02903521315863937,
+          "aurc_random": 0.05117350181210785,
+          "p_value": 0.0004997501249375312,
+          "n": 7176,
+          "n_excluded": 0
+        },
+        "lengthnorm_pathprob": {
+          "excess_aurc": 0.023626185728707193,
+          "aurc_method": 0.027547316083400657,
+          "aurc_random": 0.05117350181210785,
+          "p_value": 0.0004997501249375312,
+          "n": 7176,
+          "n_excluded": 0
+        },
+        "cem": {
+          "excess_aurc": 0.01986294352616374,
+          "aurc_method": 0.03131055828594411,
+          "aurc_random": 0.05117350181210785,
+          "p_value": 0.0004997501249375312,
+          "n": 7176,
+          "n_excluded": 0
+        }
+      },
+      "skipped": {}
+    },
+    "belle_thchs30": {
+      "backbone": "belle",
+      "corpus": "thchs30",
+      "n": 1339,
+      "macro_cer": 0.06619728090861064,
+      "eval_cap_applied": false,
+      "per_score": {
+        "s1": {
+          "excess_aurc": 0.03243614079702285,
+          "aurc_method": 0.03376114011158779,
+          "aurc_random": 0.06619728090861064,
+          "p_value": 0.0004997501249375312,
+          "n": 1339,
+          "n_excluded": 0
+        },
+        "s2": {
+          "excess_aurc": 0.028214256580369343,
+          "aurc_method": 0.0379830243282413,
+          "aurc_random": 0.06619728090861064,
+          "p_value": 0.0004997501249375312,
+          "n": 1339,
+          "n_excluded": 0
+        },
+        "class_prob_mean": {
+          "excess_aurc": 0.03258752820409131,
+          "aurc_method": 0.03360975270451933,
+          "aurc_random": 0.06619728090861064,
+          "p_value": 0.0004997501249375312,
+          "n": 1339,
+          "n_excluded": 0
+        },
+        "class_prob_min": {
+          "excess_aurc": 0.028214256580369343,
+          "aurc_method": 0.0379830243282413,
+          "aurc_random": 0.06619728090861064,
+          "p_value": 0.0004997501249375312,
+          "n": 1339,
+          "n_excluded": 0
+        },
+        "lengthnorm_pathprob": {
+          "excess_aurc": 0.03243614079702285,
+          "aurc_method": 0.03376114011158779,
+          "aurc_random": 0.06619728090861064,
+          "p_value": 0.0004997501249375312,
+          "n": 1339,
+          "n_excluded": 0
+        },
+        "cem": {
+          "excess_aurc": 0.029591202945503804,
+          "aurc_method": 0.03660607796310684,
+          "aurc_random": 0.06619728090861064,
+          "p_value": 0.0004997501249375312,
+          "n": 1339,
+          "n_excluded": 0
+        }
+      },
+      "skipped": {}
+    },
+    "belle_magicdata": {
+      "backbone": "belle",
+      "corpus": "magicdata",
+      "n": 4094,
+      "macro_cer": 0.0780433930889179,
+      "eval_cap_applied": true,
+      "per_score": {
+        "s1": {
+          "excess_aurc": 0.04200534119675717,
+          "aurc_method": 0.036038051892160736,
+          "aurc_random": 0.0780433930889179,
+          "p_value": 0.0004997501249375312,
+          "n": 4094,
+          "n_excluded": 0
+        },
+        "s2": {
+          "excess_aurc": 0.03722054826938416,
+          "aurc_method": 0.04082284481953374,
+          "aurc_random": 0.0780433930889179,
+          "p_value": 0.0004997501249375312,
+          "n": 4094,
+          "n_excluded": 0
+        },
+        "class_prob_mean": {
+          "excess_aurc": 0.04219610050389,
+          "aurc_method": 0.035847292585027904,
+          "aurc_random": 0.0780433930889179,
+          "p_value": 0.0004997501249375312,
+          "n": 4094,
+          "n_excluded": 0
+        },
+        "class_prob_min": {
+          "excess_aurc": 0.03722054826938416,
+          "aurc_method": 0.04082284481953374,
+          "aurc_random": 0.0780433930889179,
+          "p_value": 0.0004997501249375312,
+          "n": 4094,
+          "n_excluded": 0
+        },
+        "lengthnorm_pathprob": {
+          "excess_aurc": 0.04200534119675717,
+          "aurc_method": 0.036038051892160736,
+          "aurc_random": 0.0780433930889179,
+          "p_value": 0.0004997501249375312,
+          "n": 4094,
+          "n_excluded": 0
+        },
+        "cem": {
+          "excess_aurc": 0.03459556720513421,
+          "aurc_method": 0.043447825883783694,
+          "aurc_random": 0.0780433930889179,
+          "p_value": 0.0004997501249375312,
+          "n": 4094,
+          "n_excluded": 0
+        }
+      },
+      "skipped": {}
+    },
+    "zipformer_aishell": {
+      "backbone": "zipformer",
+      "corpus": "aishell",
+      "n": 7176,
+      "macro_cer": 0.4588254381122855,
+      "eval_cap_applied": false,
+      "per_score": {
+        "s1": {
+          "excess_aurc": -0.015784139587110113,
+          "aurc_method": 0.47460957769939555,
+          "aurc_random": 0.45882543811228543,
+          "p_value": 1.0,
+          "n": 7176,
+          "n_excluded": 0
+        },
+        "s2": {
+          "excess_aurc": 0.05777148790670977,
+          "aurc_method": 0.40105395020557566,
+          "aurc_random": 0.45882543811228543,
+          "p_value": 0.0004997501249375312,
+          "n": 7176,
+          "n_excluded": 0
+        },
+        "class_prob_mean": {
+          "excess_aurc": -0.022612735476524037,
+          "aurc_method": 0.48143817358880947,
+          "aurc_random": 0.45882543811228543,
+          "p_value": 1.0,
+          "n": 7176,
+          "n_excluded": 0
+        },
+        "class_prob_min": {
+          "excess_aurc": 0.05777148790670977,
+          "aurc_method": 0.40105395020557566,
+          "aurc_random": 0.45882543811228543,
+          "p_value": 0.0004997501249375312,
+          "n": 7176,
+          "n_excluded": 0
+        },
+        "lengthnorm_pathprob": {
+          "excess_aurc": -0.015784139587110113,
+          "aurc_method": 0.47460957769939555,
+          "aurc_random": 0.45882543811228543,
+          "p_value": 1.0,
+          "n": 7176,
+          "n_excluded": 0
+        },
+        "cem": {
+          "excess_aurc": 0.18898887433720074,
+          "aurc_method": 0.2698365637750847,
+          "aurc_random": 0.45882543811228543,
+          "p_value": 0.0004997501249375312,
+          "n": 7176,
+          "n_excluded": 0
+        }
+      },
+      "skipped": {}
+    },
+    "zipformer_thchs30": {
+      "backbone": "zipformer",
+      "corpus": "thchs30",
+      "n": 1339,
+      "macro_cer": 0.8180304677888067,
+      "eval_cap_applied": false,
+      "per_score": {
+        "s1": {
+          "excess_aurc": -0.03971306864364765,
+          "aurc_method": 0.8577435364324544,
+          "aurc_random": 0.8180304677888067,
+          "p_value": 1.0,
+          "n": 1339,
+          "n_excluded": 0
+        },
+        "s2": {
+          "excess_aurc": 0.04104352964331237,
+          "aurc_method": 0.7769869381454944,
+          "aurc_random": 0.8180304677888067,
+          "p_value": 0.0004997501249375312,
+          "n": 1339,
+          "n_excluded": 0
+        },
+        "class_prob_mean": {
+          "excess_aurc": -0.046815928829171294,
+          "aurc_method": 0.864846396617978,
+          "aurc_random": 0.8180304677888067,
+          "p_value": 1.0,
+          "n": 1339,
+          "n_excluded": 0
+        },
+        "class_prob_min": {
+          "excess_aurc": 0.04104352964331237,
+          "aurc_method": 0.7769869381454944,
+          "aurc_random": 0.8180304677888067,
+          "p_value": 0.0004997501249375312,
+          "n": 1339,
+          "n_excluded": 0
+        },
+        "lengthnorm_pathprob": {
+          "excess_aurc": -0.03971306864364765,
+          "aurc_method": 0.8577435364324544,
+          "aurc_random": 0.8180304677888067,
+          "p_value": 1.0,
+          "n": 1339,
+          "n_excluded": 0
+        },
+        "cem": {
+          "excess_aurc": 0.13665837997931318,
+          "aurc_method": 0.6813720878094935,
+          "aurc_random": 0.8180304677888067,
+          "p_value": 0.0004997501249375312,
+          "n": 1339,
+          "n_excluded": 0
+        }
+      },
+      "skipped": {}
+    },
+    "zipformer_magicdata": {
+      "backbone": "zipformer",
+      "corpus": "magicdata",
+      "n": 4094,
+      "macro_cer": 0.3220560878646211,
+      "eval_cap_applied": true,
+      "per_score": {
+        "s1": {
+          "excess_aurc": -0.005462999624153364,
+          "aurc_method": 0.32751908748877445,
+          "aurc_random": 0.3220560878646211,
+          "p_value": 0.9975012493753124,
+          "n": 4094,
+          "n_excluded": 0
+        },
+        "s2": {
+          "excess_aurc": 0.05671817114560279,
+          "aurc_method": 0.2653379167190183,
+          "aurc_random": 0.3220560878646211,
+          "p_value": 0.0004997501249375312,
+          "n": 4094,
+          "n_excluded": 0
+        },
+        "class_prob_mean": {
+          "excess_aurc": -0.010237410346083997,
+          "aurc_method": 0.3322934982107051,
+          "aurc_random": 0.3220560878646211,
+          "p_value": 1.0,
+          "n": 4094,
+          "n_excluded": 0
+        },
+        "class_prob_min": {
+          "excess_aurc": 0.05671817114560279,
+          "aurc_method": 0.2653379167190183,
+          "aurc_random": 0.3220560878646211,
+          "p_value": 0.0004997501249375312,
+          "n": 4094,
+          "n_excluded": 0
+        },
+        "lengthnorm_pathprob": {
+          "excess_aurc": -0.005462999624153364,
+          "aurc_method": 0.32751908748877445,
+          "aurc_random": 0.3220560878646211,
+          "p_value": 0.9975012493753124,
+          "n": 4094,
+          "n_excluded": 0
+        },
+        "cem": {
+          "excess_aurc": 0.15042757113430627,
+          "aurc_method": 0.17162851673031482,
+          "aurc_random": 0.3220560878646211,
+          "p_value": 0.0004997501249375312,
+          "n": 4094,
+          "n_excluded": 0
+        }
+      },
+      "skipped": {}
+    }
+  },
+  "note": {
+    "tsallis_entropy": "UNAVAILABLE -- needs full per-token vocab distribution (token_full_posteriors); None in every dump.",
+    "class_prob_min": "== our s2 (exp(min token logp)) exactly.",
+    "lengthnorm_pathprob": "== exp(s1); monotone in s1 => identical excess-AURC.",
+    "magicdata": "eval capped to ~4k speaker-disjoint (FREEZE-AMENDMENT §2).",
+    "audit": "excess-AURC via asr_gate.audit.run_audit, n_perm=2000, seed=0, alpha=0.05."
+  },
+  "cem_fit": {
+    "paraformer": {
+      "n": 14325,
+      "err_rate": 0.17919720767888306,
+      "status": "fit"
+    },
+    "belle": {
+      "n": 14326,
+      "err_rate": 0.4528828703057378,
+      "status": "fit"
+    },
+    "zipformer": {
+      "n": 14326,
+      "err_rate": 0.5883009912048025,
+      "status": "fit"
+    }
+  }
+}

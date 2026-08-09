@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+build/
+dist/
+
+# LaTeX
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.spl
+*.nav
+*.snm
+
+# Editors / OS / agents
+.DS_Store
+.idea/
+.vscode/
+.omc/
+.omx/
+.superpowers/
+.Rhistory
+.RData
+*.bak
+*.bak-*
+*~
+
+# Multi-GB staging / pulled trees (local only; not theme-tracked)
+libri_staging/
+landscape_pulled_2026-07-15/
+expansion_results_2026-07-09/
+thchs_official_pulled_2026-07-16/
+english_arm_2026-07-12/
+main_results_2026-07-09/
+
+# Figure / orchestration scratch
+manuscripts/figures-src/review/
+orchestration/.omc/

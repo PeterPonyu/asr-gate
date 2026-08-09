@@ -1,0 +1,31 @@
+{
+  "alpha": 0.05,
+  "n_perm": 2000,
+  "n": 7176,
+  "holm_family_size": 0,
+  "results": [],
+  "micro_cer": {
+    "point": 0.019424426096501694,
+    "ci": [
+      0.017222789196538732,
+      0.021679409596206
+    ],
+    "n_blocks": 20,
+    "n_boot": 1000,
+    "method": "percentile"
+  },
+  "macro_cer": 0.019805491935060385,
+  "clip_count": 0,
+  "provenance": {
+    "script": "/root/asr-gate/asr_gate/audit.py",
+    "timestamp_utc": "2026-07-09T05:19:13.095148+00:00",
+    "seeds": [
+      0
+    ],
+    "python_version": "3.12.3",
+    "numpy_version": "2.3.2",
+    "platform": "Linux-5.15.0-94-generic-x86_64-with-glibc2.35",
+    "git_sha": null,
+    "git_dirty": null
+  }
+}

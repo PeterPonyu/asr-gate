@@ -1,0 +1,147 @@
+{
+  "m": 12,
+  "alpha": 0.05,
+  "cells": [
+    "/root/autodl-tmp/asr_expansion2_results/audit/audit_aishell_paraformer_clean.json:paraformer:aishell_clean",
+    "/root/autodl-tmp/asr_expansion2_results/audit/audit_aishell_musan5db_paraformer_noise.json:paraformer:musan5db",
+    "/root/autodl-tmp/asr_expansion2_results/audit/audit_aishell_musan15db_paraformer_noise.json:paraformer:musan15db",
+    "/root/autodl-tmp/asr_expansion2_results/audit/audit_aishell_musan25db_paraformer_noise.json:paraformer:musan25db",
+    "/root/autodl-tmp/asr_expansion2_results/audit/audit_aishell_whisper_clean.json:whisper:aishell_clean",
+    "/root/autodl-tmp/asr_expansion2_results/audit/audit_thchs30_whisper_crosscorpus.json:whisper:thchs30_crosscorpus  (2026-07-12: recomputed on corrected n=2495 re-decode)"
+  ],
+  "rows": [
+    {
+      "backbone": "paraformer",
+      "condition": "aishell_clean",
+      "score": "s1",
+      "p_value": 0.0004997501249375312,
+      "excess_aurc": 0.011802475890310606,
+      "n": 7172,
+      "non_null_frac": 0.9994425863991081,
+      "p_holm_global": 0.005997001499250375,
+      "reject_holm_global": true
+    },
+    {
+      "backbone": "paraformer",
+      "condition": "aishell_clean",
+      "score": "s2",
+      "p_value": 0.0004997501249375312,
+      "excess_aurc": 0.01367975241883928,
+      "n": 7172,
+      "non_null_frac": 0.9994425863991081,
+      "p_holm_global": 0.005997001499250375,
+      "reject_holm_global": true
+    },
+    {
+      "backbone": "paraformer",
+      "condition": "musan5db",
+      "score": "s1",
+      "p_value": 0.0004997501249375312,
+      "excess_aurc": 0.02636628422121367,
+      "n": 7172,
+      "non_null_frac": 0.9994425863991081,
+      "p_holm_global": 0.005997001499250375,
+      "reject_holm_global": true
+    },
+    {
+      "backbone": "paraformer",
+      "condition": "musan5db",
+      "score": "s2",
+      "p_value": 0.0004997501249375312,
+      "excess_aurc": 0.027534702602824555,
+      "n": 7172,
+      "non_null_frac": 0.9994425863991081,
+      "p_holm_global": 0.005997001499250375,
+      "reject_holm_global": true
+    },
+    {
+      "backbone": "paraformer",
+      "condition": "musan15db",
+      "score": "s1",
+      "p_value": 0.0004997501249375312,
+      "excess_aurc": 0.014433384124656369,
+      "n": 7172,
+      "non_null_frac": 0.9994425863991081,
+      "p_holm_global": 0.005997001499250375,
+      "reject_holm_global": true
+    },
+    {
+      "backbone": "paraformer",
+      "condition": "musan15db",
+      "score": "s2",
+      "p_value": 0.0004997501249375312,
+      "excess_aurc": 0.016148644991710023,
+      "n": 7172,
+      "non_null_frac": 0.9994425863991081,
+      "p_holm_global": 0.005997001499250375,
+      "reject_holm_global": true
+    },
+    {
+      "backbone": "paraformer",
+      "condition": "musan25db",
+      "score": "s1",
+      "p_value": 0.0004997501249375312,
+      "excess_aurc": 0.012412256173998463,
+      "n": 7173,
+      "non_null_frac": 0.9995819397993311,
+      "p_holm_global": 0.005997001499250375,
+      "reject_holm_global": true
+    },
+    {
+      "backbone": "paraformer",
+      "condition": "musan25db",
+      "score": "s2",
+      "p_value": 0.0004997501249375312,
+      "excess_aurc": 0.014150944319387954,
+      "n": 7173,
+      "non_null_frac": 0.9995819397993311,
+      "p_holm_global": 0.005997001499250375,
+      "reject_holm_global": true
+    },
+    {
+      "backbone": "whisper",
+      "condition": "aishell_clean",
+      "score": "s1",
+      "p_value": 0.0004997501249375312,
+      "excess_aurc": 0.05134090453383541,
+      "n": 7171,
+      "non_null_frac": 0.9993032329988851,
+      "p_holm_global": 0.005997001499250375,
+      "reject_holm_global": true
+    },
+    {
+      "backbone": "whisper",
+      "condition": "aishell_clean",
+      "score": "s2",
+      "p_value": 0.0004997501249375312,
+      "excess_aurc": 0.0136973843488562,
+      "n": 7171,
+      "non_null_frac": 0.9993032329988851,
+      "p_holm_global": 0.005997001499250375,
+      "reject_holm_global": true
+    },
+    {
+      "backbone": "whisper",
+      "condition": "thchs30_crosscorpus",
+      "score": "s1",
+      "p_value": 0.0004997501249375312,
+      "excess_aurc": 0.03220978646632683,
+      "n": 2495,
+      "non_null_frac": 1.0,
+      "p_holm_global": 0.005997001499250375,
+      "reject_holm_global": true
+    },
+    {
+      "backbone": "whisper",
+      "condition": "thchs30_crosscorpus",
+      "score": "s2",
+      "p_value": 0.0004997501249375312,
+      "excess_aurc": 0.02479552504672468,
+      "n": 2495,
+      "non_null_frac": 1.0,
+      "p_holm_global": 0.005997001499250375,
+      "reject_holm_global": true
+    }
+  ],
+  "_fix_note": "2026-07-12: THCHS-30 cell recomputed on the corrected n=2495 re-decode (was n=1339, tail-truncated). All other cells unchanged; global Holm recomputed over the full m=12 family. THCHS permutation p stays at the floor, so p_holm_global and every reject decision are unchanged."
+}

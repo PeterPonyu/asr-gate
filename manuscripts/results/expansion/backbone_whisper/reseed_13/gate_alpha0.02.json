@@ -1,0 +1,1506 @@
+{
+  "alpha": 0.02,
+  "delta": 0.1,
+  "guarantee": "ltt",
+  "g1_score": "s1",
+  "g2_score": "s1",
+  "strata_axes": [
+    "duration_tercile"
+  ],
+  "duration_edges": [
+    3.8000625,
+    4.984
+  ],
+  "use_gender_stratum": false,
+  "known_genders": [],
+  "min_stratum_n": 200,
+  "strata": {
+    "counts": {
+      "dur0": 1197,
+      "dur1": 1197,
+      "dur2": 1198
+    },
+    "defer_always": {
+      "dur0": false,
+      "dur1": false,
+      "dur2": false
+    },
+    "thresholds": {
+      "dur0": 0.42190114045083194,
+      "dur1": 0.3480431387255177,
+      "dur2": 0.3076762890307193
+    }
+  },
+  "temperature": 0.0010062237596267665,
+  "g2_map": {
+    "slope": -0.6535828052569843,
+    "intercept": 0.20269355901433084
+  },
+  "g1": {
+    "lambda_star": null,
+    "accepted_fraction": 0.0,
+    "certified": false,
+    "alpha": 0.02,
+    "delta": 0.1,
+    "n": 3592,
+    "procedure": "bonferroni",
+    "p_value": "eb",
+    "K": 200,
+    "trace": [
+      {
+        "lambda": -1.7828934315475635,
+        "p_value": 1.0,
+        "accepted_fraction": 1.0,
+        "empirical_risk": 0.27068141449356287,
+        "rejected": false
+      },
+      {
+        "lambda": -0.5307655815122518,
+        "p_value": 1.0,
+        "accepted_fraction": 0.9952672605790646,
+        "empirical_risk": 0.26932794886591727,
+        "rejected": false
+      },
+      {
+        "lambda": -0.4523993780080442,
+        "p_value": 1.0,
+        "accepted_fraction": 0.9908129175946548,
+        "empirical_risk": 0.2680929270696725,
+        "rejected": false
+      },
+      {
+        "lambda": -0.40216101411366223,
+        "p_value": 1.0,
+        "accepted_fraction": 0.986358574610245,
+        "empirical_risk": 0.2669412904170758,
+        "rejected": false
+      },
+      {
+        "lambda": -0.36505878325529784,
+        "p_value": 1.0,
+        "accepted_fraction": 0.9819042316258352,
+        "empirical_risk": 0.26580011156838707,
+        "rejected": false
+      },
+      {
+        "lambda": -0.34478504032010754,
+        "p_value": 1.0,
+        "accepted_fraction": 0.9771714922048997,
+        "empirical_risk": 0.26497786310623633,
+        "rejected": false
+      },
+      {
+        "lambda": -0.3239681961398244,
+        "p_value": 1.0,
+        "accepted_fraction": 0.97271714922049,
+        "empirical_risk": 0.26418998054103665,
+        "rejected": false
+      },
+      {
+        "lambda": -0.3074931192088767,
+        "p_value": 1.0,
+        "accepted_fraction": 0.9682628062360802,
+        "empirical_risk": 0.263192675814577,
+        "rejected": false
+      },
+      {
+        "lambda": -0.2977392143630855,
+        "p_value": 1.0,
+        "accepted_fraction": 0.9638084632516704,
+        "empirical_risk": 0.26236726408498984,
+        "rejected": false
+      },
+      {
+        "lambda": -0.2867481461420957,
+        "p_value": 1.0,
+        "accepted_fraction": 0.9590757238307349,
+        "empirical_risk": 0.2614413203676308,
+        "rejected": false
+      },
+      {
+        "lambda": -0.2788862285248815,
+        "p_value": 1.0,
+        "accepted_fraction": 0.9546213808463252,
+        "empirical_risk": 0.26069976114521326,
+        "rejected": false
+      },
+      {
+        "lambda": -0.26818795397452344,
+        "p_value": 1.0,
+        "accepted_fraction": 0.9501670378619154,
+        "empirical_risk": 0.25989258067105386,
+        "rejected": false
+      },
+      {
+        "lambda": -0.26254607307578093,
+        "p_value": 1.0,
+        "accepted_fraction": 0.9457126948775055,
+        "empirical_risk": 0.2594156467013624,
+        "rejected": false
+      },
+      {
+        "lambda": -0.25529325278081816,
+        "p_value": 1.0,
+        "accepted_fraction": 0.9409799554565702,
+        "empirical_risk": 0.2590024259683639,
+        "rejected": false
+      },
+      {
+        "lambda": -0.25086559810653886,
+        "p_value": 1.0,
+        "accepted_fraction": 0.9365256124721604,
+        "empirical_risk": 0.25817320154266354,
+        "rejected": false
+      },
+      {
+        "lambda": -0.24432130523308002,
+        "p_value": 1.0,
+        "accepted_fraction": 0.9320712694877505,
+        "empirical_risk": 0.25766061900914655,
+        "rejected": false
+      },
+      {
+        "lambda": -0.2394460910488745,
+        "p_value": 1.0,
+        "accepted_fraction": 0.9276169265033407,
+        "empirical_risk": 0.25746833409905734,
+        "rejected": false
+      },
+      {
+        "lambda": -0.23411127652340527,
+        "p_value": 1.0,
+        "accepted_fraction": 0.9228841870824054,
+        "empirical_risk": 0.2570691655709966,
+        "rejected": false
+      },
+      {
+        "lambda": -0.22921849081422874,
+        "p_value": 1.0,
+        "accepted_fraction": 0.9184298440979956,
+        "empirical_risk": 0.2567182169034903,
+        "rejected": false
+      },
+      {
+        "lambda": -0.22563952587139458,
+        "p_value": 1.0,
+        "accepted_fraction": 0.9139755011135857,
+        "empirical_risk": 0.25604512695665077,
+        "rejected": false
+      },
+      {
+        "lambda": -0.22201765309592947,
+        "p_value": 1.0,
+        "accepted_fraction": 0.909521158129176,
+        "empirical_risk": 0.2557799225494177,
+        "rejected": false
+      },
+      {
+        "lambda": -0.21819136981709256,
+        "p_value": 1.0,
+        "accepted_fraction": 0.9047884187082406,
+        "empirical_risk": 0.25499250142279084,
+        "rejected": false
+      },
+      {
+        "lambda": -0.21449966103285456,
+        "p_value": 1.0,
+        "accepted_fraction": 0.9003340757238307,
+        "empirical_risk": 0.25460202553218836,
+        "rejected": false
+      },
+      {
+        "lambda": -0.20956289406461565,
+        "p_value": 1.0,
+        "accepted_fraction": 0.8958797327394209,
+        "empirical_risk": 0.2542237935580447,
+        "rejected": false
+      },
+      {
+        "lambda": -0.20685376183762239,
+        "p_value": 1.0,
+        "accepted_fraction": 0.8914253897550112,
+        "empirical_risk": 0.25379199862216606,
+        "rejected": false
+      },
+      {
+        "lambda": -0.20312757432665696,
+        "p_value": 1.0,
+        "accepted_fraction": 0.8866926503340757,
+        "empirical_risk": 0.2532475337015984,
+        "rejected": false
+      },
+      {
+        "lambda": -0.20058886923182917,
+        "p_value": 1.0,
+        "accepted_fraction": 0.8822383073496659,
+        "empirical_risk": 0.25291980222525584,
+        "rejected": false
+      },
+      {
+        "lambda": -0.19747186128273778,
+        "p_value": 1.0,
+        "accepted_fraction": 0.8777839643652561,
+        "empirical_risk": 0.2523399140324702,
+        "rejected": false
+      },
+      {
+        "lambda": -0.1939268445913341,
+        "p_value": 1.0,
+        "accepted_fraction": 0.8733296213808464,
+        "empirical_risk": 0.25213571901621934,
+        "rejected": false
+      },
+      {
+        "lambda": -0.19064331788745328,
+        "p_value": 1.0,
+        "accepted_fraction": 0.8688752783964365,
+        "empirical_risk": 0.2516863344295672,
+        "rejected": false
+      },
+      {
+        "lambda": -0.18765423221143396,
+        "p_value": 1.0,
+        "accepted_fraction": 0.8641425389755011,
+        "empirical_risk": 0.25103590386843383,
+        "rejected": false
+      },
+      {
+        "lambda": -0.1835774548492938,
+        "p_value": 1.0,
+        "accepted_fraction": 0.8596881959910914,
+        "empirical_risk": 0.25042580919236374,
+        "rejected": false
+      },
+      {
+        "lambda": -0.18204648616705651,
+        "p_value": 1.0,
+        "accepted_fraction": 0.8552338530066815,
+        "empirical_risk": 0.24971378425363275,
+        "rejected": false
+      },
+      {
+        "lambda": -0.17950076084732325,
+        "p_value": 1.0,
+        "accepted_fraction": 0.8507795100222717,
+        "empirical_risk": 0.24921352370120553,
+        "rejected": false
+      },
+      {
+        "lambda": -0.17686252731316504,
+        "p_value": 1.0,
+        "accepted_fraction": 0.8460467706013363,
+        "empirical_risk": 0.2487491677140758,
+        "rejected": false
+      },
+      {
+        "lambda": -0.17473391686116427,
+        "p_value": 1.0,
+        "accepted_fraction": 0.8415924276169265,
+        "empirical_risk": 0.2486296800084048,
+        "rejected": false
+      },
+      {
+        "lambda": -0.17205973951113349,
+        "p_value": 1.0,
+        "accepted_fraction": 0.8371380846325167,
+        "empirical_risk": 0.24805654501382204,
+        "rejected": false
+      },
+      {
+        "lambda": -0.16935925198365523,
+        "p_value": 1.0,
+        "accepted_fraction": 0.8326837416481069,
+        "empirical_risk": 0.24760143927094921,
+        "rejected": false
+      },
+      {
+        "lambda": -0.16660592864492113,
+        "p_value": 1.0,
+        "accepted_fraction": 0.8279510022271714,
+        "empirical_risk": 0.24727653172794542,
+        "rejected": false
+      },
+      {
+        "lambda": -0.16536895023191223,
+        "p_value": 1.0,
+        "accepted_fraction": 0.8234966592427617,
+        "empirical_risk": 0.24686464215354284,
+        "rejected": false
+      },
+      {
+        "lambda": -0.1634942965378972,
+        "p_value": 1.0,
+        "accepted_fraction": 0.8190423162583519,
+        "empirical_risk": 0.24606876103452385,
+        "rejected": false
+      },
+      {
+        "lambda": -0.1622394184875272,
+        "p_value": 1.0,
+        "accepted_fraction": 0.8145879732739421,
+        "empirical_risk": 0.24586583532389214,
+        "rejected": false
+      },
+      {
+        "lambda": -0.16100843635008139,
+        "p_value": 1.0,
+        "accepted_fraction": 0.8098552338530067,
+        "empirical_risk": 0.24524001184133357,
+        "rejected": false
+      },
+      {
+        "lambda": -0.15911927744639684,
+        "p_value": 1.0,
+        "accepted_fraction": 0.8054008908685969,
+        "empirical_risk": 0.24477177889341625,
+        "rejected": false
+      },
+      {
+        "lambda": -0.1573025817108397,
+        "p_value": 1.0,
+        "accepted_fraction": 0.8009465478841871,
+        "empirical_risk": 0.24428294368004838,
+        "rejected": false
+      },
+      {
+        "lambda": -0.156024439739962,
+        "p_value": 1.0,
+        "accepted_fraction": 0.7964922048997772,
+        "empirical_risk": 0.24377238664741993,
+        "rejected": false
+      },
+      {
+        "lambda": -0.15428657638443946,
+        "p_value": 1.0,
+        "accepted_fraction": 0.7917594654788419,
+        "empirical_risk": 0.2432883150253317,
+        "rejected": false
+      },
+      {
+        "lambda": -0.15242929339614997,
+        "p_value": 1.0,
+        "accepted_fraction": 0.7873051224944321,
+        "empirical_risk": 0.24282121625034478,
+        "rejected": false
+      },
+      {
+        "lambda": -0.15158440421149516,
+        "p_value": 1.0,
+        "accepted_fraction": 0.7828507795100222,
+        "empirical_risk": 0.24231064784399825,
+        "rejected": false
+      },
+      {
+        "lambda": -0.14974996171001642,
+        "p_value": 1.0,
+        "accepted_fraction": 0.7783964365256125,
+        "empirical_risk": 0.2419252078614051,
+        "rejected": false
+      },
+      {
+        "lambda": -0.14798137951071463,
+        "p_value": 1.0,
+        "accepted_fraction": 0.7736636971046771,
+        "empirical_risk": 0.24140245368549834,
+        "rejected": false
+      },
+      {
+        "lambda": -0.14639010830041632,
+        "p_value": 1.0,
+        "accepted_fraction": 0.7692093541202673,
+        "empirical_risk": 0.24069724784540947,
+        "rejected": false
+      },
+      {
+        "lambda": -0.1452064299022443,
+        "p_value": 1.0,
+        "accepted_fraction": 0.7647550111358574,
+        "empirical_risk": 0.23999706645116578,
+        "rejected": false
+      },
+      {
+        "lambda": -0.14418623555681845,
+        "p_value": 1.0,
+        "accepted_fraction": 0.7603006681514477,
+        "empirical_risk": 0.23966000419475736,
+        "rejected": false
+      },
+      {
+        "lambda": -0.14228551144735407,
+        "p_value": 1.0,
+        "accepted_fraction": 0.7558463251670379,
+        "empirical_risk": 0.2392957183671193,
+        "rejected": false
+      },
+      {
+        "lambda": -0.1408837888945634,
+        "p_value": 1.0,
+        "accepted_fraction": 0.7511135857461024,
+        "empirical_risk": 0.23894161592160534,
+        "rejected": false
+      },
+      {
+        "lambda": -0.13949777610706915,
+        "p_value": 1.0,
+        "accepted_fraction": 0.7466592427616926,
+        "empirical_risk": 0.23830897856975242,
+        "rejected": false
+      },
+      {
+        "lambda": -0.13838836702065307,
+        "p_value": 1.0,
+        "accepted_fraction": 0.7422048997772829,
+        "empirical_risk": 0.2376768244878593,
+        "rejected": false
+      },
+      {
+        "lambda": -0.1371152291063676,
+        "p_value": 1.0,
+        "accepted_fraction": 0.737750556792873,
+        "empirical_risk": 0.23760696145663157,
+        "rejected": false
+      },
+      {
+        "lambda": -0.13563289086964964,
+        "p_value": 1.0,
+        "accepted_fraction": 0.7330178173719376,
+        "empirical_risk": 0.2366909515426089,
+        "rejected": false
+      },
+      {
+        "lambda": -0.1344122525357431,
+        "p_value": 1.0,
+        "accepted_fraction": 0.7285634743875279,
+        "empirical_risk": 0.2363044945545832,
+        "rejected": false
+      },
+      {
+        "lambda": -0.1333341537228363,
+        "p_value": 1.0,
+        "accepted_fraction": 0.7241091314031181,
+        "empirical_risk": 0.2355600037752986,
+        "rejected": false
+      },
+      {
+        "lambda": -0.1318963193261576,
+        "p_value": 1.0,
+        "accepted_fraction": 0.7196547884187082,
+        "empirical_risk": 0.2350686694124672,
+        "rejected": false
+      },
+      {
+        "lambda": -0.1305040841597288,
+        "p_value": 1.0,
+        "accepted_fraction": 0.7149220489977728,
+        "empirical_risk": 0.2346382537345324,
+        "rejected": false
+      },
+      {
+        "lambda": -0.1293876268854803,
+        "p_value": 1.0,
+        "accepted_fraction": 0.7104677060133631,
+        "empirical_risk": 0.23419591111642957,
+        "rejected": false
+      },
+      {
+        "lambda": -0.12793764281130987,
+        "p_value": 1.0,
+        "accepted_fraction": 0.7060133630289532,
+        "empirical_risk": 0.23414682105086804,
+        "rejected": false
+      },
+      {
+        "lambda": -0.12664876710343873,
+        "p_value": 1.0,
+        "accepted_fraction": 0.7015590200445434,
+        "empirical_risk": 0.23385562909291124,
+        "rejected": false
+      },
+      {
+        "lambda": -0.12579808896841924,
+        "p_value": 1.0,
+        "accepted_fraction": 0.696826280623608,
+        "empirical_risk": 0.23332224177235017,
+        "rejected": false
+      },
+      {
+        "lambda": -0.12438790708156137,
+        "p_value": 1.0,
+        "accepted_fraction": 0.6923719376391982,
+        "empirical_risk": 0.23294507540009932,
+        "rejected": false
+      },
+      {
+        "lambda": -0.12283399856156614,
+        "p_value": 1.0,
+        "accepted_fraction": 0.6879175946547884,
+        "empirical_risk": 0.23257542273899912,
+        "rejected": false
+      },
+      {
+        "lambda": -0.12148207542170432,
+        "p_value": 1.0,
+        "accepted_fraction": 0.6834632516703786,
+        "empirical_risk": 0.23228620875024017,
+        "rejected": false
+      },
+      {
+        "lambda": -0.12053414282918137,
+        "p_value": 1.0,
+        "accepted_fraction": 0.6787305122494433,
+        "empirical_risk": 0.23162684926428956,
+        "rejected": false
+      },
+      {
+        "lambda": -0.11884254593219225,
+        "p_value": 1.0,
+        "accepted_fraction": 0.6742761692650334,
+        "empirical_risk": 0.23112542997182214,
+        "rejected": false
+      },
+      {
+        "lambda": -0.11820801931105372,
+        "p_value": 1.0,
+        "accepted_fraction": 0.6698218262806236,
+        "empirical_risk": 0.23064929829058362,
+        "rejected": false
+      },
+      {
+        "lambda": -0.11694692616159609,
+        "p_value": 1.0,
+        "accepted_fraction": 0.6653674832962138,
+        "empirical_risk": 0.2300600045000201,
+        "rejected": false
+      },
+      {
+        "lambda": -0.11550129463180157,
+        "p_value": 1.0,
+        "accepted_fraction": 0.6606347438752784,
+        "empirical_risk": 0.229734180907871,
+        "rejected": false
+      },
+      {
+        "lambda": -0.11489682154980783,
+        "p_value": 1.0,
+        "accepted_fraction": 0.6561804008908686,
+        "empirical_risk": 0.22901439977291213,
+        "rejected": false
+      },
+      {
+        "lambda": -0.11367768710493825,
+        "p_value": 1.0,
+        "accepted_fraction": 0.6517260579064588,
+        "empirical_risk": 0.2288302489544633,
+        "rejected": false
+      },
+      {
+        "lambda": -0.11309129879693701,
+        "p_value": 1.0,
+        "accepted_fraction": 0.647271714922049,
+        "empirical_risk": 0.22818649458076046,
+        "rejected": false
+      },
+      {
+        "lambda": -0.11209760329623536,
+        "p_value": 1.0,
+        "accepted_fraction": 0.6425389755011136,
+        "empirical_risk": 0.22797672919712272,
+        "rejected": false
+      },
+      {
+        "lambda": -0.11100252999579721,
+        "p_value": 1.0,
+        "accepted_fraction": 0.6380846325167038,
+        "empirical_risk": 0.2275396353089221,
+        "rejected": false
+      },
+      {
+        "lambda": -0.10975210412340697,
+        "p_value": 1.0,
+        "accepted_fraction": 0.6336302895322939,
+        "empirical_risk": 0.2272164934842074,
+        "rejected": false
+      },
+      {
+        "lambda": -0.10867615906386184,
+        "p_value": 1.0,
+        "accepted_fraction": 0.6291759465478842,
+        "empirical_risk": 0.22680826748027538,
+        "rejected": false
+      },
+      {
+        "lambda": -0.10795346891668291,
+        "p_value": 1.0,
+        "accepted_fraction": 0.6247216035634744,
+        "empirical_risk": 0.22662245487278365,
+        "rejected": false
+      },
+      {
+        "lambda": -0.10734943029998643,
+        "p_value": 1.0,
+        "accepted_fraction": 0.619988864142539,
+        "empirical_risk": 0.22617186402662887,
+        "rejected": false
+      },
+      {
+        "lambda": -0.1064004249017191,
+        "p_value": 1.0,
+        "accepted_fraction": 0.6155345211581291,
+        "empirical_risk": 0.22575522944551024,
+        "rejected": false
+      },
+      {
+        "lambda": -0.10577415947432132,
+        "p_value": 1.0,
+        "accepted_fraction": 0.6110801781737194,
+        "empirical_risk": 0.22578420068707641,
+        "rejected": false
+      },
+      {
+        "lambda": -0.10491277941211223,
+        "p_value": 1.0,
+        "accepted_fraction": 0.6066258351893096,
+        "empirical_risk": 0.22549634043923802,
+        "rejected": false
+      },
+      {
+        "lambda": -0.10426486005229951,
+        "p_value": 1.0,
+        "accepted_fraction": 0.6018930957683741,
+        "empirical_risk": 0.22523558787039646,
+        "rejected": false
+      },
+      {
+        "lambda": -0.10330728502405069,
+        "p_value": 1.0,
+        "accepted_fraction": 0.5974387527839644,
+        "empirical_risk": 0.22463185960878315,
+        "rejected": false
+      },
+      {
+        "lambda": -0.10258176138362632,
+        "p_value": 1.0,
+        "accepted_fraction": 0.5929844097995546,
+        "empirical_risk": 0.22427589766658557,
+        "rejected": false
+      },
+      {
+        "lambda": -0.10171117507385134,
+        "p_value": 1.0,
+        "accepted_fraction": 0.5885300668151447,
+        "empirical_risk": 0.22360102088224404,
+        "rejected": false
+      },
+      {
+        "lambda": -0.10078654663224626,
+        "p_value": 1.0,
+        "accepted_fraction": 0.5837973273942093,
+        "empirical_risk": 0.22316351409654295,
+        "rejected": false
+      },
+      {
+        "lambda": -0.09977059765291633,
+        "p_value": 1.0,
+        "accepted_fraction": 0.5793429844097996,
+        "empirical_risk": 0.22311392765703608,
+        "rejected": false
+      },
+      {
+        "lambda": -0.09876016626556182,
+        "p_value": 1.0,
+        "accepted_fraction": 0.5748886414253898,
+        "empirical_risk": 0.22292465374834342,
+        "rejected": false
+      },
+      {
+        "lambda": -0.09794435046870154,
+        "p_value": 1.0,
+        "accepted_fraction": 0.5704342984409799,
+        "empirical_risk": 0.22273616946544594,
+        "rejected": false
+      },
+      {
+        "lambda": -0.0974619532444414,
+        "p_value": 1.0,
+        "accepted_fraction": 0.5657015590200446,
+        "empirical_risk": 0.2227683865049816,
+        "rejected": false
+      },
+      {
+        "lambda": -0.09665418919945494,
+        "p_value": 1.0,
+        "accepted_fraction": 0.5612472160356348,
+        "empirical_risk": 0.22237539470315323,
+        "rejected": false
+      },
+      {
+        "lambda": -0.0956821429427351,
+        "p_value": 1.0,
+        "accepted_fraction": 0.5567928730512249,
+        "empirical_risk": 0.22184504522511006,
+        "rejected": false
+      },
+      {
+        "lambda": -0.09486063646421353,
+        "p_value": 1.0,
+        "accepted_fraction": 0.5523385300668151,
+        "empirical_risk": 0.2217474568149111,
+        "rejected": false
+      },
+      {
+        "lambda": -0.09381763621311429,
+        "p_value": 1.0,
+        "accepted_fraction": 0.5476057906458798,
+        "empirical_risk": 0.22148419610553624,
+        "rejected": false
+      },
+      {
+        "lambda": -0.09308365909809219,
+        "p_value": 1.0,
+        "accepted_fraction": 0.5431514476614699,
+        "empirical_risk": 0.22173009962398255,
+        "rejected": false
+      },
+      {
+        "lambda": -0.09234541677369633,
+        "p_value": 1.0,
+        "accepted_fraction": 0.5386971046770601,
+        "empirical_risk": 0.22100849068340828,
+        "rejected": false
+      },
+      {
+        "lambda": -0.09155755766353948,
+        "p_value": 1.0,
+        "accepted_fraction": 0.5342427616926503,
+        "empirical_risk": 0.2206593119603667,
+        "rejected": false
+      },
+      {
+        "lambda": -0.09064664424709903,
+        "p_value": 1.0,
+        "accepted_fraction": 0.529510022271715,
+        "empirical_risk": 0.22046066095170244,
+        "rejected": false
+      },
+      {
+        "lambda": -0.08975357477317983,
+        "p_value": 1.0,
+        "accepted_fraction": 0.5250556792873051,
+        "empirical_risk": 0.2201391677169026,
+        "rejected": false
+      },
+      {
+        "lambda": -0.08900918957325663,
+        "p_value": 1.0,
+        "accepted_fraction": 0.5206013363028953,
+        "empirical_risk": 0.21991413959787312,
+        "rejected": false
+      },
+      {
+        "lambda": -0.08850601866958492,
+        "p_value": 1.0,
+        "accepted_fraction": 0.5161469933184856,
+        "empirical_risk": 0.2196617655153828,
+        "rejected": false
+      },
+      {
+        "lambda": -0.08784942734234287,
+        "p_value": 1.0,
+        "accepted_fraction": 0.5116926503340757,
+        "empirical_risk": 0.21928566177042086,
+        "rejected": false
+      },
+      {
+        "lambda": -0.08714389035375197,
+        "p_value": 1.0,
+        "accepted_fraction": 0.5069599109131403,
+        "empirical_risk": 0.21864113313151598,
+        "rejected": false
+      },
+      {
+        "lambda": -0.08660587635564845,
+        "p_value": 1.0,
+        "accepted_fraction": 0.5025055679287305,
+        "empirical_risk": 0.21814362411327648,
+        "rejected": false
+      },
+      {
+        "lambda": -0.0860131399595113,
+        "p_value": 1.0,
+        "accepted_fraction": 0.4980512249443207,
+        "empirical_risk": 0.21800802944610798,
+        "rejected": false
+      },
+      {
+        "lambda": -0.08512015021345198,
+        "p_value": 1.0,
+        "accepted_fraction": 0.4935968819599109,
+        "empirical_risk": 0.21799704664502723,
+        "rejected": false
+      },
+      {
+        "lambda": -0.08443051662124516,
+        "p_value": 1.0,
+        "accepted_fraction": 0.4888641425389755,
+        "empirical_risk": 0.21760810336839692,
+        "rejected": false
+      },
+      {
+        "lambda": -0.08361939776096453,
+        "p_value": 1.0,
+        "accepted_fraction": 0.4844097995545657,
+        "empirical_risk": 0.21756665778543893,
+        "rejected": false
+      },
+      {
+        "lambda": -0.08296890015369593,
+        "p_value": 1.0,
+        "accepted_fraction": 0.4799554565701559,
+        "empirical_risk": 0.21702174350774764,
+        "rejected": false
+      },
+      {
+        "lambda": -0.08224467758774355,
+        "p_value": 1.0,
+        "accepted_fraction": 0.4755011135857461,
+        "empirical_risk": 0.21675880600137398,
+        "rejected": false
+      },
+      {
+        "lambda": -0.08152824820798962,
+        "p_value": 1.0,
+        "accepted_fraction": 0.4707683741648107,
+        "empirical_risk": 0.21613889108341047,
+        "rejected": false
+      },
+      {
+        "lambda": -0.08104239272746319,
+        "p_value": 1.0,
+        "accepted_fraction": 0.4663140311804009,
+        "empirical_risk": 0.2153269890097844,
+        "rejected": false
+      },
+      {
+        "lambda": -0.08060985105425862,
+        "p_value": 1.0,
+        "accepted_fraction": 0.4618596881959911,
+        "empirical_risk": 0.21522458377364168,
+        "rejected": false
+      },
+      {
+        "lambda": -0.08016681175608091,
+        "p_value": 1.0,
+        "accepted_fraction": 0.45740534521158127,
+        "empirical_risk": 0.21506683821724742,
+        "rejected": false
+      },
+      {
+        "lambda": -0.07938980658099627,
+        "p_value": 1.0,
+        "accepted_fraction": 0.4526726057906459,
+        "empirical_risk": 0.2146255708486527,
+        "rejected": false
+      },
+      {
+        "lambda": -0.07888054355629681,
+        "p_value": 1.0,
+        "accepted_fraction": 0.44821826280623606,
+        "empirical_risk": 0.21470017969628596,
+        "rejected": false
+      },
+      {
+        "lambda": -0.07830043853956735,
+        "p_value": 1.0,
+        "accepted_fraction": 0.4437639198218263,
+        "empirical_risk": 0.21452851451966798,
+        "rejected": false
+      },
+      {
+        "lambda": -0.07766988674390393,
+        "p_value": 1.0,
+        "accepted_fraction": 0.4393095768374165,
+        "empirical_risk": 0.21416995352797077,
+        "rejected": false
+      },
+      {
+        "lambda": -0.07718613794704753,
+        "p_value": 1.0,
+        "accepted_fraction": 0.43457683741648107,
+        "empirical_risk": 0.21320807675744086,
+        "rejected": false
+      },
+      {
+        "lambda": -0.07668124495807555,
+        "p_value": 1.0,
+        "accepted_fraction": 0.4301224944320713,
+        "empirical_risk": 0.21314004497051284,
+        "rejected": false
+      },
+      {
+        "lambda": -0.07599948715482378,
+        "p_value": 1.0,
+        "accepted_fraction": 0.42566815144766146,
+        "empirical_risk": 0.21309739942862327,
+        "rejected": false
+      },
+      {
+        "lambda": -0.07539125256006249,
+        "p_value": 1.0,
+        "accepted_fraction": 0.4212138084632517,
+        "empirical_risk": 0.21287843323368774,
+        "rejected": false
+      },
+      {
+        "lambda": -0.0748235197014227,
+        "p_value": 1.0,
+        "accepted_fraction": 0.41648106904231624,
+        "empirical_risk": 0.21272644166223129,
+        "rejected": false
+      },
+      {
+        "lambda": -0.07443429618238888,
+        "p_value": 1.0,
+        "accepted_fraction": 0.41202672605790647,
+        "empirical_risk": 0.2124882244675934,
+        "rejected": false
+      },
+      {
+        "lambda": -0.07381922133835134,
+        "p_value": 1.0,
+        "accepted_fraction": 0.40757238307349664,
+        "empirical_risk": 0.21255756417291793,
+        "rejected": false
+      },
+      {
+        "lambda": -0.07328665155356995,
+        "p_value": 1.0,
+        "accepted_fraction": 0.40311804008908686,
+        "empirical_risk": 0.21186076784971722,
+        "rejected": false
+      },
+      {
+        "lambda": -0.07270094716497956,
+        "p_value": 1.0,
+        "accepted_fraction": 0.3983853006681514,
+        "empirical_risk": 0.21223075319445514,
+        "rejected": false
+      },
+      {
+        "lambda": -0.07227373342844651,
+        "p_value": 1.0,
+        "accepted_fraction": 0.39393095768374164,
+        "empirical_risk": 0.2124041064437099,
+        "rejected": false
+      },
+      {
+        "lambda": -0.07169141227805421,
+        "p_value": 1.0,
+        "accepted_fraction": 0.38947661469933187,
+        "empirical_risk": 0.2119348614102288,
+        "rejected": false
+      },
+      {
+        "lambda": -0.07120748905216111,
+        "p_value": 1.0,
+        "accepted_fraction": 0.38502227171492204,
+        "empirical_risk": 0.21155597530582268,
+        "rejected": false
+      },
+      {
+        "lambda": -0.07071069374379517,
+        "p_value": 1.0,
+        "accepted_fraction": 0.38056792873051226,
+        "empirical_risk": 0.2107380477651428,
+        "rejected": false
+      },
+      {
+        "lambda": -0.06999843579945599,
+        "p_value": 1.0,
+        "accepted_fraction": 0.3758351893095768,
+        "empirical_risk": 0.2109336658280889,
+        "rejected": false
+      },
+      {
+        "lambda": -0.06947183848893469,
+        "p_value": 1.0,
+        "accepted_fraction": 0.37138084632516705,
+        "empirical_risk": 0.2107262482418346,
+        "rejected": false
+      },
+      {
+        "lambda": -0.06875878979390984,
+        "p_value": 1.0,
+        "accepted_fraction": 0.3669265033407572,
+        "empirical_risk": 0.21058902670516547,
+        "rejected": false
+      },
+      {
+        "lambda": -0.06849736670568575,
+        "p_value": 1.0,
+        "accepted_fraction": 0.36247216035634744,
+        "empirical_risk": 0.21074560516135493,
+        "rejected": false
+      },
+      {
+        "lambda": -0.06785687098604704,
+        "p_value": 1.0,
+        "accepted_fraction": 0.357739420935412,
+        "empirical_risk": 0.2099230064192922,
+        "rejected": false
+      },
+      {
+        "lambda": -0.06708847766583624,
+        "p_value": 1.0,
+        "accepted_fraction": 0.3532850779510022,
+        "empirical_risk": 0.21034011380671777,
+        "rejected": false
+      },
+      {
+        "lambda": -0.06645448764019911,
+        "p_value": 1.0,
+        "accepted_fraction": 0.34883073496659245,
+        "empirical_risk": 0.21067214742206747,
+        "rejected": false
+      },
+      {
+        "lambda": -0.0660643062854937,
+        "p_value": 1.0,
+        "accepted_fraction": 0.3443763919821826,
+        "empirical_risk": 0.2103021071813001,
+        "rejected": false
+      },
+      {
+        "lambda": -0.06550041846222533,
+        "p_value": 1.0,
+        "accepted_fraction": 0.33964365256124723,
+        "empirical_risk": 0.21004744458781507,
+        "rejected": false
+      },
+      {
+        "lambda": -0.06511424163316018,
+        "p_value": 1.0,
+        "accepted_fraction": 0.3351893095768374,
+        "empirical_risk": 0.2099697344936149,
+        "rejected": false
+      },
+      {
+        "lambda": -0.0646084919612153,
+        "p_value": 1.0,
+        "accepted_fraction": 0.3307349665924276,
+        "empirical_risk": 0.20979888753953385,
+        "rejected": false
+      },
+      {
+        "lambda": -0.06395023413841493,
+        "p_value": 1.0,
+        "accepted_fraction": 0.3262806236080178,
+        "empirical_risk": 0.20964406519882925,
+        "rejected": false
+      },
+      {
+        "lambda": -0.06322584462460652,
+        "p_value": 1.0,
+        "accepted_fraction": 0.3215478841870824,
+        "empirical_risk": 0.2094527214944616,
+        "rejected": false
+      },
+      {
+        "lambda": -0.062497003471078304,
+        "p_value": 1.0,
+        "accepted_fraction": 0.3170935412026726,
+        "empirical_risk": 0.20892868924152616,
+        "rejected": false
+      },
+      {
+        "lambda": -0.06216163097741713,
+        "p_value": 1.0,
+        "accepted_fraction": 0.3126391982182628,
+        "empirical_risk": 0.20849886299697984,
+        "rejected": false
+      },
+      {
+        "lambda": -0.061607913997266506,
+        "p_value": 1.0,
+        "accepted_fraction": 0.30818485523385303,
+        "empirical_risk": 0.20826260866798682,
+        "rejected": false
+      },
+      {
+        "lambda": -0.06073408846825805,
+        "p_value": 1.0,
+        "accepted_fraction": 0.3034521158129176,
+        "empirical_risk": 0.20771733536594902,
+        "rejected": false
+      },
+      {
+        "lambda": -0.06018417939157996,
+        "p_value": 1.0,
+        "accepted_fraction": 0.2989977728285078,
+        "empirical_risk": 0.2073782958413846,
+        "rejected": false
+      },
+      {
+        "lambda": -0.05959765014873693,
+        "p_value": 1.0,
+        "accepted_fraction": 0.294543429844098,
+        "empirical_risk": 0.20659113129835216,
+        "rejected": false
+      },
+      {
+        "lambda": -0.059071749743937606,
+        "p_value": 1.0,
+        "accepted_fraction": 0.2900890868596882,
+        "empirical_risk": 0.20648270799007312,
+        "rejected": false
+      },
+      {
+        "lambda": -0.0585763915540851,
+        "p_value": 1.0,
+        "accepted_fraction": 0.28535634743875277,
+        "empirical_risk": 0.2061757545259104,
+        "rejected": false
+      },
+      {
+        "lambda": -0.05815274995356063,
+        "p_value": 1.0,
+        "accepted_fraction": 0.280902004454343,
+        "empirical_risk": 0.20599423776719097,
+        "rejected": false
+      },
+      {
+        "lambda": -0.057655018080502565,
+        "p_value": 1.0,
+        "accepted_fraction": 0.27644766146993316,
+        "empirical_risk": 0.20615694900562992,
+        "rejected": false
+      },
+      {
+        "lambda": -0.05701412822618061,
+        "p_value": 1.0,
+        "accepted_fraction": 0.2719933184855234,
+        "empirical_risk": 0.20561791508965224,
+        "rejected": false
+      },
+      {
+        "lambda": -0.056549301576704444,
+        "p_value": 1.0,
+        "accepted_fraction": 0.2675389755011136,
+        "empirical_risk": 0.20576996269311768,
+        "rejected": false
+      },
+      {
+        "lambda": -0.05604239905377848,
+        "p_value": 1.0,
+        "accepted_fraction": 0.26280623608017817,
+        "empirical_risk": 0.20602647443182087,
+        "rejected": false
+      },
+      {
+        "lambda": -0.055527906324524014,
+        "p_value": 1.0,
+        "accepted_fraction": 0.2583518930957684,
+        "empirical_risk": 0.2058523487224679,
+        "rejected": false
+      },
+      {
+        "lambda": -0.05499719577869016,
+        "p_value": 1.0,
+        "accepted_fraction": 0.25389755011135856,
+        "empirical_risk": 0.20564008431540412,
+        "rejected": false
+      },
+      {
+        "lambda": -0.05458553826143771,
+        "p_value": 1.0,
+        "accepted_fraction": 0.24944320712694878,
+        "empirical_risk": 0.20542192317515048,
+        "rejected": false
+      },
+      {
+        "lambda": -0.05422947161367705,
+        "p_value": 1.0,
+        "accepted_fraction": 0.24471046770601337,
+        "empirical_risk": 0.2041562979455075,
+        "rejected": false
+      },
+      {
+        "lambda": -0.05377971808656003,
+        "p_value": 1.0,
+        "accepted_fraction": 0.24025612472160357,
+        "empirical_risk": 0.2038847365029737,
+        "rejected": false
+      },
+      {
+        "lambda": -0.05328248543592888,
+        "p_value": 1.0,
+        "accepted_fraction": 0.23580178173719377,
+        "empirical_risk": 0.20387739077597292,
+        "rejected": false
+      },
+      {
+        "lambda": -0.052782650940550555,
+        "p_value": 1.0,
+        "accepted_fraction": 0.23134743875278396,
+        "empirical_risk": 0.20340471027690477,
+        "rejected": false
+      },
+      {
+        "lambda": -0.05224859580463137,
+        "p_value": 1.0,
+        "accepted_fraction": 0.22661469933184855,
+        "empirical_risk": 0.20338372420239412,
+        "rejected": false
+      },
+      {
+        "lambda": -0.05174323310608043,
+        "p_value": 1.0,
+        "accepted_fraction": 0.22216035634743875,
+        "empirical_risk": 0.20288377602816626,
+        "rejected": false
+      },
+      {
+        "lambda": -0.05115423183447929,
+        "p_value": 1.0,
+        "accepted_fraction": 0.21770601336302894,
+        "empirical_risk": 0.2034222299153521,
+        "rejected": false
+      },
+      {
+        "lambda": -0.050700044924959956,
+        "p_value": 1.0,
+        "accepted_fraction": 0.21325167037861914,
+        "empirical_risk": 0.20345977649656755,
+        "rejected": false
+      },
+      {
+        "lambda": -0.05005067199600805,
+        "p_value": 1.0,
+        "accepted_fraction": 0.20851893095768373,
+        "empirical_risk": 0.2036240426789211,
+        "rejected": false
+      },
+      {
+        "lambda": -0.04934428094405645,
+        "p_value": 1.0,
+        "accepted_fraction": 0.20406458797327395,
+        "empirical_risk": 0.20386262635967853,
+        "rejected": false
+      },
+      {
+        "lambda": -0.048780313069427116,
+        "p_value": 1.0,
+        "accepted_fraction": 0.19961024498886415,
+        "empirical_risk": 0.20393820041541483,
+        "rejected": false
+      },
+      {
+        "lambda": -0.04828921824465159,
+        "p_value": 1.0,
+        "accepted_fraction": 0.19515590200445435,
+        "empirical_risk": 0.20482079415250765,
+        "rejected": false
+      },
+      {
+        "lambda": -0.04784930803213192,
+        "p_value": 1.0,
+        "accepted_fraction": 0.19042316258351893,
+        "empirical_risk": 0.204872346877996,
+        "rejected": false
+      },
+      {
+        "lambda": -0.047251503588398545,
+        "p_value": 1.0,
+        "accepted_fraction": 0.18596881959910913,
+        "empirical_risk": 0.20514191325021472,
+        "rejected": false
+      },
+      {
+        "lambda": -0.04665930605837295,
+        "p_value": 1.0,
+        "accepted_fraction": 0.18151447661469933,
+        "empirical_risk": 0.20540490083136806,
+        "rejected": false
+      },
+      {
+        "lambda": -0.046211585536754536,
+        "p_value": 1.0,
+        "accepted_fraction": 0.17706013363028952,
+        "empirical_risk": 0.20531351744566245,
+        "rejected": false
+      },
+      {
+        "lambda": -0.04596567232683186,
+        "p_value": 1.0,
+        "accepted_fraction": 0.1723273942093541,
+        "empirical_risk": 0.20606200000969244,
+        "rejected": false
+      },
+      {
+        "lambda": -0.04570321359435673,
+        "p_value": 1.0,
+        "accepted_fraction": 0.1678730512249443,
+        "empirical_risk": 0.20648891220758295,
+        "rejected": false
+      },
+      {
+        "lambda": -0.045185109446711176,
+        "p_value": 1.0,
+        "accepted_fraction": 0.16341870824053453,
+        "empirical_risk": 0.20725106265422394,
+        "rejected": false
+      },
+      {
+        "lambda": -0.04442302059577363,
+        "p_value": 1.0,
+        "accepted_fraction": 0.15896436525612473,
+        "empirical_risk": 0.20904351971502314,
+        "rejected": false
+      },
+      {
+        "lambda": -0.04402650317442628,
+        "p_value": 1.0,
+        "accepted_fraction": 0.15423162583518932,
+        "empirical_risk": 0.20937130434329188,
+        "rejected": false
+      },
+      {
+        "lambda": -0.043576034931356915,
+        "p_value": 1.0,
+        "accepted_fraction": 0.14977728285077951,
+        "empirical_risk": 0.2091115439101948,
+        "rejected": false
+      },
+      {
+        "lambda": -0.04294878137397253,
+        "p_value": 1.0,
+        "accepted_fraction": 0.1453229398663697,
+        "empirical_risk": 0.2098442692511157,
+        "rejected": false
+      },
+      {
+        "lambda": -0.04223506238373877,
+        "p_value": 1.0,
+        "accepted_fraction": 0.1408685968819599,
+        "empirical_risk": 0.21045729805221638,
+        "rejected": false
+      },
+      {
+        "lambda": -0.04173987033895813,
+        "p_value": 1.0,
+        "accepted_fraction": 0.1364142538975501,
+        "empirical_risk": 0.21037325844191176,
+        "rejected": false
+      },
+      {
+        "lambda": -0.04133423062769651,
+        "p_value": 1.0,
+        "accepted_fraction": 0.1316815144766147,
+        "empirical_risk": 0.20946188622694073,
+        "rejected": false
+      },
+      {
+        "lambda": -0.04059576870087672,
+        "p_value": 1.0,
+        "accepted_fraction": 0.1272271714922049,
+        "empirical_risk": 0.2089677228151038,
+        "rejected": false
+      },
+      {
+        "lambda": -0.040101007578290424,
+        "p_value": 1.0,
+        "accepted_fraction": 0.1227728285077951,
+        "empirical_risk": 0.20825749738385502,
+        "rejected": false
+      },
+      {
+        "lambda": -0.039429828198989034,
+        "p_value": 1.0,
+        "accepted_fraction": 0.1183184855233853,
+        "empirical_risk": 0.20761799506099823,
+        "rejected": false
+      },
+      {
+        "lambda": -0.03891780902839265,
+        "p_value": 1.0,
+        "accepted_fraction": 0.11358574610244988,
+        "empirical_risk": 0.20855005968592036,
+        "rejected": false
+      },
+      {
+        "lambda": -0.03813925471244205,
+        "p_value": 1.0,
+        "accepted_fraction": 0.1091314031180401,
+        "empirical_risk": 0.20750380288245376,
+        "rejected": false
+      },
+      {
+        "lambda": -0.037286374932533145,
+        "p_value": 1.0,
+        "accepted_fraction": 0.10467706013363029,
+        "empirical_risk": 0.208790763800138,
+        "rejected": false
+      },
+      {
+        "lambda": -0.036398004695681954,
+        "p_value": 1.0,
+        "accepted_fraction": 0.10022271714922049,
+        "empirical_risk": 0.21044979752963663,
+        "rejected": false
+      }
+    ],
+    "n_dropped_missing_score": 0
+  },
+  "n_fit": 3576,
+  "n_cal": 3592,
+  "excluded_missing_s1": {
+    "fit": [
+      "BAC009S0736W0449"
+    ],
+    "cal": [],
+    "n_fit_excluded": 1,
+    "n_cal_excluded": 0
+  },
+  "fingerprint": {
+    "g1_score_name": "s1",
+    "g1_score_quantiles": [
+      -0.2676755923987241,
+      -0.14030563833456403,
+      -0.08623588190876319,
+      -0.05465207727774348,
+      -0.028283702490386843
+    ],
+    "duration_quantiles": [
+      2.9150625,
+      3.57775,
+      4.316,
+      5.41134375,
+      7.0
+    ],
+    "quantile_probs": [
+      0.05,
+      0.25,
+      0.5,
+      0.75,
+      0.95
+    ]
+  },
+  "normalizer_version": "asr-gate-cer-normalizer-v1",
+  "numeral_policy": "keep",
+  "ood_non_cjk_threshold": 0.2,
+  "ks_warn_distance": 0.15,
+  "input_sha256": {
+    "/root/autodl-tmp/asr_expansion2_results/backbone_whisper/reseed_13/cal20_scored.jsonl": "444eefd8f5ed91a717b3b489d11559717993bb9cb13cb998c1cb6b924d1de117"
+  },
+  "provenance": {
+    "script": "/root/asr-gate/asr_gate/gate.py",
+    "timestamp_utc": "2026-07-09T23:42:30.993825+00:00",
+    "seeds": [
+      13
+    ],
+    "python_version": "3.12.3",
+    "numpy_version": "2.3.2",
+    "platform": "Linux-5.15.0-94-generic-x86_64-with-glibc2.35",
+    "git_sha": null,
+    "git_dirty": null
+  }
+}

@@ -1,0 +1,66 @@
+[
+ {
+  "cell": "wav2vec2L_a0.01_evalclean",
+  "n": 1268,
+  "accept_rate": 0.0,
+  "accepted_mean_cer": null,
+  "alpha": 0.01,
+  "bound_respected": null
+ },
+ {
+  "cell": "wav2vec2L_a0.01_testother",
+  "n": 2939,
+  "accept_rate": 0.0,
+  "accepted_mean_cer": null,
+  "alpha": 0.01,
+  "bound_respected": null
+ },
+ {
+  "cell": "wav2vec2L_a0.02_evalclean",
+  "n": 1268,
+  "accept_rate": 0.0,
+  "accepted_mean_cer": null,
+  "alpha": 0.02,
+  "bound_respected": null
+ },
+ {
+  "cell": "wav2vec2L_a0.02_testother",
+  "n": 2939,
+  "accept_rate": 0.0,
+  "accepted_mean_cer": null,
+  "alpha": 0.02,
+  "bound_respected": null
+ },
+ {
+  "cell": "wav2vec2L_a0.03_evalclean",
+  "n": 1268,
+  "accept_rate": 0.0,
+  "accepted_mean_cer": null,
+  "alpha": 0.03,
+  "bound_respected": null
+ },
+ {
+  "cell": "wav2vec2L_a0.03_testother",
+  "n": 2939,
+  "accept_rate": 0.0,
+  "accepted_mean_cer": null,
+  "alpha": 0.03,
+  "bound_respected": null
+ },
+ {
+  "cell": "wav2vec2L_a0.05_evalclean",
+  "n": 1268,
+  "accept_rate": 1.0,
+  "accepted_mean_cer": 0.0061,
+  "alpha": 0.05,
+  "bound_respected": true
+ },
+ {
+  "cell": "wav2vec2L_a0.05_testother",
+  "n": 2939,
+  "accept_rate": 0.9963,
+  "accepted_mean_cer": 0.01701,
+  "alpha": 0.05,
+  "bound_respected": true
+ }
+]

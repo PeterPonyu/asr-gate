@@ -1,15 +1,34 @@
 # asr-gate
 
+**ASR dual-gate reliability research theme** (public theme repo).
+Contains package code, frozen experiment statistics needed to rebuild the
+manuscript, figure SSOT, and venue kits (canonical + IEEE TASLP).
+
+Frozen bulk decode trees / corpus staging stay local-only (see `.gitignore`);
+public archive: Zenodo DOI [10.5281/zenodo.21392289](https://doi.org/10.5281/zenodo.21392289).
+
+Portfolio layout: sibling of `reliability-commons/`; commons path
+`tools/asr-gate` is a symlink here. Audit kits via `papers/asr-*`.
+
 A conformal transcription-triage gate + evaluation pipeline for Mandarin
 ASR on Aishell-1. Given decode artifacts (N-best hypotheses with
 log-probabilities), `asr-gate` routes each utterance to
 `{ACCEPT, DEFER, OOD-REFUSE}` with a **certified bound on the CER of the
 auto-accepted set** (Learn-then-Test), plus an excess-AURC audit asking
 whether field-standard ASR confidence scores beat honest random deferral
-at all. A thin wrapper over
-[`relmetrics`](../../relmetrics) -- see
-`apps-design/03-APP-aishell-asr-audit.md` for the full design spec this
-package implements.
+at all. A thin wrapper over `relmetrics` (from `reliability-commons`).
+
+## Quickstart
+
+```bash
+# From ml-reliability-research/asr-gate (or via reliability-commons/tools/asr-gate symlink):
+python3 -m venv .venv && source .venv/bin/activate
+pip install -e ../reliability-commons   # relmetrics
+pip install -e .                        # asr-gate itself
+pip install -e '.[test]'                # + pytest
+
+python -m pytest
+```
 
 ## Quickstart
 

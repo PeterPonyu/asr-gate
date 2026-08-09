@@ -19,7 +19,6 @@ on an unrecognized shape where a reasonable fallback exists, and raises
 
 from __future__ import annotations
 
-import json
 import re
 import sys
 from pathlib import Path
@@ -34,8 +33,6 @@ __all__ = [
     "discover_aidatatang",
     "load_magicdata_trans",
     "discover_magicdata",
-    "load_primewords_transcript",
-    "discover_primewords",
     "discover_corpus",
     "CORPUS_DISCOVERERS",
 ]
@@ -337,146 +334,11 @@ def discover_magicdata(
     return entries
 
 
-# ---------------------------------------------------------------------------
-# Primewords Chinese Corpus Set 1 (openslr-47) -- SECOND independent read-test
-# corpus for the round-2 external-replication OOS violation check (TASLP R2,
-# FINAL-SCORE-R2-2026-07-16 reviewer-1 "single highest-leverage improvement":
-# decode ONE second, independent Mandarin read-test corpus once). NOT used in
-# any calibration (the frozen accept/defer gates are aishell-dev-calibrated),
-# so the entire corpus is genuinely out-of-sample by construction.
-#
-# Layout per the authoritative lhotse recipe (lhotse/recipes/primewords.py,
-# verified 2026-07-16); the tarball primewords_md_2018_set1.tar.gz extracts to:
-#
-#     {base}/set1_transcript.json     -- JSON list, one record per utterance:
-#                                          {"file": "<uuid>.wav",
-#                                           "text": "<word-segmented hanzi>",
-#                                           "user_id": "<speaker id>"}
-#                                        uttid = file.split(".")[0]; text is
-#                                        SPACE-segmented (whitespace stripped
-#                                        here to the char-level ref convention
-#                                        Aishell/THCHS/MagicData use).
-#     {base}/audio_files/**/*.wav      -- wavs sharded into subdirs; resolved by
-#                                        recursive glob keyed on the stem (the
-#                                        recipe's own approach), so ANY subdir
-#                                        depth works and a flat pool of symlinks
-#                                        (the frozen-pool staging root) works too.
-#
-# ``{base}`` is either ``{data_root}/primewords_md_2018_set1`` (raw extraction)
-# or ``{data_root}`` itself (a staged pool root that already IS that dir); both
-# are probed. There is NO official train/dev/test split -- Primewords set1 is a
-# single undivided release, so ``split`` is nominal and the WHOLE corpus is
-# returned for every split value (deterministically, sorted by utt_id). The
-# frozen seed-0 speaker-stratified eval-pool SELECTION is applied by the
-# orchestration layer (orchestration/build_primewords_pool.py stages a clean
-# pool root whose transcript+audio contain ONLY the frozen pool), exactly like
-# the MagicData/aidatatang speaker-disjoint cap is a decode-time selection, not
-# a discoverer concern.
-# ---------------------------------------------------------------------------
-
-
-def load_primewords_transcript(transcript_path: Path) -> Dict[str, tuple]:
-    """Parse Primewords ``set1_transcript.json`` into
-    ``{utt_id: (speaker_id, ref_text)}``, keyed by the utterance STEM
-    (``file.split(".")[0]`` -- matches ``wav_path.stem``). ``speaker_id`` is the
-    record's ``user_id``; ``ref_text`` has ALL whitespace removed (the JSON text
-    is word-segmented) to match the char-level ref convention Aishell/THCHS/
-    MagicData use. Returns ``{}`` (never raises) if the file is missing; skips
-    malformed records (never raises) rather than aborting a decode."""
-    mapping: Dict[str, tuple] = {}
-    try:
-        f = open(transcript_path, "r", encoding="utf-8")
-    except OSError:
-        return mapping
-    with f:
-        try:
-            data = json.load(f)
-        except (ValueError, OSError):
-            return mapping
-    if not isinstance(data, list):
-        return mapping
-    for rec in data:
-        if not isinstance(rec, dict):
-            continue
-        file_field = rec.get("file")
-        if not file_field:
-            continue
-        utt_id = str(file_field).split(".")[0]
-        speaker_id = rec.get("user_id")
-        text = rec.get("text")
-        ref_text = "".join(str(text).split()) if text is not None else None
-        mapping[utt_id] = (str(speaker_id) if speaker_id is not None else None, ref_text)
-    return mapping
-
-
-def _primewords_base(data_root: Path) -> Path:
-    """Resolve the directory that directly holds ``set1_transcript.json`` /
-    ``audio_files`` -- either ``{data_root}/primewords_md_2018_set1`` (raw
-    extraction) or ``{data_root}`` (a staged pool root that already IS that
-    dir). Returns the canonical nested path as the default so the caller's
-    ``FileNotFoundError`` message points at the expected location."""
-    for cand in (data_root / "primewords_md_2018_set1", data_root):
-        if (cand / "set1_transcript.json").exists() or (cand / "audio_files").is_dir():
-            return cand
-    return data_root / "primewords_md_2018_set1"
-
-
-def discover_primewords(
-    data_root: Path, split: str, limit: Optional[int] = None
-) -> List[CorpusUtterance]:
-    """Primewords set1 (openslr-47). Returns the WHOLE corpus for any ``split``
-    (there is no official partition), enumerated deterministically by ascending
-    ``utt_id`` so ``limit`` and any downstream frozen sampling are reproducible.
-    Speaker id and ref text come from ``set1_transcript.json``
-    (:func:`load_primewords_transcript`); the wav for each transcript record is
-    resolved by a recursive glob of ``audio_files/`` keyed on the stem (mirrors
-    the lhotse recipe). Records whose wav is absent are skipped with a
-    caller-visible warning (never raises). Raises ``FileNotFoundError`` only if
-    neither the transcript nor the ``audio_files`` dir is present."""
-    data_root = Path(data_root)
-    base = _primewords_base(data_root)
-    transcript_path = base / "set1_transcript.json"
-    audio_dir = base / "audio_files"
-    if not transcript_path.exists() and not audio_dir.is_dir():
-        raise FileNotFoundError(
-            f"discover_primewords: neither {transcript_path} nor {audio_dir} exists"
-        )
-    trans = load_primewords_transcript(transcript_path)
-    # {stem: wav_path} over the (possibly sharded) audio tree; the recipe's
-    # own resolution strategy, robust to any subdir depth or a flat pool.
-    stem_to_wav: Dict[str, Path] = {}
-    if audio_dir.is_dir():
-        for wav_path in audio_dir.rglob("*.wav"):
-            stem_to_wav.setdefault(wav_path.stem, wav_path)
-
-    entries: List[CorpusUtterance] = []
-    n_missing_wav = 0
-    for utt_id in sorted(trans):
-        wav_path = stem_to_wav.get(utt_id)
-        if wav_path is None:
-            n_missing_wav += 1
-            continue
-        speaker_id, ref_text = trans[utt_id]
-        entries.append(
-            CorpusUtterance(utt_id, speaker_id or utt_id, wav_path, ref_text)
-        )
-        if limit is not None and len(entries) >= limit:
-            break
-    if n_missing_wav:
-        print(
-            f"warning: discover_primewords: {n_missing_wav} transcript records "
-            f"had no matching wav under {audio_dir} (skipped)",
-            file=sys.stderr,
-        )
-    return entries
-
-
 CORPUS_DISCOVERERS: Dict[str, Callable[..., List[CorpusUtterance]]] = {
     "aishell": discover_aishell,
     "thchs30": discover_thchs30,
     "aidatatang": discover_aidatatang,
     "magicdata": discover_magicdata,
-    "primewords": discover_primewords,
 }
 
 

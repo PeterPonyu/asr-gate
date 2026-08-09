@@ -1,0 +1,130 @@
+[
+ {
+  "cell": "wav2vec2_a0.01_evalclean",
+  "n": 1268,
+  "accept_rate": 0.0,
+  "accepted_mean_cer": null,
+  "alpha": 0.01,
+  "bound_respected": null
+ },
+ {
+  "cell": "wav2vec2_a0.01_testother",
+  "n": 2939,
+  "accept_rate": 0.0,
+  "accepted_mean_cer": null,
+  "alpha": 0.01,
+  "bound_respected": null
+ },
+ {
+  "cell": "wav2vec2_a0.02_evalclean",
+  "n": 1268,
+  "accept_rate": 0.0,
+  "accepted_mean_cer": null,
+  "alpha": 0.02,
+  "bound_respected": null
+ },
+ {
+  "cell": "wav2vec2_a0.02_testother",
+  "n": 2939,
+  "accept_rate": 0.0,
+  "accepted_mean_cer": null,
+  "alpha": 0.02,
+  "bound_respected": null
+ },
+ {
+  "cell": "wav2vec2_a0.03_evalclean",
+  "n": 1268,
+  "accept_rate": 0.0,
+  "accepted_mean_cer": null,
+  "alpha": 0.03,
+  "bound_respected": null
+ },
+ {
+  "cell": "wav2vec2_a0.03_testother",
+  "n": 2939,
+  "accept_rate": 0.0,
+  "accepted_mean_cer": null,
+  "alpha": 0.03,
+  "bound_respected": null
+ },
+ {
+  "cell": "wav2vec2_a0.05_evalclean",
+  "n": 1268,
+  "accept_rate": 1.0,
+  "accepted_mean_cer": 0.01234,
+  "alpha": 0.05,
+  "bound_respected": true
+ },
+ {
+  "cell": "wav2vec2_a0.05_testother",
+  "n": 2939,
+  "accept_rate": 0.9973,
+  "accepted_mean_cer": 0.03903,
+  "alpha": 0.05,
+  "bound_respected": true
+ },
+ {
+  "cell": "whisper_a0.01_evalclean",
+  "n": 1268,
+  "accept_rate": 0.0,
+  "accepted_mean_cer": null,
+  "alpha": 0.01,
+  "bound_respected": null
+ },
+ {
+  "cell": "whisper_a0.01_testother",
+  "n": 2939,
+  "accept_rate": 0.0,
+  "accepted_mean_cer": null,
+  "alpha": 0.01,
+  "bound_respected": null
+ },
+ {
+  "cell": "whisper_a0.02_evalclean",
+  "n": 1268,
+  "accept_rate": 0.0,
+  "accepted_mean_cer": null,
+  "alpha": 0.02,
+  "bound_respected": null
+ },
+ {
+  "cell": "whisper_a0.02_testother",
+  "n": 2939,
+  "accept_rate": 0.0,
+  "accepted_mean_cer": null,
+  "alpha": 0.02,
+  "bound_respected": null
+ },
+ {
+  "cell": "whisper_a0.03_evalclean",
+  "n": 1268,
+  "accept_rate": 0.0,
+  "accepted_mean_cer": null,
+  "alpha": 0.03,
+  "bound_respected": null
+ },
+ {
+  "cell": "whisper_a0.03_testother",
+  "n": 2939,
+  "accept_rate": 0.0,
+  "accepted_mean_cer": null,
+  "alpha": 0.03,
+  "bound_respected": null
+ },
+ {
+  "cell": "whisper_a0.05_evalclean",
+  "n": 1268,
+  "accept_rate": 0.9945,
+  "accepted_mean_cer": 0.01357,
+  "alpha": 0.05,
+  "bound_respected": true
+ },
+ {
+  "cell": "whisper_a0.05_testother",
+  "n": 2939,
+  "accept_rate": 0.9799,
+  "accepted_mean_cer": 0.02334,
+  "alpha": 0.05,
+  "bound_respected": true
+ }
+]

@@ -1,0 +1,622 @@
+{
+  "config": {
+    "delta": 0.1,
+    "n_grid": 200,
+    "min_accept_frac": 0.1,
+    "procedure": "bonferroni",
+    "p_value": "eb",
+    "seed": 0,
+    "g1_score": "s1",
+    "loss": "cer",
+    "alphas": [
+      0.02,
+      0.03,
+      0.05
+    ],
+    "n_cal_targets": [
+      613,
+      1000,
+      1500,
+      2000
+    ],
+    "eval_min_utts": 500,
+    "design": "fixed speaker-disjoint held-out eval; vary calibration size by subsampling the complementary speaker pool (post-hoc, disclosed)"
+  },
+  "backbones": {
+    "whisper": {
+      "n_total": 2620,
+      "n_eval": 581,
+      "n_eval_speakers": 9,
+      "cal_pool_size": 2039,
+      "n_cal_speakers": 31,
+      "eval_full_macro_cer": 0.01824300733739561,
+      "cells": [
+        {
+          "n_cal_target": 613,
+          "n_cal": 613,
+          "alpha": 0.02,
+          "certified": false,
+          "non_vacuous": false,
+          "lambda_star": null,
+          "cal_accepted_fraction": 0.0,
+          "K": 200,
+          "eval_accept_rate": 0.0,
+          "eval_accepted_macro_cer": null,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 613,
+          "n_cal": 613,
+          "alpha": 0.03,
+          "certified": false,
+          "non_vacuous": false,
+          "lambda_star": null,
+          "cal_accepted_fraction": 0.0,
+          "K": 200,
+          "eval_accept_rate": 0.0,
+          "eval_accepted_macro_cer": null,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 613,
+          "n_cal": 613,
+          "alpha": 0.05,
+          "certified": true,
+          "non_vacuous": true,
+          "lambda_star": -0.09854400509977321,
+          "cal_accepted_fraction": 0.9902120717781403,
+          "K": 200,
+          "eval_accept_rate": 0.9948364888123924,
+          "eval_accepted_macro_cer": 0.016688060364937415,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 1000,
+          "n_cal": 1000,
+          "alpha": 0.02,
+          "certified": false,
+          "non_vacuous": false,
+          "lambda_star": null,
+          "cal_accepted_fraction": 0.0,
+          "K": 200,
+          "eval_accept_rate": 0.0,
+          "eval_accepted_macro_cer": null,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 1000,
+          "n_cal": 1000,
+          "alpha": 0.03,
+          "certified": false,
+          "non_vacuous": false,
+          "lambda_star": null,
+          "cal_accepted_fraction": 0.0,
+          "K": 200,
+          "eval_accept_rate": 0.0,
+          "eval_accepted_macro_cer": null,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 1000,
+          "n_cal": 1000,
+          "alpha": 0.05,
+          "certified": true,
+          "non_vacuous": true,
+          "lambda_star": -0.3548857010900974,
+          "cal_accepted_fraction": 1.0,
+          "K": 200,
+          "eval_accept_rate": 1.0,
+          "eval_accepted_macro_cer": 0.01824300733739561,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 1500,
+          "n_cal": 1500,
+          "alpha": 0.02,
+          "certified": false,
+          "non_vacuous": false,
+          "lambda_star": null,
+          "cal_accepted_fraction": 0.0,
+          "K": 200,
+          "eval_accept_rate": 0.0,
+          "eval_accepted_macro_cer": null,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 1500,
+          "n_cal": 1500,
+          "alpha": 0.03,
+          "certified": true,
+          "non_vacuous": true,
+          "lambda_star": -0.3548857010900974,
+          "cal_accepted_fraction": 1.0,
+          "K": 200,
+          "eval_accept_rate": 1.0,
+          "eval_accepted_macro_cer": 0.01824300733739561,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 1500,
+          "n_cal": 1500,
+          "alpha": 0.05,
+          "certified": true,
+          "non_vacuous": true,
+          "lambda_star": -0.3548857010900974,
+          "cal_accepted_fraction": 1.0,
+          "K": 200,
+          "eval_accept_rate": 1.0,
+          "eval_accepted_macro_cer": 0.01824300733739561,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 2000,
+          "n_cal": 2000,
+          "alpha": 0.02,
+          "certified": false,
+          "non_vacuous": false,
+          "lambda_star": null,
+          "cal_accepted_fraction": 0.0,
+          "K": 200,
+          "eval_accept_rate": 0.0,
+          "eval_accepted_macro_cer": null,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 2000,
+          "n_cal": 2000,
+          "alpha": 0.03,
+          "certified": true,
+          "non_vacuous": true,
+          "lambda_star": -0.3548857010900974,
+          "cal_accepted_fraction": 1.0,
+          "K": 200,
+          "eval_accept_rate": 1.0,
+          "eval_accepted_macro_cer": 0.01824300733739561,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 2000,
+          "n_cal": 2000,
+          "alpha": 0.05,
+          "certified": true,
+          "non_vacuous": true,
+          "lambda_star": -0.3548857010900974,
+          "cal_accepted_fraction": 1.0,
+          "K": 200,
+          "eval_accept_rate": 1.0,
+          "eval_accepted_macro_cer": 0.01824300733739561,
+          "eval_n": 581
+        }
+      ]
+    },
+    "wav2vec2_base": {
+      "n_total": 2620,
+      "n_eval": 581,
+      "n_eval_speakers": 9,
+      "cal_pool_size": 2039,
+      "n_cal_speakers": 31,
+      "eval_full_macro_cer": 0.012684675390913305,
+      "cells": [
+        {
+          "n_cal_target": 613,
+          "n_cal": 613,
+          "alpha": 0.02,
+          "certified": false,
+          "non_vacuous": false,
+          "lambda_star": null,
+          "cal_accepted_fraction": 0.0,
+          "K": 200,
+          "eval_accept_rate": 0.0,
+          "eval_accepted_macro_cer": null,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 613,
+          "n_cal": 613,
+          "alpha": 0.03,
+          "certified": false,
+          "non_vacuous": false,
+          "lambda_star": null,
+          "cal_accepted_fraction": 0.0,
+          "K": 200,
+          "eval_accept_rate": 0.0,
+          "eval_accepted_macro_cer": null,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 613,
+          "n_cal": 613,
+          "alpha": 0.05,
+          "certified": true,
+          "non_vacuous": true,
+          "lambda_star": -0.1988651565830771,
+          "cal_accepted_fraction": 1.0,
+          "K": 200,
+          "eval_accept_rate": 1.0,
+          "eval_accepted_macro_cer": 0.012684675390913305,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 1000,
+          "n_cal": 1000,
+          "alpha": 0.02,
+          "certified": false,
+          "non_vacuous": false,
+          "lambda_star": null,
+          "cal_accepted_fraction": 0.0,
+          "K": 200,
+          "eval_accept_rate": 0.0,
+          "eval_accepted_macro_cer": null,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 1000,
+          "n_cal": 1000,
+          "alpha": 0.03,
+          "certified": false,
+          "non_vacuous": false,
+          "lambda_star": null,
+          "cal_accepted_fraction": 0.0,
+          "K": 200,
+          "eval_accept_rate": 0.0,
+          "eval_accepted_macro_cer": null,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 1000,
+          "n_cal": 1000,
+          "alpha": 0.05,
+          "certified": true,
+          "non_vacuous": true,
+          "lambda_star": -0.1988651565830771,
+          "cal_accepted_fraction": 1.0,
+          "K": 200,
+          "eval_accept_rate": 1.0,
+          "eval_accepted_macro_cer": 0.012684675390913305,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 1500,
+          "n_cal": 1500,
+          "alpha": 0.02,
+          "certified": false,
+          "non_vacuous": false,
+          "lambda_star": null,
+          "cal_accepted_fraction": 0.0,
+          "K": 200,
+          "eval_accept_rate": 0.0,
+          "eval_accepted_macro_cer": null,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 1500,
+          "n_cal": 1500,
+          "alpha": 0.03,
+          "certified": true,
+          "non_vacuous": true,
+          "lambda_star": -0.1988651565830771,
+          "cal_accepted_fraction": 1.0,
+          "K": 200,
+          "eval_accept_rate": 1.0,
+          "eval_accepted_macro_cer": 0.012684675390913305,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 1500,
+          "n_cal": 1500,
+          "alpha": 0.05,
+          "certified": true,
+          "non_vacuous": true,
+          "lambda_star": -0.1988651565830771,
+          "cal_accepted_fraction": 1.0,
+          "K": 200,
+          "eval_accept_rate": 1.0,
+          "eval_accepted_macro_cer": 0.012684675390913305,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 2000,
+          "n_cal": 2000,
+          "alpha": 0.02,
+          "certified": false,
+          "non_vacuous": false,
+          "lambda_star": null,
+          "cal_accepted_fraction": 0.0,
+          "K": 200,
+          "eval_accept_rate": 0.0,
+          "eval_accepted_macro_cer": null,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 2000,
+          "n_cal": 2000,
+          "alpha": 0.03,
+          "certified": true,
+          "non_vacuous": true,
+          "lambda_star": -0.1988651565830771,
+          "cal_accepted_fraction": 1.0,
+          "K": 200,
+          "eval_accept_rate": 1.0,
+          "eval_accepted_macro_cer": 0.012684675390913305,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 2000,
+          "n_cal": 2000,
+          "alpha": 0.05,
+          "certified": true,
+          "non_vacuous": true,
+          "lambda_star": -0.1988651565830771,
+          "cal_accepted_fraction": 1.0,
+          "K": 200,
+          "eval_accept_rate": 1.0,
+          "eval_accepted_macro_cer": 0.012684675390913305,
+          "eval_n": 581
+        }
+      ]
+    },
+    "wav2vec2_large": {
+      "n_total": 2620,
+      "n_eval": 581,
+      "n_eval_speakers": 9,
+      "cal_pool_size": 2039,
+      "n_cal_speakers": 31,
+      "eval_full_macro_cer": 0.005938784030267577,
+      "cells": [
+        {
+          "n_cal_target": 613,
+          "n_cal": 613,
+          "alpha": 0.02,
+          "certified": false,
+          "non_vacuous": false,
+          "lambda_star": null,
+          "cal_accepted_fraction": 0.0,
+          "K": 200,
+          "eval_accept_rate": 0.0,
+          "eval_accepted_macro_cer": null,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 613,
+          "n_cal": 613,
+          "alpha": 0.03,
+          "certified": false,
+          "non_vacuous": false,
+          "lambda_star": null,
+          "cal_accepted_fraction": 0.0,
+          "K": 200,
+          "eval_accept_rate": 0.0,
+          "eval_accepted_macro_cer": null,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 613,
+          "n_cal": 613,
+          "alpha": 0.05,
+          "certified": true,
+          "non_vacuous": true,
+          "lambda_star": -0.14982607568752082,
+          "cal_accepted_fraction": 1.0,
+          "K": 200,
+          "eval_accept_rate": 1.0,
+          "eval_accepted_macro_cer": 0.005938784030267577,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 1000,
+          "n_cal": 1000,
+          "alpha": 0.02,
+          "certified": false,
+          "non_vacuous": false,
+          "lambda_star": null,
+          "cal_accepted_fraction": 0.0,
+          "K": 200,
+          "eval_accept_rate": 0.0,
+          "eval_accepted_macro_cer": null,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 1000,
+          "n_cal": 1000,
+          "alpha": 0.03,
+          "certified": true,
+          "non_vacuous": true,
+          "lambda_star": -0.14982607568752082,
+          "cal_accepted_fraction": 1.0,
+          "K": 200,
+          "eval_accept_rate": 1.0,
+          "eval_accepted_macro_cer": 0.005938784030267577,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 1000,
+          "n_cal": 1000,
+          "alpha": 0.05,
+          "certified": true,
+          "non_vacuous": true,
+          "lambda_star": -0.14982607568752082,
+          "cal_accepted_fraction": 1.0,
+          "K": 200,
+          "eval_accept_rate": 1.0,
+          "eval_accepted_macro_cer": 0.005938784030267577,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 1500,
+          "n_cal": 1500,
+          "alpha": 0.02,
+          "certified": true,
+          "non_vacuous": true,
+          "lambda_star": -0.02762637448231865,
+          "cal_accepted_fraction": 0.95,
+          "K": 200,
+          "eval_accept_rate": 0.9672977624784854,
+          "eval_accepted_macro_cer": 0.004156965999584986,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 1500,
+          "n_cal": 1500,
+          "alpha": 0.03,
+          "certified": true,
+          "non_vacuous": true,
+          "lambda_star": -0.14982607568752082,
+          "cal_accepted_fraction": 1.0,
+          "K": 200,
+          "eval_accept_rate": 1.0,
+          "eval_accepted_macro_cer": 0.005938784030267577,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 1500,
+          "n_cal": 1500,
+          "alpha": 0.05,
+          "certified": true,
+          "non_vacuous": true,
+          "lambda_star": -0.14982607568752082,
+          "cal_accepted_fraction": 1.0,
+          "K": 200,
+          "eval_accept_rate": 1.0,
+          "eval_accepted_macro_cer": 0.005938784030267577,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 2000,
+          "n_cal": 2000,
+          "alpha": 0.02,
+          "certified": true,
+          "non_vacuous": true,
+          "lambda_star": -0.14982607568752082,
+          "cal_accepted_fraction": 1.0,
+          "K": 200,
+          "eval_accept_rate": 1.0,
+          "eval_accepted_macro_cer": 0.005938784030267577,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 2000,
+          "n_cal": 2000,
+          "alpha": 0.03,
+          "certified": true,
+          "non_vacuous": true,
+          "lambda_star": -0.14982607568752082,
+          "cal_accepted_fraction": 1.0,
+          "K": 200,
+          "eval_accept_rate": 1.0,
+          "eval_accepted_macro_cer": 0.005938784030267577,
+          "eval_n": 581
+        },
+        {
+          "n_cal_target": 2000,
+          "n_cal": 2000,
+          "alpha": 0.05,
+          "certified": true,
+          "non_vacuous": true,
+          "lambda_star": -0.14982607568752082,
+          "cal_accepted_fraction": 1.0,
+          "K": 200,
+          "eval_accept_rate": 1.0,
+          "eval_accepted_macro_cer": 0.005938784030267577,
+          "eval_n": 581
+        }
+      ]
+    }
+  },
+  "crossover": {
+    "whisper": {
+      "0.02": null,
+      "0.03": 1500,
+      "0.05": 613
+    },
+    "wav2vec2_base": {
+      "0.02": null,
+      "0.03": 1500,
+      "0.05": 613
+    },
+    "wav2vec2_large": {
+      "0.02": 1500,
+      "0.03": 1000,
+      "0.05": 613
+    }
+  },
+  "crossover_seed_robustness": {
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "backbones": {
+      "whisper": {
+        "0.02": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "0.03": [
+          1500,
+          1500,
+          1500,
+          1500,
+          1500
+        ],
+        "0.05": [
+          613,
+          613,
+          1000,
+          613,
+          613
+        ]
+      },
+      "wav2vec2_base": {
+        "0.02": [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "0.03": [
+          1500,
+          1500,
+          1500,
+          1500,
+          1500
+        ],
+        "0.05": [
+          613,
+          613,
+          613,
+          613,
+          613
+        ]
+      },
+      "wav2vec2_large": {
+        "0.02": [
+          1500,
+          1500,
+          1500,
+          1500,
+          1500
+        ],
+        "0.03": [
+          1000,
+          1000,
+          1000,
+          1000,
+          1000
+        ],
+        "0.05": [
+          613,
+          613,
+          613,
+          613,
+          613
+        ]
+      }
+    }
+  }
+}

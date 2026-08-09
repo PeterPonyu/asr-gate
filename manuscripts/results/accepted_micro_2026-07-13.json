@@ -1,0 +1,15 @@
+{
+  "description": "post-hoc descriptive companion (m4): accepted-set micro-CER, main clean Aishell-1 Paraformer certificate, alpha=2%, 20 reseeds; micro is reported not certified",
+  "alpha": 0.02,
+  "n_reseeds": 20,
+  "acceptance_min": 0.8571627647714605,
+  "acceptance_max": 0.9622352285395763,
+  "acceptance_mean": 0.9071418617614269,
+  "accepted_macro_cer_min": 0.01000455015951584,
+  "accepted_macro_cer_max": 0.015328388730468314,
+  "accepted_macro_cer_mean": 0.012107435528542975,
+  "accepted_micro_cer_min": 0.010185380591129722,
+  "accepted_micro_cer_max": 0.015443633703110478,
+  "accepted_micro_cer_mean": 0.012300656851054975,
+  "source": "frozen main_results_2026-07-09/reseed_*/applied_test.json joined to test_scored.jsonl (edits, ref_len)"
+}

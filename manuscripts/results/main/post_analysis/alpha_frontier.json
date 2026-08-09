@@ -1,0 +1,50 @@
+{
+  "0.01": {
+    "alpha": 0.01,
+    "certified": false,
+    "lambda_star": null,
+    "cal_accepted_fraction": 0.0,
+    "n_test": 7176,
+    "n_accept_test": 0,
+    "n_defer_test": 7173,
+    "n_ood_refuse_test": 3,
+    "test_accepted_fraction": 0.0,
+    "test_accepted_macro_cer": null
+  },
+  "0.02": {
+    "alpha": 0.02,
+    "certified": true,
+    "lambda_star": -0.1087085129568796,
+    "cal_accepted_fraction": 0.8598261844687413,
+    "n_test": 7176,
+    "n_accept_test": 6151,
+    "n_defer_test": 1022,
+    "n_ood_refuse_test": 3,
+    "test_accepted_fraction": 0.8571627647714605,
+    "test_accepted_macro_cer": 0.01000455015951584
+  },
+  "0.03": {
+    "alpha": 0.03,
+    "certified": true,
+    "lambda_star": -0.3078799298541112,
+    "cal_accepted_fraction": 1.0,
+    "n_test": 7176,
+    "n_accept_test": 7162,
+    "n_defer_test": 11,
+    "n_ood_refuse_test": 3,
+    "test_accepted_fraction": 0.9980490523968785,
+    "test_accepted_macro_cer": 0.01913027033847704
+  },
+  "0.05": {
+    "alpha": 0.05,
+    "certified": true,
+    "lambda_star": -0.3078799298541112,
+    "cal_accepted_fraction": 1.0,
+    "n_test": 7176,
+    "n_accept_test": 7162,
+    "n_defer_test": 11,
+    "n_ood_refuse_test": 3,
+    "test_accepted_fraction": 0.9980490523968785,
+    "test_accepted_macro_cer": 0.01913027033847704
+  }
+}
