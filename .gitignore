@@ -45,3 +45,6 @@ main_results_2026-07-09/
 # Figure / orchestration scratch
 manuscripts/figures-src/review/
 orchestration/.omc/
+
+# jieba runtime cache (do not commit)
+omission_score_contrast_2026-08-10/.jieba_cache/
