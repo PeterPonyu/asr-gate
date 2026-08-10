@@ -1,0 +1,42 @@
+{
+  "strata": {
+    "all_pairs": {
+      "n": 27,
+      "median_delta": 0.0
+    },
+    "both_arms_deploy_nonvacuous": {
+      "n": 13,
+      "median_delta": 0.6
+    },
+    "or_deploy_nonvacuous_sensitivity": {
+      "n": 27,
+      "median_delta": 0.0
+    },
+    "both_arms_oracle_nonvacuous": {
+      "n": 10,
+      "median_delta": 0.775
+    }
+  },
+  "by_corpus": {
+    "aishell": {
+      "n": 9,
+      "median_delta": 0.0,
+      "n_both_arms": 2
+    },
+    "magicdata": {
+      "n": 9,
+      "median_delta": 0.0,
+      "n_both_arms": 7
+    },
+    "thchs30": {
+      "n": 9,
+      "median_delta": 0.0,
+      "n_both_arms": 4
+    }
+  },
+  "alphas": [
+    0.05,
+    0.1,
+    0.2
+  ]
+}

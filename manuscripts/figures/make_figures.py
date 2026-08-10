@@ -119,7 +119,7 @@ def fig2():
         for j in range(2):
             star = r"$^{*}$" if rej[i, j] else ""
             ax.text(j, i, f"{mat[i,j]:.3f}{star}", ha="center", va="center",
-                    fontsize=8, color="white" if mat[i, j] > mat.max() * 0.55 else "black")
+                    fontsize=8, color="black")
     # single panel: short centered title; Holm m and p_Holm detail moved to caption
     ax.set_title(r"excess-AURC over random deferral", fontsize=9)
     cb = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
@@ -195,7 +195,7 @@ def fig4():
     #   nonzero) per the annotation-color rail -- the 5 dB 1/20 is now black too.
     for xi, vv in zip(x, viol):
         ax1.text(xi, 0.18, f"{vv}/20", ha="center", fontsize=7.5, color="black")
-    ax1.text(x[-1] + 0.02, 0.42, "viol./20", ha="right", fontsize=7.5, color="#555")
+    ax1.text(x[-1] + 0.02, 0.42, "viol./20", ha="right", fontsize=7.5, color="black")
     ax1.set_xticks(x); ax1.set_xticklabels(lab)
     ax1.set_ylabel("accepted-set macro-CER (%)")
     ax1.set_xlabel("acoustic condition (ESC-50 additive)")
