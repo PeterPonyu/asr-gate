@@ -12,7 +12,7 @@
 
 ## Executive summary
 
-Empirical packaging for the CRC omission score contrast is **complete under approved defaults**, with one **pending** acceptance criterion: **evidence 3a git commit** (gitignore carve + staged commit). Jieba vendor pin and private cache remediate security **MEDIUM** findings locally. Venue writing remains **deferred** (Q5); `submissions/asr` stays **frozen** (Q2-reprise). Claim strength follows **auto-soft policy** (Q6): D2 heuristic did **not** trip; strong “certificate coupling repairs indicators” language remains **blocked**.
+Empirical packaging for the CRC omission score contrast is **`packaging-complete`** under approved defaults. Evidence **3a** landed in `ml-reliability-research` commits `fcce779` + `7ab3a24` (gitignore carve + tracked contrast package). Jieba vendor pin and private cache remediate security **MEDIUM** findings. Venue writing remains **deferred** (Q5); `submissions/asr` stays **frozen** (Q2-reprise). Claim strength follows **auto-soft policy** (Q6): D2 heuristic did **not** trip; strong “certificate coupling repairs indicators” language remains **blocked**.
 
 ---
 
@@ -22,7 +22,7 @@ These predicates are **not substitutable**. This packet satisfies the **`DECISIO
 
 | Predicate | Status after this packet |
 |---|---|
-| **`packaging-complete`** | **Conditional green** — Steps 1–2 + D1–D3 green; Step 3 vendor/cache green; Step 3 **3a git commit pending**; this packet present |
+| **`packaging-complete`** | **Green** — Steps 1–3 + D1–D3 green; 3a commits `fcce779`/`7ab3a24`; security MEDIUM remediated; this packet present |
 | **`CLEAR-for-packaging`** | **Not asserted** — Architect / human upgrade only |
 | **`unfreeze-authorized`** | **Not authorized** — human Q2 reversal required |
 
@@ -68,9 +68,9 @@ No downstream artifact may collapse these into a single “done” or “paper-r
 | Item | Status |
 |---|---|
 | **Required** | Gitignore carve in `ml-reliability-research` + commit of minimal pin set |
-| **Filesystem** | `MANIFEST.sha256` **present** (2026-08-10; lists results, code, D1–D3, firewall docs) |
-| **Git** | **Pending** — `git check-ignore` still matches `/asr-gate/` for contrast dir; commit not landed at packet emission |
-| **3b mirror** | Optional; **not** a substitute for 3a |
+| **Filesystem** | `MANIFEST.sha256` **present** (refreshed to include DECISION_PACKET + D4–D7) |
+| **Git** | **LANDED** — `fcce779e6d218d4816ed062d84a7d1e53a625dcf` (+ follow-up `7ab3a24…`); `git check-ignore` exit 1 on `results.json`; contrast dir tracked |
+| **3b mirror** | Optional; **not** a substitute for 3a; not required for packaging-complete |
 
 ### Security MEDIUM — remediation status
 
@@ -135,7 +135,7 @@ Local copy: `SECURITY_REVIEW.md` in this directory.
 | Local `vendor/` + private `.jieba_cache/` | **Green** |
 | Security MEDIUM pin + cache policy | **Green** |
 | Formal security review cited | **Green** |
-| **3a gitignore exception + commit** | **Pending** — `MANIFEST.sha256` on disk; git still ignores contrast dir |
+| **3a gitignore exception + commit** | **Green** — `fcce779` + follow-ups; check-ignore clear for pinned files |
 
 ### D1–D3 deliverables
 
@@ -183,17 +183,17 @@ Step 4 complete under **Q5 defer** default (venue-neutral fragments only).
 | Q2-reprise | Keep `submissions/asr` **frozen** |
 | Q5 | **Defer** venue; fragments venue-neutral |
 | Q6 | **Accept auto-soft policy**; heuristic NOT_TRIPPED; careful constructed hyp-side entity mass wording |
-| Evidence | **3a required**; `MANIFEST.sha256` present; **git commit pending** |
+| Evidence | **3a LANDED** (`fcce779` + follow-ups); `MANIFEST.sha256` refreshed |
 | Security MEDIUM | **Remediated** in runnable path (local vendor + private cache) |
 
 ---
 
-## Remaining AC gaps (for G006 verify)
+## Remaining non-blocking follow-ups
 
-1. **3a git commit** — carve gitignore exception in `ml-reliability-research`, stage minimal pin set, commit; refresh `MANIFEST.sha256` to include post-packet artifacts when landed.
-2. **D2-c** — scrambled-POS / POS LOO ablation skipped; document in any future strong-claim review.
+1. Optional Architect **CLEAR-for-packaging** re-pass (not asserted here).
+2. **D2-c** — scrambled-POS / POS LOO ablation skipped; needed only if stronger coupling language is desired later.
 3. **LOW security** — path redaction before public artifact release; JSONL bounds optional hardening.
-4. **`packaging-complete` final verify** — executor G006 after 3a commit lands.
+4. Human **Q5** when venue chosen — retarget D4–D7 if needed.
 
 ---
 
