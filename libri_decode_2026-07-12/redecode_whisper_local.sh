@@ -3,7 +3,7 @@
 # (2026-07-12): the box-run JSONLs lost the last ~4 generated tokens of
 # every utterance. wav2vec2 files unaffected (different code path).
 set -uo pipefail
-A=/home/zeyufu/Desktop/ml-reliability-research/reliability-commons/tools/asr-gate
+A=${REPO_ROOT}
 cd $A/orchestration
 export HF_HUB_DISABLE_IMPLICIT_TOKEN=1 HF_ENDPOINT=https://hf-mirror.com WHISPER_MAX_NEW_TOKENS=440
 unset all_proxy ALL_PROXY http_proxy https_proxy HTTP_PROXY HTTPS_PROXY

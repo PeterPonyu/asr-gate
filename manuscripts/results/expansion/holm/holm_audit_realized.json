@@ -2,12 +2,12 @@
   "m": 12,
   "alpha": 0.05,
   "cells": [
-    "/root/autodl-tmp/asr_expansion2_results/audit/audit_aishell_paraformer_clean.json:paraformer:aishell_clean",
-    "/root/autodl-tmp/asr_expansion2_results/audit/audit_aishell_musan5db_paraformer_noise.json:paraformer:musan5db",
-    "/root/autodl-tmp/asr_expansion2_results/audit/audit_aishell_musan15db_paraformer_noise.json:paraformer:musan15db",
-    "/root/autodl-tmp/asr_expansion2_results/audit/audit_aishell_musan25db_paraformer_noise.json:paraformer:musan25db",
-    "/root/autodl-tmp/asr_expansion2_results/audit/audit_aishell_whisper_clean.json:whisper:aishell_clean",
-    "/root/autodl-tmp/asr_expansion2_results/audit/audit_thchs30_whisper_crosscorpus.json:whisper:thchs30_crosscorpus  (2026-07-12: recomputed on corrected n=2495 re-decode)"
+    "${AUTODL_TMP}/asr_expansion2_results/audit/audit_aishell_paraformer_clean.json:paraformer:aishell_clean",
+    "${AUTODL_TMP}/asr_expansion2_results/audit/audit_aishell_musan5db_paraformer_noise.json:paraformer:musan5db",
+    "${AUTODL_TMP}/asr_expansion2_results/audit/audit_aishell_musan15db_paraformer_noise.json:paraformer:musan15db",
+    "${AUTODL_TMP}/asr_expansion2_results/audit/audit_aishell_musan25db_paraformer_noise.json:paraformer:musan25db",
+    "${AUTODL_TMP}/asr_expansion2_results/audit/audit_aishell_whisper_clean.json:whisper:aishell_clean",
+    "${AUTODL_TMP}/asr_expansion2_results/audit/audit_thchs30_whisper_crosscorpus.json:whisper:thchs30_crosscorpus  (2026-07-12: recomputed on corrected n=2495 re-decode)"
   ],
   "rows": [
     {

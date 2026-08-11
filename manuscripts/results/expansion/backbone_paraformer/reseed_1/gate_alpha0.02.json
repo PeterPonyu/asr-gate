@@ -1489,7 +1489,7 @@
   "ood_non_cjk_threshold": 0.2,
   "ks_warn_distance": 0.15,
   "input_sha256": {
-    "/root/autodl-tmp/asr_expansion2_results/backbone_paraformer/reseed_1/cal20_scored.jsonl": "3fbeb19c62b11e36f5d4437223802c33fc2c8252347fddd268700da56d46242e"
+    "${AUTODL_TMP}/asr_expansion2_results/backbone_paraformer/reseed_1/cal20_scored.jsonl": "3fbeb19c62b11e36f5d4437223802c33fc2c8252347fddd268700da56d46242e"
   },
   "provenance": {
     "script": "/root/asr-gate/asr_gate/gate.py",

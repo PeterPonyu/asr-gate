@@ -74,7 +74,7 @@ from pathlib import Path
 
 import numpy as np
 
-ROOT = Path("/home/zeyufu/Desktop/ml-reliability-research/reliability-commons/tools/asr-gate")
+ROOT = _portal_repo_root()
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT.parent))
 sys.path.insert(0, str(ROOT.parent.parent))  # reliability-commons/ (for `relmetrics`)

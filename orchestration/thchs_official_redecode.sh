@@ -47,15 +47,15 @@ done
 # ---------------------------------------------------------------------------
 # Tunables (env-overridable, named defaults). Frozen to mirror the landscape.
 # ---------------------------------------------------------------------------
-SRC_THCHS="${SRC_THCHS:-/root/autodl-tmp/data_thchs30}"      # real extraction (data/ = full corpus)
-STAGE="${STAGE:-/root/autodl-tmp/data_thchs30_official}"     # clean root: data/ = D* only, no test/
-LAND="${LAND:-/root/autodl-tmp/asr_landscape_results}"       # FROZEN landscape (read-only: gates)
-OUT="${OUT:-/root/autodl-tmp/thchs_official_2026-07-16}"     # ALL official outputs land here
+SRC_THCHS="${SRC_THCHS:-${AUTODL_TMP}/data_thchs30}"      # real extraction (data/ = full corpus)
+STAGE="${STAGE:-${AUTODL_TMP}/data_thchs30_official}"     # clean root: data/ = D* only, no test/
+LAND="${LAND:-${AUTODL_TMP}/asr_landscape_results}"       # FROZEN landscape (read-only: gates)
+OUT="${OUT:-${AUTODL_TMP}/thchs_official_2026-07-16}"     # ALL official outputs land here
 DEVICE="${DEVICE:-cuda}"
 SEED="${SEED:-0}"
 
 BELLE_MODEL="${BELLE_MODEL:-BELLE-2/Belle-whisper-large-v3-zh}"
-ZIPFORMER_DIR="${ZIPFORMER_DIR:-/root/autodl-tmp/sherpa-onnx-zipformer-multi-zh-hans-2023-9-2}"
+ZIPFORMER_DIR="${ZIPFORMER_DIR:-${AUTODL_TMP}/sherpa-onnx-zipformer-multi-zh-hans-2023-9-2}"
 
 # Frozen certificate config (FREEZE-AMENDMENT-2026-07-13 §4). On-disk alpha labels
 # match the gate filenames the box wrote (gate_alpha0.10.json keeps the trailing 0).
@@ -69,7 +69,7 @@ BACKBONES="${BACKBONES:-paraformer belle zipformer}"   # B2, B3', B4 (order = fa
 SMOKE_N="${SMOKE_N:-10}"
 N_OFFICIAL="${N_OFFICIAL:-2495}"                        # expected official-test row count
 
-HF_HOME="${HF_HOME:-/root/autodl-tmp/hf-cache}"
+HF_HOME="${HF_HOME:-${AUTODL_TMP}/hf-cache}"
 HF_ENDPOINT="${HF_ENDPOINT:-https://hf-mirror.com}"
 LOG="${LOG:-/root/thchs_redecode.log}"
 [ "$SMOKE_ONLY" -eq 1 ] && LOG="${SMOKE_LOG:-/root/thchs_redecode_smoke.log}"

@@ -43399,7 +43399,7 @@
     "macro_cer": 0.019805491935060385,
     "clip_count": 0,
     "provenance": {
-      "script": "/home/zeyufu/Desktop/ml-reliability-research/reliability-commons/tools/asr-gate/asr_gate/audit.py",
+      "script": "${REPO_ROOT}/asr_gate/audit.py",
       "timestamp_utc": "2026-07-09T06:29:53.451829+00:00",
       "seeds": [
         0
@@ -43415,12 +43415,12 @@
     "m": 12,
     "alpha": 0.05,
     "cells": [
-      "/root/autodl-tmp/asr_expansion2_results/audit/audit_aishell_paraformer_clean.json:paraformer:aishell_clean",
-      "/root/autodl-tmp/asr_expansion2_results/audit/audit_aishell_musan5db_paraformer_noise.json:paraformer:musan5db",
-      "/root/autodl-tmp/asr_expansion2_results/audit/audit_aishell_musan15db_paraformer_noise.json:paraformer:musan15db",
-      "/root/autodl-tmp/asr_expansion2_results/audit/audit_aishell_musan25db_paraformer_noise.json:paraformer:musan25db",
-      "/root/autodl-tmp/asr_expansion2_results/audit/audit_aishell_whisper_clean.json:whisper:aishell_clean",
-      "/root/autodl-tmp/asr_expansion2_results/audit/audit_thchs30_whisper_crosscorpus.json:whisper:thchs30_crosscorpus  (2026-07-12: recomputed on corrected n=2495 re-decode)"
+      "${AUTODL_TMP}/asr_expansion2_results/audit/audit_aishell_paraformer_clean.json:paraformer:aishell_clean",
+      "${AUTODL_TMP}/asr_expansion2_results/audit/audit_aishell_musan5db_paraformer_noise.json:paraformer:musan5db",
+      "${AUTODL_TMP}/asr_expansion2_results/audit/audit_aishell_musan15db_paraformer_noise.json:paraformer:musan15db",
+      "${AUTODL_TMP}/asr_expansion2_results/audit/audit_aishell_musan25db_paraformer_noise.json:paraformer:musan25db",
+      "${AUTODL_TMP}/asr_expansion2_results/audit/audit_aishell_whisper_clean.json:whisper:aishell_clean",
+      "${AUTODL_TMP}/asr_expansion2_results/audit/audit_thchs30_whisper_crosscorpus.json:whisper:thchs30_crosscorpus  (2026-07-12: recomputed on corrected n=2495 re-decode)"
     ],
     "rows": [
       {
@@ -48137,7 +48137,7 @@
     }
   },
   "landscape": {
-    "results_dir": "/home/zeyufu/Desktop/ml-reliability-research/reliability-commons/tools/asr-gate/manuscripts/results/landscape",
+    "results_dir": "${REPO_ROOT}/manuscripts/results/landscape",
     "attainment": {
       "paraformer_aishell_a0.015": {
         "backbone": "paraformer",

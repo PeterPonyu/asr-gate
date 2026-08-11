@@ -10158,7 +10158,7 @@
     "warn": false
   },
   "provenance": {
-    "script": "/home/zeyufu/Desktop/ml-reliability-research/reliability-commons/tools/asr-gate/asr_gate/gate.py",
+    "script": "${REPO_ROOT}/asr_gate/gate.py",
     "timestamp_utc": "2026-07-13T04:28:44.758252+00:00",
     "seeds": null,
     "python_version": "3.13.5",

@@ -25,9 +25,9 @@ from pathlib import Path
 
 import numpy as np
 
-A = Path("/home/zeyufu/Desktop/ml-reliability-research/reliability-commons/tools/asr-gate")
+A = _portal_repo_root()
 sys.path.insert(0, str(A))
-sys.path.insert(0, "/home/zeyufu/Desktop/ml-reliability-research/reliability-commons")
+sys.path.insert(0, str(_portal_commons_root()))
 from asr_gate import audit as _audit  # noqa: E402
 from asr_gate import io as _io        # noqa: E402
 from asr_gate import scores as _scores  # noqa: E402

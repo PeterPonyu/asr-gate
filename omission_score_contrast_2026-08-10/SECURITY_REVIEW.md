@@ -100,7 +100,7 @@ _assert_vendor_hash(JIEBA_VENDOR, EXPECTED)
 **Location:** `results.json:5,27` (and per-cell `path`); `SUMMARY.md` landscape line; `run.log:1,4,64`; `run_contrast.py:256,302,381`  
 **Exploitability:** Anyone with read access to published artifacts  
 **Blast Radius:** Leaks username (`zeyufu`), machine directory layout, and research corpus paths — useful for targeted local attacks or doxxing in public releases  
-**Issue:** Outputs store absolute paths such as `/home/zeyufu/Desktop/...`. No API keys/transcripts found in `results.json` (good: no `ref_text`/`hyp_text`/`token_logps` persisted).  
+**Issue:** Outputs store absolute paths such as `${DESKTOP}/...`. No API keys/transcripts found in `results.json` (good: no `ref_text`/`hyp_text`/`token_logps` persisted).  
 **Remediation:**
 ```python
 # BAD

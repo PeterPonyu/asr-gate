@@ -40,13 +40,13 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # Tunables (env-overridable, named defaults -- ABSOLUTE RULE: no hardcoded
 # paths/model IDs/statistical denominators inline in the stages below).
 # ---------------------------------------------------------------------------
-RESULTS_DIR="${RESULTS_DIR:-/root/autodl-tmp/asr_expansion2_results}"
+RESULTS_DIR="${RESULTS_DIR:-${AUTODL_TMP}/asr_expansion2_results}"
 DEVICE="${DEVICE:-cuda}"
 SEED="${SEED:-0}"
 
-DATA_ROOT_AISHELL="${DATA_ROOT_AISHELL:-/root/autodl-tmp/data_aishell}"
-DATA_ROOT_THCHS30="${DATA_ROOT_THCHS30:-/root/autodl-tmp/data_thchs30}"
-ESC50_DIR="${ESC50_DIR:-/root/autodl-tmp/noise_corpus}"  # materialized location on the asr box (2,000 clips measured)
+DATA_ROOT_AISHELL="${DATA_ROOT_AISHELL:-${AUTODL_TMP}/data_aishell}"
+DATA_ROOT_THCHS30="${DATA_ROOT_THCHS30:-${AUTODL_TMP}/data_thchs30}"
+ESC50_DIR="${ESC50_DIR:-${AUTODL_TMP}/noise_corpus}"  # materialized location on the asr box (2,000 clips measured)
 
 THCHS_MIN_PAIRS="${THCHS_MIN_PAIRS:-1300}"  # measured mirror test roster = 1,339; see EXPANSION-AMENDMENT addendum 2026-07-09
 ESC50_MIN_CLIPS="${ESC50_MIN_CLIPS:-1500}"
@@ -64,7 +64,7 @@ SNRS="${SNRS:-5 15 25}"  # space-separated dB list
 AUDIT_ALPHA="${AUDIT_ALPHA:-0.05}"
 AUDIT_N_PERM="${AUDIT_N_PERM:-2000}"
 
-HF_HOME="${HF_HOME:-/root/autodl-tmp/hf-cache}"
+HF_HOME="${HF_HOME:-${AUTODL_TMP}/hf-cache}"
 HF_ENDPOINT="${HF_ENDPOINT:-https://hf-mirror.com}"
 ASR_LOG="${ASR_LOG:-/root/asr_expansion2.log}"
 BALANCE_GUARD="${BALANCE_GUARD:-/root/balance_guard.sh}"
@@ -72,7 +72,7 @@ GPU_UTIL_LOG="${GPU_UTIL_LOG:-/root/gpu_util.log}"
 GPU_LOG_PIDFILE="${GPU_LOG_PIDFILE:-/root/gpu_util_logger.pid}"
 
 ACK_TIMEOUT_S="${ACK_TIMEOUT_S:-1800}"
-RESULTS_TARBALL="${RESULTS_TARBALL:-/root/autodl-tmp/asr_expansion_results.tar.gz}"
+RESULTS_TARBALL="${RESULTS_TARBALL:-${AUTODL_TMP}/asr_expansion_results.tar.gz}"
 ACK_FILE="${ACK_FILE:-/root/RESULTS_PULLED_ACK}"
 NO_AUTOSHUTDOWN_FILE="${NO_AUTOSHUTDOWN_FILE:-/root/NO_AUTOSHUTDOWN}"
 

@@ -18,13 +18,13 @@
 #     `tune20.jsonl`, exactly matching §7's "certify + audit on tune"
 #     wording.
 #
-# Usage: DATA_ROOT=/root/autodl-tmp/data_aishell RESULTS_DIR=./pilot_results \
+# Usage: DATA_ROOT=${AUTODL_TMP}/data_aishell RESULTS_DIR=./pilot_results \
 #        DEVICE=cuda ALPHA=0.02 DELTA=0.1 ./run_pilot.sh
 
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-DATA_ROOT="${DATA_ROOT:-/root/autodl-tmp/data_aishell}"
+DATA_ROOT="${DATA_ROOT:-${AUTODL_TMP}/data_aishell}"
 RESULTS_DIR="${RESULTS_DIR:-$SCRIPT_DIR/../pilot_results}"
 DEVICE="${DEVICE:-cuda}"
 ALPHA="${ALPHA:-0.02}"

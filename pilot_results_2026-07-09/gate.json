@@ -93,7 +93,7 @@
   "ood_non_cjk_threshold": 0.2,
   "ks_warn_distance": 0.15,
   "input_sha256": {
-    "/root/autodl-tmp/pilot_results/cal20_scored.jsonl": "ba71fb2d2edb5868f6ef1850565a4ef1cdeae6db68f09f4e121debbbdce6d046"
+    "${AUTODL_TMP}/pilot_results/cal20_scored.jsonl": "ba71fb2d2edb5868f6ef1850565a4ef1cdeae6db68f09f4e121debbbdce6d046"
   },
   "provenance": {
     "script": "/root/asr-gate/asr_gate/gate.py",
