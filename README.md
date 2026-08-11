@@ -175,7 +175,7 @@ is CPU-only). Every step is idempotent (skips if its output already
 exists).
 
 ```bash
-export DATA_ROOT=/root/autodl-pub/Aishell   # VERIFY against the actual box layout first (Phase 0)
+export DATA_ROOT=${AUTODL_PUB}/Aishell   # VERIFY against the actual box layout first (Phase 0)
 export RESULTS_DIR=./pilot_results
 export DEVICE=cuda
 export ALPHA=0.02   # one of {0.01, 0.02, 0.03} per design §1

@@ -30,7 +30,7 @@ EOF
 fi
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-DATA_ROOT="${DATA_ROOT:-/root/autodl-tmp/data_aishell}"
+DATA_ROOT="${DATA_ROOT:-${AUTODL_TMP}/data_aishell}"
 RESULTS_DIR="${RESULTS_DIR:-$SCRIPT_DIR/../main_results}"
 DEVICE="${DEVICE:-cuda}"
 ALPHA="${ALPHA:?set ALPHA to the frozen target, e.g. 0.02}"

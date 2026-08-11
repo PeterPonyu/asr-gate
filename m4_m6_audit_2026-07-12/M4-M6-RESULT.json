@@ -64660,7 +64660,7 @@
    "macro_cer": 0.019536770303890106,
    "clip_count": 0,
    "provenance": {
-    "script": "/home/zeyufu/Desktop/ml-reliability-research/reliability-commons/tools/asr-gate/asr_gate/audit.py",
+    "script": "${REPO_ROOT}/asr_gate/audit.py",
     "timestamp_utc": "2026-07-12T14:05:31.703430+00:00",
     "seeds": [
      0
@@ -86229,7 +86229,7 @@
    "macro_cer": 0.019536770303890106,
    "clip_count": 0,
    "provenance": {
-    "script": "/home/zeyufu/Desktop/ml-reliability-research/reliability-commons/tools/asr-gate/asr_gate/audit.py",
+    "script": "${REPO_ROOT}/asr_gate/audit.py",
     "timestamp_utc": "2026-07-12T14:05:31.862134+00:00",
     "seeds": [
      0

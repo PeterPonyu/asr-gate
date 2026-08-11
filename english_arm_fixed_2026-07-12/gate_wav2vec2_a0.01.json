@@ -1487,10 +1487,10 @@
  "ood_non_cjk_threshold": 1.01,
  "ks_warn_distance": 0.15,
  "input_sha256": {
-  "/home/zeyufu/Desktop/ml-reliability-research/reliability-commons/tools/asr-gate/english_arm_fixed_2026-07-12/wav2vec2_cal.jsonl": "6bfae7d93f08e241c8ad2dbe022845f740a90b90010690f97a890a21ffd53adf"
+  "${REPO_ROOT}/english_arm_fixed_2026-07-12/wav2vec2_cal.jsonl": "6bfae7d93f08e241c8ad2dbe022845f740a90b90010690f97a890a21ffd53adf"
  },
  "provenance": {
-  "script": "/home/zeyufu/Desktop/ml-reliability-research/reliability-commons/tools/asr-gate/asr_gate/gate.py",
+  "script": "${REPO_ROOT}/asr_gate/gate.py",
   "timestamp_utc": "2026-07-12T15:35:02.814503+00:00",
   "seeds": [
    0

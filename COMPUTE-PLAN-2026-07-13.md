@@ -345,7 +345,7 @@ decode + a cached-score sweep:
 
 ```bash
 # STAGE (credential-free) — prefer autodl-pub mirror for Aishell; openslr for the rest
-#   Aishell-1: cp/extract from /root/autodl-pub (per AUTODL-PUB-DATA-MAP) — no download
+#   Aishell-1: cp/extract from ${AUTODL_PUB} (per AUTODL-PUB-DATA-MAP) — no download
 #   THCHS-30 : wget https://www.openslr.org/resources/18/{data_thchs30}.tgz
 #   aidatatang: wget https://www.openslr.org/resources/62/aidatatang_200zh.tgz
 #   models   : hf download BELLE-2/Belle-whisper-large-v3-zh ;

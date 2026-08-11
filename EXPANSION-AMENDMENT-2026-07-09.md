@@ -40,5 +40,5 @@ column; symlink dir `data_thchs30/test/` → `../data/`), so membership is exact
 test split — no re-carving. THCHS remains apply/audit-only (calibration stays on Aishell dev),
 so this count affects certification-arm sample size, not calibration validity. Measured
 detail: `/root/nocard_stage2.log` on the asr box; ESC-50 measured clip count = 2,000 (>1,500
-gate passes); noise corpus resides at `/root/autodl-tmp/noise_corpus` (ESC50_DIR default
+gate passes); noise corpus resides at `${AUTODL_TMP}/noise_corpus` (ESC50_DIR default
 aligned to the materialized location).

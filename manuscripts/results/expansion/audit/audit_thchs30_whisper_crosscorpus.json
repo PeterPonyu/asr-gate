@@ -15051,7 +15051,7 @@
   "macro_cer": 0.09930681398550871,
   "clip_count": 0,
   "provenance": {
-    "script": "/home/zeyufu/Desktop/ml-reliability-research/reliability-commons/tools/asr-gate/asr_gate/audit.py",
+    "script": "${REPO_ROOT}/asr_gate/audit.py",
     "timestamp_utc": "2026-07-13T01:19:35.161057+00:00",
     "seeds": [
       0

@@ -54,9 +54,9 @@ DEVICE="${DEVICE:-cuda}"
 ALPHA="${ALPHA:-0.02}"
 DELTA="${DELTA:-0.1}"
 SEED="${SEED:-0}"
-DATA_ROOT_AISHELL="${DATA_ROOT_AISHELL:-/root/autodl-tmp/data_aishell}"
-DATA_ROOT_THCHS30="${DATA_ROOT_THCHS30:-/root/autodl-tmp/data_thchs30}"
-MUSAN_DIR="${MUSAN_DIR:-/root/autodl-tmp/musan}"
+DATA_ROOT_AISHELL="${DATA_ROOT_AISHELL:-${AUTODL_TMP}/data_aishell}"
+DATA_ROOT_THCHS30="${DATA_ROOT_THCHS30:-${AUTODL_TMP}/data_thchs30}"
+MUSAN_DIR="${MUSAN_DIR:-${AUTODL_TMP}/musan}"
 
 mkdir -p "$RESULTS_DIR"
 

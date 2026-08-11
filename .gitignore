@@ -48,3 +48,8 @@ orchestration/.omc/
 
 # jieba runtime cache (do not commit)
 omission_score_contrast_2026-08-10/.jieba_cache/
+.cursor/
+.playwright-mcp/
+.env
+.env.*
+!.env.example

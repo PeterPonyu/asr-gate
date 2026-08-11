@@ -1,7 +1,7 @@
-/home/zeyufu/Desktop/ml-reliability-research/asr-gate/omission_score_contrast_2026-08-10/vendor/jieba/_compat.py:18: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+${REPO_ROOT}/omission_score_contrast_2026-08-10/vendor/jieba/_compat.py:18: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   import pkg_resources
 Building prefix dict from the default dictionary ...
-Loading model from cache /home/zeyufu/Desktop/ml-reliability-research/asr-gate/omission_score_contrast_2026-08-10/.jieba_cache/jieba.cache
+Loading model from cache ${REPO_ROOT}/omission_score_contrast_2026-08-10/.jieba_cache/jieba.cache
 Loading model cost 0.360 seconds.
 Prefix dict has been built successfully.
 corpus     backbone    score                 a  oracle%  deploy%   flag% o_vac d_vac
@@ -61,5 +61,5 @@ thchs30    zipformer   hyp_entity_mass    0.05    75.0%    75.0%   19.1%    0%  
 thchs30    zipformer   hyp_entity_mass    0.10   100.0%   100.0%    2.7%  100%    0%
 thchs30    zipformer   hyp_entity_mass    0.20   100.0%   100.0%    2.7%  100%    0%
 
-wrote /home/zeyufu/Desktop/ml-reliability-research/asr-gate/omission_score_contrast_2026-08-10/results.json  wall=55.2s
+wrote ${REPO_ROOT}/omission_score_contrast_2026-08-10/results.json  wall=55.2s
 summary: all-pairs median Δ=+0.000  both-arms n=13 median Δ=0.6  OR n=27 median Δ=0.0  matches_e4=True

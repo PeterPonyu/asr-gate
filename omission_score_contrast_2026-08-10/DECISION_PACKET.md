@@ -82,7 +82,7 @@ No downstream artifact may collapse these into a single “done” or “paper-r
 | Residual LOW | Path redaction, JSONL bounds, latent paddle helper | Open for public release; not blocking single-user offline packaging |
 
 **Formal security review (verified):**  
-`/home/zeyufu/Desktop/frontier-directions-research/.omc/research/research-2026-08-10-paper-readiness/findings/verified/security-review.md`
+`${DESKTOP}/frontier-directions-research/.omc/research/research-2026-08-10-paper-readiness/findings/verified/security-review.md`
 
 Local copy: `SECURITY_REVIEW.md` in this directory.
 

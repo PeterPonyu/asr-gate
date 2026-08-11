@@ -1543,7 +1543,7 @@
         "pilot_results_2026-07-09/cal20_scored.jsonl": "ba71fb2d2edb5868f6ef1850565a4ef1cdeae6db68f09f4e121debbbdce6d046"
       },
       "provenance": {
-        "script": "/home/zeyufu/Desktop/ml-reliability-research/reliability-commons/tools/asr-gate/asr_gate/gate.py",
+        "script": "${REPO_ROOT}/asr_gate/gate.py",
         "timestamp_utc": "2026-07-09T04:59:36.446480+00:00",
         "seeds": [
           0
@@ -3049,7 +3049,7 @@
         "pilot_results_2026-07-09/cal20_scored.jsonl": "ba71fb2d2edb5868f6ef1850565a4ef1cdeae6db68f09f4e121debbbdce6d046"
       },
       "provenance": {
-        "script": "/home/zeyufu/Desktop/ml-reliability-research/reliability-commons/tools/asr-gate/asr_gate/gate.py",
+        "script": "${REPO_ROOT}/asr_gate/gate.py",
         "timestamp_utc": "2026-07-09T04:59:44.780619+00:00",
         "seeds": [
           0

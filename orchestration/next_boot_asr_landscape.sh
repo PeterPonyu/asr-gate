@@ -69,18 +69,18 @@ done
 # Tunables (env-overridable, named defaults). Model IDs are frozen-per-amendment
 # defaults (FREEZE-AMENDMENT-2026-07-13 §1), still overridable.
 # ---------------------------------------------------------------------------
-RESULTS_DIR="${RESULTS_DIR:-/root/autodl-tmp/asr_landscape_results}"
+RESULTS_DIR="${RESULTS_DIR:-${AUTODL_TMP}/asr_landscape_results}"
 DEVICE="${DEVICE:-cuda}"
 SEED="${SEED:-0}"
 
-DATA_ROOT_AISHELL="${DATA_ROOT_AISHELL:-/root/autodl-tmp/data_aishell}"
-DATA_ROOT_THCHS30="${DATA_ROOT_THCHS30:-/root/autodl-tmp/data_thchs30}"
-DATA_ROOT_AIDATATANG="${DATA_ROOT_AIDATATANG:-/root/autodl-tmp/aidatatang_200zh}"
-DATA_ROOT_MAGICDATA="${DATA_ROOT_MAGICDATA:-/root/autodl-tmp/magicdata}"
+DATA_ROOT_AISHELL="${DATA_ROOT_AISHELL:-${AUTODL_TMP}/data_aishell}"
+DATA_ROOT_THCHS30="${DATA_ROOT_THCHS30:-${AUTODL_TMP}/data_thchs30}"
+DATA_ROOT_AIDATATANG="${DATA_ROOT_AIDATATANG:-${AUTODL_TMP}/aidatatang_200zh}"
+DATA_ROOT_MAGICDATA="${DATA_ROOT_MAGICDATA:-${AUTODL_TMP}/magicdata}"
 
 # B3' Belle (AED, documented data) + B4 zipformer (RNN-T, open data). Frozen ids.
 BELLE_MODEL="${BELLE_MODEL:-BELLE-2/Belle-whisper-large-v3-zh}"
-ZIPFORMER_DIR="${ZIPFORMER_DIR:-/root/autodl-tmp/sherpa-onnx-zipformer-multi-zh-hans-2023-9-2}"
+ZIPFORMER_DIR="${ZIPFORMER_DIR:-${AUTODL_TMP}/sherpa-onnx-zipformer-multi-zh-hans-2023-9-2}"
 # Stretch (GATED, --with-stretch only; only load-bearing if the posterior hook
 # verifies in the smoke, FREEZE-AMENDMENT §5).
 SENSEVOICE_MODEL="${SENSEVOICE_MODEL:-iic/SenseVoiceSmall}"
@@ -101,7 +101,7 @@ SMOKE_N="${SMOKE_N:-20}"                 # posterior-shape smoke size per backbo
 AIDATATANG_TEST_CAP="${AIDATATANG_TEST_CAP:-4000}"  # FREEZE-AMENDMENT §2 speaker-disjoint cap
 MAGICDATA_TEST_CAP="${MAGICDATA_TEST_CAP:-4000}"
 
-HF_HOME="${HF_HOME:-/root/autodl-tmp/hf-cache}"
+HF_HOME="${HF_HOME:-${AUTODL_TMP}/hf-cache}"
 HF_ENDPOINT="${HF_ENDPOINT:-https://hf-mirror.com}"
 ASR_LOG="${ASR_LOG:-/root/asr_landscape.log}"
 GPU_UTIL_LOG="${GPU_UTIL_LOG:-/root/gpu_util_landscape.log}"

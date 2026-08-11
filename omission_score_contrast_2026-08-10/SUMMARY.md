@@ -1,7 +1,7 @@
 # Coupled vs decoupled deploy-valid — ASR landscape CPU contrast
 
 - Date: 2026-08-10
-- Landscape: `/home/zeyufu/Desktop/ml-reliability-research/asr-gate/landscape_pulled_2026-07-15`
+- Landscape: `${REPO_ROOT}/landscape_pulled_2026-07-15`
 - Polarity: PASS — s1↔decoupled; hyp_entity_mass↔coupled/conf
 - Alphas: [0.05, 0.1, 0.2]
 - Wall: 55.2s CPU
