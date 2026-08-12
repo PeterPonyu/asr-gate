@@ -37,7 +37,7 @@ a caveat to be minimized.
 We confirm that this manuscript is original work, is not under consideration or review elsewhere,
 and has not been submitted in whole or part to any other venue. The single author has approved the
 submission. Data and code availability are as stated in the manuscript's availability statement
-(all results reproducible from the frozen JSON artifacts and the released \texttt{asr-gate} code).
+(all results reproducible from archived experimental artifacts and the released accept/defer-gate code).
 
 Thank you for your consideration.
 

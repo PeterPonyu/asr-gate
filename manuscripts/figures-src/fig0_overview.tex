@@ -1,108 +1,125 @@
-% Standalone figure: asr-gate method-overview schematic (paper's new Fig. 1).
-% Two converging lanes -- offline calibration (top) and per-utterance
-% test-time scoring (bottom) -- merging at the accept/defer decision, with
-% the G1 certificate guarantee and the vacuous-at-target refusal case
-% annotated as text callouts above/below the decision box (no extra boxes,
-% per the figure-box budget: six pipeline boxes total).
-% Every label reuses the paper's own notation/terms verbatim:
-%   - decode artifacts, never the model (Sec. "Method: asr-gate", opening para)
-%   - accept iff s >= lambda; select the most permissive lambda^* (Sec. G1)
-%   - n_cal, speaker-disjoint calibration split (Sec. "Experimental setup")
-%   - Learn-Then-Test, lambda-grid, EB p-values + Bonferroni-over-grid,
-%     the frozen/adopted procedure (Sec. G1, "Disclosed pivot" paragraph)
-%   - accepted-set macro-CER <= alpha w.p. >= 1-delta (Sec. G1)
-%   - VACUOUS-AT-TARGET: no threshold certifies, nothing accepted, reported
-%     not silently dropped (Sec. "The certificate holds on clean Aishell-1")
-% No numeric values appear -- only the symbolic alpha, delta, n_cal, lambda,
-% lambda^*, s -- per the figure brief. Drawn near-natural-size (~9cm wide) so
-% that fonts stay >=8pt effective at TASLP columnwidth (~3.5in = 8.89cm).
-% Compile: pdflatex fig0_overview.tex (see Makefile); output fig0_overview.pdf
-% is copied unmodified into ../figures/ and ../taslp/figures/ (canonical and
-% TASLP ports share one file).
-\documentclass[border=1pt]{standalone}
+% Standalone figure: TASLP Fig. 1, accept/defer reliability gate (G1 protocol).
+% One protocol, two phases: offline speaker-disjoint calibration (top) freezes
+% lambda^* via LTT + EB p-values + Bonferroni-over-grid; inference (bottom)
+% reads decode artifacts from a frozen ASR backbone (never the model) to a
+% confidence s. Both phases meet at the hinge s >= lambda^*; accept carries the
+% macro-CER <= alpha w.p. >= 1-delta guarantee, else defer to a human. If no
+% lambda on the grid certifies, the calibration fork reports VACUOUS-AT-TARGET
+% (nothing accepted, not silently dropped). Not a 5-stage RISC schematic.
+% Notation matches Methods (G1): s, lambda, lambda^*, n_cal, alpha, delta.
+% No numeric values; no tool-name slogan in the rendered figure.
+% Native width ~8.85cm so 8pt titles / 7.5pt subs stay at TASLP columnwidth.
+% Compile: pdflatex fig0_overview.tex; Makefile copies PDF to ../figures and
+% ../taslp/figures.
+\documentclass[border=0.8pt]{standalone}
 \usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage{tikz}
 \usepackage{amsmath,amssymb}
-\usetikzlibrary{arrows.meta,positioning,fit,calc}
+\usetikzlibrary{arrows.meta,positioning,fit,calc,backgrounds}
 
 \definecolor{cAccept}{HTML}{0072B2}
 \definecolor{cDefer}{HTML}{D55E00}
-\definecolor{cBoxFill}{HTML}{F2F2F2}
-\definecolor{cBoxLine}{HTML}{404040}
-\definecolor{cGuardFill}{HTML}{E8F1F8}
+\definecolor{cVac}{HTML}{8A6D1A}
+\definecolor{cBoxFill}{HTML}{F7F7F7}
+\definecolor{cBoxLine}{HTML}{2F2F2F}
+\definecolor{cCalFill}{HTML}{D9E6F2}
+\definecolor{cInfFill}{HTML}{EFE6D8}
+\definecolor{cGuardFill}{HTML}{D2E4F2}
+\definecolor{cDeferFill}{HTML}{F3DFCC}
+\definecolor{cVacFill}{HTML}{F2E9C4}
+\definecolor{cHingeFill}{HTML}{FFFFFF}
+\definecolor{cFrame}{HTML}{AFAFAF}
 
-% TABLEFIX-2026-07-16: bumped 6.8/7.8 -> 7.5/8.5 (native 6.8pt scaled to the TASLP
-%   columnwidth landed at ~6.9pt effective, under the 7pt floor; also removed decorative
-%   \bfseries/\itshape below (box titles, "Guarantee:", accept/defer arrow labels, and the
-%   vacuous-at-target callout) per the figure-typography directive -- structural distinction
-%   (title vs. detail, accept vs. defer lane) is already carried by size and the existing
-%   cAccept/cDefer colors, so the bold/italic was purely decorative.
-\newcommand{\sub}[1]{{\fontsize{7.5}{8.5}\selectfont #1}}
+\newcommand{\sub}[1]{{\fontsize{7.5}{8.4}\selectfont #1}}
+\newcommand{\ph}[1]{{\fontsize{7}{8}\selectfont #1}}
 
 \begin{document}
 \begin{tikzpicture}[
   >=Latex,
   font=\fontsize{8}{9}\selectfont,
-  pipebox/.style={draw=cBoxLine, thick, rounded corners=2pt, fill=cBoxFill,
-    align=center, inner sep=3pt, minimum height=1.0cm},
-  decbox/.style={draw=cBoxLine, very thick, rounded corners=2pt, fill=cBoxFill,
-    align=center, inner sep=3pt},
+  pipebox/.style={
+    draw=cBoxLine, thick, rounded corners=2pt, fill=cBoxFill,
+    align=center, inner sep=2.6pt, minimum height=0.84cm, outer sep=0.5pt,
+  },
+  hingebox/.style={
+    draw=cBoxLine, line width=1.05pt, rounded corners=2pt, fill=cHingeFill,
+    align=center, inner sep=2.8pt, minimum width=1.42cm, minimum height=1.46cm,
+    outer sep=0.5pt,
+  },
+  acceptbox/.style={
+    draw=cAccept, thick, rounded corners=2pt, fill=cGuardFill,
+    align=center, inner sep=2.8pt, minimum height=0.78cm, outer sep=0.4pt,
+  },
+  deferbox/.style={
+    draw=cDefer, thick, dash pattern=on 1.6pt off 1.1pt, rounded corners=2pt,
+    fill=cDeferFill, align=center, inner sep=2.5pt, minimum height=0.70cm,
+    outer sep=0.4pt,
+  },
+  vacbox/.style={
+    draw=cVac, thin, dash pattern=on 1.3pt off 1.0pt, rounded corners=1.4pt,
+    fill=cVacFill, align=center, inner sep=2.0pt, outer sep=0.3pt,
+  },
 ]
 
-% ---------- top lane: offline calibration ----------
-\node[pipebox, text width=1.7cm] (calsplit) at (0,2.5)
-  {Calibration split\\[2pt]\sub{$n_{\mathrm{cal}}$, speaker-disjoint}};
-\node[pipebox, text width=1.95cm, right=0.22cm of calsplit] (ltt)
-  {LTT\\certificate\\[2pt]\sub{$\lambda$-grid; EB $p$-values,\\Bonferroni $\Rightarrow \lambda^\star$}};
+% Rotated swimlane labels (compact width; caption names calibration vs inference).
+\node[rotate=90, inner sep=0pt, font=\fontsize{7}{8}\selectfont] (laboff)
+  at (0.18, 1.46) {Offline};
+\node[rotate=90, inner sep=0pt, font=\fontsize{7}{8}\selectfont] (lablive)
+  at (0.18, 0.00) {Live};
 
-% ---------- bottom lane: per-utterance test time ----------
-\node[pipebox, text width=1.55cm] (utt) at (0,0)
+% --- offline (top) ---
+\node[pipebox, text width=1.52cm, anchor=west] (calsplit) at (0.36, 1.46)
+  {Calibration\\[0.8pt]\sub{$n_{\mathrm{cal}}$}\\[-0.2pt]\sub{speaker-disjoint}};
+\node[pipebox, text width=2.08cm, anchor=west, right=0.36cm of calsplit] (ltt)
+  {LTT $\lambda$-grid\\[0.8pt]\sub{EB $p$-values,}\\[-0.2pt]\sub{Bonferroni $\Rightarrow\lambda^\star$}};
+
+% --- live inference (bottom) ---
+\node[pipebox, text width=1.52cm, anchor=west] (utt) at (0.36, 0.00)
   {Utterance audio};
-\node[pipebox, text width=1.75cm, right=0.22cm of utt] (backbone)
-  {Frozen ASR backbone\\[2pt]\sub{decode artifacts\\(never the model)}};
-\node[pipebox, text width=1.65cm, right=0.22cm of backbone] (score)
-  {Confidence score $s$\\[2pt]\sub{accept iff $s\ge\lambda$}};
+\node[pipebox, text width=2.08cm, anchor=west, right=0.36cm of utt] (backbone)
+  {Frozen ASR $\to s$\\[0.8pt]\sub{decode artifacts}\\[-0.2pt]\sub{(never the model)}};
 
-% ---------- merge: accept / defer decision ----------
-% Anchored off score.east (always the rightmost lane edge, since the
-% test-time lane has three boxes vs. the calibration lane's two) so the
-% decision box never overlaps either lane; recentred to the mid-lane y.
-\node[decbox, anchor=west, text width=1.55cm, minimum height=2.9cm]
-  (dec) at ($(score.east)+(0.45,1.3)$)
-  {Accept /\\defer\\[3pt]\sub{$s \ge \lambda^\star$?}};
+% Vacuous fork: two lines, same width as LTT (must not widen the figure).
+\node[vacbox, above=0.10cm of ltt, xshift=-0.18cm] (vac)
+  {\sub{if no $\lambda$ certifies:}\\[-0.2pt]\fontsize{6.8}{7.8}\selectfont VACUOUS-AT-TARGET};
 
-% ---------- lane arrows ----------
+% Hinge: one-line comparison, vertically centered between the two phases.
+\node[hingebox, anchor=west] (dec) at ($(ltt.east)+(0.32,-0.73)$)
+  {\fontsize{8.5}{10}\selectfont $s\ge\lambda^\star$?};
+
+% Outcomes to the right (keeps column height down; real gap, no chip overlap).
+\node[acceptbox, text width=1.52cm, anchor=west]
+  (guarantee) at ($(dec.east)+(0.22,0.56)$)
+  {Accept\\[0.6pt]\sub{macro-CER $\le\alpha$}\\[0.2pt]\sub{w.p.\ $\ge 1-\delta$}};
+\node[deferbox, text width=1.52cm, anchor=west]
+  (defer) at ($(dec.east)+(0.22,-0.56)$)
+  {Defer\\[0.5pt]\sub{$\to$ human review}};
+
 \draw[->, thick] (calsplit) -- (ltt);
 \draw[->, thick] (utt) -- (backbone);
-\draw[->, thick] (backbone) -- (score);
 
-% ---------- convergence arrows into the decision box ----------
-\draw[->, thick] (ltt.east) -- ++(0.22,0) |- ($(dec.west)+(0,0.80)$);
-\draw[->, thick] (score.east) -- ++(0.16,0) |- ($(dec.west)+(0,-0.80)$);
+\draw[->, thick] (ltt.east) -- ++(0.14,0) |- ($(dec.west)+(0,0.32)$);
+\draw[->, thick] (backbone.east) -- ++(0.14,0) |- ($(dec.west)+(0,-0.32)$);
+\node[anchor=south west, inner sep=0.3pt] at ($(ltt.east)+(0.01,0.01)$)
+  {\sub{$\lambda^\star$}};
+\node[anchor=north west, inner sep=0.3pt] at ($(backbone.east)+(0.01,-0.01)$)
+  {\sub{$s$}};
 
-% ---------- decision outputs: stacked above/below dec (no extra width) ----------
-% REVIEWFIX-D3-2026-07-16: in-figure text annotations set to black (were cAccept
-%   "Guarantee:"/"accept" and cDefer "defer") per the annotation-color rail; the
-%   box fills/borders and arrows keep their accept/defer colors (marks, not text).
-\node[align=center, text width=2.05cm, above=0.42cm of dec,
-      draw=cAccept, thick, rounded corners=1.5pt, fill=cGuardFill, inner sep=3pt]
-  (guarantee) {\sub{Guarantee:}\\\sub{macro-CER $\le \alpha$ w.p.\ $\ge 1-\delta$}};
-\draw[->, thick, cAccept] (dec.north) -- (guarantee.south);
-\node[anchor=east, xshift=-1pt] at ($(dec.north)!0.5!(guarantee.south)+(-0.05,0)$) {\sub{accept}};
-
-\node[align=center, text width=2.05cm, below=0.42cm of dec]
-  (defer) {\sub{defer $\to$ human review}};
-\draw[->, thick, cDefer, dashed] (dec.south) -- (defer.north);
-\node[anchor=east, xshift=-1pt] at ($(dec.south)!0.5!(defer.north)+(-0.05,0)$) {\sub{defer}};
-
-% ---------- vacuous-at-target callout, above the calibration lane ----------
-% REVIEWFIX-D3-2026-07-16: reduced to a short label (was a full sentence inside the
-%   figure); the "nothing accepted, reported not silently dropped" detail now lives
-%   only in the caption (\cref{fig:overview}), per the in-figure-text rail.
-\node[align=left, text width=3.0cm, above=0.42cm of ltt, xshift=-0.55cm]
-  (vac) {\sub{if no $\lambda$ certifies:\\\textsc{vacuous-at-target}}};
-\draw[-{Latex[length=1.5mm]}, thin, black!55, dash pattern=on 1.2pt off 1.2pt]
+\draw[->, thick, cAccept] (dec.east |- guarantee.west) -- (guarantee.west);
+\draw[->, thick, cDefer, dash pattern=on 1.6pt off 1.1pt]
+  (dec.east |- defer.west) -- (defer.west);
+\draw[-{Latex[length=1.3mm]}, thin, cVac, dash pattern=on 1.2pt off 1.0pt]
   (vac.south) -- (ltt.north);
+
+\begin{scope}[on background layer]
+  \node[rounded corners=3pt, inner xsep=2.4pt, inner ysep=2.6pt,
+        fill=cCalFill, fit=(laboff)(calsplit)(ltt)(vac)] (bandoff) {};
+  \node[rounded corners=3pt, inner xsep=2.4pt, inner ysep=2.6pt,
+        fill=cInfFill, fit=(lablive)(utt)(backbone)] (bandlive) {};
+  \node[rounded corners=3.2pt, inner sep=2.6pt, draw=cFrame, thin,
+        fit=(bandoff)(bandlive)(dec)(guarantee)(defer)] {};
+\end{scope}
 
 \end{tikzpicture}
 \end{document}

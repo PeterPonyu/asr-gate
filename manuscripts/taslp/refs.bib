@@ -1,7 +1,8 @@
 % asr-gate paper-specific references. Generic conformal/calibration/selective
 % keys (vovk2005algorithmic, angelopoulos2023conformal, geifman2017selective,
 % guo2017calibration) come from the portfolio shared.bib (copied by `make bib`).
-% arXiv IDs network-verified 2026-07-08/2026-07-10 per DIRECTION-SURVEY-2026-07-10 §6.
+% Cited entries re-verified 2026-08-12 against Crossref / PMLR / ISCA / IEEE /
+% Euclid / ACL Anthology / arXiv (preprint-vs-published upgrades applied).
 
 @inproceedings{ernez2023conformal,
   title     = {Applying the Conformal Prediction Paradigm for the Uncertainty
@@ -21,17 +22,22 @@
   title   = {Learn then Test: Calibrating Predictive Algorithms to Achieve Risk Control},
   author  = {Angelopoulos, Anastasios N. and Bates, Stephen and Cand{\`e}s, Emmanuel J.
              and Jordan, Michael I. and Lei, Lihua},
-  journal = {arXiv preprint arXiv:2110.01052},
-  year    = {2021}
+  journal = {The Annals of Applied Statistics},
+  volume  = {19},
+  number  = {2},
+  pages   = {1641--1662},
+  year    = {2025},
+  doi     = {10.1214/24-AOAS1998},
+  note    = {arXiv:2110.01052}
 }
 
-@article{angelopoulos2022crc,
-  title   = {Conformal Risk Control},
-  author  = {Angelopoulos, Anastasios N. and Bates, Stephen and Fisch, Adam and
-             Lei, Lihua and Schuster, Tal},
-  journal = {arXiv preprint arXiv:2208.02814},
-  year    = {2022},
-  note    = {Version 4, 13 Jun 2025}
+@inproceedings{angelopoulos2022crc,
+  title     = {Conformal Risk Control},
+  author    = {Angelopoulos, Anastasios N. and Bates, Stephen and Fisch, Adam and
+               Lei, Lihua and Schuster, Tal},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2024},
+  note      = {arXiv:2208.02814}
 }
 
 @article{angelopoulos2026nonmonotone,
@@ -60,13 +66,16 @@
   year    = {2021}
 }
 
-@article{traub2024selective,
-  title   = {Overcoming Common Flaws in the Evaluation of Selective Classification Systems},
-  author  = {Traub, Jeremias and Bungert, Till J. and Lueth, Carsten T. and
-             Baumgartner, Michael and Maier-Hein, Klaus H. and Maier-Hein, Lena and
-             Jaeger, Paul F.},
-  journal = {arXiv preprint arXiv:2407.01032},
-  year    = {2024}
+@inproceedings{traub2024selective,
+  title     = {Overcoming Common Flaws in the Evaluation of Selective Classification Systems},
+  author    = {Traub, Jeremias and Bungert, Till J. and L{\"u}th, Carsten T. and
+               Baumgartner, Michael and Maier-Hein, Klaus H. and Maier-Hein, Lena and
+               J{\"a}ger, Paul F.},
+  booktitle = {Advances in Neural Information Processing Systems 37 (NeurIPS)},
+  pages     = {2323--2347},
+  year      = {2024},
+  doi       = {10.52202/079017-0076},
+  note      = {arXiv:2407.01032}
 }
 
 @inproceedings{bu2017aishell,
@@ -78,6 +87,7 @@
                and Assessment (O-COCOSDA)},
   pages     = {1--5},
   year      = {2017},
+  doi       = {10.1109/ICSDA.2017.8384449},
   organization = {IEEE}
 }
 
@@ -88,49 +98,67 @@
   year    = {2015}
 }
 
-@article{gao2022paraformer,
-  title   = {Paraformer: Fast and Accurate Parallel Transformer for Non-autoregressive
-             End-to-End Speech Recognition},
-  author  = {Gao, Zhifu and Zhang, Shiliang and McLoughlin, Ian and Yan, Zhijie},
-  journal = {arXiv preprint arXiv:2206.08317},
-  year    = {2022}
+@inproceedings{gao2022paraformer,
+  title     = {Paraformer: Fast and Accurate Parallel Transformer for Non-autoregressive
+               End-to-End Speech Recognition},
+  author    = {Gao, Zhifu and Zhang, Shiliang and McLoughlin, Ian and Yan, Zhijie},
+  booktitle = {Proc.\ Interspeech 2022},
+  pages     = {2063--2067},
+  year      = {2022},
+  doi       = {10.21437/Interspeech.2022-9996}
 }
 
-@article{gao2023funasr,
-  title   = {FunASR: A Fundamental End-to-End Speech Recognition Toolkit},
-  author  = {Gao, Zhifu and Li, Zerui and Wang, Jiaming and Luo, Haoneng and others},
-  journal = {arXiv preprint arXiv:2305.11013},
-  year    = {2023}
+@inproceedings{gao2023funasr,
+  title     = {FunASR: A Fundamental End-to-End Speech Recognition Toolkit},
+  author    = {Gao, Zhifu and Li, Zerui and Wang, Jiaming and Luo, Haoneng and
+               Shi, Xian and Chen, Mengzhe and Li, Yabin and Zuo, Lingyun and
+               Du, Zhihao and Zhang, Shiliang},
+  booktitle = {Proc.\ Interspeech 2023},
+  pages     = {1593--1597},
+  year      = {2023},
+  doi       = {10.21437/Interspeech.2023-1428}
 }
 
-@article{radford2023whisper,
-  title   = {Robust Speech Recognition via Large-Scale Weak Supervision},
-  author  = {Radford, Alec and Kim, Jong Wook and Xu, Tao and Brockman, Greg and
-             McLeavey, Christine and Sutskever, Ilya},
-  journal = {arXiv preprint arXiv:2212.04356},
-  year    = {2022}
+@inproceedings{radford2023whisper,
+  title     = {Robust Speech Recognition via Large-Scale Weak Supervision},
+  author    = {Radford, Alec and Kim, Jong Wook and Xu, Tao and Brockman, Greg and
+               McLeavey, Christine and Sutskever, Ilya},
+  booktitle = {Proceedings of the 40th International Conference on Machine
+               Learning (ICML)},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {202},
+  pages     = {28492--28518},
+  year      = {2023},
+  publisher = {PMLR},
+  note      = {arXiv:2212.04356}
 }
 
-@article{li2021confidence,
-  title   = {Confidence Estimation for Attention-Based Sequence-to-Sequence Models
-             for Speech Recognition},
-  author  = {Li, Qiujia and Qiu, David and Zhang, Yu and Li, Bo and He, Yanzhang and
-             Woodland, Philip C. and Cao, Liangliang and Strohman, Trevor},
-  journal = {arXiv preprint arXiv:2010.11428},
-  year    = {2021},
-  note    = {ICASSP 2021}
+@inproceedings{li2021confidence,
+  title     = {Confidence Estimation for Attention-Based Sequence-to-Sequence Models
+               for Speech Recognition},
+  author    = {Li, Qiujia and Qiu, David and Zhang, Yu and Li, Bo and He, Yanzhang and
+               Woodland, Philip C. and Cao, Liangliang and Strohman, Trevor},
+  booktitle = {2021 IEEE International Conference on Acoustics, Speech and
+               Signal Processing (ICASSP)},
+  pages     = {6388--6392},
+  year      = {2021},
+  doi       = {10.1109/ICASSP39728.2021.9414920},
+  organization = {IEEE}
 }
 
-@article{park2024wer,
-  title   = {Automatic Speech Recognition System-Independent Word Error Rate Estimation},
-  author  = {Park, Chanho and Chen, Mingjie and Hain, Thomas},
-  journal = {arXiv preprint arXiv:2404.16743},
-  year    = {2024},
-  note    = {LREC-COLING 2024}
+@inproceedings{park2024wer,
+  title     = {Automatic Speech Recognition System-Independent Word Error Rate Estimation},
+  author    = {Park, Chanho and Chen, Mingjie and Hain, Thomas},
+  booktitle = {Proceedings of the 2024 Joint International Conference on Computational
+               Linguistics, Language Resources and Evaluation ({LREC-COLING} 2024)},
+  pages     = {1979--1987},
+  year      = {2024},
+  publisher = {ELRA and ICCL},
+  doi       = {10.63317/4hnv9qhy3wkk}
 }
 
 @article{huang2026ras,
-  title   = {RAS: A Reliability-Oriented Metric for Automatic Speech Recognition},
+  title   = {RAS: A Reliability Oriented Metric for Automatic Speech Recognition},
   author  = {Huang, Wenbin and Qiu, Yuhang and Li, Bohan and Guo, Yiwei and
              Peng, Jing and Wang, Hankun and Chen, Xie and Yu, Kai},
   journal = {arXiv preprint arXiv:2604.24278},
@@ -156,14 +184,18 @@
   year    = {1979}
 }
 
+% Cite key kept for TeX stability; the work is Bentkus (2004), the Hoeffding--Bentkus
+% bound used by RCPS/LTT. The previous Lithuanian Math. J. 44(2):160--173 record
+% does not exist (that issue's 160s pages are other articles).
 @article{maddison2019hoeffding,
-  title   = {Hoeffding's Inequality and the Bentkus Bound},
+  title   = {On {Hoeffding}'s Inequalities},
   author  = {Bentkus, Vidmantas},
-  journal = {Lithuanian Mathematical Journal},
-  volume  = {44},
+  journal = {The Annals of Probability},
+  volume  = {32},
   number  = {2},
-  pages   = {160--173},
-  year    = {2004}
+  pages   = {1650--1673},
+  year    = {2004},
+  doi     = {10.1214/009117904000000360}
 }
 
 @inproceedings{panayotov2015librispeech,
@@ -174,6 +206,7 @@
                Signal Processing (ICASSP)},
   pages     = {5206--5210},
   year      = {2015},
+  doi       = {10.1109/ICASSP.2015.7178964},
   organization = {IEEE}
 }
 
@@ -218,9 +251,13 @@
 
 @article{jia2025coverageser,
   title   = {Coverage-Guaranteed Speech Emotion Recognition via Calibrated Uncertainty-Adaptive Prediction Sets},
-  author  = {Jia, Zijun and Yu, Jinsong and Long, Hongyu and Tang, Diyin},
-  journal = {arXiv preprint arXiv:2503.22712},
-  year    = {2025}
+  author  = {Jia, Zijun and Tang, Diyin and Long, Hongyu and Yu, Jinsong},
+  journal = {Engineering Applications of Artificial Intelligence},
+  volume  = {159},
+  pages   = {111721},
+  year    = {2025},
+  doi     = {10.1016/j.engappai.2025.111721},
+  note    = {arXiv:2503.22712}
 }
 
 % ---------- Added 2026-07-16: TASLP reference-expansion pass. Web-verified
@@ -232,10 +269,12 @@
 @article{ravi2024teles,
   title   = {TeLeS: Temporal Lexeme Similarity Score to Estimate Confidence in
              End-to-End ASR},
-  author  = {Ravi, Nagarathna and Raj T, Thishyan and Arora, Vipul},
-  journal = {arXiv preprint arXiv:2401.03251},
+  author  = {Ravi, Nagarathna and {Thishyan Raj T} and Arora, Vipul},
+  journal = {IEEE/ACM Transactions on Audio, Speech, and Language Processing},
+  volume  = {32},
+  pages   = {4399--4408},
   year    = {2024},
-  note    = {Submitted to IEEE/ACM Transactions on Audio, Speech, and Language Processing}
+  doi     = {10.1109/TASLP.2024.3416687}
 }
 
 @inproceedings{qiu2021wordlevel,
@@ -246,7 +285,9 @@
                McGraw, Ian},
   booktitle = {2021 IEEE International Conference on Acoustics, Speech and
                Signal Processing (ICASSP)},
+  pages     = {6393--6397},
   year      = {2021},
+  doi       = {10.1109/ICASSP39728.2021.9413966},
   organization = {IEEE}
 }
 
@@ -257,7 +298,8 @@
                Cao, Liangliang and McGraw, Ian},
   booktitle = {Proc.\ Interspeech 2021},
   pages     = {4074--4078},
-  year      = {2021}
+  year      = {2021},
+  doi       = {10.21437/Interspeech.2021-1207}
 }
 
 @inproceedings{swarup2019alexa,
@@ -267,7 +309,8 @@
                Mallidi, Sri Harish and Hoffmeister, Bj{\"o}rn},
   booktitle = {Proc.\ Interspeech 2019},
   pages     = {2175--2179},
-  year      = {2019}
+  year      = {2019},
+  doi       = {10.21437/Interspeech.2019-1241}
 }
 
 % --- Selective prediction & risk-coverage foundations ---
@@ -300,7 +343,9 @@
                Learning (ICML)},
   series    = {Proceedings of Machine Learning Research},
   volume    = {97},
-  year      = {2019}
+  pages     = {2151--2159},
+  year      = {2019},
+  publisher = {PMLR}
 }
 
 % --- Conformal prediction for sequence models ---
@@ -323,13 +368,17 @@
   note      = {arXiv:2310.01262}
 }
 
-@article{mohri2024conformalfactuality,
-  title   = {Language Models with Conformal Factuality Guarantees},
-  author  = {Mohri, Christopher and Hashimoto, Tatsunori},
-  journal = {Proceedings of the 41st International Conference on Machine
-             Learning (ICML)},
-  year    = {2024},
-  note    = {arXiv:2402.10978}
+@inproceedings{mohri2024conformalfactuality,
+  title     = {Language Models with Conformal Factuality Guarantees},
+  author    = {Mohri, Christopher and Hashimoto, Tatsunori},
+  booktitle = {Proceedings of the 41st International Conference on Machine
+               Learning (ICML)},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {235},
+  pages     = {36029--36047},
+  year      = {2024},
+  publisher = {PMLR},
+  note      = {arXiv:2402.10978}
 }
 
 % --- Distribution-free risk control applications ---
@@ -359,7 +408,9 @@
   author    = {Schuster, Tal and Fisch, Adam and Gupta, Jai and Dehghani, Mostafa and
                Bahri, Dara and Tran, Vinh Q. and Tay, Yi and Metzler, Donald},
   booktitle = {Advances in Neural Information Processing Systems 35 (NeurIPS)},
+  pages     = {17456--17472},
   year      = {2022},
+  doi       = {10.52202/068431-1269},
   note      = {arXiv:2207.07061}
 }
 
@@ -382,6 +433,7 @@
                Signal Processing (ICASSP)},
   pages     = {6182--6186},
   year      = {2022},
+  doi       = {10.1109/ICASSP43922.2022.9746682},
   organization = {IEEE}
 }
 
@@ -393,7 +445,8 @@
                Xie, Lei and Lei, Xin},
   booktitle = {Proc.\ Interspeech 2021},
   pages     = {4054--4058},
-  year      = {2021}
+  year      = {2021},
+  doi       = {10.21437/Interspeech.2021-1983}
 }
 
 @inproceedings{yao2024zipformer,
@@ -405,4 +458,18 @@
   booktitle = {International Conference on Learning Representations (ICLR)},
   year      = {2024},
   note      = {arXiv:2310.11230}
+}
+
+% ---------- Added 2026-08-12: split conformal (G2 hanging cite). DOI-checked
+% Taylor & Francis / JASA 113(523):1094--1111, doi:10.1080/01621459.2017.1307116.
+@article{lei2018splitconformal,
+  title   = {Distribution-Free Predictive Inference for Regression},
+  author  = {Lei, Jing and G'Sell, Max and Rinaldo, Alessandro and
+             Tibshirani, Ryan J. and Wasserman, Larry},
+  journal = {Journal of the American Statistical Association},
+  volume  = {113},
+  number  = {523},
+  pages   = {1094--1111},
+  year    = {2018},
+  doi     = {10.1080/01621459.2017.1307116}
 }

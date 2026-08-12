@@ -27,6 +27,7 @@ audit-ci:
 
 figures: numbers fig-overview
 	python3 figures/make_figures.py
+	cp figures/fig*.pdf taslp/figures/
 
 # TikZ method-overview schematic (Fig. 1, hand-drawn, not numbers-derived).
 # Canonical and TASLP share the one compiled PDF.

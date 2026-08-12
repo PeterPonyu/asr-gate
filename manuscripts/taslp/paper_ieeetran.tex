@@ -15,6 +15,7 @@
 \usepackage{booktabs}
 \usepackage{siunitx}
 \usepackage{microtype}
+\usepackage{placeins}
 \usepackage[hidelinks]{hyperref}
 \usepackage{cleveref}
 
@@ -29,10 +30,9 @@
 an Audited Confidence Signal for Mandarin ASR}
 
 \author{Zeyu~Fu%
-\thanks{TODO-USER: the author is with TODO-USER Department, TODO-USER Institution,
-TODO-USER City, TODO-USER Country (e-mail: \texttt{fuzeyu99@126.com}). ORCID:
-0009-0001-8329-0108. Affiliation and postal address are placeholders to be completed
-before submission.}}
+\thanks{e-mail: \texttt{fuzeyu99@126.com}. ORCID: 0009-0001-8329-0108.
+% TODO-USER: department, institution, city, country before submission.
+}}
 
 \markboth{IEEE/ACM Transactions on Audio, Speech, and Language Processing}%
 {Fu: Certified Transcription Triage for Mandarin ASR}
@@ -44,7 +44,7 @@ Automatic speech recognition (ASR) is increasingly deployed with a human in the 
 auto-accepting confident transcriptions and deferring the rest. This raises two questions:
 can we certify, distribution-free, that the character error rate (CER) of the
 auto-accepted set stays below a target, and do field-standard confidence scores beat honest
-random deferral? We build \texttt{asr-gate}, which (i) issues a Learn-then-Test selective-risk
+random deferral? We present a distribution-free accept/defer gate that (i) issues a Learn-then-Test selective-risk
 certificate on the accepted-set macro-CER and (ii) audits each score's excess
 area-under-the-risk--coverage-curve against an analytic random-deferral baseline under a
 matched-abstention permutation null with Holm control. On Aishell-1 (Paraformer) the
@@ -61,7 +61,7 @@ posteriors and is reported non-certifying. Weak Whisper and English (LibriSpeech
 honestly vacuous at tight targets. In the audit, all twelve cells of a roster-derived family
 show positive excess area ($0.012$--$0.051$) with speaker-blocked bootstrap 95\% CIs
 excluding zero, and named confidence baselines coincide with our scores --- the contribution
-is the certificate, not a new score. All numbers reproduce from frozen result files.
+is the certificate, not a new score. All numbers reproduce from archived experimental artifacts.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -84,30 +84,44 @@ guarantee question the field-standard confidence pipeline does not answer: if we
 whose confidence exceeds a threshold, what can we promise about the error rate of what we
 accepted? A promise that is \emph{distribution-free} --- valid without modeling the error
 distribution --- is exactly what conformal risk control provides in other settings
-\cite{angelopoulos2022crc,bates2021rcps,angelopoulos2023conformal}.
+\cite{angelopoulos2022crc,bates2021rcps,angelopoulos2023conformal,vovk2005algorithmic}.
+
+Three gaps follow, and \cref{sec:discussion} returns to each.
+(i)~\emph{Gate versus train-the-model.} A stronger recognizer does not by itself bound the
+error rate of what a threshold auto-accepts; wrapping frozen decode artifacts with
+Learn-then-Test \cite{angelopoulos2021ltt} is a different object from training the backbone.
+(ii)~\emph{Speaker-disjoint calibration.} Utterance-level exchangeability is the usual
+conformal hypothesis, yet ASR errors cluster by speaker; sharing speakers across fit,
+conformalize, and test is not an honest split
+\cite{tibshirani2019covariateshift,farinhas2024nonexchangeable}.
+(iii)~\emph{Vacuous reporting.} When no grid threshold certifies, silently returning an
+empty accept set --- or quoting a bound that does not hold --- is the false-safety failure
+mode recent selective-risk audits flag \cite{zhou2026falsesafety,traub2024selective}; an
+honest gate must report \textsc{vacuous-at-target}.
 
 We make two claims and support each with an independent body of evidence.
 
-\textbf{(C1) Certified selective triage.} \texttt{asr-gate} certifies, at preregistered
+\textbf{(C1) Certified selective triage.} The proposed gate certifies, at preregistered
 target $\alpha$ on CER and confidence level $1-\delta$, that the auto-accepted set's
 macro-CER is at most $\alpha$, at non-trivial coverage on Aishell-1 test, with an empirical
 violation rate over 20 calibration reseeds at most $\delta$. The estimand --- selective
 risk --- is \emph{non-monotone} in the threshold, so plain conformal risk control for
 monotone losses \cite{angelopoulos2022crc} does not apply; we use Learn-then-Test
-\cite{angelopoulos2021ltt} on a reformulated bounded-mean statistic (\cref{sec:g1}).
+\cite{angelopoulos2021ltt} on a reformulated bounded-mean statistic (\cref{sec:g1}, \eqref{eq:bounded-mean}--\eqref{eq:guarantee}).
 
 \textbf{(C2) A debunk-or-confirm audit.} Field-standard ASR confidence scores
-\cite{li2021confidence} either do or do not beat honest random deferral. We test each
-score's excess area-under-the-risk-coverage-curve (excess-AURC) against an analytic
+\cite{li2021confidence,qiu2021wordlevel,qiu2021deletion,swarup2019alexa,ravi2024teles}
+either do or do not beat honest random deferral. We test each
+score's excess area-under-the-risk-coverage-curve (excess-AURC, \eqref{eq:excess-aurc}) against an analytic
 random-deferral baseline under a matched-abstention permutation null, with Holm control
 over a preregistered, roster-derived family. Both outcomes publish: ``no confidence signal
 helps on strong modern ASR'' would be as informative as the confirmation we in fact
 observe. Beating random deferral is a \emph{floor} --- a necessary check that a score is not
 pure noise, not a claim of optimality against a calibrated or learned selector; we add
-temperature-calibrated ($s_5$) and learned-regressor ($s_6$) comparators in
-\cref{sec:comparator}.
+temperature-calibrated ($s_5$; \cite{guo2017calibration}) and learned-regressor ($s_6$)
+comparators in \cref{sec:comparator}.
 
-\textbf{Novelty positioning (stated verbatim, because it is load-bearing).} Conformal
+\textbf{Novelty positioning.} Conformal
 prediction for ASR is not new: Ernez \emph{et al.}~\cite{ernez2023conformal} control
 WER over sentence \emph{prediction sets} and flag uncertain words with inductive conformal
 prediction on LibriSpeech/wav2vec\,2.0. Their object is a set of hypotheses per utterance;
@@ -116,7 +130,7 @@ accepted set's risk and an explicit coverage/answered-rate trade-off. We claim n
 for (i) the audit of ASR confidence against an analytic random-deferral excess-AURC null
 (the selective-classification debunking lens of Traub \emph{et al.}~\cite{traub2024selective},
 ported to sequence output); (ii) a certified accept/defer gate on accepted-set CER for ASR;
-and (iii) the released tool. We do not claim ``conformal ASR.'' We also position
+and (iii) a released implementation of the accept/defer gate. We do not claim ``conformal ASR.'' We also position
 against the concurrent generic machinery for non-monotone risk control
 \cite{angelopoulos2026nonmonotone} and adaptive selective certificates \cite{yu2026joint},
 and against the 2025--26 selective-risk-control line most adjacent to ours: Xu \emph{et
@@ -137,44 +151,53 @@ the exchangeability strain we audit empirically via reseeds rather than assume a
 fixed decode's accept/defer decision on CER, a narrower and, we argue, more auditable
 target for a production ASR triage gate. These are methods and diagnoses we
 could consume, not competitors --- our contribution is the ASR-specific instantiation, the
-audit, and the Mandarin/CER evidence, not new statistical machinery beyond the LTT layer. This is deliberately an \emph{application-and-evaluation-protocol}
-contribution: the novelty is the ASR-specific instantiation and a reusable evaluation protocol
+audit, and the Mandarin/CER evidence, not new statistical machinery beyond the LTT layer.
+The novelty is that instantiation plus a reusable evaluation protocol
 (analytic random-deferral excess-AURC, matched-abstention permutation null, speaker-blocked
-bootstrap, and a disclosed-deviation discipline), and we calibrate the novelty claim
-accordingly.
-\Cref{fig:overview} summarizes the \texttt{asr-gate} pipeline end-to-end.
+bootstrap, and a disclosed-deviation discipline).
+\Cref{fig:overview} summarizes the certified transcription-triage pipeline end-to-end.
 
 \begin{figure}[!t]
   \centering
   \includegraphics[width=\columnwidth]{fig0_overview.pdf}
-  \caption{The \texttt{asr-gate} pipeline. Decode artifacts from a frozen ASR
-  backbone (never the model itself) yield a per-utterance confidence score
-  $s$ (e.g.\ $s_1,s_2$); a speaker-disjoint calibration split ($n_{\mathrm{cal}}$)
-  drives Learn-Then-Test construction of a
-  threshold $\lambda^\star$ (the frozen EB-$p$-value, Bonferroni-over-grid
-  selective-risk procedure) certifying, with probability at least
-  $1-\delta$, that the accepted set's macro-CER does not exceed $\alpha$;
-  each utterance is then accepted ($s\ge\lambda^\star$) or deferred to a
-  human. If no threshold on the grid certifies, the gate reports
-  \textsc{vacuous-at-target} rather than accepting nothing silently.}
+  \caption{Certified transcription-triage pipeline. Offline, a speaker-disjoint
+  calibration split ($n_{\mathrm{cal}}$) runs Learn-then-Test over a $\lambda$-grid
+  with empirical-Bernstein $p$-values and a Bonferroni correction, freezing the most
+  permissive certified threshold $\lambda^\star$. At inference, decode artifacts from a
+  frozen ASR backbone (never the model itself) yield a per-utterance confidence $s$
+  (e.g.\ $s_1,s_2$); the utterance is accepted iff $s\ge\lambda^\star$, which certifies
+  that the accepted set's macro-CER is at most $\alpha$ with probability at least
+  $1-\delta$, or else deferred to a human. If no grid threshold certifies, the gate
+  reports \textsc{vacuous-at-target} rather than accepting nothing silently.}
   \label{fig:overview}
 \end{figure}
 
-\section{Method: \texttt{asr-gate}}\label{sec:method}
+\section{Method: certified transcription triage}\label{sec:method}
 
-\texttt{asr-gate} consumes decode artifacts (an $N$-best list per utterance with sequence
+The gate consumes decode artifacts (an $N$-best list per utterance with sequence
 log-probabilities and, where available, per-token posteriors) and never the model itself,
-so the same gate applies to any backbone that emits those artifacts. All statistics come
-from an in-house reliability-metrics library; the tool ``never computes anything the
-evaluation did not audit.''
+so the same accept/defer rule applies to any backbone that emits those artifacts.
 
 \subsection{Estimand and the loss}\label{sec:estimand}
 
-The per-utterance loss is the character error rate
-$\ell_i = \cer_i = \mathrm{editdist}(\text{hyp}_i,\text{ref}_i)/\mathrm{len}(\text{ref}_i)$,
-clipped to $[0,1]$ (insertions can exceed 1; the clip frequency is reported and is $0$ on
-Aishell-1 test). We certify the \emph{macro}-CER (per-utterance mean) of the accepted
-set. We separately report the field-standard \emph{micro}-CER (total edits over
+The per-utterance loss is the character error rate, clipped to $[0,1]$ (insertions can
+exceed 1; the clip frequency is reported and is $0$ on Aishell-1 test):
+\begin{equation}
+  \ell_i
+  = \min\Bigl(1,\;
+    \frac{\mathrm{editdist}(\mathrm{hyp}_i,\mathrm{ref}_i)}
+         {\mathrm{len}(\mathrm{ref}_i)}\Bigr).
+  \label{eq:cer-loss}
+\end{equation}
+We certify the \emph{macro}-CER (per-utterance mean) of the accepted
+set,
+\begin{equation}
+  \widehat R(\lambda)
+  =\frac{\sum_{i}\ell_i\,\mathbf{1}\{s_i\ge\lambda\}}
+        {\sum_{i}\mathbf{1}\{s_i\ge\lambda\}},
+  \label{eq:macro-cer}
+\end{equation}
+the empirical counterpart of the selective risk below. We separately report the field-standard \emph{micro}-CER (total edits over
 total reference characters) with a speaker-blocked bootstrap confidence interval, but we do
 not certify it: a micro-CER certificate would need a length-weighted LTT variant,
 which we flag as future work. This macro/micro distinction is stated once here and carried
@@ -188,28 +211,100 @@ preference rather than certifying a finite-sample risk bound.
 
 \subsection{G1: the selective-risk certificate}\label{sec:g1}
 
-Let $s$ be a confidence score (higher is more confident) and accept iff $s\ge\lambda$. The
-selective risk
-$R(\lambda) = \mathbb{E}[\ell\,\mathbf{1}\{s\ge\lambda\}] / \mathbb{E}[\mathbf{1}\{s\ge\lambda\}]$
-is a ratio of two means and is \emph{not monotone} in $\lambda$, so plain conformal risk
+The two primary scores, computed from the 1-best token log-probabilities
+$(z_{i1},\ldots,z_{iT_i})$ and never from the backbone weights, are the length-normalized
+log-posterior and the weakest-link probability
+\begin{equation}
+  s_{1,i}=\frac{1}{T_i}\sum_{t=1}^{T_i} z_{it},\qquad
+  s_{2,i}=\exp\bigl(\min_t z_{it}\bigr).
+  \label{eq:scores}
+\end{equation}
+Let $s\in\{s_1,s_2\}$ be the frozen score column that drives the gate (higher is more
+confident). The selective risk of auto-accepting every utterance with $s\ge\lambda$ is
+\begin{equation}
+  R(\lambda)
+  = \frac{\mathbb{E}[\ell\,\mathbf{1}\{s\ge\lambda\}]}
+         {\mathbb{E}[\mathbf{1}\{s\ge\lambda\}]}
+  \label{eq:selective-risk}
+\end{equation}
+a ratio of two means that is \emph{not monotone} in $\lambda$, so plain conformal risk
 control does not give the C1 statement. We use Learn-then-Test \cite{angelopoulos2021ltt}.
-The key reformulation: because $R(\lambda)$ is a ratio, its Hoeffding--Bentkus $p$-value is
-not computed on $R(\lambda)$ directly. The per-$\lambda$ null $H_0\!:\,R(\lambda)>\alpha$ is
-tested through the equivalent bounded-mean statistic
-$\mathbb{E}[(\ell-\alpha)\mathbf{1}\{s\ge\lambda\}]>0$, whose summand lies in
-$[-\alpha,\,1-\alpha]$; the two nulls coincide whenever the acceptance probability is
-positive. We test a grid of $\lambda$ and select the most permissive rejected threshold
-$\lambda^\star$. With probability at least $1-\delta$ over the calibration draw, the
-accepted set's macro-CER is at most $\alpha$. We fix $\delta=0.1$ and certify targets
-$\alpha\in\{1,2,3,5\}\%$.
+The key reformulation: because $R(\lambda)$ is a ratio, a Hoeffding--Bentkus $p$-value
+\cite{maddison2019hoeffding,bates2021rcps} is not computed on $R(\lambda)$ directly. The
+per-$\lambda$ null $H_0\!:\,R(\lambda)>\alpha$ is tested through the equivalent bounded-mean
+statistic
+\begin{equation}
+  \mathbb{E}[(\ell-\alpha)\mathbf{1}\{s\ge\lambda\}]>0,
+  \label{eq:bounded-mean}
+\end{equation}
+whose summand lies in $[-\alpha,\,1-\alpha]$; the two nulls coincide whenever the acceptance
+probability is positive. On a calibration sample of size $n$ we form the $[0,1]$-bounded
+mean, using all $n$ points (utterances with $s_i<\lambda$ contribute exactly $\alpha$)
+\begin{equation}
+  \begin{aligned}
+    Y_i(\lambda)&=\alpha+(\ell_i-\alpha)\,\mathbf{1}\{s_i\ge\lambda\},\\
+    \bar Y(\lambda)&=n^{-1}\textstyle\sum_{i=1}^{n} Y_i(\lambda).
+  \end{aligned}
+  \label{eq:y-stat}
+\end{equation}
+and invert an empirical-Bernstein upper confidence bound \cite{maurer2009empirical} into a
+$p$-value for $H_0(\lambda)$. With Bessel-corrected sample variance $\widehat V(\lambda)$,
+\begin{equation}
+  \varepsilon(\delta)
+  =\sqrt{2\widehat V(\lambda)\,n^{-1}\ln(2/\delta)}
+   +7\ln(2/\delta)/(3(n-1)),
+  \label{eq:eb-eps}
+\end{equation}
+the $p$-value is the smallest $\delta$ at which the bound falls at or below $\alpha$,
+\begin{equation}
+  p_{\mathrm{EB}}(\lambda)
+  =\inf\{\delta\in(0,1]:\bar Y(\lambda)+\varepsilon(\delta)\le\alpha\}
+  \label{eq:eb-p}
+\end{equation}
+($p_{\mathrm{EB}}(\lambda)=1$ if $\bar Y(\lambda)\ge\alpha$). We test a grid
+$\Lambda=\{\lambda_1,\ldots,\lambda_K\}$ under a Bonferroni-over-grid correction: write
+$\widehat\pi(\lambda)=n^{-1}\sum_{i=1}^{n}\mathbf{1}\{s_i\ge\lambda\}$ for the calibration
+accepted fraction and
+\begin{equation}
+  \Lambda_{\mathrm{rej}}
+  =\bigl\{\lambda\in\Lambda:p_{\mathrm{EB}}(\lambda)\le\delta/K\bigr\}
+  \label{eq:bonferroni}
+\end{equation}
+for the rejected set. The certified threshold is the most permissive rejected grid point
+(largest $\widehat\pi$), or \textsc{vacuous-at-target} if none reject:
+\begin{equation}
+  \lambda^\star
+  =
+  \begin{cases}
+    \arg\max_{\lambda\in\Lambda_{\mathrm{rej}}}\widehat\pi(\lambda)
+      & \text{if }\Lambda_{\mathrm{rej}}\ne\emptyset,\\
+    \textsc{vacuous-at-target}
+      & \text{otherwise.}
+  \end{cases}
+  \label{eq:lambda-star}
+\end{equation}
+When $\lambda^\star$ is defined, the deploy-time accept rule is
+\begin{equation}
+  i\in\accset \iff s_i\ge\lambda^\star,
+  \label{eq:accept}
+\end{equation}
+and Learn-then-Test yields the C1 guarantee over the calibration draw
+\begin{equation}
+  \Pr\bigl(R(\lambda^\star)\le\alpha\bigr)\ge 1-\delta,
+  \label{eq:guarantee}
+\end{equation}
+i.e.\ the accepted set's macro-CER is at most $\alpha$ with probability at least
+$1-\delta$. Risk--coverage plots report empirical estimates of \eqref{eq:selective-risk}
+against coverage $\mathbb{E}[\mathbf{1}\{s\ge\lambda\}]$. We fix $\delta=0.1$ and certify
+targets $\alpha\in\{1,2,3,5\}\%$.
 
 \textbf{Disclosed pivot: HB\,$\to$\,EB\,$+$\,Bonferroni (a power fix, with the pilot
 trace).} The preregistered pilot used fixed-sequence testing with Hoeffding--Bentkus (HB)
 $p$-values. On the same cached pilot calibration data the two procedures give
 opposite verdicts at $\alpha=2\%$, side by side: HB certifies nothing (no
 threshold rejects, despite an accepted-region CER of $0.95\%$, well under target), whereas
-empirical-Bernstein (EB) $p$-values \cite{maurer2009empirical} under a Bonferroni-over-grid
-correction certify $\alpha=2\%$ at $86\%$ acceptance. This is a power failure of HB, not a
+empirical-Bernstein (EB) $p$-values \eqref{eq:eb-p} under the Bonferroni-over-grid
+rule \eqref{eq:bonferroni} certify $\alpha=2\%$ at $86\%$ acceptance. This is a power failure of HB, not a
 validity failure: HB bounds the deviation using only the fixed $[0,1]$ range of the
 per-$\lambda$ statistic, while EB adapts to its (tiny) sample variance, and for bounded means
 EB is \emph{a priori} at least as powerful. Both procedures are finite-sample valid, so
@@ -222,25 +317,49 @@ is outcome-visible either way --- rather than presenting only the final procedur
 
 \subsection{G2 and the audit}\label{sec:audit}
 
-The tool also implements a secondary per-utterance split-conformal upper bound (G2), which
-we do not evaluate separately here (future work), and a \emph{duration-tercile Mondrian}
-stratification of the gate thresholds. The reported certificate throughout this paper is the
-G1 selective-risk certificate; its conditional coverage across the Mondrian duration terciles
-is reported in \cref{sec:mondrian}.
+We also implement a secondary per-utterance split-conformal upper bound
+(G2) \cite{lei2018splitconformal,vovk2005algorithmic}, which
+we do not evaluate separately here (future work). Duration terciles (edges frozen on each
+reseed's calibration split) label utterances for that G2 residual bound and for the
+small-stratum defer rule of \cref{sec:honest}; they do \emph{not} replace the G1 threshold
+\eqref{eq:lambda-star}. The reported certificate throughout this paper is the
+single-threshold G1 selective-risk certificate \eqref{eq:guarantee}; \cref{sec:mondrian}
+slices the G1 accepted set by duration tercile to check whether the same bound holds
+conditionally.
 
-The audit asks whether a score beats honest random deferral. For each score we
-compute its risk--coverage curve, its AURC, and the analytic random-deferral AURC
-(closed-form, the risk of accepting a uniformly random subset at each coverage); the
-excess-AURC is their difference. Significance is a matched-abstention permutation test
+The audit asks whether a score beats honest random deferral. Ranking utterances by decreasing $s$ and retaining the most confident fraction $c$ yields a risk--coverage curve $R(c)$. The empirical AURC is the right-endpoint Riemann sum
+\begin{equation}
+  \mathrm{AURC}(s)
+  =\sum_{k=1}^{n}(c_k-c_{k-1})\,R(c_k),
+  \qquad c_0=0,
+  \label{eq:aurc}
+\end{equation}
+and uniformly random deferral has constant selective risk equal to the pooled mean loss, hence $\mathrm{AURC}_{\mathrm{rand}}=\bar\ell$ in closed form. The
+excess-AURC is the area gain
+\begin{equation}
+  \Delta_{\mathrm{AURC}}(s)
+  = \mathrm{AURC}_{\mathrm{rand}} - \mathrm{AURC}(s),
+  \label{eq:excess-aurc}
+\end{equation}
+so $\Delta_{\mathrm{AURC}}(s)>0$ means the score's risk--coverage curve lies below analytic
+random deferral. Significance is a matched-abstention permutation test
 evaluated at a single operating point --- the score's median accept/defer split (the top
 $\lceil n/2\rceil$ utterances by score accepted). The test statistic is the accepted-set
 mean CER; the null re-draws which utterances are deferred while holding the abstention count
-fixed (within strata when present), preserving the answered rate, and the one-sided
-$p$-value is the fraction of $n_{\mathrm{perm}}=2000$ permutations whose accepted-set mean
-CER is at most the observed value (floor $1/(n_{\mathrm{perm}}{+}1)\approx5.0\times10^{-4}$).
+fixed (within strata when present), preserving the answered rate. With $n_{\mathrm{perm}}=2000$ draws the one-sided add-one $p$-value is
+\begin{equation}
+  p
+  =\frac{1+\#\{b:\bar\ell^{(b)}_{\mathrm{acc}}\le\bar\ell_{\mathrm{acc}}\}}{n_{\mathrm{perm}}+1},
+  \label{eq:perm-p}
+\end{equation}
+floored at $1/(n_{\mathrm{perm}}{+}1)\approx5.0\times10^{-4}$.
 This median-split permutation $p$ is a single-operating-point companion to the curve-level
 excess-AURC statistic, not a re-test of the same quantity. Family-wise error across the
-score roster is controlled with the Holm procedure \cite{holm1979simple}.
+score roster is controlled with the Holm procedure \cite{holm1979simple}: ordering $p_{(1)}\le\cdots\le p_{(m)}$, Holm rejects while
+\begin{equation}
+  p_{(i)}\le\frac{\alpha}{m-i+1}.
+  \label{eq:holm}
+\end{equation}
 
 \textbf{The multiplicity family is roster-derived, and $m$ is recomputed from what actually
 ran (preregistered).} The design specified $m=10$ (5 scores $\times$ 2 backbones). The
@@ -252,7 +371,7 @@ Paraformer exposes no $N$-best margin ($s_3$) or full posteriors ($s_4$), and th
 audit never fits the tune-side temperature for $s_5$ --- so the realized family fell to
 $m=2$. In the expansion the realized family is $m=12$: $\{s_1,s_2\}$ on the six (backbone
 $\times$ condition) cells that cleared the non-null gate (\cref{sec:results}). The exact $m$
-is recorded in each audit result file and reported with the same denominator everywhere; no
+is reported with the same denominator everywhere; no
 $m$ is asserted in advance.
 
 \subsection{Honest-uncertainty rules}\label{sec:honest}
@@ -263,8 +382,7 @@ unconditionally. A cheap two-stage detector routes non-Mandarin input to a disti
 test this fires on 3 utterances on every reseed, independent of the gate. A domain
 fingerprint stored in the gate warns when an incoming batch's score distribution shifts
 beyond a preregistered KS distance (warning only, never silent recalibration).
-The gate's calibrate and audit modes refuse to run without references; its apply mode runs
-reference-free by design.
+Calibration and audit require references; deployment scoring is reference-free by design.
 
 \section{Experimental Setup}\label{sec:setup}
 
@@ -307,7 +425,7 @@ dev$\to$cal/tune carve at the speaker level 20 times (seeds 0--19), decoding onc
 recalibrating on cached scores. The empirical violation rate over these 20 reseeds is the
 primary validity evidence for C1.
 
-\textbf{Exchangeability candor (load-bearing).} Utterances within a speaker are not
+\textbf{Exchangeability.} Utterances within a speaker are not
 independent; speaker is the natural block. Cal/tune/test are speaker-disjoint by
 construction, and all reported CIs are speaker-blocked bootstraps (block $=$ speaker;
 $\sim$40 dev / 20 test blocks). The LTT/G2 guarantees assume utterance-level exchangeability
@@ -335,8 +453,8 @@ fix from the pool change. We disclose the wrong-pool contamination and report th
 test-split number for the Whisper cross-corpus audit cell (\cref{tab:cert,tab:holm}) rather
 than silently swapping it. The backbone-landscape THCHS-30 cells (\cref{tab:landscape},
 all three backbones) were originally computed on the same $1{,}339$-utterance mirror pool;
-they have since been re-decoded on the corrected $n{=}2{,}495$ official test (2026-07-16,
-\cref{tab:deviations}), so \cref{tab:landscape} and the Whisper audit cell now both report
+they have since been re-decoded on the corrected $n{=}2{,}495$ official test
+(\cref{tab:deviations}), so \cref{tab:landscape} and the Whisper audit cell now both report
 the official-pool numbers.
 % source: verified from the two shipped THCHS files vs the official split listing
 %   (libri_staging/data_thchs30/{train,dev,test}): original results/expansion/scored/
@@ -362,8 +480,8 @@ the official-pool numbers.
     Aishell-1 dev  & cal (20 spk) + tune (20 spk) & 14{,}326 & speaker-disjoint carve \\
     Aishell-1 test & certify + audit (3 backbones) & 7{,}176 & official, touched once \\
     Aishell-1 test + ESC-50 & noise robustness (Para.) & 7{,}176 & additive 5/15/25\,dB SNR \\
-    THCHS-30 test  & cross-corpus audit cell (Whisper) + transfer landscape (3 backbones) & 2{,}495 & full official test (ten D-prefix spk); corrected re-decode (\cref{tab:deviations}) \\
-    MagicData test & cross-corpus transfer (3 backbones) & 4{,}094 & CC BY-NC-ND; speaker-disjoint $\sim$4k cap (\S 2); \S D1 substitution \\
+    THCHS-30 test  & cross-corpus audit cell (Whisper) + transfer landscape (3 backbones) & 2{,}495 & full official test (ten D-prefix spk); corrected re-decode (disclosed pool fix) \\
+    MagicData test & cross-corpus transfer (3 backbones) & 4{,}094 & CC BY-NC-ND; speaker-disjoint $\sim$4k cap; disclosed SLR62$\to$MagicData substitution \\
     LibriSpeech test-clean & English cal (739$+$613) $+$ eval-clean & 2{,}620 & English arm; speaker-disjoint carve \\
     LibriSpeech test-other & English cross-lingual apply & 2{,}939 & English arm; shifted split \\
     \bottomrule
@@ -393,9 +511,9 @@ the official-pool numbers.
     MUSAN noise $\to$ ESC-50 & MUSAN unreachable at bandwidth; source-agnostic mixer \\
     THCHS-30 openslr $\to$ parquet mirror & delivery-route substitution; corrected pool is the full official test ($n{=}2{,}495$, ten D-prefix speakers) \\
     THCHS-30 original decode was the wrong pool & the $n{=}1{,}339$ mirror split was $82.7\%$ train-speaker audio (59 spk, 0 dup), only 232 genuine test utts; corrected to the official test, macro-CER $15.77\!\to\!9.93\%$ (232-utt like-for-like $16.27\!\to\!9.72\%$) \\
-    THCHS-30 landscape cells re-decoded on the official test (done 2026-07-16) & the backbone-landscape THCHS-30 cells (\cref{tab:landscape}, all three backbones) were originally computed on the $n{=}1{,}339$ mislabeled mirror pool; they were re-decoded on the corrected $n{=}2{,}495$ official test (ten D-prefix speakers) on 2026-07-16, and \cref{tab:landscape} now reports the official-pool numbers. The historical mirror-pool cells are retained frozen but superseded; both THCHS-30 arms (this landscape and the Whisper audit cell) are therefore on the same official test \\
-    aidatatang (SLR62) $\to$ MagicData (SLR68) & \S D1: SLR62 withdrawn upstream on launch day (two networks); MagicData was the amendment's frozen optional 4th corpus, substituted with no other frozen change \\
-    MagicData eval cap (post-hoc) & box decoded the full $\sim$24k test; the frozen \S 2 speaker-disjoint $\sim$4k cap (9 spk, $n{=}4{,}094$) was applied post-hoc to the cached scores at eval/audit and disclosed \\
+    THCHS-30 landscape cells re-decoded on the official test & the backbone-landscape THCHS-30 cells (all three backbones) were originally computed on the $n{=}1{,}339$ mislabeled mirror pool; they were re-decoded on the corrected $n{=}2{,}495$ official test (ten D-prefix speakers), and the landscape table now reports the official-pool numbers. The historical mirror-pool cells are retained frozen but superseded; both THCHS-30 arms (this landscape and the Whisper audit cell) are therefore on the same official test \\
+    aidatatang (SLR62) $\to$ MagicData (SLR68) & SLR62 withdrawn upstream on launch day (two networks); MagicData was the amendment's frozen optional 4th corpus, substituted with no other frozen change \\
+    MagicData eval cap (post-hoc) & the full $\sim$24k test was decoded; the frozen speaker-disjoint $\sim$4k cap (9 spk, $n{=}4{,}094$) was applied post-hoc to the cached scores at eval/audit and disclosed \\
     Holm family size $m$ & roster-derived: design 10, main run 2, expansion 12; landscape audit cells recompute $m$ (2 where $s_1,s_2$ present) \\
     Gender Mondrian axis & dropped: decode records carry no gender label (future work) \\
     \bottomrule
@@ -404,8 +522,8 @@ the official-pool numbers.
 
 \section{Results}\label{sec:results}
 
-Every number in this section is read from a single frozen result file, computed
-only from the archived result artifacts; every figure regenerates from it.
+Every number in this section is read from archived experimental artifacts, computed
+only from those frozen records; every figure regenerates from them.
 % single number-registry file: results/numbers.json (from compute_numbers.py)
 
 \subsection{The certificate holds on clean Aishell-1 (C1)}
@@ -436,8 +554,8 @@ the $0/20$ violation count against the $\delta=0.1$ line.
   reseed): it auto-accepts 85.7\% of utterances at 1.00\% macro-CER, under the
   $\alpha{=}2\%$ target; the mean over 20 reseeds is 90.7\% acceptance.
   (The dotted random-deferral asymptote is the $s_1$-audit-subset macro-CER, $1.95\%$
-  over the $n{=}7{,}172$ utterances with a non-null $s_1$; the $1.98\%$ full-set figure
-  quoted elsewhere is over all $n{=}7{,}176$ utterances --- hence the $1.95$ vs $1.98\%$ hair.)}
+  over the $n{=}7{,}172$ utterances with a non-null $s_1$; the full-set macro-CER
+  $1.98\%$ is over all $n{=}7{,}176$ utterances --- hence the $1.95$ vs $1.98\%$ hair.)}
   \label{fig:teaser}
 \end{figure}
 
@@ -487,8 +605,8 @@ calibration gate (duration-tercile Mondrian) on the full dev pool
 test, certifies $\alpha=1.5\%$ at $90.6\%$ acceptance and $1.20\%$ accepted-set macro-CER, $0$
 violations --- versus $0/20$ certified at the frozen $\approx3{,}567$-carve. With
 $\approx5{,}000$ speaker-disjoint dev calibration utterances the certified frontier therefore
-tightens from $\alpha=2\%$ to a binding $\alpha=1.5\%$ on the same test data, for $0$ additional
-GPU-hours.
+tightens from $\alpha=2\%$ to a binding $\alpha=1.5\%$ on the same test data, with no
+additional decoding. \Cref{fig:calsize} plots the same frozen calibration-size records.
 % source: mandarin_calsweep_2026-07-13/results.json --- crossover_seed0 (0.015->5000,
 %   0.017->3567, 0.019->3000, 0.05->1000) + crossover_seed_robustness[0.015]=[5000,5000,5000,
 %   5000,7000] (4/5 at 5000, 7000 in seed 4); cells_seed0 alpha=0.015 @ n_cal=5000:
@@ -498,6 +616,18 @@ GPU-hours.
 %   eval_violation=false; consistency_guard reproduces_frozen=true (max|ds1|=max|dCER|=0.0 over
 %   7,172 utts). Same flat LTT/EB/Bonferroni machinery (delta=0.1, n_grid=200,
 %   min_accept_frac=0.1) as english_calsweep_2026-07-13.
+
+\begin{figure*}[!t]
+  \centering
+  \includegraphics[width=0.92\textwidth]{fig6_calsize_sweep.pdf}
+  \caption{Calibration budget versus certified target, from archived calibration-size
+  records (no new decoding). (a)~Smallest $n_{\mathrm{cal}}$ at which the accept/defer gate
+  certifies non-vacuously: Paraformer and Belle on Aishell-1, and wav2vec\,2.0 large on
+  LibriSpeech. Open markers sit at the available pool when that target never certifies.
+  (b)~Belle: fraction of 20 calibration reseeds that certify at $\alpha=5\%$, $3\%$, and
+  $2\%$. The $90\%$ line is the robustness threshold used in the text.}
+  \label{fig:calsize}
+\end{figure*}
 
 \textbf{Interpreting 0/20 against $\delta=0.1$ (a correlated diagnostic, read for
 conservatism not calibration).} We are explicit about what this $0/20$ does and does not
@@ -529,18 +659,23 @@ still calibrate on dev only.
 
 \subsection{Conditional coverage across duration terciles}\label{sec:mondrian}
 
-The $0/20$ above is a marginal statement. Because the deployed gate is Mondrian in
-audio duration --- its threshold is set per duration tercile, with edges frozen on each
-reseed's calibration split --- we can ask whether the certificate also holds within
-each tercile. \Cref{tab:mondrian} reports, per tercile at $\alpha=2\%$, the acceptance rate,
+The $0/20$ reseed-violation count of the $\alpha=2\%$ Paraformer certificate on Aishell-1
+test is a marginal statement. Duration terciles (edges frozen on each reseed's calibration
+split) label test utterances so we can ask whether the same G1 bound \eqref{eq:guarantee}
+also holds within each tercile: the reported certificate remains the single LTT threshold
+$\lambda^\star$ of \eqref{eq:lambda-star}, not a per-tercile score threshold.
+(A secondary G2 Mondrian residual bound is fit per tercile and is not the reported
+certificate; its residual thresholds at reference reseed~0 are $0.150$/$0.137$/$0.111$ for
+short/medium/long, distinct from $\lambda^\star$.)
+\Cref{tab:mondrian} reports, per tercile at $\alpha=2\%$, the acceptance rate,
 the accepted-set macro-CER, and the violation count over the 20 reseeds. The certificate
 holds conditionally: 0/20 violations in every tercile, and every tercile's
 speaker-blocked bootstrap 95\% CI (reference reseed~0) sits below $1.4\%$, comfortably under
 the $2\%$ target. The one visible heterogeneity is a mild, expected difficulty gradient: long
 utterances (dur2) run about $0.3$~pp higher in accepted-set macro-CER ($1.36\%$ vs
 $1.06$--$1.12\%$) and about $2$~pp lower in acceptance ($89.8\%$ vs $91.4$--$91.8\%$) than
-short and medium ones, which the Mondrian thresholds absorb by setting a tighter score
-threshold on the long tercile (reference reseed~0: $0.111$ for dur2 vs $0.150$ for dur0). This
+short and medium ones, which a shared $\lambda^\star$ absorbs through the duration-dependent
+score distribution rather than through a per-tercile G1 threshold. This
 is a difficulty gradient the per-stratum design anticipates, not a failure of control.
 
 \begin{table*}[!t]
@@ -549,9 +684,7 @@ is a difficulty gradient the per-stratum design anticipates, not a failure of co
   $\alpha=2\%$, 20 reseeds). Tercile edges are frozen on each reseed's calibration split and
   applied to test, so tercile sizes are unequal and reseed-dependent. The certificate holds
   within every tercile (0/20 violations). The 95\% CI is a speaker-blocked bootstrap on the
-  reference reseed~0 accepted-set macro-CER (2{,}000 resamples, block $=$ speaker, percentile),
-  matching the paper's CI methodology. Values from the frozen tercile-analysis
-  result file.}
+  reference reseed~0 accepted-set macro-CER (2{,}000 resamples, block $=$ speaker, percentile).}
   % source file: results/mondrian_tercile_analysis.json
   % TABLEFIX-2026-07-16 KEEP-JUSTIFIED (3 data rows, < 5): checked
   %   results/mondrian_tercile_analysis.json for a hidden categorical axis to expand (per the
@@ -595,9 +728,10 @@ shift the domain fingerprint is meant to flag is plausibly largest).
   \centering
   \includegraphics[width=0.86\textwidth]{fig4_noise_robustness.pdf}
   \caption{Noise robustness: the clean-calibrated Paraformer gate applied to ESC-50 additive
-  noise. (a) Accepted-set macro-CER (error bars over 20 reseeds) stays under the
+  noise. (a) Accepted-set macro-CER (error bars: min--max over 20 reseeds) stays under the
   $\alpha{=}2\%$ target with 0/20 violations at 25 and 15\,dB and 1/20 at 5\,dB (within the
-  $\delta{=}0.1$ budget). (b) Coverage cost of noise.}
+  $\delta{=}0.1$ budget). (b) Coverage cost of noise: mean auto-accepted fraction falls from
+  $90.7\%$ on clean audio to $90.3\%$/$89.4\%$ at 25/15\,dB and $82.2\%$ at 5\,dB.}
   \label{fig:noise}
 \end{figure*}
 
@@ -681,8 +815,7 @@ certificate on the frozen carve, with $\alpha=3\%$ reachable at a realistic cali
   $0.15$); test-other exceeds it, yet the $\alpha=5\%$ bound is respected on every cell. All
   cells are vacuous (0\% acceptance) at $\alpha\in\{1,2,3\}\%$. 20 Whisper utterances were
   skipped at decode (11 test-clean, 9 test-other); both wav2vec\,2.0 checkpoints decoded all
-  utterances. Values from the frozen
-  English-arm result files.}
+  utterances.}
   % source files: english_arm_fixed_2026-07-12/ATTAINMENT.json (Whisper, wav2vec2 base),
   %   english_arm2_2026-07-13/ATTAINMENT2.json (wav2vec2 large)
   \label{tab:english}
@@ -709,12 +842,12 @@ $n\approx7{,}176$ every one of the twelve matched-abstention permutation $p$-val
 the resolution floor ($5.0\times10^{-4}$ at $n_{\mathrm{perm}}=2000$), so they are all equal
 and the Holm correction has nothing to discriminate ($p_{\mathrm{Holm}}=0.006$ throughout);
 reporting them establishes only that no cell is a null result. The informative quantities are
-the excess-AURC magnitudes and their uncertainty. Each cell's excess area over analytic
+the excess-AURC magnitudes \eqref{eq:excess-aurc} and their uncertainty. Each cell's excess area over analytic
 random deferral ranges from $0.0118$ (Paraformer clean $s_1$) to $0.0513$ (Whisper Aishell
 clean $s_1$, the largest in the family, consistent with a weaker backbone having more separable
 error mass), and its speaker-blocked
-bootstrap 95\% CI (2{,}000 resamples, blocked by speaker; computed post-hoc from the frozen
-scored artifacts and prereg-neutral) \emph{excludes zero in all twelve cells}
+bootstrap 95\% CI (2{,}000 resamples, blocked by speaker)
+\emph{excludes zero in all twelve cells}
 (\cref{tab:holm}). These are genuine, non-trivial advantages: even the smallest, Paraformer
 clean, is $0.0118$ with CI $[0.0101, 0.0137]$. The advantage is also not an artifact of the
 median operating point at which the permutation test is evaluated: the accepted-set mean CER
@@ -749,13 +882,12 @@ Paraformer clean test the full-set macro-CER is $1.98\%$ and micro-CER is $1.94\
   \centering
   \caption{Realized audit family, $m=12$ (expansion). Excess-AURC over the analytic
   random-deferral baseline, with a speaker-blocked bootstrap 95\% CI (2{,}000 resamples,
-  block $=$ speaker; computed post-hoc from the frozen scored artifacts, prereg-neutral). The
+  block $=$ speaker). The
   CI excludes zero in every cell. The median-split matched-abstention permutation $p$-value is
   at the resolution floor ($5.0\times10^{-4}$, $n_{\mathrm{perm}}=2000$) for all twelve cells,
   giving $p_{\mathrm{Holm}}=0.006$ throughout --- so the $p$-values are non-discriminating and
   the effect sizes and CIs are the informative quantities. The Paraformer- and Whisper-clean
-  $s_2$ excess-AURC both round to $0.0137$ but are distinct ($0.01368$ and $0.01370$). Point
-  estimates and CIs are read from the frozen audit result files.}
+  $s_2$ excess-AURC both round to $0.0137$ but are distinct ($0.01368$ and $0.01370$).}
   % source files: results/expansion/holm/holm_audit_realized.json (points);
   %   results/audit_ci.json (CIs)
   \label{tab:holm}
@@ -792,8 +924,8 @@ Paraformer clean test the full-set macro-CER is $1.98\%$ and micro-CER is $1.94\
   \caption{Certificate specification and the macro-vs-micro caveat. G1 (LTT with the
   Bonferroni-over-grid procedure and empirical-Bernstein $p$-values) certifies accepted-set
   macro-CER; micro-CER is reported with a speaker-blocked bootstrap CI but is not
-  certified. Clip frequency (CER${}>1$) is 0 on Aishell-1 test. Values from the main-run and
-  expansion audit result files. The accepted-set (certified) row's micro-CER is a descriptive
+  certified. Clip frequency (CER${}>1$) is 0 on Aishell-1 test. The accepted-set (certified)
+  row's micro-CER is a descriptive
   20-reseed companion, not certified.}% source: results/accepted_micro_2026-07-13.json
   % frozen config knobs: procedure=bonferroni, p_value=eb
   \label{tab:cert}
@@ -822,14 +954,16 @@ Paraformer clean test the full-set macro-CER is $1.98\%$ and micro-CER is $1.94\
 
 \subsection{Comparator scores and speaker-blocked robustness}\label{sec:comparator}
 
-Two follow-up analyses on Aishell-1 test (Paraformer, $n=7{,}172$; the same 4/7{,}176 tail
-rows excluded as above) address the narrowness of the $\{s_1,s_2\}$ family and the
+Two follow-up analyses on Aishell-1 test (Paraformer, $n=7{,}172$; the same four of
+$7{,}176$ test utterances with degraded token-log-probability extraction, excluded-and-counted)
+address the narrowness of the $\{s_1,s_2\}$ family and the
 utterance-level permutation null. First, fitting the tune-side temperature that the main
 standalone audit omitted makes $s_5$ auditable, and we add a learned CER-regressor $s_6$ as
 an exploratory comparator. On the primary family $\{s_1,s_2,s_5\}$ (Holm $m=3$) all three
 reject at $\alpha=0.05$ with excess-AURC $0.0118/0.0137/0.0118$ ($p_{\mathrm{Holm}}=0.0015$);
 the exploratory $s_6$ rejects with excess-AURC $0.0125$ ($p_{\mathrm{Holm}}=0.0005$). The
-$s_5$ excess-AURC equals $s_1$'s exactly because temperature scaling is order-preserving and
+$s_5$ excess-AURC equals $s_1$'s exactly because temperature scaling
+\cite{guo2017calibration} is order-preserving and
 leaves the risk--coverage ranking unchanged --- $s_5$ buys calibration, not ranking. Second,
 we re-run the matched-abstention permutation null with speaker-level blocking: for all four
 scores the speaker-blocked $p$ sits at the same resolution floor ($5.0\times10^{-4}$,
@@ -849,8 +983,7 @@ their Paraformer-clean entries in \cref{tab:holm} (same substrate).
   comparator ($m=1$). All reject at $\alpha=0.05$. The last column gives the median-split
   matched-abstention permutation $p$ under utterance-level and speaker-blocked nulls
   ($n_{\mathrm{perm}}=2000$, floor $5.0\times10^{-4}$): blocking does not weaken the verdict.
-  $s_5$'s excess-AURC equals $s_1$'s because temperature scaling is rank-preserving. Values
-  from the frozen comparator-audit result file.}
+  $s_5$'s excess-AURC equals $s_1$'s because temperature scaling is rank-preserving.}
   % source file: m4_m6_audit_2026-07-12/M4-M6-RESULT.json
   % TABLEFIX-2026-07-16 KEEP-JUSTIFIED (4 data rows, < 5): checked the source file for a
   %   hidden categorical axis to expand (per the corrected review-directive guidance
@@ -901,23 +1034,20 @@ posteriors, disclosed verdict-symmetrically rather than dropped.
 
 \begin{table*}[!t]
   \centering
-  \caption{Named confidence-baseline excess-AURC, expanded to every backbone $\times$
-  corpus cell the standalone baseline run computed (Aishell-1, MagicData; THCHS-30 cells
-  omitted here, see note below), through the same audit machinery ($n_{\mathrm{perm}}{=}2000$).
+  \caption{Named confidence-baseline excess-AURC on every backbone $\times$
+  corpus cell computed by the standalone baseline run (Aishell-1 and MagicData),
+  using the same audit machinery ($n_{\mathrm{perm}}{=}2000$).
   class-prob-min $\equiv s_2$ and lengthnorm-path-prob $\equiv \exp(s_1)$ by construction
   (identical rankings); mean class prob and the learned CEM are the genuinely distinct
   baselines. On Paraformer/Belle (the certifying backbones) all coincide with our scores
   within $\pm0.002$; on the non-certifying zipformer transducer, $s_1$/class-prob/lengthnorm
-  turn negative while $s_2$/CEM stay positive (verdict-symmetric, consistent with the
-  landscape \textsc{vac.} verdict for zipformer). Paraformer/MagicData is
+  turn negative while $s_2$/CEM stay positive (verdict-symmetric, consistent with zipformer's
+  vacuous landscape certificate). Paraformer/MagicData is
   excluded wholesale (41/4{,}094, 1.0\% of rows lack a decoded score --- the family never
   computed, not imputed). MagicData capped to $n{=}4{,}094$ as in the certified landscape.
-  Tsallis entropy: unavailable (no full posteriors). THCHS-30 cells are omitted from this
-  table: the standalone baseline run (2026-07-15) predates the 2026-07-16 official-pool
-  THCHS-30 redecode (disclosed protocol deviations) and its THCHS-30 numbers are on the superseded
-  $n{=}1{,}339$ mislabeled-mirror pool -- reporting them beside the corrected pool's
-  landscape numbers would silently reintroduce the contamination this paper
-  discloses and fixes elsewhere, so they are excluded rather than shown stale.}
+  Tsallis entropy: unavailable (no full posteriors). THCHS-30 cells are omitted:
+  that baseline run predates the official-pool THCHS-30 redecode, and its THCHS-30 numbers
+  sit on the superseded $n{=}1{,}339$ mislabeled-mirror pool; they are excluded rather than shown stale.}
   % source: baselines_2026-07-15/results.json (asr_gate.audit.run_audit, n_perm=2000, seed=0;
   %   per_score excess_aurc for cells paraformer_aishell, paraformer_magicdata, belle_aishell,
   %   belle_magicdata, zipformer_aishell, zipformer_magicdata -- all 6 rows below trace here).
@@ -947,15 +1077,25 @@ posteriors, disclosed verdict-symmetrically rather than dropped.
 \subsection{The certified landscape: three backbones $\times$ three Mandarin corpora}\label{sec:landscape}
 
 To move the certificate off a single (backbone, corpus) cell, we preregistered
-(\textsc{freeze-amendment 2026-07-13}, signed before any new test split was touched) and
+a freeze amendment (signed before any new test split was touched) and
 ran a frozen landscape: three backbones spanning three architectures --- Paraformer (B2,
 NAR-CIF), Belle-whisper-large-v3-zh (B3$'$, attention encoder--decoder), and an offline
 zipformer transducer~\cite{yao2024zipformer} (B4, RNN-T) --- across three credential-free Mandarin corpora
 (Aishell-1, THCHS-30, MagicData), on the frozen $\alpha$-grid $\{1.5,2,3,5,10\}\%$ with
 $\delta{=}0.1$ and 20 speaker-level reseeds per cell. Each backbone's gate is calibrated
 once on the Aishell-1 dev split and applied to every test split, so the THCHS-30 and
-MagicData cells are cross-corpus transfer cells. \Cref{tab:landscape} gives the
+MagicData cells are cross-corpus transfer cells. \Cref{fig:landscape,tab:landscape} give the
 certified frontier.
+
+\begin{figure*}[!t]
+  \centering
+  \includegraphics[width=0.72\textwidth]{fig7_landscape.pdf}
+  \caption{Certified landscape: tightest non-vacuous target (20 reseeds, 0 violations) for
+  three backbones $\times$ three Mandarin corpora. Cell text is that target and mean
+  acceptance. Vacuous cells accept nothing. Paraformer/Aishell-1 uses the binding
+  $1.9\%$ target; other cells use the frozen $\alpha$-grid.}
+  \label{fig:landscape}
+\end{figure*}
 
 \begin{table*}[!t]
   \centering
@@ -964,7 +1104,7 @@ certified frontier.
   non-vacuously with 0/20 reseed violations; acceptance and accepted-set macro-CER are its
   20-reseed means. Aishell-1 is in-corpus (official test, $n{=}7{,}176$); THCHS-30
   ($n{=}2{,}495$, the corrected full official test---ten D-prefix test speakers,
-  re-decoded 2026-07-16, disclosed as a protocol deviation) and MagicData (speaker-disjoint $\sim$4k
+  disclosed as a protocol deviation) and MagicData (speaker-disjoint $\sim$4k
   eval cap, $n{=}4{,}094$) are Aishell-dev-calibrated transfer cells.
   \textsc{vac.} $=$ vacuous at every grid $\alpha$; for these rows the accept and
   acc-CER cells are \textemdash{} (no set is accepted, so both are undefined).}
@@ -994,12 +1134,12 @@ certified frontier.
 %   Paraformer/Aishell 1.9% row from alpha015_2026-07-13/results.json (binding_band_sweep
 %   alpha=0.019: 20/20, acc 0.8780, acc-CER 0.01089). $\dagger$ binding sub-base-rate target.
 
-\textbf{Resolution of the single-cell and contamination readings (M1, M2).} The frontier
+\textbf{Resolution of the single-cell and contamination readings.} The frontier
 now spans six non-vacuous, 0/20-violation certified cells across two backbones
 $\times$ three corpora, not the single $\alpha{=}2\%$/Paraformer/Aishell cell --- so the
 ``certificate collapses to one cell'' reading (M1) no longer holds. (All six legs are on
 official uncontaminated pools: the two THCHS-30 legs were re-decoded on the corrected
-$n{=}2{,}495$ official test on 2026-07-16, \cref{tab:landscape,tab:deviations}, joining the
+$n{=}2{,}495$ official test, \cref{tab:landscape,tab:deviations}, joining the
 two Aishell-1 in-corpus cells and the two MagicData transfer cells, so the single-cell
 reading breaks on official pools alone.) For contamination (M2):
 Paraformer-large is an industrial checkpoint whose training data is undisclosed, so
@@ -1036,7 +1176,8 @@ any of the $20$ reseeds at any tested budget, including the full pool. Belle's
 contamination-answer certificate is therefore calibration-budget-robust at its reported
 operating point, but its sub-$3\%$ ceiling looks like a backbone/score-separation limit
 rather than a calibration-budget one, consistent with the sub-$3\%$-is-Paraformer-only
-statement in \cref{sec:limitations}.
+statement in \cref{sec:limitations}. \Cref{fig:calsize} panel~(b) shows the same
+reseed-attainment curves.
 % source: calsize_power_2026-07-15/results.json --- headline_min_n_cal_for_cert_frac_90pct
 %   (0.05->2000, 0.03->14326, 0.02->null, 0.015->null); cells n_cal=2000/alpha=0.05:
 %   cert_fraction=1.0, 0 violations; cells n_cal=14326/alpha=0.03: cert_fraction=1.0,
@@ -1049,26 +1190,61 @@ statement in \cref{sec:limitations}.
 
 \section{Discussion}\label{sec:discussion}
 
-The two claims are deliberately separable. C1 is a guarantee whose usefulness is
+The two claims are deliberately separable, and they answer the three gaps posed in
+\cref{sec:intro}.
+
+\textbf{A gate is not a better model.} C1 is a guarantee whose usefulness is
 contingent on the backbone: it is informative on Paraformer (error cut by roughly $40\%$ at 91\%
 coverage), robust to moderate noise, and honestly vacuous on a backbone whose floor CER
-exceeds the target. C2 is a debunking test that survives independently of C1 --- it confirms,
-across a broad realized family, that field-standard ASR confidence is not merely random,
-which is the precondition any selective deployment implicitly assumes yet is seldom tested
-directly~\cite{traub2024selective}. Relative to Ernez \emph{et al.}~\cite{ernez2023conformal} we certify an accept/defer
+exceeds the target. The recognizer is never trained; the gate consumes decode artifacts and
+wraps field-standard scores
+\cite{li2021confidence,qiu2021wordlevel,qiu2021deletion,swarup2019alexa} in a
+Learn-then-Test certificate \cite{angelopoulos2021ltt,bates2021rcps,vovk2005algorithmic}.
+Temperature scaling \cite{guo2017calibration} ($s_5$) buys calibration, not ranking
+(\cref{sec:comparator}): named baselines coincide with $s_1$ and $s_2$, so the contribution
+is the finite-sample certificate, not a new score. Relative to Ernez \emph{et
+al.}~\cite{ernez2023conformal} we certify an accept/defer
 decision's population risk rather than the WER of a prediction set; relative to generic
-non-monotone risk control \cite{angelopoulos2026nonmonotone,yu2026joint} we contribute the
+non-monotone risk control \cite{angelopoulos2026nonmonotone,yu2026joint} and the adjacent
+selective-risk-control line \cite{xu2025scrc,bai2026conformalselective} we contribute the
 ASR instantiation, the random-deferral audit, and the Mandarin/CER evidence, not new
 machinery. The apparatus (analytic random-deferral excess-AURC, matched-abstention null,
-speaker-blocked bootstrap, conformal gate) transplants from selective classification and
+speaker-blocked bootstrap, conformal gate) transplants from selective classification
+\cite{chow1970reject,elyaniv2010foundations,geifman2017selective} and
 off-policy evaluation to sequence-output ASR with only the LTT layer added.
+
+\textbf{Speaker-disjoint calibration is the operational response to exchangeability
+strain.} Cal/tune/test are speaker-disjoint by construction (\cref{sec:setup}). That choice
+blocks the obvious leakage path --- fitting a temperature or a residual map on the same
+speakers used to conformalize --- but it also strains the utterance-level exchangeability
+that LTT assumes, the same strain non-exchangeable conformal risk control and
+covariate-shift conformal prediction study in other sequence settings
+\cite{farinhas2024nonexchangeable,tibshirani2019covariateshift}. The 20-reseed violation
+rate on a fixed test set, and the speaker-blocked bootstrap CIs, are the empirical check we
+substitute for an assumption we do not claim to have restored. The domain fingerprint
+(\cref{sec:honest}) flags score-distribution drift rather than resolving it.
+
+\textbf{Vacuous reporting is a result, not a failure to plot.} When the backbone's floor
+CER sits above the target, or the calibration budget cannot reject any grid point,
+\eqref{eq:lambda-star} returns \textsc{vacuous-at-target} rather than an empty accept set
+dressed as a certificate. Weak Whisper, the fully-open zipformer, and the English arm at
+$\alpha\le 3\%$ on the frozen carve are honestly vacuous
+(\cref{sec:results,sec:crosslingual,sec:landscape}). That is the correct answer to the
+third intro gap: a bound that does not hold is not reported, matching the bound-tightness
+audit of Zhou and Wang~\cite{zhou2026falsesafety} and the selective-classification
+evaluation discipline of Traub \emph{et al.}~\cite{traub2024selective}.
+
+C2 is a debunking test that survives independently of C1 --- it confirms,
+across a broad realized family, that field-standard ASR confidence is not merely random,
+which is the precondition any selective deployment implicitly assumes yet is seldom tested
+directly~\cite{traub2024selective,geifman2019selectivenet}.
 Distribution-free risk control has been deployed analogously elsewhere: Fisch \emph{et
 al.}~\cite{fisch2022limitedfp} bound false positives in multi-label conformal sets, Schuster
 \emph{et al.}~\cite{schuster2022calm} calibrate an early-exit stopping rule for
-autoregressive decoding under a similar Learn-then-Test-style guarantee, and Tibshirani
-\emph{et al.}~\cite{tibshirani2019covariateshift} extend conformal validity under covariate
-shift --- the same distributional-drift concern our domain fingerprint flags rather than
-resolves (\cref{sec:honest}).
+autoregressive decoding under a similar Learn-then-Test-style guarantee, and split conformal
+prediction \cite{lei2018splitconformal} supplies the G2 per-utterance upper bound we
+implement but do not evaluate here. Jia \emph{et al.}~\cite{jia2025coverageser} remain the
+nearest speech-domain conformal instance (emotion prediction sets, not sequence-CER).
 
 \section{Limitations}\label{sec:limitations}
 
@@ -1092,8 +1268,7 @@ micro-CER is reported, not certified. The cross-lingual English certificate is n
 at $\alpha=5\%$ on the frozen $613$-utterance carve and vacuous at $\alpha\le3\%$ there; a
 post-hoc calibration-size sweep shows this sub-$5\%$ vacuity is a calibration-budget effect,
 $\alpha=3\%$ (and $\alpha=2\%$ on the strongest backbone) becoming certifiable at a larger
-calibration budget (\cref{sec:crosslingual}). The Mandarin cross-corpus certificate that an
-earlier draft flagged as the highest-value follow-up is now delivered: Paraformer and Belle
+calibration budget (\cref{sec:crosslingual}). The Mandarin cross-corpus certificate is delivered: Paraformer and Belle
 both certify non-vacuously as transfer cells on MagicData and on THCHS-30 (\cref{sec:landscape});
 the two THCHS-30 legs were re-decoded on the corrected $n{=}2{,}495$ official test
 (\cref{tab:deviations}), so both MagicData and THCHS-30 are uncontaminated cross-corpus transfer legs.
@@ -1107,19 +1282,20 @@ multi-domain Mandarin speech is exactly the corpus axis WenetSpeech would add, l
 future work.
 
 \section*{Data and Code Availability}
-\texttt{asr-gate} and all frozen result files are released in a public GitHub repository and
-archived under a Zenodo DOI for reproduction (TODO-USER: insert the repository URL and Zenodo
-DOI before submission); every figure and table regenerates
-from those files via the released number-registry and figure-generation code, so
-all reported numbers are reproducible bit-for-bit from the archived artifacts. The noise
+Code and archived experimental artifacts will be released in a public repository and
+archived under a DOI for reproduction
+% TODO-USER: insert the repository URL and Zenodo DOI before submission
+so that every figure and table regenerates from those records.
+The noise
 corpus (ESC-50, CC BY-NC family) is used as data only; no CC-BY-NC code or weights are
-executed anywhere in the pipeline. For frozen-artifact integrity we keep the original result
-filenames, which still carry the MUSAN SNR labels even though the realized noise corpus is
+executed anywhere in the pipeline. Archived noise-arm labels still follow the original
+MUSAN SNR names even though the realized noise corpus is
 ESC-50: this is the disclosed MUSAN$\to$ESC-50 substitution (\cref{tab:deviations}), and the
-filenames are preserved unchanged rather than renamed post hoc.
+labels are preserved unchanged rather than renamed after the fact.
 % released code: compute_numbers.py (number registry), figures/make_figures.py;
 %   original noise result filenames read musan5db/15db/25db despite ESC-50 audio
 
+\FloatBarrier
 \bibliographystyle{IEEEtran}
 \bibliography{shared,refs}
 
