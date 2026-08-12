@@ -407,7 +407,7 @@ the official-pool numbers.
   split, touched once. THCHS-30, MagicData, and the ESC-50 noise mixes are apply/audit-only
   (calibration always stays on Aishell dev, so the Mandarin cross-corpus cells are transfer
   cells). The three landscape backbones (Paraformer, Belle, zipformer) each decode the three
-  Mandarin test splits (\cref{sec:landscape}).}
+  Mandarin test splits in the certified landscape.}
   \label{tab:data}
   \small
   \begin{tabular}{l p{0.24\textwidth} r p{0.24\textwidth}}
@@ -464,7 +464,6 @@ the official-pool numbers.
 
 Every number in this section is read from archived experimental artifacts, computed
 only from those frozen records; every figure regenerates from them.
-only from the archived result artifacts; every figure regenerates from it.
 % single number-registry file: results/numbers.json (from compute_numbers.py)
 
 \subsection{The certificate holds on clean Aishell-1 (C1)}
@@ -551,6 +550,19 @@ violations --- versus $0/20$ certified at the frozen $\approx3{,}567$-carve. Wit
 $\approx5{,}000$ speaker-disjoint dev calibration utterances the certified frontier therefore
 tightens from $\alpha=2\%$ to a binding $\alpha=1.5\%$ on the same test data, for $0$ additional
 GPU-hours.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.92\linewidth]{fig6_calsize_sweep.pdf}
+  \caption{Calibration budget versus certified target, from archived calibration-size
+  records (no new decoding). (a)~Smallest $n_{\mathrm{cal}}$ at which the accept/defer gate
+  certifies non-vacuously: Paraformer and Belle on Aishell-1, and wav2vec 2.0 large on
+  LibriSpeech. Open markers sit at the available pool when that target never certifies.
+  (b)~Belle: fraction of 20 calibration reseeds that certify at $\alpha=5\%$, $3\%$, and
+  $2\%$. The dashed line at $90\%$ is the stability cutoff for the smallest reported
+  $n_{\mathrm{cal}}$.}
+  \label{fig:calsize}
+\end{figure}
 % source: mandarin_calsweep_2026-07-13/results.json --- crossover_seed0 (0.015->5000,
 %   0.017->3567, 0.019->3000, 0.05->1000) + crossover_seed_robustness[0.015]=[5000,5000,5000,
 %   5000,7000] (4/5 at 5000, 7000 in seed 4); cells_seed0 alpha=0.015 @ n_cal=5000:
@@ -661,9 +673,11 @@ domain fingerprint is meant to flag is plausibly largest).
   \centering
   \includegraphics[width=0.86\linewidth]{fig4_noise_robustness.pdf}
   \caption{Noise robustness: the clean-calibrated Paraformer gate applied to ESC-50
-  additive noise. (a) Accepted-set macro-CER (error bars over 20 reseeds) stays
+  additive noise. (a) Accepted-set macro-CER (error bars: min--max over 20 reseeds) stays
   under the $\alpha{=}2\%$ target with 0/20 violations at 25 and 15\,dB and 1/20 at
-  5\,dB (within the $\delta{=}0.1$ budget). (b) Coverage cost of noise.}
+  5\,dB (within the $\delta{=}0.1$ budget). (b) Coverage cost of noise: mean auto-accepted
+  fraction falls from $90.7\%$ on clean audio to $90.3\%$/$89.4\%$ at 25/15\,dB and
+  $82.2\%$ at 5\,dB.}
   \label{fig:noise}
 \end{figure}
 
@@ -749,8 +763,7 @@ $\alpha=3\%$ reachable at a realistic calibration budget.
   $0.15$); test-other exceeds it, yet the $\alpha=5\%$ bound is respected on every cell.
   All cells are vacuous (0\% acceptance) at $\alpha\in\{1,2,3\}\%$. 20 Whisper utterances
   were skipped at decode (11 test-clean, 9 test-other); both wav2vec\,2.0 checkpoints
-  decoded all utterances. Values from the frozen
-  English-arm result files.}
+  decoded all utterances.}
   % source files: english_arm_fixed_2026-07-12/ATTAINMENT.json (Whisper, wav2vec2 base),
   %   english_arm2_2026-07-13/ATTAINMENT2.json (wav2vec2 large)
   \label{tab:english}
@@ -803,8 +816,8 @@ micro-CER is $1.94\%$ (speaker-blocked bootstrap CI $[1.72\%, 2.17\%]$, 20 block
   \includegraphics[width=0.65\linewidth]{fig2_holm_matrix.pdf}
   \caption{Realized $m{=}12$ audit family: excess-AURC over analytic random deferral for
   $\{s_1,s_2\}$ across six (backbone $\times$ condition) cells. Cell magnitudes are the
-  informative quantity; their speaker-blocked bootstrap 95\% CIs (all excluding zero) are
-  in \cref{tab:holm}. The $^{*}$ marks the permutation rejection, which is saturated at
+  informative quantity; their speaker-blocked bootstrap 95\% CIs all exclude zero
+  (Holm-controlled audit family). The $^{*}$ marks the permutation rejection, which is saturated at
   the floor for every cell ($p_{\mathrm{Holm}}{=}0.006$) and hence non-discriminating.}
   \label{fig:holm}
 \end{figure}
@@ -819,8 +832,7 @@ micro-CER is $1.94\%$ (speaker-blocked bootstrap CI $[1.72\%, 2.17\%]$, 20 block
   all twelve cells, giving $p_{\mathrm{Holm}}=0.006$ throughout --- so the $p$-values are
   non-discriminating and the effect sizes and CIs are the informative quantities. The
   Paraformer- and Whisper-clean $s_2$ excess-AURC both round to $0.0137$ but are distinct
-  ($0.01368$ and $0.01370$). Point estimates and CIs are read from the frozen
-  audit result files.}
+  ($0.01368$ and $0.01370$).}
   % source files: results/expansion/holm/holm_audit_realized.json (points);
   %   results/audit_ci.json (CIs)
   \label{tab:holm}
@@ -858,7 +870,7 @@ micro-CER is $1.94\%$ (speaker-blocked bootstrap CI $[1.72\%, 2.17\%]$, 20 block
   Bonferroni-over-grid procedure and empirical-Bernstein $p$-values) certifies accepted-set
   macro-CER; micro-CER is reported with a speaker-blocked bootstrap CI but is
   not certified. Clip frequency (CER${}>1$) is 0 on Aishell-1 test.
-  Values from the main-run and expansion audit result files. The accepted-set (certified)
+  The accepted-set (certified)
   row's micro-CER is a descriptive 20-reseed companion,
   not certified.}% source: results/accepted_micro_2026-07-13.json
   % frozen config knobs: procedure=bonferroni, p_value=eb
@@ -888,8 +900,9 @@ micro-CER is $1.94\%$ (speaker-blocked bootstrap CI $[1.72\%, 2.17\%]$, 20 block
 
 \subsection{Comparator scores and speaker-blocked robustness}\label{sec:comparator}
 
-Two follow-up analyses on Aishell-1 test (Paraformer, $n=7{,}172$; the same 4/7{,}176 tail
-rows excluded as above) address the narrowness of the $\{s_1,s_2\}$ family and the
+Two follow-up analyses on Aishell-1 test (Paraformer, $n=7{,}172$; the same four of
+$7{,}176$ test utterances with degraded token-log-probability extraction, excluded-and-counted)
+address the narrowness of the $\{s_1,s_2\}$ family and the
 utterance-level permutation null. First, fitting the tune-side temperature that the main
 standalone audit omitted makes $s_5$ auditable, and we add a learned CER-regressor $s_6$ as
 an exploratory comparator. On the primary family $\{s_1,s_2,s_5\}$ (Holm $m=3$) all three
@@ -915,8 +928,7 @@ their Paraformer-clean entries in \cref{tab:holm} (same substrate).
   comparator ($m=1$). All reject at $\alpha=0.05$. The last column gives the median-split
   matched-abstention permutation $p$ under utterance-level and speaker-blocked nulls
   ($n_{\mathrm{perm}}=2000$, floor $5.0\times10^{-4}$): blocking does not weaken the verdict.
-  $s_5$'s excess-AURC equals $s_1$'s because temperature scaling is rank-preserving. Values
-  from the frozen comparator-audit result file.}
+  $s_5$'s excess-AURC equals $s_1$'s because temperature scaling is rank-preserving.}
   % source file: m4_m6_audit_2026-07-12/M4-M6-RESULT.json
   % TABLEFIX-2026-07-16 KEEP-JUSTIFIED (4 data rows, < 5): checked the source file for a
   %   hidden categorical axis to expand (per the corrected review-directive guidance
@@ -968,23 +980,20 @@ posteriors, disclosed verdict-symmetrically rather than dropped.
 
 \begin{table}[t]
   \centering
-  \caption{Named confidence-baseline excess-AURC, expanded to every backbone $\times$
-  corpus cell the standalone baseline run computed (Aishell-1, MagicData; THCHS-30 cells
-  omitted here, see note below), through the same audit machinery ($n_{\mathrm{perm}}{=}2000$).
+  \caption{Named confidence-baseline excess-AURC on every backbone $\times$
+  corpus cell computed by the standalone baseline run (Aishell-1 and MagicData),
+  using the same audit machinery ($n_{\mathrm{perm}}{=}2000$).
   class-prob-min $\equiv s_2$ and lengthnorm-path-prob $\equiv \exp(s_1)$ by construction
   (identical rankings); mean class prob and the learned CEM are the genuinely distinct
   baselines. On Paraformer/Belle (the certifying backbones) all coincide with our scores
   within $\pm0.002$; on the non-certifying zipformer transducer, $s_1$/class-prob/lengthnorm
-  turn negative while $s_2$/CEM stay positive (verdict-symmetric, consistent with
-  \cref{tab:landscape}'s \textsc{vac.} verdict for zipformer). Paraformer/MagicData is
+  turn negative while $s_2$/CEM stay positive (verdict-symmetric, consistent with zipformer's
+  vacuous landscape certificate). Paraformer/MagicData is
   excluded wholesale (41/4{,}094, 1.0\% of rows lack a decoded score --- the family never
-  computed, not imputed). MagicData capped to $n{=}4{,}094$ as in \cref{tab:landscape}.
-  Tsallis entropy: unavailable (no full posteriors). THCHS-30 cells are omitted from this
-  table: the standalone baseline run (2026-07-15) predates the 2026-07-16 official-pool
-  THCHS-30 redecode (\cref{tab:deviations}) and its THCHS-30 numbers are on the superseded
-  $n{=}1{,}339$ mislabeled-mirror pool -- reporting them beside the corrected pool's
-  \cref{tab:landscape} numbers would silently reintroduce the contamination this paper
-  discloses and fixes elsewhere, so they are excluded rather than shown stale.}
+  computed, not imputed). MagicData capped to $n{=}4{,}094$ as in the certified landscape.
+  Tsallis entropy: unavailable (no full posteriors). THCHS-30 cells are omitted:
+  that baseline run predates the official-pool THCHS-30 redecode, and its THCHS-30 numbers
+  sit on the superseded $n{=}1{,}339$ mislabeled-mirror pool; they are excluded rather than shown stale.}
   % source: baselines_2026-07-15/results.json (asr_gate.audit.run_audit, n_perm=2000, seed=0;
   %   per_score excess_aurc for cells paraformer_aishell, paraformer_magicdata, belle_aishell,
   %   belle_magicdata, zipformer_aishell, zipformer_magicdata -- all 6 rows below trace here).
@@ -1022,7 +1031,17 @@ zipformer transducer \citep{yao2024zipformer} (B4, RNN-T) --- across three crede
 $\delta{=}0.1$ and 20 speaker-level reseeds per cell. Each backbone's gate is calibrated
 once on the Aishell-1 dev split and applied to every test split, so the THCHS-30 and
 MagicData cells are cross-corpus transfer cells (reported as transfer, never
-conflated with in-corpus Aishell). \Cref{tab:landscape} gives the certified frontier.
+conflated with in-corpus Aishell). \Cref{fig:landscape,tab:landscape} give the certified frontier.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.72\linewidth]{fig7_landscape.pdf}
+  \caption{Certified landscape: tightest non-vacuous target (20 reseeds, 0 violations) for
+  three backbones $\times$ three Mandarin corpora. Cell text is that target and mean
+  acceptance. Vacuous cells accept nothing. Paraformer/Aishell-1 uses the binding
+  $1.9\%$ target; other cells use the frozen $\alpha$-grid.}
+  \label{fig:landscape}
+\end{figure}
 
 \begin{table}[t]
   \centering
@@ -1031,8 +1050,8 @@ conflated with in-corpus Aishell). \Cref{tab:landscape} gives the certified fron
   non-vacuously with 0/20 reseed violations; acceptance and accepted-set macro-CER are its
   20-reseed means. Aishell-1 is in-corpus (official test, $n{=}7{,}176$); THCHS-30
   ($n{=}2{,}495$, the corrected full official test---ten D-prefix test speakers,
-  re-decoded 2026-07-16, \cref{tab:deviations}) and MagicData (speaker-disjoint $\sim$4k
-  eval cap, $n{=}4{,}094$, \S D1) are Aishell-dev-calibrated transfer cells.
+  re-decoded 2026-07-16, disclosed as a protocol deviation) and MagicData (speaker-disjoint $\sim$4k
+  eval cap, $n{=}4{,}094$) are Aishell-dev-calibrated transfer cells.
   \textsc{vac.} $=$ vacuous at every grid $\alpha$; for these rows the accept and
   acc-CER cells are \textemdash{} (no set is accepted, so both are undefined).}
   \label{tab:landscape}
@@ -1196,6 +1215,7 @@ renamed post hoc.
 % released code: compute_numbers.py (number registry), figures/make_figures.py;
 %   original noise result filenames read musan5db/15db/25db despite ESC-50 audio
 
+\FloatBarrier
 \bibliographystyle{plainnat}
 \bibliography{shared,refs}
 

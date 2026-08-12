@@ -287,25 +287,23 @@ def fig6():
     bel_alphas = [0.015, 0.02, 0.03, 0.05]
     bx, by, bvac = _xy(bel_head, bel_alphas)
     ax1.plot(bx[~np.isnan(by)], by[~np.isnan(by)], "s-", color=C["n15"],
-             lw=1.5, ms=5, label=r"Belle / Aishell-1 ($\geq$90\% of 20 reseeds)")
+             lw=1.5, ms=5, label="Belle / Aishell-1 (≥90% of 20 reseeds)")
     # never-certifies: open marker at the full dev pool
     pool = bel["cal_pool_size"]
     for xi, yi, vac in zip(bx, by, bvac):
         if vac:
             ax1.plot(xi, pool, "s", ms=5, mfc="white", mec=C["n15"], mew=1.1)
-    ax1.annotate("vac.\nat pool", (1.5, pool), xytext=(2.15, pool - 1800),
-                 fontsize=7, color="black", ha="left",
-                 arrowprops=dict(arrowstyle="->", lw=0.6))
+            ax1.text(xi, pool + 700, "never", ha="center", fontsize=6.5, color="black")
 
     en_cross = eng["crossover"]["wav2vec2_large"]
     ex, ey, evac = _xy(en_cross, [0.02, 0.03, 0.05])
     ax1.plot(ex[~np.isnan(ey)], ey[~np.isnan(ey)], "^-", color=C["whisper"],
-             lw=1.5, ms=5, label=r"wav2vec\,2.0 large / LibriSpeech")
+             lw=1.5, ms=5, label="wav2vec 2.0 large / LibriSpeech")
     ax1.set_xlabel(r"certified target $\alpha$ (% macro-CER)")
     ax1.set_ylabel(r"min $n_{\mathrm{cal}}$ to certify")
     ax1.set_xlim(0.8, 5.6)
-    ax1.set_ylim(0, 16000)
-    ax1.legend(loc="upper right", frameon=False, fontsize=6.8)
+    ax1.set_ylim(0, 16800)
+    ax1.legend(loc="center right", frameon=False, fontsize=6.5)
     ax1.set_title("calibration budget vs target", fontsize=8)
 
     # Belle power curve: cert fraction vs n_cal
@@ -320,12 +318,12 @@ def fig6():
                  [c["cert_fraction"] * 100 for c in rows],
                  ls, color=col, lw=1.6, label=lab)
     ax2.axhline(90, color=C["target"], ls="--", lw=0.9)
-    ax2.text(250, 93, r"90\% of reseeds", fontsize=7, color="black")
+    ax2.text(8200, 93, r"90% of reseeds", fontsize=7, color="black")
     ax2.set_xlabel(r"calibration size $n_{\mathrm{cal}}$")
     ax2.set_ylabel("% of reseeds that certify")
     ax2.set_ylim(-4, 108)
     ax2.set_xlim(0, 15000)
-    ax2.legend(loc="center right", frameon=False, fontsize=6.8)
+    ax2.legend(loc="center left", frameon=False, fontsize=6.8)
     ax2.set_title("Belle reseed attainment", fontsize=8)
     ax1.text(-0.16, 1.04, "(a)", transform=ax1.transAxes, fontweight="bold",
              fontsize=10, va="bottom", ha="left")
