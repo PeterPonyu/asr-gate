@@ -150,9 +150,9 @@ accordingly.
   \caption{The \texttt{asr-gate} pipeline. Decode artifacts from a frozen ASR
   backbone (never the model itself) yield a per-utterance confidence score
   $s$ (e.g.\ $s_1,s_2$); a speaker-disjoint calibration split ($n_{\mathrm{cal}}$)
-  drives Learn-Then-Test \cite{angelopoulos2021ltt} construction of a
+  drives Learn-Then-Test construction of a
   threshold $\lambda^\star$ (the frozen EB-$p$-value, Bonferroni-over-grid
-  procedure of \cref{sec:g1}) certifying, with probability at least
+  selective-risk procedure) certifying, with probability at least
   $1-\delta$, that the accepted set's macro-CER does not exceed $\alpha$;
   each utterance is then accepted ($s\ge\lambda^\star$) or deferred to a
   human. If no threshold on the grid certifies, the gate reports
@@ -353,7 +353,7 @@ the official-pool numbers.
   touched once. THCHS-30, MagicData, and the ESC-50 noise mixes are apply/audit-only
   (calibration always stays on Aishell dev, so the Mandarin cross-corpus cells are transfer
   cells). The three landscape backbones (Paraformer, Belle, zipformer) each decode the three
-  Mandarin test splits (\cref{sec:landscape}).}
+  Mandarin test splits in the certified landscape.}
   \label{tab:data}
   \begin{tabular}{l p{0.24\textwidth} r p{0.30\textwidth}}
     \toprule
@@ -740,8 +740,7 @@ Paraformer clean test the full-set macro-CER is $1.98\%$ and micro-CER is $1.94\
   \includegraphics[width=0.6\textwidth]{fig2_holm_matrix.pdf}
   \caption{Realized $m{=}12$ audit family: excess-AURC over analytic random deferral for
   $\{s_1,s_2\}$ across six (backbone $\times$ condition) cells. Cell magnitudes are the
-  informative quantity; their speaker-blocked bootstrap 95\% CIs (all excluding zero) are in
-  \cref{tab:holm}. The $^{*}$ marks the permutation rejection, which is saturated at the
+  informative quantity; their speaker-blocked bootstrap 95\% CIs all exclude zero (Holm-controlled audit family). The $^{*}$ marks the permutation rejection, which is saturated at the
   floor for every cell ($p_{\mathrm{Holm}}{=}0.006$) and hence non-discriminating.}
   \label{fig:holm}
 \end{figure*}
@@ -909,15 +908,15 @@ posteriors, disclosed verdict-symmetrically rather than dropped.
   (identical rankings); mean class prob and the learned CEM are the genuinely distinct
   baselines. On Paraformer/Belle (the certifying backbones) all coincide with our scores
   within $\pm0.002$; on the non-certifying zipformer transducer, $s_1$/class-prob/lengthnorm
-  turn negative while $s_2$/CEM stay positive (verdict-symmetric, consistent with
-  \cref{tab:landscape}'s \textsc{vac.} verdict for zipformer). Paraformer/MagicData is
+  turn negative while $s_2$/CEM stay positive (verdict-symmetric, consistent with the
+  landscape \textsc{vac.} verdict for zipformer). Paraformer/MagicData is
   excluded wholesale (41/4{,}094, 1.0\% of rows lack a decoded score --- the family never
-  computed, not imputed). MagicData capped to $n{=}4{,}094$ as in \cref{tab:landscape}.
+  computed, not imputed). MagicData capped to $n{=}4{,}094$ as in the certified landscape.
   Tsallis entropy: unavailable (no full posteriors). THCHS-30 cells are omitted from this
   table: the standalone baseline run (2026-07-15) predates the 2026-07-16 official-pool
-  THCHS-30 redecode (\cref{tab:deviations}) and its THCHS-30 numbers are on the superseded
+  THCHS-30 redecode (disclosed protocol deviations) and its THCHS-30 numbers are on the superseded
   $n{=}1{,}339$ mislabeled-mirror pool -- reporting them beside the corrected pool's
-  \cref{tab:landscape} numbers would silently reintroduce the contamination this paper
+  landscape numbers would silently reintroduce the contamination this paper
   discloses and fixes elsewhere, so they are excluded rather than shown stale.}
   % source: baselines_2026-07-15/results.json (asr_gate.audit.run_audit, n_perm=2000, seed=0;
   %   per_score excess_aurc for cells paraformer_aishell, paraformer_magicdata, belle_aishell,
@@ -965,8 +964,8 @@ certified frontier.
   non-vacuously with 0/20 reseed violations; acceptance and accepted-set macro-CER are its
   20-reseed means. Aishell-1 is in-corpus (official test, $n{=}7{,}176$); THCHS-30
   ($n{=}2{,}495$, the corrected full official test---ten D-prefix test speakers,
-  re-decoded 2026-07-16, \cref{tab:deviations}) and MagicData (speaker-disjoint $\sim$4k
-  eval cap, $n{=}4{,}094$, \S D1) are Aishell-dev-calibrated transfer cells.
+  re-decoded 2026-07-16, disclosed as a protocol deviation) and MagicData (speaker-disjoint $\sim$4k
+  eval cap, $n{=}4{,}094$) are Aishell-dev-calibrated transfer cells.
   \textsc{vac.} $=$ vacuous at every grid $\alpha$; for these rows the accept and
   acc-CER cells are \textemdash{} (no set is accepted, so both are undefined).}
   \label{tab:landscape}
