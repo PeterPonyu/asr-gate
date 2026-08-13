@@ -1,0 +1,30 @@
+# Rendered HTML/SVG must not contain these as product/engineering leaks.
+# GitHub project URLs that include the repository name are allowed by the scanner.
+asr-gate ingest
+asr-gate score
+asr-gate calibrate
+asr-gate apply
+asr-gate audit
+asr-gate report
+canonical.jsonl
+AutoDL
+DATA_ROOT
+make_figures.py
+numbers.json
+FREEZE-AMENDMENT
+F8_geomap
+F9_geopatches
+F1_debt
+graphicspath
+MVTec
+Matbench
+TableShift
+mt29_stage1
+BigEarthNet
+paper_ieeetran
+paper_rie
+paper_kbs
+Launch →
+Start Exploring
+.venv
+checkpoint-

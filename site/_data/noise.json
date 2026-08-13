@@ -1,0 +1,56 @@
+{
+  "alpha": 0.02,
+  "axis_title": "ESC-50 additive",
+  "display": {
+    "snr15_violations": "0/20",
+    "snr25_violations": "0/20",
+    "snr5_coverage": "82.2%",
+    "snr5_violations": "1/20"
+  },
+  "rows": [
+    {
+      "accepted_cer_max": 0.015328388730468316,
+      "accepted_cer_mean": 0.012107435528542975,
+      "accepted_cer_min": 0.01000455015951584,
+      "coverage_mean": 0.907141861761427,
+      "key": "clean",
+      "label": "clean",
+      "n_reseeds": 20,
+      "vacuous": false,
+      "violations": 0
+    },
+    {
+      "accepted_cer_max": 0.015451532966529676,
+      "accepted_cer_mean": 0.012208989927955407,
+      "accepted_cer_min": 0.009935705554995082,
+      "coverage_mean": 0.9031842251950948,
+      "key": "musan25db",
+      "label": "25 dB",
+      "n_reseeds": 20,
+      "vacuous": false,
+      "violations": 0
+    },
+    {
+      "accepted_cer_max": 0.01645743020434821,
+      "accepted_cer_mean": 0.013176740309602758,
+      "accepted_cer_min": 0.010802467445977824,
+      "coverage_mean": 0.8935270345596432,
+      "key": "musan15db",
+      "label": "15 dB",
+      "n_reseeds": 20,
+      "vacuous": false,
+      "violations": 0
+    },
+    {
+      "accepted_cer_max": 0.0216418286370371,
+      "accepted_cer_mean": 0.01623420503472931,
+      "accepted_cer_min": 0.012917451985316568,
+      "coverage_mean": 0.8222547380156076,
+      "key": "musan5db",
+      "label": "5 dB",
+      "n_reseeds": 20,
+      "vacuous": false,
+      "violations": 1
+    }
+  ]
+}

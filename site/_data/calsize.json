@@ -1,0 +1,378 @@
+{
+  "belle_min_n_cal_90pct": {
+    "0.015": null,
+    "0.02": null,
+    "0.03": 14326,
+    "0.05": 2000,
+    "0.1": 500
+  },
+  "belle_pool_size": 14326,
+  "belle_power_cells": [
+    {
+      "alpha": 0.015,
+      "cert_fraction": 0.0,
+      "n_cal": 250
+    },
+    {
+      "alpha": 0.02,
+      "cert_fraction": 0.0,
+      "n_cal": 250
+    },
+    {
+      "alpha": 0.03,
+      "cert_fraction": 0.0,
+      "n_cal": 250
+    },
+    {
+      "alpha": 0.05,
+      "cert_fraction": 0.0,
+      "n_cal": 250
+    },
+    {
+      "alpha": 0.1,
+      "cert_fraction": 0.0,
+      "n_cal": 250
+    },
+    {
+      "alpha": 0.015,
+      "cert_fraction": 0.0,
+      "n_cal": 500
+    },
+    {
+      "alpha": 0.02,
+      "cert_fraction": 0.0,
+      "n_cal": 500
+    },
+    {
+      "alpha": 0.03,
+      "cert_fraction": 0.0,
+      "n_cal": 500
+    },
+    {
+      "alpha": 0.05,
+      "cert_fraction": 0.0,
+      "n_cal": 500
+    },
+    {
+      "alpha": 0.1,
+      "cert_fraction": 1.0,
+      "n_cal": 500
+    },
+    {
+      "alpha": 0.015,
+      "cert_fraction": 0.0,
+      "n_cal": 1000
+    },
+    {
+      "alpha": 0.02,
+      "cert_fraction": 0.0,
+      "n_cal": 1000
+    },
+    {
+      "alpha": 0.03,
+      "cert_fraction": 0.0,
+      "n_cal": 1000
+    },
+    {
+      "alpha": 0.05,
+      "cert_fraction": 0.0,
+      "n_cal": 1000
+    },
+    {
+      "alpha": 0.1,
+      "cert_fraction": 1.0,
+      "n_cal": 1000
+    },
+    {
+      "alpha": 0.015,
+      "cert_fraction": 0.0,
+      "n_cal": 1250
+    },
+    {
+      "alpha": 0.02,
+      "cert_fraction": 0.0,
+      "n_cal": 1250
+    },
+    {
+      "alpha": 0.03,
+      "cert_fraction": 0.0,
+      "n_cal": 1250
+    },
+    {
+      "alpha": 0.05,
+      "cert_fraction": 0.0,
+      "n_cal": 1250
+    },
+    {
+      "alpha": 0.1,
+      "cert_fraction": 1.0,
+      "n_cal": 1250
+    },
+    {
+      "alpha": 0.015,
+      "cert_fraction": 0.0,
+      "n_cal": 1500
+    },
+    {
+      "alpha": 0.02,
+      "cert_fraction": 0.0,
+      "n_cal": 1500
+    },
+    {
+      "alpha": 0.03,
+      "cert_fraction": 0.0,
+      "n_cal": 1500
+    },
+    {
+      "alpha": 0.05,
+      "cert_fraction": 0.05,
+      "n_cal": 1500
+    },
+    {
+      "alpha": 0.1,
+      "cert_fraction": 1.0,
+      "n_cal": 1500
+    },
+    {
+      "alpha": 0.015,
+      "cert_fraction": 0.0,
+      "n_cal": 1750
+    },
+    {
+      "alpha": 0.02,
+      "cert_fraction": 0.0,
+      "n_cal": 1750
+    },
+    {
+      "alpha": 0.03,
+      "cert_fraction": 0.0,
+      "n_cal": 1750
+    },
+    {
+      "alpha": 0.05,
+      "cert_fraction": 0.65,
+      "n_cal": 1750
+    },
+    {
+      "alpha": 0.1,
+      "cert_fraction": 1.0,
+      "n_cal": 1750
+    },
+    {
+      "alpha": 0.015,
+      "cert_fraction": 0.0,
+      "n_cal": 2000
+    },
+    {
+      "alpha": 0.02,
+      "cert_fraction": 0.0,
+      "n_cal": 2000
+    },
+    {
+      "alpha": 0.03,
+      "cert_fraction": 0.0,
+      "n_cal": 2000
+    },
+    {
+      "alpha": 0.05,
+      "cert_fraction": 1.0,
+      "n_cal": 2000
+    },
+    {
+      "alpha": 0.1,
+      "cert_fraction": 1.0,
+      "n_cal": 2000
+    },
+    {
+      "alpha": 0.015,
+      "cert_fraction": 0.0,
+      "n_cal": 3000
+    },
+    {
+      "alpha": 0.02,
+      "cert_fraction": 0.0,
+      "n_cal": 3000
+    },
+    {
+      "alpha": 0.03,
+      "cert_fraction": 0.0,
+      "n_cal": 3000
+    },
+    {
+      "alpha": 0.05,
+      "cert_fraction": 1.0,
+      "n_cal": 3000
+    },
+    {
+      "alpha": 0.1,
+      "cert_fraction": 1.0,
+      "n_cal": 3000
+    },
+    {
+      "alpha": 0.015,
+      "cert_fraction": 0.0,
+      "n_cal": 4000
+    },
+    {
+      "alpha": 0.02,
+      "cert_fraction": 0.0,
+      "n_cal": 4000
+    },
+    {
+      "alpha": 0.03,
+      "cert_fraction": 0.0,
+      "n_cal": 4000
+    },
+    {
+      "alpha": 0.05,
+      "cert_fraction": 1.0,
+      "n_cal": 4000
+    },
+    {
+      "alpha": 0.1,
+      "cert_fraction": 1.0,
+      "n_cal": 4000
+    },
+    {
+      "alpha": 0.015,
+      "cert_fraction": 0.0,
+      "n_cal": 6000
+    },
+    {
+      "alpha": 0.02,
+      "cert_fraction": 0.0,
+      "n_cal": 6000
+    },
+    {
+      "alpha": 0.03,
+      "cert_fraction": 0.0,
+      "n_cal": 6000
+    },
+    {
+      "alpha": 0.05,
+      "cert_fraction": 1.0,
+      "n_cal": 6000
+    },
+    {
+      "alpha": 0.1,
+      "cert_fraction": 1.0,
+      "n_cal": 6000
+    },
+    {
+      "alpha": 0.015,
+      "cert_fraction": 0.0,
+      "n_cal": 8000
+    },
+    {
+      "alpha": 0.02,
+      "cert_fraction": 0.0,
+      "n_cal": 8000
+    },
+    {
+      "alpha": 0.03,
+      "cert_fraction": 0.0,
+      "n_cal": 8000
+    },
+    {
+      "alpha": 0.05,
+      "cert_fraction": 1.0,
+      "n_cal": 8000
+    },
+    {
+      "alpha": 0.1,
+      "cert_fraction": 1.0,
+      "n_cal": 8000
+    },
+    {
+      "alpha": 0.015,
+      "cert_fraction": 0.0,
+      "n_cal": 10000
+    },
+    {
+      "alpha": 0.02,
+      "cert_fraction": 0.0,
+      "n_cal": 10000
+    },
+    {
+      "alpha": 0.03,
+      "cert_fraction": 0.0,
+      "n_cal": 10000
+    },
+    {
+      "alpha": 0.05,
+      "cert_fraction": 1.0,
+      "n_cal": 10000
+    },
+    {
+      "alpha": 0.1,
+      "cert_fraction": 1.0,
+      "n_cal": 10000
+    },
+    {
+      "alpha": 0.015,
+      "cert_fraction": 0.0,
+      "n_cal": 12000
+    },
+    {
+      "alpha": 0.02,
+      "cert_fraction": 0.0,
+      "n_cal": 12000
+    },
+    {
+      "alpha": 0.03,
+      "cert_fraction": 0.15,
+      "n_cal": 12000
+    },
+    {
+      "alpha": 0.05,
+      "cert_fraction": 1.0,
+      "n_cal": 12000
+    },
+    {
+      "alpha": 0.1,
+      "cert_fraction": 1.0,
+      "n_cal": 12000
+    },
+    {
+      "alpha": 0.015,
+      "cert_fraction": 0.0,
+      "n_cal": 14326
+    },
+    {
+      "alpha": 0.02,
+      "cert_fraction": 0.0,
+      "n_cal": 14326
+    },
+    {
+      "alpha": 0.03,
+      "cert_fraction": 1.0,
+      "n_cal": 14326
+    },
+    {
+      "alpha": 0.05,
+      "cert_fraction": 1.0,
+      "n_cal": 14326
+    },
+    {
+      "alpha": 0.1,
+      "cert_fraction": 1.0,
+      "n_cal": 14326
+    }
+  ],
+  "english_note": "English wav2vec 2.0 large / LibriSpeech is an English calibration-budget series, not a Mandarin landscape cell.",
+  "english_wav2vec2_large_crossover": {
+    "0.02": 1500,
+    "0.03": 1000,
+    "0.05": 613
+  },
+  "paraformer_aishell_crossover": {
+    "0.015": 5000,
+    "0.016": 5000,
+    "0.017": 3567,
+    "0.018": 3000,
+    "0.019": 3000,
+    "0.02": 3000,
+    "0.03": 1500,
+    "0.05": 1000
+  }
+}

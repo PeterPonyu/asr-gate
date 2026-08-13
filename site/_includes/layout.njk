@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title %}{{ title }} · {% endif %}{{ meta.title }}</title>
+  <meta name="description" content="Scientific companion for a submitted TASLP paper on a distribution-free accept/defer gate for Mandarin ASR.">
+  <link rel="stylesheet" href="{{ '/css/portal.css' | url }}">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  {% include "header.njk" %}
+  <main id="content">
+    {{ content | safe }}
+  </main>
+  {% include "footer.njk" %}
+  <script src="{{ '/js/hover-notes.js' | url }}" defer></script>
+</body>
+</html>

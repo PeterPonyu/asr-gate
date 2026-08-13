@@ -1,0 +1,13 @@
+{
+  "name": "asr-companion",
+  "private": true,
+  "type": "module",
+  "description": "Static TASLP scientific companion (Eleventy 3).",
+  "scripts": {
+    "build": "eleventy --pathprefix=/asr-gate/",
+    "serve": "eleventy --serve --pathprefix=/asr-gate/"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}

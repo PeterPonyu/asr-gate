@@ -1,0 +1,24 @@
+---
+layout: layout.njk
+title: Cite
+permalink: /cite/
+---
+<h1>Cite</h1>
+
+<p>Submitted manuscript; no article DOI yet. Do not invent a TASLP volume or issue.</p>
+
+<p>{{ meta.author }}, {{ meta.year }}. <em>{{ meta.title }}</em>. Submitted to {{ meta.venue }}.</p>
+
+<pre><code>@unpublished{fu2026certified,
+  author = {Fu, Zeyu},
+  title  = {Certified Transcription Triage: a Distribution-Free
+            Accept/Defer Gate with an Audited Confidence Signal
+            for Mandarin ASR},
+  year   = {2026},
+  note   = {Submitted to IEEE/ACM Transactions on Audio, Speech,
+            and Language Processing},
+  url    = {https://github.com/PeterPonyu/asr-gate}
+}</code></pre>
+
+<p>Theme repository: <a href="{{ meta.repo_url }}">{{ meta.repo_url }}</a><br>
+Frozen archive: <a href="{{ meta.zenodo_url }}">doi:{{ meta.zenodo_doi }}</a></p>

@@ -1,0 +1,74 @@
+# Official GitHub Pages (isolation-live on pages/asr-companion).
+# Pins re-resolved 2026-08-13 from git refs/tags.
+# Do not watch main. Do not use peaceiris. Do not use page_build.
+
+name: pages
+
+on:
+  push:
+    branches:
+      - pages/asr-companion
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-asr-companion
+  cancel-in-progress: false
+
+jobs:
+  extract-hash:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Verify frozen extracts
+        run: python3 site/scripts/verify_extracts.py
+
+  build:
+    needs: extract-hash
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Setup Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - name: Configure Pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+      - name: Install
+        working-directory: site
+        run: npm ci
+      - name: Build
+        working-directory: site
+        run: npx @11ty/eleventy --pathprefix=/asr-gate/
+      - name: Leak allowlist
+        run: python3 site/scripts/leak_scan.py site/_site
+      - name: Prefix and routes
+        run: python3 site/scripts/gate_local.py site/_site
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: site/_site
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/pages/asr-companion'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0

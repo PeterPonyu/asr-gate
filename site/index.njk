@@ -1,0 +1,42 @@
+---
+layout: layout.njk
+permalink: /
+eleventyExcludeFromCollections: true
+---
+<h1>{{ meta.title }}</h1>
+<p class="byline">{{ meta.author }} · <a href="{{ meta.orcid_url }}">ORCID {{ meta.orcid }}</a></p>
+
+<ol class="thesis">
+{% for line in claims.thesis %}
+  <li>{{ line }}</li>
+{% endfor %}
+</ol>
+
+<section class="claims" aria-label="Two claims">
+  <article>
+    <h2>{{ claims.c1.id }} {{ claims.c1.name }}</h2>
+    <p>{{ claims.c1.text }}</p>
+  </article>
+  <article>
+    <h2>{{ claims.c2.id }} {{ claims.c2.name }}</h2>
+    <p>{{ claims.c2.text }}</p>
+  </article>
+</section>
+
+{% scienceFig "fig1_teaser_rc",
+  "Risk–coverage curve: log-posterior gate stays below the 2% CER target through 85.7% coverage at the certified operating point.",
+  "Coverage versus accepted-set macro-CER on Aishell-1 with a Paraformer backbone (reference reseed 0). The certified operating point is 85.7% coverage at 1.00% accepted-set macro-CER under α = 2%. The 1.95% audit-subset full-set rate versus the 1.98% full-set rate is a subset difference, not a second random-deferral series.",
+  "Read as: the gate is a coverage × CER plane, not a recognizer leaderboard."
+%}
+
+<aside class="callout">
+  <p>Whisper Mandarin is vacuous at every tight target. The 0/20 reseed count is 20 correlated reseeds of one fixed test set, not 20 independent trials.</p>
+</aside>
+
+<p class="jumps">
+  <a href="{{ '/method/' | url }}">Method</a>
+  <a href="{{ '/results/' | url }}">Results</a>
+  <a href="{{ '/limitations/' | url }}">Limitations</a>
+  <a href="{{ '/reproduce/' | url }}">Reproduce</a>
+  <a href="{{ '/cite/' | url }}">Cite</a>
+</p>
