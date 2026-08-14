@@ -72,8 +72,6 @@ def main() -> None:
             "year": 2026,
             "repo_url": "https://github.com/PeterPonyu/asr-gate",
             "pages_url": "https://peterponyu.github.io/asr-gate/",
-            "zenodo_doi": "10.5281/zenodo.21392289",
-            "zenodo_url": "https://doi.org/10.5281/zenodo.21392289",
             "license": "MIT",
         },
     )

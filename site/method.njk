@@ -7,7 +7,7 @@ permalink: /method/
 
 <p>The object is an accept/defer gate on frozen decode artifacts. It is not a new recognizer and not a set-valued conformal hypothesis list. The gate consumes <em>N</em>-best hypotheses with log-probabilities; the same rule applies to any backbone that emits those artifacts. Novelty is the ASR instantiation plus the random-deferral audit, not new statistical machinery beyond the Learn-then-Test layer.</p>
 
-{% scienceFig "fig0_overview",
+{% scienceFig "overview",
   "Two swimlanes: offline calibration freezes a threshold or reports vacuous-at-target; live scoring accepts or defers each utterance.",
   "Offline calibration and live scoring meet at a hinge: accept if the utterance score is at least the frozen threshold. If no threshold certifies the target, the outcome is vacuous-at-target rather than a silent empty accept set.",
   "Read as: Offline freezes λ★ (or reports vacuity); Live maps each utterance to Accept or Defer."
