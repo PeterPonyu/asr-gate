@@ -2,7 +2,7 @@
   "name": "asr-companion",
   "private": true,
   "type": "module",
-  "description": "Static TASLP scientific companion (Eleventy 3).",
+  "description": "Static scientific site for a distribution-free accept/defer gate (Eleventy 3).",
   "scripts": {
     "build": "eleventy --pathprefix=/asr-gate/",
     "serve": "eleventy --serve --pathprefix=/asr-gate/"

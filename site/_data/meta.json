@@ -5,11 +5,7 @@
   "orcid_url": "https://orcid.org/0009-0001-8329-0108",
   "pages_url": "https://peterponyu.github.io/asr-gate/",
   "repo_url": "https://github.com/PeterPonyu/asr-gate",
-  "status": "submitted",
-  "submitted": "2026-08-13",
   "title": "Certified Transcription Triage: a Distribution-Free Accept/Defer Gate with an Audited Confidence Signal for Mandarin ASR",
-  "venue": "IEEE/ACM Transactions on Audio, Speech, and Language Processing",
-  "venue_short": "IEEE/ACM TASLP",
   "year": 2026,
   "zenodo_doi": "10.5281/zenodo.21392289",
   "zenodo_url": "https://doi.org/10.5281/zenodo.21392289"
