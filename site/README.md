@@ -1,3 +1,1 @@
-# Static scientific companion. Preview:
-#   npx @11ty/eleventy --serve --pathprefix=/asr-gate/
-# Production path prefix is /asr-gate/.
+# Accept/defer, accepted-set CER, and vacuous-at-target. Static HTML only.

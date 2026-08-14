@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Stamp site/_data extracts from frozen manuscript records.
+"""Stamp site/_data extracts from frozen result records.
 
-Reads origin/main frozen JSON only. Writes curated tables for the companion
-site. Does not touch manuscript figure PDFs. Does not invent numbers.
+Reads origin/main frozen JSON only. Writes curated tables for the site.
+Does not overwrite print figure PDFs. Does not invent numbers.
 """
 from __future__ import annotations
 

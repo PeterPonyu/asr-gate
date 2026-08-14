@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Web redraws of the TASLP figures from stamped site/_data extracts.
+"""Web redraws of the science figures from stamped site/_data extracts.
 
 Same frozen arrays and claims as print. New canvas, IBM Plex, SVG + PNG@2x.
-Never writes manuscripts/figures/*.pdf.
+Never overwrites print figure PDFs.
 """
 from __future__ import annotations
 

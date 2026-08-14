@@ -51,7 +51,7 @@ def main() -> int:
             failed = True
     pdfs = list(ROOT.rglob("paper_*.pdf"))
     if pdfs:
-        print("manuscript pdf in artifact", pdfs)
+        print("paper pdf in artifact", pdfs)
         failed = True
     if not failed:
         print("gate-local html checks ok")
