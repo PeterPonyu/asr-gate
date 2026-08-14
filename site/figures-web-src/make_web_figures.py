@@ -211,7 +211,7 @@ def fig0() -> None:
         xytext=(18.9, 4.3),
         arrowprops=dict(arrowstyle="->", color=C["defer"], lw=1.6, linestyle="dashed"),
     )
-    save(fig, "fig0_overview")
+    save(fig, "overview")
 
 
 def fig1() -> None:
@@ -247,7 +247,7 @@ def fig1() -> None:
     ax.set_ylim(0, 5)
     ax.set_xlim(0, 100)
     ax.legend(loc="upper left", frameon=False)
-    save(fig, "fig1_teaser_rc")
+    save(fig, "teaser-rc")
 
 
 def fig2() -> None:
@@ -298,7 +298,7 @@ def fig2() -> None:
         va="top",
         wrap=True,
     )
-    save(fig, "fig2_holm_matrix")
+    save(fig, "holm-matrix")
 
 
 def fig3() -> None:
@@ -342,7 +342,7 @@ def fig3() -> None:
         va="center",
         fontsize=12,
     )
-    save(fig, "fig3_certified_frontier")
+    save(fig, "certified-frontier")
 
 
 def fig4() -> None:
@@ -378,7 +378,7 @@ def fig4() -> None:
     ax2.set_title("coverage cost of noise")
     ax2.text(-0.12, 1.04, "(b)", transform=ax2.transAxes, fontweight="medium", fontsize=14)
     fig.tight_layout()
-    save(fig, "fig4_noise_robustness")
+    save(fig, "noise-robustness")
 
 
 def fig5() -> None:
@@ -400,7 +400,7 @@ def fig5() -> None:
     ax.set_xlim(0, 100)
     ax.legend(loc="upper left", frameon=False, bbox_to_anchor=(0.0, 1.0))
     ax.set_title("certifiable vs vacuous backbones")
-    save(fig, "fig5_vacuity_rc")
+    save(fig, "vacuity-rc")
 
 
 def _crossover_xy(crossover, alphas):
@@ -462,7 +462,7 @@ def fig6() -> None:
     ax2.set_title("Belle reseed attainment")
     ax2.text(-0.12, 1.04, "(b)", transform=ax2.transAxes, fontweight="medium", fontsize=14)
     fig.tight_layout()
-    save(fig, "fig6_calsize_sweep")
+    save(fig, "calsize-sweep")
 
 
 def fig7() -> None:
@@ -499,7 +499,7 @@ def fig7() -> None:
     ax.set_title("tightest certified α (0/20 violations)")
     cb = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
     cb.set_label("α (%)")
-    save(fig, "fig7_landscape")
+    save(fig, "landscape")
 
 
 def main() -> None:

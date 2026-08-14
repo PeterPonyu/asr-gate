@@ -8,14 +8,14 @@ permalink: /results/
 <p>Evidence is ordered by claim: risk–coverage, certified frontier, calibration budget, noise transfer, vacuity, Holm family, then landscape. Every plotted number traces to frozen result records. Displayed cells are stamped; they are not hero counters.</p>
 
 <h2>Risk–coverage mechanism</h2>
-{% scienceFig "fig1_teaser_rc",
+{% scienceFig "teaser-rc",
   "Risk–coverage curve: log-posterior gate stays below the 2% CER target through 85.7% coverage at the certified operating point.",
   "Gate versus oracle versus analytic random deferral on Aishell-1 / Paraformer. The certified operating point (reseed 0) is 85.7% coverage at 1.00% accepted-set macro-CER, α = 2%. Across 20 correlated reseeds, acceptance is 85.7–96.2% (mean 90.7%) with accepted-set macro-CER 1.00–1.53% against a 1.98% full-set rate, and 0/20 violations.",
   "Read as: the signature is a coverage × CER plane with one certified hinge."
 %}
 
 <h2>Certified frontier</h2>
-{% scienceFig "fig3_certified_frontier",
+{% scienceFig "certified-frontier",
   "Bar chart of coverage versus target α: α = 1% is vacuous at target; α = 2% certifies at 85.7% coverage; α = 3% and 5% saturate.",
   "α = 1% is vacuous at target (hollow gold column at 0% coverage). α = 2% certifies at 85.7% coverage on reference reseed 0. α = 3% and α = 5% saturate. 0/20 correlated reseeds violate the α = 2% certificate within δ = 0.1. Vacuity is the finding, not a missing bar.",
   "Read as: tighter than 2% is not silently empty — it is reported vacuous-at-target."
@@ -39,14 +39,14 @@ permalink: /results/
 </table>
 
 <h2>Calibration budget</h2>
-{% scienceFig "fig6_calsize_sweep",
+{% scienceFig "calsize-sweep",
   "Calibration size needed to certify versus α, with Belle open markers at the pool size where the target never certifies, and a Belle reseed-attainment panel.",
   "Tighter α is a sample-size property. Belle open markers sit at the calibration-pool size, not at y = 0, and are labeled never. Panel (b) marks 90% of reseeds. The wav2vec 2.0 large / LibriSpeech series is an English calibration-budget arm, not a Mandarin landscape cell.",
   "Read as: vacuity at a tight target can mean the calibration budget is too small."
 %}
 
 <h2>Noise transfer</h2>
-{% scienceFig "fig4_noise_robustness",
+{% scienceFig "noise-robustness",
   "Accepted-set macro-CER and coverage under ESC-50 additive noise at clean, 25 dB, 15 dB, and 5 dB, with 0/20, 0/20, 0/20, and 1/20 violations.",
   "A clean-calibrated gate evaluated on ESC-50 additive noise. 0/20 violations at 25 dB and 15 dB; 1/20 at 5 dB, still within δ = 0.1, at 82.2% mean coverage.",
   "Read as: the certificate is tested under additive noise, not claimed as a new noise-robust recognizer."
@@ -70,14 +70,14 @@ permalink: /results/
 </table>
 
 <h2>Vacuity</h2>
-{% scienceFig "fig5_vacuity_rc",
+{% scienceFig "vacuity-rc",
   "Risk–coverage curves for Paraformer on Aishell-1 and Whisper on Aishell-1 and THCHS-30, with the 2% ceiling drawn across a 0–35% CER axis.",
   "Paraformer dips under the 2% ceiling; Whisper does not (Aishell-1 full-set macro-CER 28.1%; THCHS-30 9.93%). The y-axis stays 0–35% so Whisper is not rescaled into Paraformer’s range. The audit can still fire on a vacuous backbone.",
   "Read as: vacuity is a result, and the axis is not zoomed to hide it."
 %}
 
 <h2>Holm family</h2>
-{% scienceFig "fig2_holm_matrix",
+{% scienceFig "holm-matrix",
   "Twelve-cell excess-AURC matrix for two scores and six backbone/condition pairs, all cells starred at the permutation floor.",
   "m = 12 excess-AURC cells. Every Holm p-value saturates at the permutation floor (0.006); magnitudes and speaker-blocked 95% CIs are the informative quantity. The star is not a ranking. Excess-AURC ranges 0.012–0.051; every CI excludes zero.",
   "Read as: field-standard scores beat analytic random deferral in every roster cell."
@@ -108,7 +108,7 @@ permalink: /results/
 <p>{{ holm.p_holm_note }}</p>
 
 <h2>Landscape</h2>
-{% scienceFig "fig7_landscape",
+{% scienceFig "landscape",
   "Three-by-three heatmap of tightest certified α for Paraformer, Belle, and zipformer on Aishell-1, THCHS-30, and MagicData, with the zipformer row marked vacuous.",
   "Three architectures × three Mandarin corpora. Color encodes tightest certified α (darker = tighter), not acceptance. The Paraformer / Aishell-1 cell uses the binding 1.9% band (87.8% mean acceptance, 1.09% accepted-set macro-CER). The zipformer row is grey vacuous — no usable posteriors; nothing is imputed.",
   "Read as: this heatmap is the map of where the certificate exists."
