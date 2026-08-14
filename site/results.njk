@@ -1,0 +1,158 @@
+---
+layout: layout.njk
+title: Results
+permalink: /results/
+---
+<h1>Results</h1>
+
+<p>Evidence is ordered by claim: risk–coverage, certified frontier, calibration budget, noise transfer, vacuity, Holm family, then landscape. Every plotted number traces to frozen result records. Displayed cells are stamped; they are not hero counters.</p>
+
+<h2>Risk–coverage mechanism</h2>
+{% scienceFig "fig1_teaser_rc",
+  "Risk–coverage curve: log-posterior gate stays below the 2% CER target through 85.7% coverage at the certified operating point.",
+  "Gate versus oracle versus analytic random deferral on Aishell-1 / Paraformer. The certified operating point (reseed 0) is 85.7% coverage at 1.00% accepted-set macro-CER, α = 2%. Across 20 correlated reseeds, acceptance is 85.7–96.2% (mean 90.7%) with accepted-set macro-CER 1.00–1.53% against a 1.98% full-set rate, and 0/20 violations.",
+  "Read as: the signature is a coverage × CER plane with one certified hinge."
+%}
+
+<h2>Certified frontier</h2>
+{% scienceFig "fig3_certified_frontier",
+  "Bar chart of coverage versus target α: α = 1% is vacuous at target; α = 2% certifies at 85.7% coverage; α = 3% and 5% saturate.",
+  "α = 1% is vacuous at target (hollow gold column at 0% coverage). α = 2% certifies at 85.7% coverage on reference reseed 0. α = 3% and α = 5% saturate. 0/20 correlated reseeds violate the α = 2% certificate within δ = 0.1. Vacuity is the finding, not a missing bar.",
+  "Read as: tighter than 2% is not silently empty — it is reported vacuous-at-target."
+%}
+
+<table>
+  <caption>Certified frontier on Aishell-1 / Paraformer (reference reseed 0)</caption>
+  <thead>
+    <tr><th>α</th><th>Certified?</th><th>Coverage</th><th>Accepted-set macro-CER</th></tr>
+  </thead>
+  <tbody>
+  {% for row in frontier.alphas %}
+    <tr>
+      <td>{{ (row.alpha * 100) | round(0) }}%</td>
+      <td>{% if row.certified %}yes{% else %}vacuous-at-target{% endif %}</td>
+      <td>{% if row.certified %}{{ (row.coverage * 100).toFixed(1) }}%{% else %}—{% endif %}</td>
+      <td>{% if row.accepted_macro_cer %}{{ (row.accepted_macro_cer * 100).toFixed(2) }}%{% else %}—{% endif %}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<h2>Calibration budget</h2>
+{% scienceFig "fig6_calsize_sweep",
+  "Calibration size needed to certify versus α, with Belle open markers at the pool size where the target never certifies, and a Belle reseed-attainment panel.",
+  "Tighter α is a sample-size property. Belle open markers sit at the calibration-pool size, not at y = 0, and are labeled never. Panel (b) marks 90% of reseeds. The wav2vec 2.0 large / LibriSpeech series is an English calibration-budget arm, not a Mandarin landscape cell.",
+  "Read as: vacuity at a tight target can mean the calibration budget is too small."
+%}
+
+<h2>Noise transfer</h2>
+{% scienceFig "fig4_noise_robustness",
+  "Accepted-set macro-CER and coverage under ESC-50 additive noise at clean, 25 dB, 15 dB, and 5 dB, with 0/20, 0/20, 0/20, and 1/20 violations.",
+  "A clean-calibrated gate evaluated on ESC-50 additive noise. 0/20 violations at 25 dB and 15 dB; 1/20 at 5 dB, still within δ = 0.1, at 82.2% mean coverage.",
+  "Read as: the certificate is tested under additive noise, not claimed as a new noise-robust recognizer."
+%}
+
+<table>
+  <caption>ESC-50 additive noise, α = 2%, 20 correlated reseeds</caption>
+  <thead>
+    <tr><th>Condition</th><th>Mean coverage</th><th>Mean accepted-set macro-CER</th><th>Violations</th></tr>
+  </thead>
+  <tbody>
+  {% for row in noise.rows %}
+    <tr>
+      <td>{{ row.label }}</td>
+      <td>{{ (row.coverage_mean * 100).toFixed(1) }}%</td>
+      <td>{{ (row.accepted_cer_mean * 100).toFixed(2) }}%</td>
+      <td>{{ row.violations }}/{{ row.n_reseeds }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<h2>Vacuity</h2>
+{% scienceFig "fig5_vacuity_rc",
+  "Risk–coverage curves for Paraformer on Aishell-1 and Whisper on Aishell-1 and THCHS-30, with the 2% ceiling drawn across a 0–35% CER axis.",
+  "Paraformer dips under the 2% ceiling; Whisper does not (Aishell-1 full-set macro-CER 28.1%; THCHS-30 9.93%). The y-axis stays 0–35% so Whisper is not rescaled into Paraformer’s range. The audit can still fire on a vacuous backbone.",
+  "Read as: vacuity is a result, and the axis is not zoomed to hide it."
+%}
+
+<h2>Holm family</h2>
+{% scienceFig "fig2_holm_matrix",
+  "Twelve-cell excess-AURC matrix for two scores and six backbone/condition pairs, all cells starred at the permutation floor.",
+  "m = 12 excess-AURC cells. Every Holm p-value saturates at the permutation floor (0.006); magnitudes and speaker-blocked 95% CIs are the informative quantity. The star is not a ranking. Excess-AURC ranges 0.012–0.051; every CI excludes zero.",
+  "Read as: field-standard scores beat analytic random deferral in every roster cell."
+%}
+
+<p class="hover-note" data-hover-note hidden></p>
+<table>
+  <caption>Holm roster (excess-AURC vs analytic random deferral)</caption>
+  <thead>
+    <tr>
+      <th>Backbone</th><th>Condition</th><th>Score</th>
+      <th>Excess-AURC</th><th>95% CI</th><th>Excludes 0?</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for row in holm.rows %}
+    <tr data-hover="{{ row.hover }}" title="{{ row.hover }}">
+      <td>{{ row.backbone_label }}</td>
+      <td>{{ row.condition_label }}</td>
+      <td>{{ row.score_label }}</td>
+      <td>{{ row.excess_aurc.toFixed(3) }}</td>
+      <td>[{{ row.ci_lo.toFixed(3) }}, {{ row.ci_hi.toFixed(3) }}]</td>
+      <td>{% if row.ci_excludes_zero %}yes{% else %}no{% endif %}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<p>{{ holm.p_holm_note }}</p>
+
+<h2>Landscape</h2>
+{% scienceFig "fig7_landscape",
+  "Three-by-three heatmap of tightest certified α for Paraformer, Belle, and zipformer on Aishell-1, THCHS-30, and MagicData, with the zipformer row marked vacuous.",
+  "Three architectures × three Mandarin corpora. Color encodes tightest certified α (darker = tighter), not acceptance. The Paraformer / Aishell-1 cell uses the binding 1.9% band (87.8% mean acceptance, 1.09% accepted-set macro-CER). The zipformer row is grey vacuous — no usable posteriors; nothing is imputed.",
+  "Read as: this heatmap is the map of where the certificate exists."
+%}
+
+<div class="heatmap" role="table" aria-label="Landscape of tightest certified α">
+  <span class="head"></span>
+  <span class="head">Aishell-1</span>
+  <span class="head">THCHS-30</span>
+  <span class="head">MagicData</span>
+  {% for cell in landscape.cells %}
+    {% if cell.corpus == "aishell" %}
+      <span class="row-lab">{{ cell.backbone_label }}</span>
+    {% endif %}
+    <span class="{% if cell.vacuous %}vac{% endif %}" data-hover="{{ cell.hover }}" title="{{ cell.hover }}">
+      {% if cell.vacuous %}vac.{% else %}α {{ (cell.tightest_alpha * 100).toFixed(1) }}%<br>{{ (cell.mean_acceptance * 100).toFixed(1) }}% acc.{% endif %}
+    </span>
+  {% endfor %}
+</div>
+
+<table>
+  <caption>Landscape attainment (tightest α with 0/20 violations)</caption>
+  <thead>
+    <tr>
+      <th>Backbone</th><th>Corpus</th><th>Full-set macro-CER</th>
+      <th>Tightest α</th><th>Mean acceptance</th><th>Mean accepted-set macro-CER</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for cell in landscape.cells %}
+    <tr data-hover="{{ cell.hover }}" title="{{ cell.hover }}">
+      <td>{{ cell.backbone_label }}</td>
+      <td>{{ cell.corpus_label }}</td>
+      <td>{{ (cell.full_set_macro_cer * 100).toFixed(2) }}%</td>
+      {% if cell.vacuous %}
+        <td class="vacuous">vacuous</td>
+        <td class="vacuous">—</td>
+        <td class="vacuous">—</td>
+      {% else %}
+        <td>{{ (cell.tightest_alpha * 100).toFixed(1) }}%{% if cell.binding_override %} (binding){% endif %}</td>
+        <td>{{ (cell.mean_acceptance * 100).toFixed(1) }}%</td>
+        <td>{{ (cell.mean_accepted_cer * 100).toFixed(2) }}%</td>
+      {% endif %}
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>

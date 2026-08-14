@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="628.2pt" height="413.568pt" viewBox="0 0 628.2 413.568" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-08-13T12:29:28.282573</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 413.568 
+L 628.2 413.568 
+L 628.2 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 21.15 117.82656 
+L 166.23 117.82656 
+Q 171.252 117.82656 171.252 112.6944 
+L 171.252 55.6704 
+Q 171.252 50.53824 166.23 50.53824 
+L 21.15 50.53824 
+Q 16.128 50.53824 16.128 55.6704 
+L 16.128 112.6944 
+Q 16.128 117.82656 21.15 117.82656 
+z
+" clip-path="url(#pe6e201cf8a)" style="fill: #f2f2f2; stroke: #404040; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 188.55 117.82656 
+L 361.53 117.82656 
+Q 366.552 117.82656 366.552 112.6944 
+L 366.552 55.6704 
+Q 366.552 50.53824 361.53 50.53824 
+L 188.55 50.53824 
+Q 183.528 50.53824 183.528 55.6704 
+L 183.528 112.6944 
+Q 183.528 117.82656 188.55 117.82656 
+z
+" clip-path="url(#pe6e201cf8a)" style="fill: #f2f2f2; stroke: #404040; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 389.43 113.54976 
+L 595.89 113.54976 
+Q 600.912 113.54976 600.912 108.4176 
+L 600.912 59.9472 
+Q 600.912 54.81504 595.89 54.81504 
+L 389.43 54.81504 
+Q 384.408 54.81504 384.408 59.9472 
+L 384.408 108.4176 
+Q 384.408 113.54976 389.43 113.54976 
+z
+" clip-path="url(#pe6e201cf8a)" style="fill: #f4eed9; stroke-dasharray: 5.6,4.2; stroke-dashoffset: 0; stroke: #8a6d1a; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 21.15 277.49376 
+L 143.91 277.49376 
+Q 148.932 277.49376 148.932 272.3616 
+L 148.932 215.3376 
+Q 148.932 210.20544 143.91 210.20544 
+L 21.15 210.20544 
+Q 16.128 210.20544 16.128 215.3376 
+L 16.128 272.3616 
+Q 16.128 277.49376 21.15 277.49376 
+z
+" clip-path="url(#pe6e201cf8a)" style="fill: #f2f2f2; stroke: #404040; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 163.44 277.49376 
+L 302.94 277.49376 
+Q 307.962 277.49376 307.962 272.3616 
+L 307.962 215.3376 
+Q 307.962 210.20544 302.94 210.20544 
+L 163.44 210.20544 
+Q 158.418 210.20544 158.418 215.3376 
+L 158.418 272.3616 
+Q 158.418 277.49376 163.44 277.49376 
+z
+" clip-path="url(#pe6e201cf8a)" style="fill: #f2f2f2; stroke: #404040; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 322.47 277.49376 
+L 445.23 277.49376 
+Q 450.252 277.49376 450.252 272.3616 
+L 450.252 215.3376 
+Q 450.252 210.20544 445.23 210.20544 
+L 322.47 210.20544 
+Q 317.448 210.20544 317.448 215.3376 
+L 317.448 272.3616 
+Q 317.448 277.49376 322.47 277.49376 
+z
+" clip-path="url(#pe6e201cf8a)" style="fill: #f2f2f2; stroke: #404040; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 467.55 284.62176 
+L 601.47 284.62176 
+Q 606.492 284.62176 606.492 279.4896 
+L 606.492 208.2096 
+Q 606.492 203.07744 601.47 203.07744 
+L 467.55 203.07744 
+Q 462.528 203.07744 462.528 208.2096 
+L 462.528 279.4896 
+Q 462.528 284.62176 467.55 284.62176 
+z
+" clip-path="url(#pe6e201cf8a)" style="fill: #e8f1f8; stroke: #1a1a1a; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 43.47 392.96736 
+L 294.57 392.96736 
+Q 299.592 392.96736 299.592 387.8352 
+L 299.592 322.2576 
+Q 299.592 317.12544 294.57 317.12544 
+L 43.47 317.12544 
+Q 38.448 317.12544 38.448 322.2576 
+L 38.448 387.8352 
+Q 38.448 392.96736 43.47 392.96736 
+z
+" clip-path="url(#pe6e201cf8a)" style="fill: #e8f1f8; stroke: #0072b2; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 333.63 392.96736 
+L 584.73 392.96736 
+Q 589.752 392.96736 589.752 387.8352 
+L 589.752 322.2576 
+Q 589.752 317.12544 584.73 317.12544 
+L 333.63 317.12544 
+Q 328.608 317.12544 328.608 322.2576 
+L 328.608 387.8352 
+Q 328.608 392.96736 333.63 392.96736 
+z
+" clip-path="url(#pe6e201cf8a)" style="fill: #f8ede4; stroke-dasharray: 12,6; stroke-dashoffset: 0; stroke: #d55e00; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 12.78 176.8464 
+L 609.84 176.8464 
+" clip-path="url(#pe6e201cf8a)" style="fill: none; stroke: #d9d3c7; stroke-linecap: square"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 500; font-size: 16px; font-family: 'IBM Plex Sans'; text-anchor: start; fill: #1a1a1a" x="15.57" y="30.0096" transform="rotate(-0 15.57 30.0096)">Offline</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 500; font-size: 16px; font-family: 'IBM Plex Sans'; text-anchor: start; fill: #1a1a1a" x="15.57" y="196.8048" transform="rotate(-0 15.57 196.8048)">Live</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 12px; font-family: 'IBM Plex Sans'; fill: #1a1a1a" transform="translate(49.396875 80.8944)">Speaker-disjoint</text>
+    <text style="font-size: 12px; font-family: 'IBM Plex Sans'; fill: #1a1a1a" transform="translate(52.02 93.9504)">calibration split</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 12px; font-family: 'IBM Plex Sans'; fill: #1a1a1a" transform="translate(247.955625 74.294212)">LTT λ-grid</text>
+    <text style="font-size: 12px; font-family: 'IBM Plex Sans'; fill: #1a1a1a" transform="translate(211.276875 87.494587)">EB p-values, Bonferroni</text>
+    <text style="font-size: 12px; font-family: 'IBM Plex Sans'; fill: #1a1a1a" transform="translate(250.92375 100.550587)">freeze λ★</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 12px; font-family: 'IBM Plex Sans'; fill: #8a6d1a" transform="translate(451.613437 80.822212)">if no λ certifies:</text>
+    <text style="font-size: 12px; font-family: 'IBM Plex Sans'; fill: #8a6d1a" transform="translate(444.209062 93.878212)">vacuous-at-target</text>
+   </g>
+   <g id="patch_11">
+    <path d="M 367.71282 84.1824 
+Q 375.479456 84.1824 381.904451 84.1824 
+" style="fill: none; stroke-dasharray: 4.44,1.92; stroke-dashoffset: 0; stroke: #8a6d1a; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 376.704451 81.5824 
+L 381.904451 84.1824 
+L 376.704451 86.7824 
+" style="fill: none; stroke-dasharray: 4.44,1.92; stroke-dashoffset: 0; stroke: #8a6d1a; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 172.414182 84.1824 
+Q 177.390286 84.1824 180.801142 84.1824 
+" style="fill: none; stroke: #1a1a1a; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 175.601142 81.5824 
+L 180.801142 84.1824 
+L 175.601142 86.7824 
+" style="fill: none; stroke: #1a1a1a; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 12px; font-family: 'IBM Plex Sans'; text-anchor: middle; fill: #1a1a1a" x="82.53" y="247.0896" transform="rotate(-0 82.53 247.0896)">Utterance audio</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 12px; font-family: 'IBM Plex Sans'; fill: #1a1a1a" transform="translate(180.857812 233.817412)">Frozen ASR decode</text>
+    <text style="font-size: 12px; font-family: 'IBM Plex Sans'; fill: #1a1a1a" transform="translate(210.983438 246.873412)">artifacts</text>
+    <text style="font-size: 12px; font-family: 'IBM Plex Sans'; fill: #1a1a1a" transform="translate(181.374375 260.217412)">(never the weights)</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 12px; font-family: 'IBM Plex Sans'; text-anchor: middle; fill: #1a1a1a" x="383.85" y="247.0896" transform="rotate(-0 383.85 247.0896)">Confidence score s</text>
+   </g>
+   <g id="patch_13">
+    <path d="M 150.097588 243.8496 
+Q 153.676938 243.8496 155.69104 243.8496 
+" style="fill: none; stroke: #1a1a1a; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 150.49104 241.2496 
+L 155.69104 243.8496 
+L 150.49104 246.4496 
+" style="fill: none; stroke: #1a1a1a; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 309.127588 243.8496 
+Q 312.706938 243.8496 314.72104 243.8496 
+" style="fill: none; stroke: #1a1a1a; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 309.52104 241.2496 
+L 314.72104 243.8496 
+L 309.52104 246.4496 
+" style="fill: none; stroke: #1a1a1a; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 16px; font-family: 'IBM Plex Sans'; text-anchor: middle; fill: #1a1a1a" x="534.51" y="248.1696" transform="rotate(-0 534.51 248.1696)">s ≥ λ★ ?</text>
+   </g>
+   <g id="patch_15">
+    <path d="M 365.524511 90.054212 
+Q 413.843106 154.037602 461.285798 216.861125 
+" style="fill: none; stroke: #1a1a1a; stroke-width: 1.3; stroke-linecap: round"/>
+    <path d="M 460.22691 211.144591 
+L 461.285798 216.861125 
+L 456.077238 214.278315 
+" style="fill: none; stroke: #1a1a1a; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 451.414182 243.8496 
+Q 456.390286 243.8496 459.801142 243.8496 
+" style="fill: none; stroke: #1a1a1a; stroke-width: 1.4; stroke-linecap: round"/>
+    <path d="M 454.601142 241.2496 
+L 459.801142 243.8496 
+L 454.601142 246.4496 
+" style="fill: none; stroke: #1a1a1a; stroke-width: 1.4; stroke-linecap: round"/>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 13px; font-family: 'IBM Plex Sans'; fill: #1a1a1a" transform="translate(148.695313 351.4844)">Accept</text>
+    <text style="font-size: 13px; font-family: 'IBM Plex Sans'; fill: #1a1a1a" transform="translate(59.432031 365.6284)">macro-CER ≤ α with probability ≥ 1−δ</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 13px; font-family: 'IBM Plex Sans'; fill: #1a1a1a" transform="translate(443.188984 351.4844)">Defer</text>
+    <text style="font-size: 13px; font-family: 'IBM Plex Sans'; fill: #1a1a1a" transform="translate(418.086797 365.6284)">human review</text>
+   </g>
+   <g id="patch_17">
+    <path d="M 490.669843 283.976794 
+Q 330.838789 300.873728 172.786676 317.582597 
+" style="fill: none; stroke: #0072b2; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 178.231201 319.621504 
+L 172.786676 317.582597 
+L 177.684517 314.450321 
+" style="fill: none; stroke: #0072b2; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="patch_18">
+    <path d="M 532.686981 284.594404 
+Q 496.842009 300.874959 462.625765 316.415756 
+" style="fill: none; stroke-dasharray: 5.92,2.56; stroke-dashoffset: 0; stroke: #d55e00; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 468.435496 316.632628 
+L 462.625765 316.415756 
+L 466.285101 311.898095 
+" style="fill: none; stroke-dasharray: 5.92,2.56; stroke-dashoffset: 0; stroke: #d55e00; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pe6e201cf8a">
+   <rect x="7.2" y="7.2" width="613.8" height="399.168"/>
+  </clipPath>
+ </defs>
+</svg>

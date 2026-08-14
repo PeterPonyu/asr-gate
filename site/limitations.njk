@@ -1,0 +1,21 @@
+---
+layout: layout.njk
+title: Limitations
+permalink: /limitations/
+---
+<h1>Limitations</h1>
+
+<p>These boundaries are first-class results, not a footer. They say where the certificate stops.</p>
+
+<ul>
+  <li>The tightest (≤ 3%) certificate is Paraformer-only. Belle’s Aishell-1 floor is α = 5%. zipformer certifies nowhere: it exposed no usable posteriors.</li>
+  <li>0/20 reseeds are correlated (fixed test set, resampled calibration/tune carve). They are not 20 independent trials.</li>
+  <li>Macro-CER is certified; micro-CER is reported and is not the certificate.</li>
+  <li>The English arm is non-vacuous at α = 5% on the frozen carve and vacuous at tighter targets until the calibration budget grows. It is not a Mandarin landscape cell.</li>
+  <li>Spontaneous and multi-domain Mandarin at WenetSpeech scale is untested.</li>
+  <li>MagicData is evaluation data under CC BY-NC-ND. The archive stores derived per-utterance CER metrics, not audio or transcripts.</li>
+</ul>
+
+<aside class="callout">
+  <p>Whisper Mandarin is honestly vacuous at every tight target (Aishell-1 full-set macro-CER 28.1%; THCHS-30 9.93%). Vacuous-at-target is a published outcome, not an error state and not a silent empty accept set.</p>
+</aside>

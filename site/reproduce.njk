@@ -1,0 +1,24 @@
+---
+layout: layout.njk
+title: Reproduce
+permalink: /reproduce/
+---
+<h1>Reproduce</h1>
+
+<p>This page points at the public code archive and the frozen software record. It does not redistribute corpus audio.</p>
+
+<ul>
+  <li>Code: <a href="{{ meta.repo_url }}">{{ meta.repo_url }}</a></li>
+  <li>Frozen software and derived metrics: <a href="{{ meta.zenodo_url }}">doi:{{ meta.zenodo_doi }}</a></li>
+  <li>Code license: {{ meta.license }}</li>
+</ul>
+
+<h2>What is frozen</h2>
+<p>Print and web figures regenerate from the frozen result records in the public archive. The released accept/defer gate consumes canonical utterance records. This site does not host bulk audio.</p>
+
+<h2>What is not redistributed</h2>
+<ul>
+  <li>LibriSpeech, Aishell, THCHS-30, and MagicData audio are not shipped on these Pages. Use the official corpus sources.</li>
+  <li>ESC-50 is data-only (CC BY-NC family).</li>
+  <li>MagicData remains evaluation data under CC BY-NC-ND; the archive stores derived per-utterance CER metrics, not audio or transcripts.</li>
+</ul>

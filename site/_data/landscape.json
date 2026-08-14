@@ -1,0 +1,130 @@
+{
+  "binding_acceptance": 0.8779821627647715,
+  "binding_accepted_cer": 0.01089327083285371,
+  "binding_alpha": 0.019,
+  "binding_certified": "20/20",
+  "cells": [
+    {
+      "backbone": "paraformer",
+      "backbone_label": "Paraformer",
+      "binding_override": true,
+      "corpus": "aishell",
+      "corpus_label": "Aishell-1",
+      "full_set_macro_cer": 0.019805491935060385,
+      "hover": "Paraformer / Aishell-1; full-set macro-CER 1.98%; tightest α 1.9%; mean acceptance 87.8%; mean accepted-set macro-CER 1.09%",
+      "mean_acceptance": 0.8779821627647715,
+      "mean_accepted_cer": 0.01089327083285371,
+      "tightest_alpha": 0.019,
+      "vacuous": false
+    },
+    {
+      "backbone": "paraformer",
+      "backbone_label": "Paraformer",
+      "binding_override": false,
+      "corpus": "thchs30",
+      "corpus_label": "THCHS-30",
+      "full_set_macro_cer": 0.04071131938884046,
+      "hover": "Paraformer / THCHS-30; full-set macro-CER 4.07%; tightest α 5.0%; mean acceptance 100.0%; mean accepted-set macro-CER 4.06%",
+      "mean_acceptance": 0.999559118236473,
+      "mean_accepted_cer": 0.04062358735021921,
+      "tightest_alpha": 0.05,
+      "vacuous": false
+    },
+    {
+      "backbone": "paraformer",
+      "backbone_label": "Paraformer",
+      "binding_override": false,
+      "corpus": "magicdata",
+      "corpus_label": "MagicData",
+      "full_set_macro_cer": 0.048866332419350345,
+      "hover": "Paraformer / MagicData; full-set macro-CER 4.89%; tightest α 5.0%; mean acceptance 98.1%; mean accepted-set macro-CER 4.12%",
+      "mean_acceptance": 0.9805446995603324,
+      "mean_accepted_cer": 0.04122491102879976,
+      "tightest_alpha": 0.05,
+      "vacuous": false
+    },
+    {
+      "backbone": "belle",
+      "backbone_label": "Belle",
+      "binding_override": false,
+      "corpus": "aishell",
+      "corpus_label": "Aishell-1",
+      "full_set_macro_cer": 0.05117350181210785,
+      "hover": "Belle / Aishell-1; full-set macro-CER 5.12%; tightest α 5.0%; mean acceptance 93.3%; mean accepted-set macro-CER 4.20%",
+      "mean_acceptance": 0.9328037904124862,
+      "mean_accepted_cer": 0.04196556984026417,
+      "tightest_alpha": 0.05,
+      "vacuous": false
+    },
+    {
+      "backbone": "belle",
+      "backbone_label": "Belle",
+      "binding_override": false,
+      "corpus": "thchs30",
+      "corpus_label": "THCHS-30",
+      "full_set_macro_cer": 0.06988278245177627,
+      "hover": "Belle / THCHS-30; full-set macro-CER 6.99%; tightest α 10.0%; mean acceptance 100.0%; mean accepted-set macro-CER 6.99%",
+      "mean_acceptance": 1.0,
+      "mean_accepted_cer": 0.06988278245177629,
+      "tightest_alpha": 0.1,
+      "vacuous": false
+    },
+    {
+      "backbone": "belle",
+      "backbone_label": "Belle",
+      "binding_override": false,
+      "corpus": "magicdata",
+      "corpus_label": "MagicData",
+      "full_set_macro_cer": 0.0780433930889179,
+      "hover": "Belle / MagicData; full-set macro-CER 7.80%; tightest α 10.0%; mean acceptance 96.9%; mean accepted-set macro-CER 6.70%",
+      "mean_acceptance": 0.9690644846116265,
+      "mean_accepted_cer": 0.06702854855733019,
+      "tightest_alpha": 0.1,
+      "vacuous": false
+    },
+    {
+      "backbone": "zipformer",
+      "backbone_label": "zipformer",
+      "binding_override": false,
+      "corpus": "aishell",
+      "corpus_label": "Aishell-1",
+      "full_set_macro_cer": 0.4588254381122855,
+      "hover": "zipformer / Aishell-1; full-set macro-CER 45.88%; vacuous-at-target on the frozen α-grid (no usable posteriors)",
+      "mean_acceptance": null,
+      "mean_accepted_cer": null,
+      "tightest_alpha": null,
+      "vacuous": true
+    },
+    {
+      "backbone": "zipformer",
+      "backbone_label": "zipformer",
+      "binding_override": false,
+      "corpus": "thchs30",
+      "corpus_label": "THCHS-30",
+      "full_set_macro_cer": 0.8214610586627905,
+      "hover": "zipformer / THCHS-30; full-set macro-CER 82.15%; vacuous-at-target on the frozen α-grid (no usable posteriors)",
+      "mean_acceptance": null,
+      "mean_accepted_cer": null,
+      "tightest_alpha": null,
+      "vacuous": true
+    },
+    {
+      "backbone": "zipformer",
+      "backbone_label": "zipformer",
+      "binding_override": false,
+      "corpus": "magicdata",
+      "corpus_label": "MagicData",
+      "full_set_macro_cer": 0.3220560878646211,
+      "hover": "zipformer / MagicData; full-set macro-CER 32.21%; vacuous-at-target on the frozen α-grid (no usable posteriors)",
+      "mean_acceptance": null,
+      "mean_accepted_cer": null,
+      "tightest_alpha": null,
+      "vacuous": true
+    }
+  ],
+  "display": {
+    "binding_acceptance": "87.8%",
+    "binding_accepted_cer": "1.09%",
+    "binding_alpha": "1.9%"
+  }
+}

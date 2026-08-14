@@ -1,0 +1,22 @@
+{
+  "c1": {
+    "id": "C1",
+    "name": "Certified selective triage",
+    "text": "Learn-then-Test certifies accepted-set macro-CER ≤ α at confidence 1−δ, or reports vacuous-at-target instead of silently accepting nothing."
+  },
+  "c2": {
+    "id": "C2",
+    "name": "Debunk-or-confirm audit",
+    "text": "Field-standard confidence must beat analytic random deferral; all twelve roster cells show positive excess-AURC with speaker-blocked CIs excluding zero."
+  },
+  "thesis": [
+    "Production ASR rarely needs every utterance auto-transcribed; it needs the accepted set to stay under a character-error target and the rest deferred to a human.",
+    "The object is an accept/defer gate on frozen decode artifacts, not a new recognizer and not a set-valued conformal hypothesis list.",
+    "Claim C1: Learn-then-Test certifies accepted-set macro-CER ≤ α at confidence 1−δ, or reports vacuous-at-target instead of silently accepting nothing.",
+    "On Aishell-1 with a Paraformer backbone at α = 2%, δ = 0.1: 0/20 correlated-reseed violations, 85.7–96.2% acceptance, accepted-set macro-CER 1.00–1.53% (full-set 1.98%).",
+    "Claim C2: field-standard confidence must beat analytic random deferral; all twelve roster cells show positive excess-AURC (0.012–0.051) with speaker-blocked CIs excluding zero.",
+    "The certificate is backbone-contingent: Whisper Mandarin is honestly vacuous at every tight target; zipformer exposed no usable posteriors; Belle certifies on Aishell-1 only at α = 5%.",
+    "Coverage versus accepted-set CER is the signature plot; the three-backbone × three-corpus heatmap is the map — not a product dashboard.",
+    "The recorded objects are the accept/defer gate, deferral, coverage, vacuity, and frozen artifacts."
+  ]
+}

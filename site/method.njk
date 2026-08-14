@@ -1,0 +1,43 @@
+---
+layout: layout.njk
+title: Method
+permalink: /method/
+---
+<h1>Method</h1>
+
+<p>The object is an accept/defer gate on frozen decode artifacts. It is not a new recognizer and not a set-valued conformal hypothesis list. The gate consumes <em>N</em>-best hypotheses with log-probabilities; the same rule applies to any backbone that emits those artifacts. Novelty is the ASR instantiation plus the random-deferral audit, not new statistical machinery beyond the Learn-then-Test layer.</p>
+
+{% scienceFig "fig0_overview",
+  "Two swimlanes: offline calibration freezes a threshold or reports vacuous-at-target; live scoring accepts or defers each utterance.",
+  "Offline calibration and live scoring meet at a hinge: accept if the utterance score is at least the frozen threshold. If no threshold certifies the target, the outcome is vacuous-at-target rather than a silent empty accept set.",
+  "Read as: Offline freezes λ★ (or reports vacuity); Live maps each utterance to Accept or Defer."
+%}
+
+<div class="swimlanes">
+  <article class="lane">
+    <h2>Offline</h2>
+    <p>A speaker-disjoint calibration split feeds a Learn-then-Test λ-grid (empirical-Bernstein <em>p</em>-values, Bonferroni over the grid). The procedure freezes λ★, or reports <strong>vacuous-at-target</strong> when no λ certifies.</p>
+  </article>
+  <article class="lane">
+    <h2>Live</h2>
+    <p>Utterance audio is decoded once. The gate reads frozen ASR decode artifacts — never the model weights — computes a score <em>s</em>, and applies the hinge <em>s</em> ≥ λ★.</p>
+  </article>
+</div>
+
+<div class="outcomes">
+  <article class="lane accept">
+    <h2>Accept</h2>
+    <p>The utterance joins the auto-accepted set. Learn-then-Test certifies that accepted-set macro-CER is ≤ α with probability ≥ 1−δ.</p>
+  </article>
+  <article class="lane defer">
+    <h2>Defer</h2>
+    <p>The utterance is held for human review. Deferral is the intended remainder, not a failure of the recognizer.</p>
+  </article>
+</div>
+
+<article class="lane vacuous">
+  <h2>Vacuous-at-target</h2>
+  <p>When no threshold on the grid certifies the requested (α, δ), the certificate is withheld and nothing is auto-accepted at that target. Vacuity is a published outcome.</p>
+</article>
+
+<p>The released accept/defer-gate code consumes canonical utterance records (hypotheses with log-probabilities).</p>

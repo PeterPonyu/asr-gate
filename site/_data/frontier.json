@@ -1,0 +1,61 @@
+{
+  "acceptance_max": 0.9622352285395763,
+  "acceptance_mean": 0.907141861761427,
+  "acceptance_min": 0.8571627647714605,
+  "accepted_cer_max": 0.015328388730468316,
+  "accepted_cer_mean": 0.012107435528542975,
+  "accepted_cer_min": 0.01000455015951584,
+  "alphas": [
+    {
+      "accepted_macro_cer": null,
+      "alpha": 0.01,
+      "certified": false,
+      "coverage": 0.0
+    },
+    {
+      "accepted_macro_cer": 0.01000455015951584,
+      "alpha": 0.02,
+      "certified": true,
+      "coverage": 0.8571627647714605
+    },
+    {
+      "accepted_macro_cer": 0.01913027033847704,
+      "alpha": 0.03,
+      "certified": true,
+      "coverage": 0.9980490523968785
+    },
+    {
+      "accepted_macro_cer": 0.01913027033847704,
+      "alpha": 0.05,
+      "certified": true,
+      "coverage": 0.9980490523968785
+    }
+  ],
+  "audit_subset_macro_cer": 0.019536770303890106,
+  "delta": 0.1,
+  "display": {
+    "acceptance_mean": "90.7%",
+    "acceptance_range": "85.7%–96.2%",
+    "accepted_cer_range": "1.00%–1.53%",
+    "audit_subset_macro_cer": "1.95%",
+    "full_set_macro_cer": "1.98%",
+    "op_cer": "1.00%",
+    "op_coverage": "85.7%",
+    "violations": "0/20",
+    "whisper_aishell": "28.1%",
+    "whisper_thchs": "9.93%"
+  },
+  "full_set_macro_cer": 0.019805491935060385,
+  "n_reseeds": 20,
+  "n_test": 7176,
+  "n_violations_alpha02": 0,
+  "operating_point": {
+    "accepted_macro_cer": 0.01000455015951584,
+    "alpha": 0.02,
+    "certified": true,
+    "coverage": 0.8571627647714605,
+    "reseed": 0
+  },
+  "whisper_aishell_macro_cer": 0.2805683263255433,
+  "whisper_thchs_macro_cer": 0.09930681398550871
+}
