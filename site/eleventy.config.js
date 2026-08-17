@@ -11,6 +11,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("js");
   eleventyConfig.addPassthroughCopy("fonts");
   eleventyConfig.addPassthroughCopy("figures-web");
+  eleventyConfig.addPassthroughCopy("favicon.svg");
 
   eleventyConfig.addShortcode("scienceFig", function (stem, alt, caption, readAs) {
     const url = eleventyConfig.getFilter("url");
