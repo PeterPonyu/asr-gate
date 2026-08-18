@@ -5,7 +5,7 @@ Contains package code, frozen experiment statistics needed to rebuild the
 manuscript, figure SSOT, and venue kits (canonical + IEEE TASLP).
 
 Frozen bulk decode trees / corpus staging stay local-only (see `.gitignore`);
-public archive: Zenodo DOI [10.5281/zenodo.21392289](https://doi.org/10.5281/zenodo.21392289).
+dataset and code release is forthcoming (no resolvable DOI yet).
 
 Portfolio layout: sibling of `reliability-commons/`; commons path
 `tools/asr-gate` is a symlink here. Audit kits via `papers/asr-*`.
