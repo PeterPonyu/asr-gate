@@ -37,7 +37,7 @@ Any post-result packaging edit to honesty/stratum fields **must** record the thr
 | Order | Source | Result |
 |---|---|---|
 | (a) | `asr-gate/landscape_pulled_2026-07-15` + decode `*.jsonl` with `nbest[].token_logps` | **USABLE** — 9 cells, ~98k utts (aishell / magicdata / thchs30 × paraformer / belle / zipformer) |
-| (b) | Zenodo DOI `10.5281/zenodo.21392289` | Not needed — (a) present |
+| (b) | Zenodo / public archive (forthcoming; no live DOI — do not cite) | Not needed — (a) present |
 | (c) | Legacy `asr-fm-reliability-research` trees | Skipped — primary asr-gate landscape succeeded |
 
 **Pinned corpus/backbone for this run:** all 9 landscape test cells above (same frozen decodes as 007 E3). No GPU re-decode.
