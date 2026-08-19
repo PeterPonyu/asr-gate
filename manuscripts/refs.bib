@@ -1,21 +1,112 @@
-% asr-gate paper-specific references. Generic conformal/calibration/selective
-% keys (vovk2005algorithmic, angelopoulos2023conformal, geifman2017selective,
-% guo2017calibration) come from the portfolio shared.bib (copied by `make bib`).
-% Cited entries re-verified 2026-08-12 against Crossref / PMLR / ISCA / IEEE /
-% Euclid / ACL Anthology / arXiv (preprint-vs-published upgrades applied).
+% Independent TASLP bibliography (paper_ieeetran.tex: \bibliography{refs}).
+% Cited keys only. Portfolio leftovers that used to live in shared.bib
+% (WeatherBench, GraphCast, GenCast, MACE, Matbench, TabPFN, EmbodiedBench)
+% are not included. Do not upload a second .bib.
 
-@inproceedings{ernez2023conformal,
-  title     = {Applying the Conformal Prediction Paradigm for the Uncertainty
-               Quantification of an End-to-End Automatic Speech Recognition Model (wav2vec 2.0)},
-  author    = {Ernez, Fares and Arnold, Alexandre and Galametz, Audrey and
-               Kobus, Catherine and Ould-Amer, Nawal},
-  booktitle = {Proceedings of the Twelfth Symposium on Conformal and Probabilistic
-               Prediction with Applications (COPA)},
+% --- Selective prediction & risk-coverage foundations ---
+@article{chow1970reject,
+  title   = {On Optimum Recognition Error and Reject Tradeoff},
+  author  = {Chow, C. K.},
+  journal = {IEEE Transactions on Information Theory},
+  volume  = {16},
+  number  = {1},
+  pages   = {41--46},
+  year    = {1970},
+  doi     = {10.1109/TIT.1970.1054406}
+}
+
+@article{elyaniv2010foundations,
+  title   = {On the Foundations of Noise-free Selective Classification},
+  author  = {El-Yaniv, Ran and Wiener, Yair},
+  journal = {Journal of Machine Learning Research},
+  volume  = {11},
+  number  = {53},
+  pages   = {1605--1641},
+  year    = {2010}
+}
+
+% ---------- Selective classification ----------
+@inproceedings{geifman2017selective,
+  title     = {Selective Classification for Deep Neural Networks},
+  author    = {Geifman, Yonatan and El-Yaniv, Ran},
+  booktitle = {Advances in Neural Information Processing Systems 30 (NeurIPS)},
+  year      = {2017},
+  pages     = {4878--4887},
+}
+
+@inproceedings{geifman2019selectivenet,
+  title     = {SelectiveNet: A Deep Neural Network with an Integrated Reject Option},
+  author    = {Geifman, Yonatan and El-Yaniv, Ran},
+  booktitle = {Proceedings of the 36th International Conference on Machine
+               Learning (ICML)},
   series    = {Proceedings of Machine Learning Research},
-  volume    = {204},
-  pages     = {16--35},
-  year      = {2023},
+  volume    = {97},
+  pages     = {2151--2159},
+  year      = {2019},
   publisher = {PMLR}
+}
+
+@inproceedings{jones2021selective,
+  title     = {Selective Classification Can Magnify Disparities Across Groups},
+  author    = {Jones, Erik and Sagawa, Shiori and Koh, Pang Wei and Kumar, Ananya and Liang, Percy},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2021},
+}
+
+@inproceedings{angelopoulos2022crc,
+  title     = {Conformal Risk Control},
+  author    = {Angelopoulos, Anastasios N. and Bates, Stephen and Fisch, Adam and
+               Lei, Lihua and Schuster, Tal},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2024},
+  note      = {arXiv:2208.02814}
+}
+
+@article{bates2021rcps,
+  title   = {Distribution-Free, Risk-Controlling Prediction Sets},
+  author  = {Bates, Stephen and Angelopoulos, Anastasios and Lei, Lihua and
+             Malik, Jitendra and Jordan, Michael I.},
+  journal = {Journal of the ACM},
+  volume  = {68},
+  number  = {6},
+  pages   = {43:1--43:34},
+  doi     = {10.1145/3478535},
+  year    = {2021}
+}
+
+@article{angelopoulos2023conformal,
+  title   = {Conformal Prediction: A Gentle Introduction},
+  author  = {Angelopoulos, Anastasios N. and Bates, Stephen},
+  journal = {Foundations and Trends in Machine Learning},
+  volume  = {16},
+  number  = {4},
+  pages   = {494--591},
+  year    = {2023},
+  doi     = {10.1561/2200000101},
+}
+
+% ==========================================================================
+% shared.bib -- curated shared bibliography for the ML-reliability portfolio.
+%
+% Usage: paper-template Makefile copies this file next to each paper as
+% shared.bib and paper.tex loads \bibliography{shared,refs}. Keep
+% paper-specific entries in each paper's refs.bib with disjoint keys.
+%
+% Citation data written from standard well-known records; fields that could
+% not be verified against the source at kit-creation time are flagged by a
+% "% TODO verify ..." comment line ABOVE the entry (BibTeX does not allow
+% comments inside entries). Verify all flagged fields against publisher
+% metadata before any camera-ready submission.
+% ==========================================================================
+
+% ---------- Conformal prediction ----------
+@book{vovk2005algorithmic,
+  title     = {Algorithmic Learning in a Random World},
+  author    = {Vovk, Vladimir and Gammerman, Alexander and Shafer, Glenn},
+  year      = {2005},
+  publisher = {Springer},
+  address   = {New York},
+  doi       = {10.1007/b106715},
 }
 
 @article{angelopoulos2021ltt,
@@ -31,39 +122,30 @@
   note    = {arXiv:2110.01052}
 }
 
-@inproceedings{angelopoulos2022crc,
-  title     = {Conformal Risk Control},
-  author    = {Angelopoulos, Anastasios N. and Bates, Stephen and Fisch, Adam and
-               Lei, Lihua and Schuster, Tal},
+% --- Distribution-free risk control applications ---
+@inproceedings{tibshirani2019covariateshift,
+  title     = {Conformal Prediction Under Covariate Shift},
+  author    = {Tibshirani, Ryan J. and Barber, Rina Foygel and Cand{\`e}s, Emmanuel J.
+               and Ramdas, Aaditya},
+  booktitle = {Advances in Neural Information Processing Systems 32 (NeurIPS)},
+  pages     = {2530--2540},
+  year      = {2019}
+}
+
+@inproceedings{farinhas2024nonexchangeable,
+  title     = {Non-Exchangeable Conformal Risk Control},
+  author    = {Farinhas, Ant{\'o}nio and Zerva, Chrysoula and Ulmer, Dennis and
+               Martins, Andr{\'e} F. T.},
   booktitle = {International Conference on Learning Representations (ICLR)},
   year      = {2024},
-  note      = {arXiv:2208.02814}
+  note      = {arXiv:2310.01262}
 }
 
-@article{angelopoulos2026nonmonotone,
-  title   = {Conformal Risk Control for Non-Monotonic Losses},
-  author  = {Angelopoulos, Anastasios N.},
-  journal = {arXiv preprint arXiv:2602.20151},
+@article{zhou2026falsesafety,
+  title   = {False Sense of Safety in Selective Signal Classification: Auditing Bound Tightness and Exchangeability for Risk Control},
+  author  = {Zhou, Jingwen and Wang, Mingzhe},
+  journal = {arXiv preprint arXiv:2606.15153},
   year    = {2026}
-}
-
-@article{yu2026joint,
-  title   = {A Joint Finite-Sample Certificate for Adaptive Selective Conformal Risk Control},
-  author  = {Yu, Xiaoli and Liu, Jiamiao},
-  journal = {arXiv preprint arXiv:2606.08517},
-  year    = {2026}
-}
-
-@article{bates2021rcps,
-  title   = {Distribution-Free, Risk-Controlling Prediction Sets},
-  author  = {Bates, Stephen and Angelopoulos, Anastasios and Lei, Lihua and
-             Malik, Jitendra and Jordan, Michael I.},
-  journal = {Journal of the ACM},
-  volume  = {68},
-  number  = {6},
-  pages   = {43:1--43:34},
-  doi     = {10.1145/3478535},
-  year    = {2021}
 }
 
 @inproceedings{traub2024selective,
@@ -78,61 +160,6 @@
   note      = {arXiv:2407.01032}
 }
 
-@inproceedings{bu2017aishell,
-  title     = {AISHELL-1: An Open-Source Mandarin Speech Corpus and a Speech
-               Recognition Baseline},
-  author    = {Bu, Hui and Du, Jiayu and Na, Xingyu and Wu, Bengu and Zheng, Hao},
-  booktitle = {2017 20th Conference of the Oriental Chapter of the International
-               Coordinating Committee on Speech Databases and Speech I/O Systems
-               and Assessment (O-COCOSDA)},
-  pages     = {1--5},
-  year      = {2017},
-  doi       = {10.1109/ICSDA.2017.8384449},
-  organization = {IEEE}
-}
-
-@article{wang2015thchs30,
-  title   = {THCHS-30: A Free Chinese Speech Corpus},
-  author  = {Wang, Dong and Zhang, Xuewei},
-  journal = {arXiv preprint arXiv:1512.01882},
-  year    = {2015}
-}
-
-@inproceedings{gao2022paraformer,
-  title     = {Paraformer: Fast and Accurate Parallel Transformer for Non-autoregressive
-               End-to-End Speech Recognition},
-  author    = {Gao, Zhifu and Zhang, Shiliang and McLoughlin, Ian and Yan, Zhijie},
-  booktitle = {Proc.\ Interspeech 2022},
-  pages     = {2063--2067},
-  year      = {2022},
-  doi       = {10.21437/Interspeech.2022-9996}
-}
-
-@inproceedings{gao2023funasr,
-  title     = {FunASR: A Fundamental End-to-End Speech Recognition Toolkit},
-  author    = {Gao, Zhifu and Li, Zerui and Wang, Jiaming and Luo, Haoneng and
-               Shi, Xian and Chen, Mengzhe and Li, Yabin and Zuo, Lingyun and
-               Du, Zhihao and Zhang, Shiliang},
-  booktitle = {Proc.\ Interspeech 2023},
-  pages     = {1593--1597},
-  year      = {2023},
-  doi       = {10.21437/Interspeech.2023-1428}
-}
-
-@inproceedings{radford2023whisper,
-  title     = {Robust Speech Recognition via Large-Scale Weak Supervision},
-  author    = {Radford, Alec and Kim, Jong Wook and Xu, Tao and Brockman, Greg and
-               McLeavey, Christine and Sutskever, Ilya},
-  booktitle = {Proceedings of the 40th International Conference on Machine
-               Learning (ICML)},
-  series    = {Proceedings of Machine Learning Research},
-  volume    = {202},
-  pages     = {28492--28518},
-  year      = {2023},
-  publisher = {PMLR},
-  note      = {arXiv:2212.04356}
-}
-
 @inproceedings{li2021confidence,
   title     = {Confidence Estimation for Attention-Based Sequence-to-Sequence Models
                for Speech Recognition},
@@ -144,137 +171,6 @@
   year      = {2021},
   doi       = {10.1109/ICASSP39728.2021.9414920},
   organization = {IEEE}
-}
-
-@inproceedings{park2024wer,
-  title     = {Automatic Speech Recognition System-Independent Word Error Rate Estimation},
-  author    = {Park, Chanho and Chen, Mingjie and Hain, Thomas},
-  booktitle = {Proceedings of the 2024 Joint International Conference on Computational
-               Linguistics, Language Resources and Evaluation ({LREC-COLING} 2024)},
-  pages     = {1979--1987},
-  year      = {2024},
-  publisher = {ELRA and ICCL},
-  doi       = {10.63317/4hnv9qhy3wkk}
-}
-
-@article{huang2026ras,
-  title   = {RAS: A Reliability Oriented Metric for Automatic Speech Recognition},
-  author  = {Huang, Wenbin and Qiu, Yuhang and Li, Bohan and Guo, Yiwei and
-             Peng, Jing and Wang, Hankun and Chen, Xie and Yu, Kai},
-  journal = {arXiv preprint arXiv:2604.24278},
-  year    = {2026}
-}
-
-@inproceedings{piczak2015esc50,
-  title     = {ESC: Dataset for Environmental Sound Classification},
-  author    = {Piczak, Karol J.},
-  booktitle = {Proceedings of the 23rd ACM International Conference on Multimedia},
-  pages     = {1015--1018},
-  doi       = {10.1145/2733373.2806390},
-  year      = {2015}
-}
-
-@article{holm1979simple,
-  title   = {A Simple Sequentially Rejective Multiple Test Procedure},
-  author  = {Holm, Sture},
-  journal = {Scandinavian Journal of Statistics},
-  volume  = {6},
-  number  = {2},
-  pages   = {65--70},
-  year    = {1979}
-}
-
-% Cite key kept for TeX stability; the work is Bentkus (2004), the Hoeffding--Bentkus
-% bound used by RCPS/LTT. The previous Lithuanian Math. J. 44(2):160--173 record
-% does not exist (that issue's 160s pages are other articles).
-@article{maddison2019hoeffding,
-  title   = {On {Hoeffding}'s Inequalities},
-  author  = {Bentkus, Vidmantas},
-  journal = {The Annals of Probability},
-  volume  = {32},
-  number  = {2},
-  pages   = {1650--1673},
-  year    = {2004},
-  doi     = {10.1214/009117904000000360}
-}
-
-@inproceedings{panayotov2015librispeech,
-  title     = {Librispeech: An {ASR} Corpus Based on Public Domain Audio Books},
-  author    = {Panayotov, Vassil and Chen, Guoguo and Povey, Daniel and
-               Khudanpur, Sanjeev},
-  booktitle = {2015 IEEE International Conference on Acoustics, Speech and
-               Signal Processing (ICASSP)},
-  pages     = {5206--5210},
-  year      = {2015},
-  doi       = {10.1109/ICASSP.2015.7178964},
-  organization = {IEEE}
-}
-
-@inproceedings{baevski2020wav2vec2,
-  title     = {wav2vec 2.0: A Framework for Self-Supervised Learning of Speech
-               Representations},
-  author    = {Baevski, Alexei and Zhou, Yuhao and Mohamed, Abdelrahman and
-               Auli, Michael},
-  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
-  volume    = {33},
-  pages     = {12449--12460},
-  year      = {2020}
-}
-
-@inproceedings{maurer2009empirical,
-  title     = {Empirical {B}ernstein Bounds and Sample Variance Penalization},
-  author    = {Maurer, Andreas and Pontil, Massimiliano},
-  booktitle = {Proceedings of the 22nd Conference on Learning Theory (COLT)},
-  year      = {2009}
-}
-
-@article{xu2025scrc,
-  title   = {Selective Conformal Risk Control},
-  author  = {Xu, Yunpeng and Guo, Wenge and Wei, Zhi},
-  journal = {arXiv preprint arXiv:2512.12844},
-  year    = {2025}
-}
-
-@article{bai2026conformalselective,
-  title   = {Conformal Selective Prediction with General Risk Control},
-  author  = {Bai, Tian and Jin, Ying},
-  journal = {arXiv preprint arXiv:2603.24704},
-  year    = {2026}
-}
-
-@article{zhou2026falsesafety,
-  title   = {False Sense of Safety in Selective Signal Classification: Auditing Bound Tightness and Exchangeability for Risk Control},
-  author  = {Zhou, Jingwen and Wang, Mingzhe},
-  journal = {arXiv preprint arXiv:2606.15153},
-  year    = {2026}
-}
-
-@article{jia2025coverageser,
-  title   = {Coverage-Guaranteed Speech Emotion Recognition via Calibrated Uncertainty-Adaptive Prediction Sets},
-  author  = {Jia, Zijun and Tang, Diyin and Long, Hongyu and Yu, Jinsong},
-  journal = {Engineering Applications of Artificial Intelligence},
-  volume  = {159},
-  pages   = {111721},
-  year    = {2025},
-  doi     = {10.1016/j.engappai.2025.111721},
-  note    = {arXiv:2503.22712}
-}
-
-% ---------- Added 2026-07-16: TASLP reference-expansion pass. Web-verified
-% (arXiv abstract pages / ISCA archive / JMLR / ACM DL / PMLR) 2026-07-16;
-% see REFEXP-2026-07-16 note in the team log for the verification trail. ----------
-
-% --- ASR confidence estimation / word-level confidence (TeLeS lineage) ---
-
-@article{ravi2024teles,
-  title   = {TeLeS: Temporal Lexeme Similarity Score to Estimate Confidence in
-             End-to-End ASR},
-  author  = {Ravi, Nagarathna and {Thishyan Raj T} and Arora, Vipul},
-  journal = {IEEE/ACM Transactions on Audio, Speech, and Language Processing},
-  volume  = {32},
-  pages   = {4399--4408},
-  year    = {2024},
-  doi     = {10.1109/TASLP.2024.3416687}
 }
 
 @inproceedings{qiu2021wordlevel,
@@ -313,43 +209,92 @@
   doi       = {10.21437/Interspeech.2019-1241}
 }
 
-% --- Selective prediction & risk-coverage foundations ---
+% ---------- Added 2026-07-16: TASLP reference-expansion pass. Web-verified
+% (arXiv abstract pages / ISCA archive / JMLR / ACM DL / PMLR) 2026-07-16;
+% see REFEXP-2026-07-16 note in the team log for the verification trail. ----------
 
-@article{chow1970reject,
-  title   = {On Optimum Recognition Error and Reject Tradeoff},
-  author  = {Chow, C. K.},
-  journal = {IEEE Transactions on Information Theory},
-  volume  = {16},
-  number  = {1},
-  pages   = {41--46},
-  year    = {1970},
-  doi     = {10.1109/TIT.1970.1054406}
+% --- ASR confidence estimation / word-level confidence (TeLeS lineage) ---
+@article{ravi2024teles,
+  title   = {TeLeS: Temporal Lexeme Similarity Score to Estimate Confidence in
+             End-to-End ASR},
+  author  = {Ravi, Nagarathna and {Thishyan Raj T} and Arora, Vipul},
+  journal = {IEEE/ACM Transactions on Audio, Speech, and Language Processing},
+  volume  = {32},
+  pages   = {4399--4408},
+  year    = {2024},
+  doi     = {10.1109/TASLP.2024.3416687}
 }
 
-@article{elyaniv2010foundations,
-  title   = {On the Foundations of Noise-free Selective Classification},
-  author  = {El-Yaniv, Ran and Wiener, Yair},
-  journal = {Journal of Machine Learning Research},
-  volume  = {11},
-  number  = {53},
-  pages   = {1605--1641},
-  year    = {2010}
-}
-
-@inproceedings{geifman2019selectivenet,
-  title     = {SelectiveNet: A Deep Neural Network with an Integrated Reject Option},
-  author    = {Geifman, Yonatan and El-Yaniv, Ran},
-  booktitle = {Proceedings of the 36th International Conference on Machine
-               Learning (ICML)},
+% ---------- Calibration ----------
+@inproceedings{guo2017calibration,
+  title     = {On Calibration of Modern Neural Networks},
+  author    = {Guo, Chuan and Pleiss, Geoff and Sun, Yu and Weinberger, Kilian Q.},
+  booktitle = {Proceedings of the 34th International Conference on Machine Learning (ICML)},
   series    = {Proceedings of Machine Learning Research},
-  volume    = {97},
-  pages     = {2151--2159},
-  year      = {2019},
+  volume    = {70},
+  pages     = {1321--1330},
+  year      = {2017},
+}
+
+% asr-gate paper-specific references. Generic conformal/calibration/selective
+% keys (vovk2005algorithmic, angelopoulos2023conformal, geifman2017selective,
+% guo2017calibration) come from the portfolio shared.bib (copied by `make bib`).
+% Cited entries re-verified 2026-08-12 against Crossref / PMLR / ISCA / IEEE /
+% Euclid / ACL Anthology / arXiv (preprint-vs-published upgrades applied).
+@inproceedings{ernez2023conformal,
+  title     = {Applying the Conformal Prediction Paradigm for the Uncertainty
+               Quantification of an End-to-End Automatic Speech Recognition Model (wav2vec 2.0)},
+  author    = {Ernez, Fares and Arnold, Alexandre and Galametz, Audrey and
+               Kobus, Catherine and Ould-Amer, Nawal},
+  booktitle = {Proceedings of the Twelfth Symposium on Conformal and Probabilistic
+               Prediction with Applications (COPA)},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {204},
+  pages     = {16--35},
+  year      = {2023},
   publisher = {PMLR}
 }
 
-% --- Conformal prediction for sequence models ---
+@article{angelopoulos2026nonmonotone,
+  title   = {Conformal Risk Control for Non-Monotonic Losses},
+  author  = {Angelopoulos, Anastasios N.},
+  journal = {arXiv preprint arXiv:2602.20151},
+  year    = {2026}
+}
 
+@article{yu2026joint,
+  title   = {A Joint Finite-Sample Certificate for Adaptive Selective Conformal Risk Control},
+  author  = {Yu, Xiaoli and Liu, Jiamiao},
+  journal = {arXiv preprint arXiv:2606.08517},
+  year    = {2026}
+}
+
+@article{xu2025scrc,
+  title   = {Selective Conformal Risk Control},
+  author  = {Xu, Yunpeng and Guo, Wenge and Wei, Zhi},
+  journal = {arXiv preprint arXiv:2512.12844},
+  year    = {2025}
+}
+
+@article{bai2026conformalselective,
+  title   = {Conformal Selective Prediction with General Risk Control},
+  author  = {Bai, Tian and Jin, Ying},
+  journal = {arXiv preprint arXiv:2603.24704},
+  year    = {2026}
+}
+
+@article{jia2025coverageser,
+  title   = {Coverage-Guaranteed Speech Emotion Recognition via Calibrated Uncertainty-Adaptive Prediction Sets},
+  author  = {Jia, Zijun and Tang, Diyin and Long, Hongyu and Yu, Jinsong},
+  journal = {Engineering Applications of Artificial Intelligence},
+  volume  = {159},
+  pages   = {111721},
+  year    = {2025},
+  doi     = {10.1016/j.engappai.2025.111721},
+  note    = {arXiv:2503.22712}
+}
+
+% --- Conformal prediction for sequence models ---
 @inproceedings{quach2024conformallm,
   title     = {Conformal Language Modeling},
   author    = {Quach, Victor and Fisch, Adam and Schuster, Tal and Yala, Adam and
@@ -357,15 +302,6 @@
   booktitle = {International Conference on Learning Representations (ICLR)},
   year      = {2024},
   note      = {arXiv:2306.10193}
-}
-
-@inproceedings{farinhas2024nonexchangeable,
-  title     = {Non-Exchangeable Conformal Risk Control},
-  author    = {Farinhas, Ant{\'o}nio and Zerva, Chrysoula and Ulmer, Dennis and
-               Martins, Andr{\'e} F. T.},
-  booktitle = {International Conference on Learning Representations (ICLR)},
-  year      = {2024},
-  note      = {arXiv:2310.01262}
 }
 
 @inproceedings{mohri2024conformalfactuality,
@@ -381,60 +317,155 @@
   note      = {arXiv:2402.10978}
 }
 
-% --- Distribution-free risk control applications ---
-
-@inproceedings{tibshirani2019covariateshift,
-  title     = {Conformal Prediction Under Covariate Shift},
-  author    = {Tibshirani, Ryan J. and Barber, Rina Foygel and Cand{\`e}s, Emmanuel J.
-               and Ramdas, Aaditya},
-  booktitle = {Advances in Neural Information Processing Systems 32 (NeurIPS)},
-  pages     = {2530--2540},
-  year      = {2019}
+@inproceedings{park2024wer,
+  title     = {Automatic Speech Recognition System-Independent Word Error Rate Estimation},
+  author    = {Park, Chanho and Chen, Mingjie and Hain, Thomas},
+  booktitle = {Proceedings of the 2024 Joint International Conference on Computational
+               Linguistics, Language Resources and Evaluation ({LREC-COLING} 2024)},
+  pages     = {1979--1987},
+  year      = {2024},
+  publisher = {ELRA and ICCL},
+  doi       = {10.63317/4hnv9qhy3wkk}
 }
 
-@inproceedings{fisch2022limitedfp,
-  title     = {Conformal Prediction Sets with Limited False Positives},
-  author    = {Fisch, Adam and Schuster, Tal and Jaakkola, Tommi and Barzilay, Regina},
-  booktitle = {Proceedings of the 39th International Conference on Machine
+@article{huang2026ras,
+  title   = {RAS: A Reliability Oriented Metric for Automatic Speech Recognition},
+  author  = {Huang, Wenbin and Qiu, Yuhang and Li, Bohan and Guo, Yiwei and
+             Peng, Jing and Wang, Hankun and Chen, Xie and Yu, Kai},
+  journal = {arXiv preprint arXiv:2604.24278},
+  year    = {2026}
+}
+
+% Cite key kept for TeX stability; the work is Bentkus (2004), the Hoeffding--Bentkus
+% bound used by RCPS/LTT. The previous Lithuanian Math. J. 44(2):160--173 record
+% does not exist (that issue's 160s pages are other articles).
+@article{maddison2019hoeffding,
+  title   = {On {Hoeffding}'s Inequalities},
+  author  = {Bentkus, Vidmantas},
+  journal = {The Annals of Probability},
+  volume  = {32},
+  number  = {2},
+  pages   = {1650--1673},
+  year    = {2004},
+  doi     = {10.1214/009117904000000360}
+}
+
+@inproceedings{maurer2009empirical,
+  title     = {Empirical {B}ernstein Bounds and Sample Variance Penalization},
+  author    = {Maurer, Andreas and Pontil, Massimiliano},
+  booktitle = {Proceedings of the 22nd Conference on Learning Theory (COLT)},
+  year      = {2009}
+}
+
+% ---------- Added 2026-08-12: split conformal (G2 hanging cite). DOI-checked
+% Taylor & Francis / JASA 113(523):1094--1111, doi:10.1080/01621459.2017.1307116.
+@article{lei2018splitconformal,
+  title   = {Distribution-Free Predictive Inference for Regression},
+  author  = {Lei, Jing and G'Sell, Max and Rinaldo, Alessandro and
+             Tibshirani, Ryan J. and Wasserman, Larry},
+  journal = {Journal of the American Statistical Association},
+  volume  = {113},
+  number  = {523},
+  pages   = {1094--1111},
+  year    = {2018},
+  doi     = {10.1080/01621459.2017.1307116}
+}
+
+@article{holm1979simple,
+  title   = {A Simple Sequentially Rejective Multiple Test Procedure},
+  author  = {Holm, Sture},
+  journal = {Scandinavian Journal of Statistics},
+  volume  = {6},
+  number  = {2},
+  pages   = {65--70},
+  year    = {1979}
+}
+
+@inproceedings{bu2017aishell,
+  title     = {AISHELL-1: An Open-Source Mandarin Speech Corpus and a Speech
+               Recognition Baseline},
+  author    = {Bu, Hui and Du, Jiayu and Na, Xingyu and Wu, Bengu and Zheng, Hao},
+  booktitle = {2017 20th Conference of the Oriental Chapter of the International
+               Coordinating Committee on Speech Databases and Speech I/O Systems
+               and Assessment (O-COCOSDA)},
+  pages     = {1--5},
+  year      = {2017},
+  doi       = {10.1109/ICSDA.2017.8384449},
+  organization = {IEEE}
+}
+
+@article{wang2015thchs30,
+  title   = {THCHS-30: A Free Chinese Speech Corpus},
+  author  = {Wang, Dong and Zhang, Xuewei},
+  journal = {arXiv preprint arXiv:1512.01882},
+  year    = {2015}
+}
+
+@inproceedings{piczak2015esc50,
+  title     = {ESC: Dataset for Environmental Sound Classification},
+  author    = {Piczak, Karol J.},
+  booktitle = {Proceedings of the 23rd ACM International Conference on Multimedia},
+  pages     = {1015--1018},
+  doi       = {10.1145/2733373.2806390},
+  year      = {2015}
+}
+
+@inproceedings{panayotov2015librispeech,
+  title     = {Librispeech: An {ASR} Corpus Based on Public Domain Audio Books},
+  author    = {Panayotov, Vassil and Chen, Guoguo and Povey, Daniel and
+               Khudanpur, Sanjeev},
+  booktitle = {2015 IEEE International Conference on Acoustics, Speech and
+               Signal Processing (ICASSP)},
+  pages     = {5206--5210},
+  year      = {2015},
+  doi       = {10.1109/ICASSP.2015.7178964},
+  organization = {IEEE}
+}
+
+@inproceedings{baevski2020wav2vec2,
+  title     = {wav2vec 2.0: A Framework for Self-Supervised Learning of Speech
+               Representations},
+  author    = {Baevski, Alexei and Zhou, Yuhao and Mohamed, Abdelrahman and
+               Auli, Michael},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  volume    = {33},
+  pages     = {12449--12460},
+  year      = {2020}
+}
+
+@inproceedings{gao2022paraformer,
+  title     = {Paraformer: Fast and Accurate Parallel Transformer for Non-autoregressive
+               End-to-End Speech Recognition},
+  author    = {Gao, Zhifu and Zhang, Shiliang and McLoughlin, Ian and Yan, Zhijie},
+  booktitle = {Proc.\ Interspeech 2022},
+  pages     = {2063--2067},
+  year      = {2022},
+  doi       = {10.21437/Interspeech.2022-9996}
+}
+
+@inproceedings{gao2023funasr,
+  title     = {FunASR: A Fundamental End-to-End Speech Recognition Toolkit},
+  author    = {Gao, Zhifu and Li, Zerui and Wang, Jiaming and Luo, Haoneng and
+               Shi, Xian and Chen, Mengzhe and Li, Yabin and Zuo, Lingyun and
+               Du, Zhihao and Zhang, Shiliang},
+  booktitle = {Proc.\ Interspeech 2023},
+  pages     = {1593--1597},
+  year      = {2023},
+  doi       = {10.21437/Interspeech.2023-1428}
+}
+
+@inproceedings{radford2023whisper,
+  title     = {Robust Speech Recognition via Large-Scale Weak Supervision},
+  author    = {Radford, Alec and Kim, Jong Wook and Xu, Tao and Brockman, Greg and
+               McLeavey, Christine and Sutskever, Ilya},
+  booktitle = {Proceedings of the 40th International Conference on Machine
                Learning (ICML)},
   series    = {Proceedings of Machine Learning Research},
-  volume    = {162},
-  pages     = {6514--6532},
-  year      = {2022}
-}
-
-@inproceedings{schuster2022calm,
-  title     = {Confident Adaptive Language Modeling},
-  author    = {Schuster, Tal and Fisch, Adam and Gupta, Jai and Dehghani, Mostafa and
-               Bahri, Dara and Tran, Vinh Q. and Tay, Yi and Metzler, Donald},
-  booktitle = {Advances in Neural Information Processing Systems 35 (NeurIPS)},
-  pages     = {17456--17472},
-  year      = {2022},
-  doi       = {10.52202/068431-1269},
-  note      = {arXiv:2207.07061}
-}
-
-% --- Mandarin ASR benchmarks / corpora / backbone provenance ---
-
-@article{du2018aishell2,
-  title   = {{AISHELL-2}: Transforming Mandarin {ASR} Research Into Industrial Scale},
-  author  = {Du, Jiayu and Na, Xingyu and Liu, Xuechen and Bu, Hui},
-  journal = {arXiv preprint arXiv:1808.10583},
-  year    = {2018}
-}
-
-@inproceedings{zhang2022wenetspeech,
-  title     = {{WenetSpeech}: A 10000+ Hours Multi-domain Mandarin Corpus for
-               Speech Recognition},
-  author    = {Zhang, Binbin and Lv, Hang and Guo, Pengcheng and Shao, Qijie and
-               Yang, Chao and Xie, Lei and Xu, Xin and Bu, Hui and Chen, Xiaoyu and
-               Zeng, Chenchen and Wu, Di and Peng, Zhendong},
-  booktitle = {2022 IEEE International Conference on Acoustics, Speech and
-               Signal Processing (ICASSP)},
-  pages     = {6182--6186},
-  year      = {2022},
-  doi       = {10.1109/ICASSP43922.2022.9746682},
-  organization = {IEEE}
+  volume    = {202},
+  pages     = {28492--28518},
+  year      = {2023},
+  publisher = {PMLR},
+  note      = {arXiv:2212.04356}
 }
 
 @inproceedings{yao2021wenet,
@@ -460,16 +491,47 @@
   note      = {arXiv:2310.11230}
 }
 
-% ---------- Added 2026-08-12: split conformal (G2 hanging cite). DOI-checked
-% Taylor & Francis / JASA 113(523):1094--1111, doi:10.1080/01621459.2017.1307116.
-@article{lei2018splitconformal,
-  title   = {Distribution-Free Predictive Inference for Regression},
-  author  = {Lei, Jing and G'Sell, Max and Rinaldo, Alessandro and
-             Tibshirani, Ryan J. and Wasserman, Larry},
-  journal = {Journal of the American Statistical Association},
-  volume  = {113},
-  number  = {523},
-  pages   = {1094--1111},
-  year    = {2018},
-  doi     = {10.1080/01621459.2017.1307116}
+@inproceedings{fisch2022limitedfp,
+  title     = {Conformal Prediction Sets with Limited False Positives},
+  author    = {Fisch, Adam and Schuster, Tal and Jaakkola, Tommi and Barzilay, Regina},
+  booktitle = {Proceedings of the 39th International Conference on Machine
+               Learning (ICML)},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {162},
+  pages     = {6514--6532},
+  year      = {2022}
 }
+
+@inproceedings{schuster2022calm,
+  title     = {Confident Adaptive Language Modeling},
+  author    = {Schuster, Tal and Fisch, Adam and Gupta, Jai and Dehghani, Mostafa and
+               Bahri, Dara and Tran, Vinh Q. and Tay, Yi and Metzler, Donald},
+  booktitle = {Advances in Neural Information Processing Systems 35 (NeurIPS)},
+  pages     = {17456--17472},
+  year      = {2022},
+  doi       = {10.52202/068431-1269},
+  note      = {arXiv:2207.07061}
+}
+
+% --- Mandarin ASR benchmarks / corpora / backbone provenance ---
+@article{du2018aishell2,
+  title   = {{AISHELL-2}: Transforming Mandarin {ASR} Research Into Industrial Scale},
+  author  = {Du, Jiayu and Na, Xingyu and Liu, Xuechen and Bu, Hui},
+  journal = {arXiv preprint arXiv:1808.10583},
+  year    = {2018}
+}
+
+@inproceedings{zhang2022wenetspeech,
+  title     = {{WenetSpeech}: A 10000+ Hours Multi-domain Mandarin Corpus for
+               Speech Recognition},
+  author    = {Zhang, Binbin and Lv, Hang and Guo, Pengcheng and Shao, Qijie and
+               Yang, Chao and Xie, Lei and Xu, Xin and Bu, Hui and Chen, Xiaoyu and
+               Zeng, Chenchen and Wu, Di and Peng, Zhendong},
+  booktitle = {2022 IEEE International Conference on Acoustics, Speech and
+               Signal Processing (ICASSP)},
+  pages     = {6182--6186},
+  year      = {2022},
+  doi       = {10.1109/ICASSP43922.2022.9746682},
+  organization = {IEEE}
+}
+

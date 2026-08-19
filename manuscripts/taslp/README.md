@@ -2,10 +2,16 @@
 
 `paper_ieeetran.tex` is the IEEE/ACM Transactions on Audio, Speech, and Language
 Processing (TASLP) submission port of the canonical draft `../paper.tex`. It is a
-**parallel artifact**: the scientific content, every number, and all five figures are
-identical to the canonical `article`-class draft; only the format machinery differs
-(IEEEtran `journal` class, two-column, numeric `\cite`, `table*`/`figure*` for
-double-column floats).
+**parallel artifact**: the scientific content and every number match the canonical
+`article`-class draft; only the format machinery differs (IEEEtran `journal` class,
+two-column, numeric `\cite`, `table*`/`figure*` for double-column floats). The live
+port has **8 figures** and **9 tables** in the main text. There is no supplement and
+no S1: **S1-T1/T2 are not in the paper**. The 007 score-contrast is not part of this
+manuscript. Ernez et al. is related work (set-valued conformal ASR), not this paper's
+algorithm.
+
+Human fields remain **TODO-USER** (affiliation/address; Zenodo/HF artifact DOI). Do
+not invent them.
 
 ## Provenance of the class/style files
 
@@ -25,13 +31,38 @@ double-column floats).
 latexmk -pdf paper_ieeetran.tex     # runs pdflatex + bibtex to convergence
 ```
 
-Clean build target: 0 errors, 0 undefined references/citations, no overfull hbox in tables.
+Clean build target: 0 errors, 0 undefined references/citations, 0 Overfull, no
+float-only pages.
 
-## Packaging status (2026-07-13, red-team fix cycle)
+IEEE Signal Processing Society **Regular Paper** initial-submission cap (**≤13
+double-column pages**, everything included except supplemental) applies to TASLP.
+Revised Regular papers may go to 16 pages. The live PDF is **13 pages** (at the
+initial cap, not over it).
 
-- **Compiles clean.** `latexmk -pdf -interaction=nonstopmode paper_ieeetran.tex` → exit 0,
-  **10 pages**, 0 undefined references/citations, 0 overfull hbox. Bibliography renders in
-  IEEEtran numeric style; all five figures present under `figures/` and referenced.
+## Packaging status (2026-08-16, independent latexmk)
+
+- **Compiles clean.** Independent `latexmk` (2026-08-16) → **13 pages**, 0 undefined
+  references/citations, 0 Overfull, no float-only pages. Bibliography renders in
+  IEEEtran numeric style. Page 13 is **references-full** (no appendix, no S1 tables).
+- **8 figures** (`fig0`–`fig7`), all present under `figures/` and referenced:
+
+  | file | label | caption (short) |
+  |---|---|---|
+  | `fig0_overview.pdf` | `fig:overview` | Certified transcription-triage pipeline (calibrate λ★, accept/defer, vacuous-at-target). |
+  | `fig1_teaser_rc.pdf` | `fig:teaser` | Risk–coverage on Aishell-1 test (Paraformer, s₁) vs random-deferral and oracle. |
+  | `fig3_certified_frontier.pdf` | `fig:frontier` | Certified frontier (Paraformer test) across α, with 0/20 reseed attainment at α=2%. |
+  | `fig6_calsize_sweep.pdf` | `fig:calsize` | Calibration budget vs certified target (n_cal sweep; Belle reseed fraction). |
+  | `fig4_noise_robustness.pdf` | `fig:noise` | Noise robustness of the clean-calibrated Paraformer gate (ESC-50 additive). |
+  | `fig5_vacuity_rc.pdf` | `fig:vacuity` | Why the certificate is vacuous on weak Whisper Mandarin backbones. |
+  | `fig2_holm_matrix.pdf` | `fig:holm` | Realized m=12 audit family: excess-AURC over analytic random deferral. |
+  | `fig7_landscape.pdf` | `fig:landscape` | Certified landscape: tightest non-vacuous target, 3 backbones × 3 Mandarin corpora. |
+
+- **9 tables** in the main text (no S1-T1/T2): `tab:data` (dataset/split spec),
+  `tab:deviations` (disclosed protocol deviations), `tab:mondrian` (duration-tercile
+  conditional coverage), `tab:english` (LibriSpeech English certificate), `tab:holm`
+  (m=12 audit family), `tab:cert` (certificate spec / macro-vs-micro),
+  `tab:comparator` (comparator audit), `tab:baselines` (named confidence-baseline
+  excess-AURC), `tab:landscape` (certified landscape).
 - **Red-team fix-cycle additions (2026-07-13), mirrored in the canonical twin.** Three new
   post-hoc analyses were folded into the body, each disclosed and traced to a frozen result dir:
   (i) a **calibration-size sweep** (`english_calsweep_2026-07-13/`) showing the English arm's
@@ -56,23 +87,22 @@ Clean build target: 0 errors, 0 undefined references/citations, no overfull hbox
 - **Keywords:** `\begin{IEEEkeywords}` present, 6 terms (speech recognition; selective
   prediction; risk control; conformal prediction; error-rate certification; distribution-free
   calibration). `\IEEEPARstart` present; section numbering sane; title case correct.
-- **Abstract length:** **187 words** (normalized macro-stripped counter), within the
-  **≤200-word** target adopted for this submission cycle (supersedes the earlier ~247-word
-  IEEE-norm draft). The red-team fix cycle added one clause (the English arm holds at α=5%
-  "on the frozen calibration carve", with tighter targets reachable at a larger calibration
-  budget) and stayed under 200. The canonical `../paper.tex` abstract carries the same clause.
-  Every removed clause is stated elsewhere in the body — the Whisper vacuity mechanism
-  ("no low-CER accepted region exists", body Sec. weak-backbone / vacuity), the
-  speaker-blocked robustness of the permutation null (Sec. "Comparator scores and
-  speaker-blocked robustness"), and the comparator positioning against set-valued conformal
-  ASR and non-monotone risk control (Intro + Discussion, cited four times in-body; per IEEE
-  style, citations are dropped from the abstract, not the paper). All three honest
-  disclosures survive in the abstract: the correlated-reseeds caveat ("across 20 reseeds of
-  one fixed test set (correlated, not 20 independent trials)"), the roster-derived audit
-  family ("roster-derived family"), and the vacuity behavior (Mandarin "vacuous at every
-  target"; English "vacuous at $\alpha\le3\%$"; "even where the certificate is vacuous").
-  The canonical `../paper.tex` abstract was trimmed identically (also 245 words), so the
-  twin remains content-consistent.
+- **Abstract length:** **185 texcount text words** (strip-macro count **~190**), within the
+  **TASLP ≤200-word** abstract cap. An earlier packaging note of 187 macro-stripped words
+  is superseded by the 2026-08-16 count. The red-team fix cycle added one clause (the
+  English arm holds at α=5% "on the frozen calibration carve", with tighter targets
+  reachable at a larger calibration budget) and stayed under 200. Every removed clause is
+  stated elsewhere in the body — the Whisper vacuity mechanism ("no low-CER accepted
+  region exists", body Sec. weak-backbone / vacuity), the speaker-blocked robustness of
+  the permutation null (Sec. "Comparator scores and speaker-blocked robustness"), and the
+  comparator positioning against set-valued conformal ASR and non-monotone risk control
+  (Intro + Discussion, cited four times in-body; per IEEE style, citations are dropped
+  from the abstract, not the paper). All three honest disclosures survive in the
+  abstract: the correlated-reseeds caveat ("across 20 reseeds of one fixed test set
+  (correlated, not 20 independent trials)"), the roster-derived audit family
+  ("roster-derived family"), and the vacuity behavior (Mandarin "vacuous at every
+  target"; English "vacuous at $\alpha\le3\%$"; "even where the certificate is
+  vacuous").
 
 ## What changed from the canonical `../paper.tex`
 
@@ -80,12 +110,15 @@ Clean build target: 0 errors, 0 undefined references/citations, no overfull hbox
   `subcaption`, `natbib`, `xcolor`, and manual `\parskip`/`\captionsetup` (IEEEtran owns
   page geometry and captions).
 - Citations: natbib `\citep`/`\citet` -> IEEE numeric `\cite`; the three `\citet` uses that
-  named an author in-sentence were rewritten as "Ernez/Traub \emph{et al.}~\cite{...}".
+  named an author in-sentence were rewritten as "Ernez/Traub \emph{et al.}~\cite{...}"
+  (related-work citations; Ernez is not this paper's algorithm).
 - Added `\begin{IEEEkeywords}` (from the canonical draft's Index Terms line), IEEE running
   head (`\markboth`), and an `\IEEEPARstart` drop cap.
-- Wide floats moved to double-column: `table*` for all four tables (Holm m=12 with the CI
-  column, certificate spec, dataset spec, deviations) and `figure*` for the two-panel noise
-  robustness figure; the four single-panel figures use `\columnwidth`.
-- Appendix uses IEEEtran `\appendices`.
+- Wide floats: `table*` for eight of the nine tables; `tab:mondrian` is single-column
+  `table` (avoids a float-only page). `figure*` for the four wide figures (calsize,
+  noise, holm, landscape); the four single-column figures (overview, teaser, frontier,
+  vacuity) use `\columnwidth`.
+- No IEEEtran `\appendices` and no S1: the PDF ends on a references-full page 13.
+  Do not claim S1-T1/T2.
 - `TODO-USER` placeholders retained for affiliation/address (name and e-mail carried over
   from the canonical draft) and for the Zenodo/HF artifact DOI in Data and Code Availability.
