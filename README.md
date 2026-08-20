@@ -7,7 +7,7 @@ deferred to a human. Learn-then-Test certifies that **accepted-set macro-CER**
 is at most a chosen target α at confidence 1−δ, or reports
 **vacuous-at-target** instead of silently accepting nothing.
 
-Frozen archive: Zenodo DOI [10.5281/zenodo.21392289](https://doi.org/10.5281/zenodo.21392289).
+Dataset and code release is forthcoming (no resolvable DOI yet).
 Code license: MIT.
 
 ## What is certified
