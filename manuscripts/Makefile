@@ -29,11 +29,9 @@ figures: numbers fig-overview
 	python3 figures/make_figures.py
 
 # TikZ method-overview schematic (Fig. 1, hand-drawn, not numbers-derived).
-# Canonical and TASLP share the one compiled PDF.
 fig-overview:
 	$(MAKE) -C figures-src fig0_overview.pdf
 	cp figures-src/fig0_overview.pdf figures/fig0_overview.pdf
-	cp figures-src/fig0_overview.pdf taslp/figures/fig0_overview.pdf
 
 bib:
 	@if [ -f "$(SHARED_BIB)" ]; then \

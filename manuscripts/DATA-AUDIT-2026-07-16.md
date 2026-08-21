@@ -1,9 +1,11 @@
 # asr-gate manuscript data audit — 2026-07-16
 
-Read-only audit of `paper.tex` (canonical, 1045 lines) and `taslp/paper_ieeetran.tex`
-(IEEEtran port, 990 lines), plus the frozen result JSONs their `% source` comments point to.
-Two dimensions: (1) cross-paper/cross-location number consistency; (2) assumption-based claims
-exceeding the frozen records. Nothing in the manuscripts was edited.
+Read-only audit of `paper.tex` (canonical article-class source), plus the frozen result
+JSONs its `% source` comments point to. At audit time a parallel IEEEtran port existed;
+that port is **no longer on the public default tree**. Locators tagged `taslp:` below are
+historical (audit-time line numbers of the removed port), not live paths. Live source is
+`paper.tex`. Two dimensions: (1) cross-location number consistency; (2) assumption-based
+claims exceeding the frozen records. Nothing in the manuscripts was edited.
 
 **Verdict:** 2 CRITICAL, 6 MINOR. The two papers are otherwise numerically faithful to the
 frozen artifacts — the overwhelming majority of numbers reproduce bit-for-bit. Both papers
@@ -55,7 +57,7 @@ exchangeability-candor paragraph, the verdict-symmetric caveats). Six residual o
 
 ### C1. "twelve … certified cells across two backbones × three corpora" — arithmetic self-contradiction (both papers)
 
-- `paper.tex:926-927`; `taslp/paper_ieeetran.tex:880-881`.
+- `paper.tex:926-927` (historical IEEEtran port, same clause, no longer on the default tree).
 - Text: *"The frontier now spans **twelve** non-vacuous, 0/20-violation certified cells across
   **two backbones × three corpora**, not the single α=2%/Paraformer/Aishell cell."*
 - Two backbones × three corpora = **6**, not twelve. `tab:landscape` confirms exactly **six**

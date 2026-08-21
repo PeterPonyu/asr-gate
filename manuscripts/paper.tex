@@ -1,8 +1,5 @@
 % asr-gate: certified transcription triage on Aishell-1.
-% Primary venue: IEEE/ACM Transactions on Audio, Speech and Language Processing
-% (TASLP; SCIE, rolling, ScholarOne). Drafted content-first in article class;
-% port to IEEEtran (double column) at submission -- see VENUE-FIT-2026-07-10.md.
-% Journal-agnostic article class (reliability-commons paper-template pattern).
+% Journal-agnostic article class. Not a venue submission kit.
 % Build: `make paper` (python3 compute_numbers.py -> results/numbers.json;
 %   python3 figures/make_figures.py -> figures/fig{1..5}*.pdf; make bib; latexmk).
 % Every number below traces to results/numbers.json, which reads only frozen
@@ -77,8 +74,7 @@ the contribution is the certificate, not a new score. All numbers reproduce from
 result files.
 \end{abstract}
 
-% On IEEEtran conversion, replace the block below with
-% \begin{IEEEkeywords} ... \end{IEEEkeywords}.
+% Index terms (not a venue keyword environment).
 \vspace{0.3em}
 \noindent\textbf{Index Terms---}speech recognition, conformal risk control, selective
 prediction, error-rate certification, distribution-free calibration.

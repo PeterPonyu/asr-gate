@@ -8,14 +8,14 @@ text follows unchanged. This document preregisters the resubmission-motivated
 touched and before any new backbone decodes the existing corpora's test splits. It is written now,
 during zero-cost local prep, so the matrix and the target α-grid are frozen *ahead* of the compute
 — the paper's whole credibility rests on its disclosed-deviation model, and adding backbones/corpora
-after a red-team is a forking-paths hazard (RED-TEAM-REPORT.md M5) unless the choices are fixed in
+after a red-team is a forking-paths hazard (red-team M5) unless the choices are fixed in
 advance. **No box has been booted, no test data touched, no `boxkit_api.py`/ssh/spend incurred by
 this amendment.** It takes effect only when the user authorizes the landscape box run (the same
 discipline as EXPANSION-AMENDMENT-2026-07-09, whose authorization was the user booting the box after
 reviewing the plan). Until then, the frozen configuration in force remains FREEZE-NOTE-2026-07-09 +
 EXPANSION-AMENDMENT-2026-07-09.
 
-**Motivation (from the red-team lever, not from the data).** RED-TEAM-REPORT.md leaves two
+**Motivation (from the red-team lever, not from the data).** The red-team left two
 individually reject-capable *scope* levers (COMPUTE-PLAN-2026-07-13.md §0): **M1** — the non-trivial
 certificate collapses to one cell (α=2%, Paraformer, Aishell-1, clean); **M2** — Paraformer's
 undisclosed training data threatens that one cell with a contamination reading. Both dissolve by the

@@ -570,7 +570,7 @@ def _write_summary(out: dict, ab: dict):
     lines += [
         "",
         "Artifacts: `results.json`, `D1_STRATIFIED.md`, `D2_ABLATIONS.md`, `D3_PARETO.md`, "
-        "`MAPPING.md`, `SELF_OVERLAP.md`.",
+        "`MAPPING.md`.",
         "",
     ]
     OUT_SUMMARY.write_text("\n".join(lines))
