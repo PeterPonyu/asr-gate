@@ -69,6 +69,9 @@ omission_score_contrast_2026-08-10/.jieba_cache/
 .aider*
 .cursorrules
 .mcp.json
+.gpt/
+.continue/
+.windsurf/
 
 AGENTS.md
 **/AGENTS.md
@@ -81,6 +84,7 @@ QWEN.md
 
 secrets.env
 *.secrets.env
+credentials.json
 .netrc
 .ssh/
 **/id_*
