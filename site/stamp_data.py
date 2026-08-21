@@ -320,10 +320,14 @@ def main() -> None:
     )
     thchs_pool_note = (
         "Landscape THCHS cells use a mislabeled THCHS-30 mirror split "
-        "(n=1339), not the official THCHS-30 "
-        "test (n=2495). Whisper THCHS-30 (9.93%) uses the corrected "
-        "official test. Displayed landscape full-set CERs are the frozen "
-        "site extracts, not official-test numbers."
+        "(n=1339), not the official THCHS-30 test (n=2495). Displayed "
+        "landscape full-set CERs stay 4.07% / 6.99% / 82.15% "
+        "(Paraformer / Belle / zipformer). A frozen data audit of the "
+        "originally tracked landscape decode reproduced "
+        "3.75% / 6.62% / 81.80% on the n=1339 pool. The ~0.3 pp gap is "
+        "unresolved; neither triple is adopted as a reproduced "
+        "official-test number. Whisper THCHS-30 (9.93%) uses the "
+        "corrected official test (n=2495)."
     )
     cells = []
     for bb, bb_lab in bbs:
