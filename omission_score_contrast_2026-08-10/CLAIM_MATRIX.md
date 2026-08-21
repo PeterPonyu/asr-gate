@@ -15,7 +15,7 @@ These predicates are **not substitutable**. Satisfying one does **not** imply an
 
 | Predicate | Meaning | Who may assert |
 |---|---|---|
-| **`packaging-complete`** | Steps 1–3 + D1–D3 AC green + `DECISION_PACKET` emitted | Executor verify after hard gate |
+| **`packaging-complete`** | Steps 1–3 + D1–D3 AC green | Executor verify after hard gate |
 | **`CLEAR-for-packaging`** | Optional Architect upgrade after `packaging-complete` | Architect / human only |
 | **`unfreeze-authorized`** | Edit `submissions/asr` or merge appendix into frozen kit | **Human Q2 reversal only** |
 
@@ -58,10 +58,10 @@ Any report, canvas, README breadcrumb, or team handoff that uses “done”, “
 
 1. **LTT G1 ≠ CRC deploy-valid** — different estimands, calibration objects, and guarantee types.
 2. **Do not narrate CRC deploy-valid as an LTT G1 extension** — no “strengthens G1”, “extends the main certificate”, or “confirms LTT coverage under omission”.
-3. **Do not merge CRC contrast into LTT body claims** without namespace + `SELF_OVERLAP.md` boilerplate and human Q2.
+3. **Do not merge CRC contrast into LTT body claims** without namespace + overlap-disclosure boilerplate and human Q2.
 4. Read-only SSOT for E4 polarity: `frontier-directions-research/experiments/007-omission-crc/` — **no writes** to that tree.
 
-See also: `SELF_OVERLAP.md` (overlap disclosure) and `DISPLAY_NAMESPACE.md` (score naming).
+See also: `DISPLAY_NAMESPACE.md` (score naming).
 
 ---
 
@@ -141,7 +141,7 @@ When predicates and namespaces above are satisfied:
 
 - On ASR landscape (9 cells, frozen decodes), **CRC-style deploy-valid %** differs between decoupled and coupled score families under the same omission/group definition.
 - Polarity matches 007 E4 direction on stated strata (coupled ≥ decoupled on nonvacuous pairs where both arms qualify).
-- Overlap with main asr-gate LTT results is **intentional**; novelty is limited to score-coupling characterization (`SELF_OVERLAP.md`).
+- Overlap with main asr-gate LTT results is **intentional**; novelty is limited to score-coupling characterization.
 
 ---
 

@@ -6,8 +6,8 @@ single-backbone/single-corpus certificate to a *certified-ASR-triage protocol va
 ASR landscape*, neutralizing the red-team's two reject-capable levers. **No box was booted; no
 `boxkit_api.py`, no ssh, no spend.** This is a turnkey plan the USER executes on a box later.
 
-Companion inputs read: `manuscripts/paper.tex`, `manuscripts/RED-TEAM-REPORT.md`,
-`VENUE-FIT-2026-07-10.md`, the four `orchestration/decode_*.py` scripts, `asr_gate/scores.py`,
+Companion inputs read: `manuscripts/paper.tex`,
+the four `orchestration/decode_*.py` scripts, `asr_gate/scores.py`,
 `asr_gate/corpora.py`, `asr_gate/cli.py`, `../AUTODL-PUB-DATA-MAP-2026-07-10.md`.
 
 ---

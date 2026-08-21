@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Red-team remediation computes M4 + M6 (RED-TEAM-REPORT.md; asr paper).
+"""Red-team remediation computes M4 + M6 (asr paper).
 
 M4 (comparator thinness): extend the audit family beyond "beats random
 deferral" with the calibrated comparators the report demands -- s5

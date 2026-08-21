@@ -26,7 +26,7 @@ This contrast is a **CPU-only score-family comparison** on frozen ASR landscape 
 
 1. **LTT G1 ≠ CRC deploy-valid** — different estimands, calibration objects, and guarantee types.
 2. **Do not narrate CRC deploy-valid as an LTT G1 extension** — no “strengthens G1”, “extends the main certificate”, or “confirms LTT coverage under omission”.
-3. **Do not merge** CRC contrast body claims into LTT narrative without namespace + `SELF_OVERLAP.md` boilerplate and human Q2 reversal.
+3. **Do not merge** CRC contrast body claims into LTT narrative without namespace + overlap-disclosure boilerplate and human Q2 reversal.
 4. **Do not claim** “G1 extension” anywhere in D4–D7 fragments.
 
 ---
@@ -65,15 +65,13 @@ When namespaces and strata above are satisfied:
 
 ---
 
-## SELF_OVERLAP — non-claims (paste boundary)
+## Overlap — non-claims (paste boundary)
 
 The following are **explicit non-claims** for any downstream submission revision:
 
 - **Not** a new pursue lane under `frontier-directions-research/directions/007`.
 - **Not** a GPU re-decode or new backbone comparison.
 - **Not** evidence that asr-gate’s LTT guarantees are CRC guarantees (different objects).
-
-Full overlap disclosure and suggested submission paragraph: `SELF_OVERLAP.md`.
 
 ---
 
