@@ -36,7 +36,7 @@ Claim strength follows **auto-soft** policy: D2 ablations did not trigger the de
 
 ---
 
-## Fragment D — Overlap disclosure (SELF_OVERLAP boilerplate)
+## Fragment D — Overlap disclosure
 
 > A related CPU-only analysis (omission / entity severity under group-conditional risk control) was developed in a separate incubator experiment tree and then routed into this repository. It uses the same frozen landscape decode artifacts. The present note reports a pre-registered coupled-vs-decoupled **score** contrast (mean token log-probability vs a hyp-only entity-assertion score) with CRC-style deploy-validity as the primary endpoint. Overlap with the main ASR selective-prediction results is intentional; novelty, if any, is limited to the score-coupling characterization rather than a new corpus or backbone bake-off.
 
@@ -45,8 +45,6 @@ Claim strength follows **auto-soft** policy: D2 ablations did not trigger the de
 - Not a new pursue lane under `directions/007`.
 - Not a GPU re-decode or new backbone comparison.
 - Not evidence that LTT guarantees are CRC guarantees.
-
-Source: `SELF_OVERLAP.md`.
 
 ---
 

@@ -109,15 +109,15 @@ permalink: /results/
 
 <h2>Landscape</h2>
 {% scienceFig "landscape",
-  "Three-by-three heatmap of tightest certified α for Paraformer, Belle, and zipformer on Aishell-1, THCHS-30, and MagicData, with the zipformer row marked vacuous.",
-  "Three architectures × three Mandarin corpora. Color encodes tightest certified α (darker = tighter), not acceptance. The Paraformer / Aishell-1 cell uses the binding 1.9% band (87.8% mean acceptance, 1.09% accepted-set macro-CER). The zipformer row is grey vacuous — no usable posteriors; nothing is imputed.",
-  "Read as: this heatmap is the map of where the certificate exists."
+  "Three-by-three heatmap of tightest certified α for Paraformer, Belle, and zipformer on Aishell-1, a THCHS-30 mislabeled mirror (n=1339), and MagicData, with the zipformer row marked vacuous.",
+  "Three architectures × three Mandarin pools. Color encodes tightest certified α (darker = tighter), not acceptance. The THCHS column is the n=1339 mislabeled mirror split, not the official THCHS-30 test (n=2495). The Paraformer / Aishell-1 cell uses the binding 1.9% band (87.8% mean acceptance, 1.09% accepted-set macro-CER). The zipformer row is grey vacuous — no usable posteriors; nothing is imputed.",
+  "Read as: this heatmap is the map of where the certificate exists; the THCHS column is not an official-test transfer cell."
 %}
 
 <div class="heatmap" role="table" aria-label="Landscape of tightest certified α">
   <span class="head"></span>
   <span class="head">Aishell-1</span>
-  <span class="head">THCHS-30</span>
+  <span class="head">THCHS mirror</span>
   <span class="head">MagicData</span>
   {% for cell in landscape.cells %}
     {% if cell.corpus == "aishell" %}
@@ -129,11 +129,12 @@ permalink: /results/
   {% endfor %}
 </div>
 
+<p>{{ landscape.thchs_pool_note }}</p>
 <table>
-  <caption>Landscape attainment (tightest α with 0/20 violations)</caption>
+  <caption>Landscape attainment (tightest α with 0/20 violations). THCHS cells are the n=1339 mislabeled mirror, not official-test n=2495.</caption>
   <thead>
     <tr>
-      <th>Backbone</th><th>Corpus</th><th>Full-set macro-CER</th>
+      <th>Backbone</th><th>Corpus</th><th>n</th><th>Full-set macro-CER</th>
       <th>Tightest α</th><th>Mean acceptance</th><th>Mean accepted-set macro-CER</th>
     </tr>
   </thead>
@@ -142,6 +143,7 @@ permalink: /results/
     <tr data-hover="{{ cell.hover }}" title="{{ cell.hover }}">
       <td>{{ cell.backbone_label }}</td>
       <td>{{ cell.corpus_label }}</td>
+      <td>{% if cell.n %}{{ cell.n }}{% else %}—{% endif %}</td>
       <td>{{ (cell.full_set_macro_cer * 100).toFixed(2) }}%</td>
       {% if cell.vacuous %}
         <td class="vacuous">vacuous</td>
