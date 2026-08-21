@@ -3,7 +3,6 @@
   "binding_accepted_cer": 0.01089327083285371,
   "binding_alpha": 0.019,
   "binding_certified": "20/20",
-  "thchs_pool_note": "Landscape THCHS cells use a mislabeled THCHS-30 mirror split (n=1339; 82.7% train-speaker audio), not the official THCHS-30 test (n=2495). Whisper THCHS-30 (9.93%) uses the corrected official test. Displayed landscape full-set CERs are the frozen site extracts, not official-test numbers.",
   "cells": [
     {
       "backbone": "paraformer",
@@ -15,6 +14,9 @@
       "hover": "Paraformer / Aishell-1; full-set macro-CER 1.98%; tightest α 1.9%; mean acceptance 87.8%; mean accepted-set macro-CER 1.09%",
       "mean_acceptance": 0.8779821627647715,
       "mean_accepted_cer": 0.01089327083285371,
+      "n": null,
+      "n_utts": null,
+      "pool": null,
       "tightest_alpha": 0.019,
       "vacuous": false
     },
@@ -24,13 +26,13 @@
       "binding_override": false,
       "corpus": "thchs30",
       "corpus_label": "THCHS-30 mirror (n=1339)",
-      "n": 1339,
-      "n_utts": 1339,
-      "pool": "mislabeled THCHS-30 mirror split; not the official test (n=2495); 82.7% train-speaker audio (1107/1339)",
       "full_set_macro_cer": 0.04071131938884046,
-      "hover": "Paraformer / THCHS-30 mirror (n=1339, not official test n=2495); full-set macro-CER 4.07%; tightest α 5.0%; mean acceptance 100.0%; mean accepted-set macro-CER 4.06%; pool: mislabeled mirror, 82.7% train-speaker audio",
+      "hover": "Paraformer / THCHS-30 mirror (n=1339, not official test n=2495); full-set macro-CER 4.07%; tightest α 5.0%; mean acceptance 100.0%; mean accepted-set macro-CER 4.06%; pool: mislabeled mirror, not the official test",
       "mean_acceptance": 0.999559118236473,
       "mean_accepted_cer": 0.04062358735021921,
+      "n": 1339,
+      "n_utts": 1339,
+      "pool": "mislabeled THCHS-30 mirror split (n=1339); not the official test (n=2495)",
       "tightest_alpha": 0.05,
       "vacuous": false
     },
@@ -44,6 +46,9 @@
       "hover": "Paraformer / MagicData; full-set macro-CER 4.89%; tightest α 5.0%; mean acceptance 98.1%; mean accepted-set macro-CER 4.12%",
       "mean_acceptance": 0.9805446995603324,
       "mean_accepted_cer": 0.04122491102879976,
+      "n": null,
+      "n_utts": null,
+      "pool": null,
       "tightest_alpha": 0.05,
       "vacuous": false
     },
@@ -57,6 +62,9 @@
       "hover": "Belle / Aishell-1; full-set macro-CER 5.12%; tightest α 5.0%; mean acceptance 93.3%; mean accepted-set macro-CER 4.20%",
       "mean_acceptance": 0.9328037904124862,
       "mean_accepted_cer": 0.04196556984026417,
+      "n": null,
+      "n_utts": null,
+      "pool": null,
       "tightest_alpha": 0.05,
       "vacuous": false
     },
@@ -66,13 +74,13 @@
       "binding_override": false,
       "corpus": "thchs30",
       "corpus_label": "THCHS-30 mirror (n=1339)",
-      "n": 1339,
-      "n_utts": 1339,
-      "pool": "mislabeled THCHS-30 mirror split; not the official test (n=2495); 82.7% train-speaker audio (1107/1339)",
       "full_set_macro_cer": 0.06988278245177627,
-      "hover": "Belle / THCHS-30 mirror (n=1339, not official test n=2495); full-set macro-CER 6.99%; tightest α 10.0%; mean acceptance 100.0%; mean accepted-set macro-CER 6.99%; pool: mislabeled mirror, 82.7% train-speaker audio",
+      "hover": "Belle / THCHS-30 mirror (n=1339, not official test n=2495); full-set macro-CER 6.99%; tightest α 10.0%; mean acceptance 100.0%; mean accepted-set macro-CER 6.99%; pool: mislabeled mirror, not the official test",
       "mean_acceptance": 1.0,
       "mean_accepted_cer": 0.06988278245177629,
+      "n": 1339,
+      "n_utts": 1339,
+      "pool": "mislabeled THCHS-30 mirror split (n=1339); not the official test (n=2495)",
       "tightest_alpha": 0.1,
       "vacuous": false
     },
@@ -86,6 +94,9 @@
       "hover": "Belle / MagicData; full-set macro-CER 7.80%; tightest α 10.0%; mean acceptance 96.9%; mean accepted-set macro-CER 6.70%",
       "mean_acceptance": 0.9690644846116265,
       "mean_accepted_cer": 0.06702854855733019,
+      "n": null,
+      "n_utts": null,
+      "pool": null,
       "tightest_alpha": 0.1,
       "vacuous": false
     },
@@ -99,6 +110,9 @@
       "hover": "zipformer / Aishell-1; full-set macro-CER 45.88%; vacuous-at-target on the frozen α-grid (no usable posteriors)",
       "mean_acceptance": null,
       "mean_accepted_cer": null,
+      "n": null,
+      "n_utts": null,
+      "pool": null,
       "tightest_alpha": null,
       "vacuous": true
     },
@@ -108,13 +122,13 @@
       "binding_override": false,
       "corpus": "thchs30",
       "corpus_label": "THCHS-30 mirror (n=1339)",
-      "n": 1339,
-      "n_utts": 1339,
-      "pool": "mislabeled THCHS-30 mirror split; not the official test (n=2495); 82.7% train-speaker audio (1107/1339)",
       "full_set_macro_cer": 0.8214610586627905,
-      "hover": "zipformer / THCHS-30 mirror (n=1339, not official test n=2495); full-set macro-CER 82.15%; vacuous-at-target on the frozen α-grid (no usable posteriors); pool: mislabeled mirror, 82.7% train-speaker audio",
+      "hover": "zipformer / THCHS-30 mirror (n=1339, not official test n=2495); full-set macro-CER 82.15%; vacuous-at-target on the frozen α-grid (no usable posteriors); pool: mislabeled mirror, not the official test",
       "mean_acceptance": null,
       "mean_accepted_cer": null,
+      "n": 1339,
+      "n_utts": 1339,
+      "pool": "mislabeled THCHS-30 mirror split (n=1339); not the official test (n=2495)",
       "tightest_alpha": null,
       "vacuous": true
     },
@@ -128,6 +142,9 @@
       "hover": "zipformer / MagicData; full-set macro-CER 32.21%; vacuous-at-target on the frozen α-grid (no usable posteriors)",
       "mean_acceptance": null,
       "mean_accepted_cer": null,
+      "n": null,
+      "n_utts": null,
+      "pool": null,
       "tightest_alpha": null,
       "vacuous": true
     }
@@ -136,5 +153,6 @@
     "binding_acceptance": "87.8%",
     "binding_accepted_cer": "1.09%",
     "binding_alpha": "1.9%"
-  }
+  },
+  "thchs_pool_note": "Landscape THCHS cells use a mislabeled THCHS-30 mirror split (n=1339), not the official THCHS-30 test (n=2495). Whisper THCHS-30 (9.93%) uses the corrected official test. Displayed landscape full-set CERs are the frozen site extracts, not official-test numbers."
 }
