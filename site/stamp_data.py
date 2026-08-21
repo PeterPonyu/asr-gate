@@ -312,6 +312,19 @@ def main() -> None:
         ("thchs30", "THCHS-30"),
         ("magicdata", "MagicData"),
     ]
+    # DATA-AUDIT C2: landscape THCHS cells ran on the n=1339 mislabeled
+    # mirror, not official test n=2495. Do not copy numbers.json's n=2495.
+    thchs_pool = (
+        "mislabeled THCHS-30 mirror split; not the official test "
+        "(n=2495); 82.7% train-speaker audio (1107/1339)"
+    )
+    thchs_pool_note = (
+        "Landscape THCHS cells use a mislabeled THCHS-30 mirror split "
+        "(n=1339; 82.7% train-speaker audio), not the official THCHS-30 "
+        "test (n=2495). Whisper THCHS-30 (9.93%) uses the corrected "
+        "official test. Displayed landscape full-set CERs are the frozen "
+        "site extracts, not official-test numbers."
+    )
     cells = []
     for bb, bb_lab in bbs:
         for co, co_lab in corps:
@@ -338,8 +351,21 @@ def main() -> None:
                 acc_cer = cell["acc_set_macro_cer_mean"]
                 vacuous = False
             full = aud.get(f"{bb}_{co}", {})
+            n = None
+            n_utts = None
+            pool = None
+            if co == "thchs30":
+                co_lab = "THCHS-30 mirror (n=1339)"
+                n = 1339
+                n_utts = 1339
+                pool = thchs_pool
+            hover_lab = (
+                "THCHS-30 mirror (n=1339, not official test n=2495)"
+                if co == "thchs30"
+                else co_lab
+            )
             hover_bits = [
-                f"{bb_lab} / {co_lab}",
+                f"{bb_lab} / {hover_lab}",
                 f"full-set macro-CER {pct_str(full.get('macro_cer'), 2)}",
             ]
             if vacuous:
@@ -348,12 +374,17 @@ def main() -> None:
                 hover_bits.append(f"tightest α {pct_str(tight, 1)}")
                 hover_bits.append(f"mean acceptance {pct_str(acc)}")
                 hover_bits.append(f"mean accepted-set macro-CER {pct_str(acc_cer, 2)}")
+            if co == "thchs30":
+                hover_bits.append("pool: mislabeled mirror, 82.7% train-speaker audio")
             cells.append(
                 {
                     "backbone": bb,
                     "backbone_label": bb_lab,
                     "corpus": co,
                     "corpus_label": co_lab,
+                    "n": n,
+                    "n_utts": n_utts,
+                    "pool": pool,
                     "vacuous": vacuous,
                     "tightest_alpha": tight,
                     "mean_acceptance": acc,
@@ -371,6 +402,7 @@ def main() -> None:
             "binding_acceptance": bind["mean_acceptance"],
             "binding_accepted_cer": bind["mean_accepted_macro_cer"],
             "binding_certified": bind["certified"],
+            "thchs_pool_note": thchs_pool_note,
             "display": {
                 "binding_alpha": "1.9%",
                 "binding_acceptance": pct_str(bind["mean_acceptance"]),
