@@ -315,15 +315,15 @@ def main() -> None:
     # DATA-AUDIT C2: landscape THCHS cells ran on the n=1339 mislabeled
     # mirror, not official test n=2495. Do not copy numbers.json's n=2495.
     thchs_pool = (
-        "mislabeled THCHS-30 mirror split; not the official test "
-        "(n=2495); 82.7% train-speaker audio (1107/1339)"
+        "mislabeled THCHS-30 mirror split (n=1339); not the official test "
+        "(n=2495)"
     )
     thchs_pool_note = (
         "Landscape THCHS cells use a mislabeled THCHS-30 mirror split "
-        "(n=1339; 82.7% train-speaker audio), not the official THCHS-30 "
-        "test (n=2495). Displayed landscape full-set CERs stay "
-        "4.07% / 6.99% / 82.15% (Paraformer / Belle / zipformer). A frozen "
-        "data audit of the originally tracked landscape decode reproduced "
+        "(n=1339), not the official THCHS-30 test (n=2495). Displayed "
+        "landscape full-set CERs stay 4.07% / 6.99% / 82.15% "
+        "(Paraformer / Belle / zipformer). A frozen data audit of the "
+        "originally tracked landscape decode reproduced "
         "3.75% / 6.62% / 81.80% on the n=1339 pool. The ~0.3 pp gap is "
         "unresolved; neither triple is adopted as a reproduced "
         "official-test number. Whisper THCHS-30 (9.93%) uses the "
@@ -379,7 +379,7 @@ def main() -> None:
                 hover_bits.append(f"mean acceptance {pct_str(acc)}")
                 hover_bits.append(f"mean accepted-set macro-CER {pct_str(acc_cer, 2)}")
             if co == "thchs30":
-                hover_bits.append("pool: mislabeled mirror, 82.7% train-speaker audio")
+                hover_bits.append("pool: mislabeled mirror, not the official test")
             cells.append(
                 {
                     "backbone": bb,
