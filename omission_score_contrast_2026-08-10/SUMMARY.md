@@ -62,4 +62,4 @@ Cells with AUROC > 0.55 on true-class high-loss ranking are **inverted** for CRC
 | thchs30 | zipformer | 0.10 | 100.0 | 100.0 | +0.0 | 55% | 0% |
 | thchs30 | zipformer | 0.20 | 100.0 | 100.0 | +0.0 | 55% | 0% |
 
-Artifacts: `results.json`, `D1_STRATIFIED.md`, `D2_ABLATIONS.md`, `D3_PARETO.md`, `MAPPING.md`, `SELF_OVERLAP.md`.
+Artifacts: `results.json`, `D1_STRATIFIED.md`, `D2_ABLATIONS.md`, `D3_PARETO.md`, `MAPPING.md`.
